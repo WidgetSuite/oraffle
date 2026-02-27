@@ -67,7 +67,7 @@ jobs:
       - name: Build & Publish web
         uses: Spaccesi/flutter-actions-suite@main
         with:
-          base-href: ${{ github.event.repository.name }}
+          base-href: "/${{ github.event.repository.name }}/"
           run-test: "false"
           run-build-runner: "false"
           run-gen-l10n: "false"
