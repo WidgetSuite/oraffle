@@ -3,12 +3,12 @@
 </p>
 
 <p align="center">
-  <img src="https://github.com/vicajilau/oraffle/actions/workflows/flutter_workflow.yml/badge.svg" alt="CI Status">
-  <img src="https://github.com/vicajilau/oraffle/actions/workflows/deploy_web.yml/badge.svg" alt="Web CD Status">
-  <img src="https://github.com/vicajilau/oraffle/actions/workflows/publish_android.yml/badge.svg" alt="Android CD Status">
-  <img src="https://github.com/vicajilau/oraffle/actions/workflows/publish_ios.yml/badge.svg" alt="iOS CD Status">
-  <img src="https://github.com/vicajilau/oraffle/actions/workflows/publish_macos.yml/badge.svg" alt="MacOS CD Status">
-  <img src="https://github.com/vicajilau/oraffle/actions/workflows/publish_microsoft_store.yml/badge.svg" alt="Windows Store CD Status">
+  <img src="https://github.com/WidgetSuite/oraffle/actions/workflows/flutter_workflow.yml/badge.svg" alt="CI Status">
+  <img src="https://github.com/WidgetSuite/oraffle/actions/workflows/deploy_web.yml/badge.svg" alt="Web CD Status">
+  <img src="https://github.com/WidgetSuite/oraffle/actions/workflows/publish_android.yml/badge.svg" alt="Android CD Status">
+  <img src="https://github.com/WidgetSuite/oraffle/actions/workflows/publish_ios.yml/badge.svg" alt="iOS CD Status">
+  <img src="https://github.com/WidgetSuite/oraffle/actions/workflows/publish_macos.yml/badge.svg" alt="MacOS CD Status">
+  <img src="https://github.com/WidgetSuite/oraffle/actions/workflows/publish_microsoft_store.yml/badge.svg" alt="Windows Store CD Status">
 </p>
 
 # ORaffle
@@ -19,7 +19,7 @@ A professional cross-platform raffle application built with Flutter. ORaffle pro
 
 Access ORaffle on your favorite platform:
 
-- 🌐 **Web**: [vicajilau.github.io/oraffle](https://vicajilau.github.io/oraffle/)
+- 🌐 **Web**: [WidgetSuite.github.io/oraffle](https://WidgetSuite.github.io/oraffle/)
 - 📱 **Android**: [Google Play Store](https://play.google.com/store/apps/details?id=es.victorcarreras.oraffle)
 - 🪟 **Windows**: [Microsoft Store](https://apps.microsoft.com/store/detail/ORaffle)
 - 📱 **iOS**: [App Store](https://apps.apple.com/app/oraffle)
@@ -57,7 +57,7 @@ ORaffle follows **Clean Architecture** principles, ensuring the codebase is main
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/vicajilau/oraffle.git
+   git clone https://github.com/WidgetSuite/oraffle.git
    cd oraffle
    ```
 
