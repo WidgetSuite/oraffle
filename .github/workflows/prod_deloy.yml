@@ -1,4 +1,4 @@
-name: Flutter CI
+name: Flutter PROD deployment
 on:
   push:
     # tags:
@@ -58,8 +58,8 @@ jobs:
             !.git
           retention-days: 1
 
-  build_and_deploy_web:
-    name: Build and deploy flutter web on GitHub Pages
+  build_and_release_web:
+    name: Build and release web on GitHub Pages
     runs-on: ubuntu-latest
     needs: [prepare_and_check]
     steps:
@@ -83,7 +83,7 @@ jobs:
           build-platform: "web"
           publish-destination: "github-pages"
 
-  #   build_and_deploy_ios:
+  #   build_and_release_ios:
   #     runs-on: macos-latest
   #     needs: [prepare_and_check]
   #     steps:
@@ -111,7 +111,7 @@ jobs:
   #       #     apple-api-key-issuer-id: ${{ secrets.APPLE_API_KEY_ISSUER }}
   #       #     apple-api-key-content: ${{ secrets.APPLE_API_KEY_CONTENT }}
 
-  #   build_and_deploy_macos:
+  #   build_and_release_macos:
   #     runs-on: macos-latest
   #     needs: [prepare_and_check]
   #     steps:
@@ -140,8 +140,8 @@ jobs:
   #       #     apple-api-key-issuer-id: ${{ secrets.APPLE_API_KEY_ISSUER }}
   #       #     apple-api-key-content: ${{ secrets.APPLE_API_KEY_CONTENT }}
 
-  build_and_deploy_linux:
-    name: Build and deploy flutter linux on Snap Store
+  build_and_release_linux:
+    name: Build and release linux on Snap Store
     runs-on: ubuntu-latest
     needs: [prepare_and_check]
     steps:
@@ -161,36 +161,36 @@ jobs:
       #   with:
       #     snap-store-token: ${{ secrets.SNAPCRAFT_LOGIN }}
 
-  #   build_and_deploy_android:
-  #     runs-on: ubuntu-latest
-  #     needs: [prepare_and_check]
-  #     steps:
-  #       - name: Download prepared workspace
-  #         uses: actions/download-artifact@v4
-  #         with:
-  #           name: prepared-repo
+  build_and_release_android:
+    name: Build and release android on Google Play
+    runs-on: ubuntu-latest
+    needs: [prepare_and_check]
+    steps:
+      - name: Download prepared workspace
+        uses: actions/download-artifact@v4
+        with:
+          name: prepared-repo
 
-  #       - name: Setup Flutter
-  #         uses: subosito/flutter-action@v2
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
 
-  #       - name: Build android
-  #         uses: Spaccesi/flutter-actions-suite/build/android@main
-  #         with:
-  #           android-store-file-base64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
-  #           android-key-password: ${{ secrets.ANDROID_KEY_PASSWORD }}
-  #           android-local-properties-file: ${{ secrets.ANDROID_LOCAL_PROPERTIES_FILE }}
-  #           android-store-password: ${{ secrets.ANDROID_STORE_PASSWORD }}
-  #           android-key-alias: ${{ secrets.ANDROID_KEY_ALIAS }}
+      - name: Build android
+        uses: Spaccesi/flutter-actions-suite/build/android@main
+        with:
+          android-store-file-base64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          android-key-password: ${{ secrets.ANDROID_KEY_PASSWORD }}
+          android-store-password: ${{ secrets.ANDROID_STORE_PASSWORD }}
+          android-key-alias: ${{ secrets.ANDROID_KEY_ALIAS }}
 
-  #       # - name: Publish Android
-  #       #   uses: Spaccesi/flutter-actions-suite/publish/play-store@main
-  #       #   with:
-  #       #     android-service-account-json-base64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
-  #       #     android-package-name:
-  #       #     android-track:
+      # - name: Publish Android
+      #   uses: Spaccesi/flutter-actions-suite/publish/play-store@main
+      #   with:
+      #     android-service-account-json-base64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+      #     android-package-name:
+      #     android-track:
 
-  build_and_deploy_windows:
-    name: Build and deploy flutter windows on Microsoft Store
+  build_and_release_windows:
+    name: Build and deploy windows on Microsoft Store
     runs-on: windows-latest
     needs: [prepare_and_check]
     steps:
@@ -217,12 +217,12 @@ jobs:
     runs-on: ubuntu-latest
     needs: [
         prepare_and_check,
-        build_and_deploy_web,
-        build_and_deploy_windows,
-        # build_and_deploy_android,
-        build_and_deploy_linux,
-        # build_and_deploy_macos,
-        # build_and_deploy_ios,
+        build_and_release_web,
+        build_and_release_windows,
+        build_and_release_android,
+        build_and_release_linux,
+        # build_and_release_macos,
+        # build_and_release_ios,
       ]
     steps:
       - name: Delete artifacts
