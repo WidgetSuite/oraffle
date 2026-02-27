@@ -1,6 +1,6 @@
 {
-    "name": "oraffle",
-    "short_name": "oraffle",
+    "name": "ORaffle",
+    "short_name": "ORaffle",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#FFFFFF",
