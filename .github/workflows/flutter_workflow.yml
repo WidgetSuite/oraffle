@@ -2,10 +2,6 @@ name: Flutter CI
 on:
   workflow_dispatch:
 
-  push:
-    branches:
-      - feature/github-actions-refactor
-
   # pull_request:
   #   branches:
   #     - main
