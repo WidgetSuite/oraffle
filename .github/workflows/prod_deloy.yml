@@ -83,61 +83,61 @@ jobs:
           build-platform: "web"
           publish-destination: "github-pages"
 
-    build_and_release_ios:
-      name: Build and release ios on App Store
-      runs-on: macos-latest
-      needs: [prepare_and_check]
-      steps:
-        - name: Download prepared workspace
-          uses: actions/download-artifact@v4
-          with:
-            name: prepared-repo
+  build_and_release_ios:
+    name: Build and release ios on App Store
+    runs-on: macos-latest
+    needs: [prepare_and_check]
+    steps:
+      - name: Download prepared workspace
+        uses: actions/download-artifact@v4
+        with:
+          name: prepared-repo
 
-        - name: Setup Flutter
-          uses: subosito/flutter-action@v2
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
 
-        - name: Build ios
-          uses: Spaccesi/flutter-ci-suite/build/ios@main
-          with:
-            ios-distribution-certificate-base64: ${{ secrets.IOS_DISTRIBUTION_CERTIFICATE_BASE64 }}
-            ios-distribution-certificate-password: ${{ secrets.IOS_DISTRIBUTION_CERTIFICATE_PASSWORD }}
-            ios-provisioning-profile-base64: ${{ secrets.IOS_PROVISIONING_PROFILE_BASE64 }}
+      - name: Build ios
+        uses: Spaccesi/flutter-ci-suite/build/ios@main
+        with:
+          ios-distribution-certificate-base64: ${{ secrets.IOS_DISTRIBUTION_CERTIFICATE_BASE64 }}
+          ios-distribution-certificate-password: ${{ secrets.IOS_DISTRIBUTION_CERTIFICATE_PASSWORD }}
+          ios-provisioning-profile-base64: ${{ secrets.IOS_PROVISIONING_PROFILE_BASE64 }}
 
-        - name: Publish ios
-          uses: Spaccesi/flutter-ci-suite/publish/ios-app-store@main
-          with:
-            apple-api-key-id: ${{ secrets.APPLE_API_KEY_ID }}
-            apple-api-key-issuer-id: ${{ secrets.APPLE_API_KEY_ISSUER }}
-            apple-api-key-content: ${{ secrets.APPLE_API_KEY_CONTENT }}
+      - name: Publish ios
+        uses: Spaccesi/flutter-ci-suite/publish/ios-app-store@main
+        with:
+          apple-api-key-id: ${{ secrets.APPLE_API_KEY_ID }}
+          apple-api-key-issuer-id: ${{ secrets.APPLE_API_KEY_ISSUER }}
+          apple-api-key-content: ${{ secrets.APPLE_API_KEY_CONTENT }}
 
-    build_and_release_macos:
-      naem: Build and release macos on App Store
-      runs-on: macos-latest
-      needs: [prepare_and_check]
-      steps:
-        - name: Download prepared workspace
-          uses: actions/download-artifact@v4
-          with:
-            name: prepared-repo
+  build_and_release_macos:
+    naem: Build and release macos on App Store
+    runs-on: macos-latest
+    needs: [prepare_and_check]
+    steps:
+      - name: Download prepared workspace
+        uses: actions/download-artifact@v4
+        with:
+          name: prepared-repo
 
-        - name: Setup Flutter
-          uses: subosito/flutter-action@v2
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
 
-        - name: Build macos
-          uses: Spaccesi/flutter-ci-suite/build/macos@main
-          with:
-            macos-installer-certificate-base64: ${{ secrets.MACOS_INSTALLER_CERTIFICATE_BASE64 }}
-            macos-installer-certificate-password: ${{ secrets.MACOS_INSTALLER_CERTIFICATE_PASSWORD }}
-            macos-distribution-certificate-base64: ${{ secrets.MACOS_DISTRIBUTION_CERTIFICATE_BASE64 }}
-            macos-distribution-certificate-password: ${{ secrets.MACOS_DISTISTRIBUTION_CERTIFICATE_PASSWORD }}
-            macos-provisioning-profile-base64: ${{ secrets.MACOS_PROVISIONING_PROFILE_BASE64 }}
+      - name: Build macos
+        uses: Spaccesi/flutter-ci-suite/build/macos@main
+        with:
+          macos-installer-certificate-base64: ${{ secrets.MACOS_INSTALLER_CERTIFICATE_BASE64 }}
+          macos-installer-certificate-password: ${{ secrets.MACOS_INSTALLER_CERTIFICATE_PASSWORD }}
+          macos-distribution-certificate-base64: ${{ secrets.MACOS_DISTRIBUTION_CERTIFICATE_BASE64 }}
+          macos-distribution-certificate-password: ${{ secrets.MACOS_DISTISTRIBUTION_CERTIFICATE_PASSWORD }}
+          macos-provisioning-profile-base64: ${{ secrets.MACOS_PROVISIONING_PROFILE_BASE64 }}
 
-        - name: Publish macos
-          uses: Spaccesi/flutter-ci-suite/publish/macos-app-store@main
-          with:
-            apple-api-key-id: ${{ secrets.APPLE_API_KEY_ID }}
-            apple-api-key-issuer-id: ${{ secrets.APPLE_API_KEY_ISSUER }}
-            apple-api-key-content: ${{ secrets.APPLE_API_KEY_CONTENT }}
+      - name: Publish macos
+        uses: Spaccesi/flutter-ci-suite/publish/macos-app-store@main
+        with:
+          apple-api-key-id: ${{ secrets.APPLE_API_KEY_ID }}
+          apple-api-key-issuer-id: ${{ secrets.APPLE_API_KEY_ISSUER }}
+          apple-api-key-content: ${{ secrets.APPLE_API_KEY_CONTENT }}
 
   build_and_release_linux:
     name: Build and release linux on Snap Store
