@@ -84,6 +84,7 @@ jobs:
           publish-destination: "github-pages"
 
     build_and_release_ios:
+      name: Build and release ios on App Store
       runs-on: macos-latest
       needs: [prepare_and_check]
       steps:
@@ -110,6 +111,7 @@ jobs:
             apple-api-key-content: ${{ secrets.APPLE_API_KEY_CONTENT }}
 
     build_and_release_macos:
+      naem: Build and release macos on App Store
       runs-on: macos-latest
       needs: [prepare_and_check]
       steps:
