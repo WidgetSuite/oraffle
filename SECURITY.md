@@ -20,7 +20,7 @@ We take security vulnerabilities seriously. If you discover a security vulnerabi
 2. **Contact us privately** through one of these methods:
    - Create a private security advisory on GitHub
    - Send an email to the maintainer via GitHub profile
-   - Open a draft security advisory at: https://github.com/vicajilau/oraffle/security/advisories
+   - Open a draft security advisory at: https://github.com/WidgetSuite/oraffle/security/advisories
 
 ### What to Include
 
@@ -91,6 +91,6 @@ For security-related questions or concerns:
 
 - **Security Issues**: Use GitHub Security Advisories
 - **General Questions**: Create a GitHub Discussion
-- **Maintainer**: [@vicajilau](https://github.com/vicajilau)
+- **Maintainer**: [@WidgetSuite](https://github.com/WidgetSuite)
 
 Thank you for helping keep ORaffle secure!
