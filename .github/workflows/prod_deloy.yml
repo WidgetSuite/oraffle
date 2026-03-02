@@ -25,14 +25,14 @@ jobs:
         uses: subosito/flutter-action@v2
 
       - name: Prepare repository
-        uses: Spaccesi/flutter-actions-suite/prepare@main
+        uses: Spaccesi/flutter-ci-suite/prepare@main
         with:
           run-build-runner: "false"
           run-gen-l10n: "true"
           gen-l10n-fails-if-untranslated: "true"
 
       - name: Check repository
-        uses: Spaccesi/flutter-actions-suite/check@main
+        uses: Spaccesi/flutter-ci-suite/check@main
         with:
           run-license: "true"
           compatible-licenses-conf-path: ".github/licenses_checker.yaml"
@@ -72,7 +72,7 @@ jobs:
         uses: subosito/flutter-action@v2
 
       - name: Build & Publish web
-        uses: Spaccesi/flutter-actions-suite@main
+        uses: Spaccesi/flutter-ci-suite@main
         with:
           base-href: "/${{ github.event.repository.name }}/"
           run-test: "false"
@@ -83,62 +83,59 @@ jobs:
           build-platform: "web"
           publish-destination: "github-pages"
 
-  #   build_and_release_ios:
-  #     runs-on: macos-latest
-  #     needs: [prepare_and_check]
-  #     steps:
-  #       - name: Download prepared workspace
-  #         uses: actions/download-artifact@v4
-  #         with:
-  #           name: prepared-repo
+    build_and_release_ios:
+      runs-on: macos-latest
+      needs: [prepare_and_check]
+      steps:
+        - name: Download prepared workspace
+          uses: actions/download-artifact@v4
+          with:
+            name: prepared-repo
 
-  #       - name: Setup Flutter
-  #         uses: subosito/flutter-action@v2
+        - name: Setup Flutter
+          uses: subosito/flutter-action@v2
 
-  #       - name: Build ios
-  #         uses: Spaccesi/flutter-actions-suite/build/ios@main
-  #         with:
-  #           ios-distribution-certificate-base64: ${{ secrets.IOS_DIST_CERTIFICATE_BASE64 }}
-  #           ios-distribution-certificate-password: ${{ secrets.IOS_DIST_CERTIFICATE_PASSWORD }}
-  #           ios-provisioning-profile-base64: ${{ secrets.IOS_PROVISIONING_PROFILE_BASE64 }}
+        - name: Build ios
+          uses: Spaccesi/flutter-ci-suite/build/ios@main
+          with:
+            ios-distribution-certificate-base64: ${{ secrets.IOS_DISTRIBUTION_CERTIFICATE_BASE64 }}
+            ios-distribution-certificate-password: ${{ secrets.IOS_DISTRIBUTION_CERTIFICATE_PASSWORD }}
+            ios-provisioning-profile-base64: ${{ secrets.IOS_PROVISIONING_PROFILE_BASE64 }}
 
-  #       # - name: Publish ios
-  #       #   uses: Spaccesi/flutter-actions-suite/publish/ios-app-store@main
-  #       #   with:
-  #       #     apple-app-id:
-  #       #     app-version:
-  #       #     apple-api-key-id: ${{ secrets.APPLE_API_KEY_ID }}
-  #       #     apple-api-key-issuer-id: ${{ secrets.APPLE_API_KEY_ISSUER }}
-  #       #     apple-api-key-content: ${{ secrets.APPLE_API_KEY_CONTENT }}
+        - name: Publish ios
+          uses: Spaccesi/flutter-ci-suite/publish/ios-app-store@main
+          with:
+            apple-api-key-id: ${{ secrets.APPLE_API_KEY_ID }}
+            apple-api-key-issuer-id: ${{ secrets.APPLE_API_KEY_ISSUER }}
+            apple-api-key-content: ${{ secrets.APPLE_API_KEY_CONTENT }}
 
-  #   build_and_release_macos:
-  #     runs-on: macos-latest
-  #     needs: [prepare_and_check]
-  #     steps:
-  #       - name: Download prepared workspace
-  #         uses: actions/download-artifact@v4
-  #         with:
-  #           name: prepared-repo
+    build_and_release_macos:
+      runs-on: macos-latest
+      needs: [prepare_and_check]
+      steps:
+        - name: Download prepared workspace
+          uses: actions/download-artifact@v4
+          with:
+            name: prepared-repo
 
-  #       - name: Setup Flutter
-  #         uses: subosito/flutter-action@v2
+        - name: Setup Flutter
+          uses: subosito/flutter-action@v2
 
-  #       - name: Build macos
-  #         uses: Spaccesi/flutter-actions-suite/build/macos@main
-  #         with:
-  #           macos-distribution-certificate-base64: ${{ secrets.MACOS_DIST_CERTIFICATE_BASE64 }}
-  #           macos-distribution-certificate-password: ${{ secrets.MACOS_DIST_CERTIFICATE_PASSWORD }}
-  #           macos-installer-certificate-base64: ${{ secrets.MACOS_INSTALLER_CERTIFICATE_BASE64 }}
-  #           macos-installer-certificate-password: ${{ secrets.MACOS_INSTALLER_CERTIFICATE_PASSWORD }}
-  #           macos-provisioning-profile-base64: ${{ secrets.MACOS_PROVISIONING_PROFILE_BASE64 }}
+        - name: Build macos
+          uses: Spaccesi/flutter-ci-suite/build/macos@main
+          with:
+            macos-installer-certificate-base64: ${{ secrets.MACOS_INSTALLER_CERTIFICATE_BASE64 }}
+            macos-installer-certificate-password: ${{ secrets.MACOS_INSTALLER_CERTIFICATE_PASSWORD }}
+            macos-distribution-certificate-base64: ${{ secrets.MACOS_DISTRIBUTION_CERTIFICATE_BASE64 }}
+            macos-distribution-certificate-password: ${{ secrets.MACOS_DISTISTRIBUTION_CERTIFICATE_PASSWORD }}
+            macos-provisioning-profile-base64: ${{ secrets.MACOS_PROVISIONING_PROFILE_BASE64 }}
 
-  #       # - name: Publish macos
-  #       #   uses: Spaccesi/flutter-actions-suite/publish/macos-app-store@main
-  #       #   with:
-  #       #     macos-provisioning-profile-base64: ${{ secrets.MACOS_PROVISIONING_PROFILE_BASE64 }}
-  #       #     apple-api-key-id: ${{ secrets.APPLE_API_KEY_ID }}
-  #       #     apple-api-key-issuer-id: ${{ secrets.APPLE_API_KEY_ISSUER }}
-  #       #     apple-api-key-content: ${{ secrets.APPLE_API_KEY_CONTENT }}
+        - name: Publish macos
+          uses: Spaccesi/flutter-ci-suite/publish/macos-app-store@main
+          with:
+            apple-api-key-id: ${{ secrets.APPLE_API_KEY_ID }}
+            apple-api-key-issuer-id: ${{ secrets.APPLE_API_KEY_ISSUER }}
+            apple-api-key-content: ${{ secrets.APPLE_API_KEY_CONTENT }}
 
   build_and_release_linux:
     name: Build and release linux on Snap Store
@@ -154,12 +151,12 @@ jobs:
         uses: subosito/flutter-action@v2
 
       - name: Build linux
-        uses: Spaccesi/flutter-actions-suite/build/linux@main
+        uses: Spaccesi/flutter-ci-suite/build/linux@main
 
-      # - name: Publish on snap
-      #   uses: Spaccesi/flutter-actions-suite/publish/snap-store@main
-      #   with:
-      #     snap-store-token: ${{ secrets.SNAPCRAFT_LOGIN }}
+      - name: Publish on snap
+        uses: Spaccesi/flutter-ci-suite/publish/snap-store@main
+        with:
+          snap-store-token: ${{ secrets.SNAPCRAFT_CREDENTIALS }}
 
   build_and_release_android:
     name: Build and release android on Google Play
@@ -175,19 +172,20 @@ jobs:
         uses: subosito/flutter-action@v2
 
       - name: Build android
-        uses: Spaccesi/flutter-actions-suite/build/android@main
+        uses: Spaccesi/flutter-ci-suite/build/android@main
         with:
-          android-store-file-base64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          android-store-file-base64: ${{ secrets.ANDROID_STORE_FILE_BASSE64 }}
           android-key-password: ${{ secrets.ANDROID_KEY_PASSWORD }}
           android-store-password: ${{ secrets.ANDROID_STORE_PASSWORD }}
           android-key-alias: ${{ secrets.ANDROID_KEY_ALIAS }}
 
-      # - name: Publish Android
-      #   uses: Spaccesi/flutter-actions-suite/publish/play-store@main
-      #   with:
-      #     android-service-account-json-base64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
-      #     android-package-name:
-      #     android-track:
+      - name: Publish Android
+        uses: Spaccesi/flutter-ci-suite/publish/play-store@main
+        with:
+          android-service-account-json-base64: ${{ secrest.ANDROID_SERVICE_ACCOUNT_JSON_BASE64 }}
+          android-package-name: es.victorcarreras.raffle_app
+          android-track: production
+          android-release-files: build/app/outputs/bundle/release/app-release.aab
 
   build_and_release_windows:
     name: Build and deploy windows on Microsoft Store
@@ -203,26 +201,28 @@ jobs:
         uses: subosito/flutter-action@v2
 
       - name: Build ios
-        uses: Spaccesi/flutter-actions-suite/build/windows@main
+        uses: Spaccesi/flutter-ci-suite/build/windows@main
 
-      # - name: Publish Microsoft store
-      #   uses: Spaccesi/flutter-actions-suite/publish/microsoft-store@main
-      #   with:
-      #     microsoft-partner-center-tenant-id: ${{ secrets.PARTNER_CENTER_TENANT_ID }}
-      #     microsoft-partner-center-seller-id: ${{ secrets.PARTNER_CENTER_SELLER_ID }}
-      #     microsoft-center-client-id: ${{ secrets.PARTNER_CENTER_CLIENT_ID }}
-      #     microsoft-partner-center-client-secret: ${{ secrets.PARTNER_CENTER_CLIENT_SECRET }}
+      - name: Publish Microsoft store
+        uses: Spaccesi/flutter-ci-suite/publish/microsoft-store@main
+        with:
+          microsoft-partner-center-tenant-id: ${{ secrets.MICROSOFT_PARTNER_CENTER_TENANT_ID }}
+          microsoft-partner-center-seller-id: ${{ secrets.MICROSOFT_PARTNER_CENTER_SELLER_ID }}
+          microsoft-center-client-id: ${{ secrets.MICROSOFT_PARTNER_CENTER_CLIENT_ID }}
+          microsoft-partner-center-client-secret: ${{ secrets.MICROSOFT_PARTNER_CENTER_CLIENT_SECRET }}
 
   clean_up:
     runs-on: ubuntu-latest
-    needs: [
+    name: Clean up artifacts
+    needs:
+      [
         prepare_and_check,
         build_and_release_web,
         build_and_release_windows,
         build_and_release_android,
         build_and_release_linux,
-        # build_and_release_macos,
-        # build_and_release_ios,
+        build_and_release_macos,
+        build_and_release_ios,
       ]
     steps:
       - name: Delete artifacts

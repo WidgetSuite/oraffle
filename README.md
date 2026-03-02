@@ -20,7 +20,7 @@ A professional cross-platform raffle application built with Flutter. ORaffle pro
 Access ORaffle on your favorite platform:
 
 - 🌐 **Web**: [WidgetSuite.github.io/oraffle](https://WidgetSuite.github.io/oraffle/)
-- 📱 **Android**: [Google Play Store](https://play.google.com/store/apps/details?id=es.victorcarreras.oraffle)
+- 📱 **Android**: [Google Play Store](https://play.google.com/store/apps/details?id=es.victorcarreras.raffle_app)
 - 🪟 **Windows**: [Microsoft Store](https://apps.microsoft.com/store/detail/ORaffle)
 - 📱 **iOS**: [App Store](https://apps.apple.com/app/oraffle)
 - 🍎 **macOS**: [Mac App Store](https://apps.apple.com/app/oraffle)
@@ -35,7 +35,7 @@ _ORaffle provides an intuitive interface for managing participants and picking w
 - **Bulk Import**: Paste a list of names (one per line) for rapid participant setup.
 - **Animated Winner Selection**: Exciting visual effects and animations during the drawing process.
 - **Multiple Winner Support**: Select multiple winners with automatic position tracking (1st, 2nd, 3rd place, etc.).
-- **Custom Branding**: 
+- **Custom Branding**:
   - **Logo Integration**: Display your company or event logo in the app header.
   - **Theming**: Personalize the UI color scheme via custom hex codes to match your brand identity.
 - **Winner History**: Dedicated screen to view all selected winners with timestamps and rankings.
@@ -56,12 +56,14 @@ ORaffle follows **Clean Architecture** principles, ensuring the codebase is main
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/WidgetSuite/oraffle.git
    cd oraffle
    ```
 
 2. **Install dependencies**
+
    ```bash
    flutter pub get
    ```

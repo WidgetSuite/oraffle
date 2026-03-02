@@ -16,8 +16,6 @@ jobs:
 
       - name: Install flutter
         uses: subosito/flutter-action@v2
-        with:
-          channel: "stable"
 
       - name: Prepare repository
         uses: Spaccesi/flutter-actions-suite/prepare@main
