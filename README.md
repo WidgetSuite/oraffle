@@ -20,7 +20,7 @@ A professional cross-platform raffle application built with Flutter. ORaffle pro
 Access ORaffle on your favorite platform:
 
 - 🌐 **Web**: [WidgetSuite.github.io/oraffle](https://WidgetSuite.github.io/oraffle/)
-- 📱 **Android**: [Google Play Store](https://play.google.com/store/apps/details?id=es.victorcarreras.raffle_app)
+- 📱 **Android**: [Google Play Store](https://play.google.com/store/apps/details?id=es.victorcarreras.raffle-app)
 - 🪟 **Windows**: [Microsoft Store](https://apps.microsoft.com/store/detail/ORaffle)
 - 📱 **iOS**: [App Store](https://apps.apple.com/app/oraffle)
 - 🍎 **macOS**: [Mac App Store](https://apps.apple.com/app/oraffle)

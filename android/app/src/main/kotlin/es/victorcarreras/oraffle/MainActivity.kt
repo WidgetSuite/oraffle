@@ -1,4 +1,4 @@
-package es.victorcarreras.raffle_app
+package es.victorcarreras.oraffle
 
 import io.flutter.embedding.android.FlutterActivity
 
