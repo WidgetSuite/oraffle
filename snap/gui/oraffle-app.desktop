@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=ORaffle
+Comment=A Raffle application
+Exec=oraffle-app
+Icon=${SNAP}/meta/gui/icon.png
+Type=Application
+Categories=Utility;
+StartupNotify=true
+StartupWMClass=oraffle

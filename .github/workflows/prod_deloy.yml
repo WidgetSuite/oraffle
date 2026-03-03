@@ -210,7 +210,7 @@ jobs:
         with:
           microsoft-partner-center-tenant-id: ${{ secrets.MICROSOFT_PARTNER_CENTER_TENANT_ID }}
           microsoft-partner-center-seller-id: ${{ secrets.MICROSOFT_PARTNER_CENTER_SELLER_ID }}
-          microsoft-center-client-id: ${{ secrets.MICROSOFT_PARTNER_CENTER_CLIENT_ID }}
+          microsoft-partner-center-client-id: ${{ secrets.MICROSOFT_PARTNER_CENTER_CLIENT_ID }}
           microsoft-partner-center-client-secret: ${{ secrets.MICROSOFT_PARTNER_CENTER_CLIENT_SECRET }}
 
   clean_up:

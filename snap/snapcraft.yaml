@@ -1,0 +1,29 @@
+name: oraffle-app
+version: "1.0.0"
+summary: ORaffle
+description: |
+  A Raffle application.
+base: core24
+confinement: strict
+grade: stable
+
+apps:
+  oraffle-app:
+    command: oraffle
+    extensions: [gnome]
+    plugs:
+      - network
+      - home
+
+parts:
+  oraffle:
+    plugin: dump
+    source: build/linux/x64/release/bundle/
+
+  icon:
+    plugin: dump
+    source: images/
+    organize:
+      oraffle.png: meta/gui/icon.png
+    prime:
+      - meta/gui/icon.png
