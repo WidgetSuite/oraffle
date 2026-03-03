@@ -15,6 +15,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+      - name: Verify License Compliance
+        run: |
+          if [ ! -f LICENSE ]; then
+            echo "❌ LICENSE file is missing!"
+            exit 1
+          fi
+          if ! grep -q "GNU GENERAL PUBLIC LICENSE" LICENSE; then
+            echo "❌ LICENSE file does not contain GPL-3.0 text!"
+            exit 1
+          fi
+          echo "✅ License check passed!"
       - uses: actions/setup-java@v4
         with:
           distribution: "zulu"
