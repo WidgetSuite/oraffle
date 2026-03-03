@@ -15,17 +15,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - name: Verify License Compliance
+      - name: Check license headers
         run: |
-          if [ ! -f LICENSE ]; then
-            echo "❌ LICENSE file is missing!"
+          MISSING_HEADERS=$(find lib test -name "*.dart" ! -name "*.g.dart" ! -name "*.freezed.dart" ! -name "*.mocks.dart" ! -name "app_localizations*.dart" -exec sh -c '! grep -q "^// Copyright (C) 2026 Víctor Carreras" "$1" && echo "$1"' _ {} \;)
+          if [ -n "$MISSING_HEADERS" ]; then
+            echo "❌ The following files are missing the GPL-3.0 license header:"
+            echo "$MISSING_HEADERS"
             exit 1
+          else
+            echo "✅ All files have the correct GPL-3.0 license header."
           fi
-          if ! grep -q "GNU GENERAL PUBLIC LICENSE" LICENSE; then
-            echo "❌ LICENSE file does not contain GPL-3.0 text!"
-            exit 1
-          fi
-          echo "✅ License check passed!"
       - uses: actions/setup-java@v4
         with:
           distribution: "zulu"
