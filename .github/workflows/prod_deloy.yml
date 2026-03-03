@@ -184,7 +184,7 @@ jobs:
       - name: Publish Android
         uses: Spaccesi/flutter-ci-suite/publish/play-store@main
         with:
-          android-service-account-json-base64: ${{ secrets.ANDROID_SERVICE_ACCOUNT_JSON_BASE64 }}
+          android-service-account-json: ${{ secrets.ANDROID_SERVICE_ACCOUNT_JSON }}
           android-package-name: es.victorcarreras.oraffle
           android-track: production
           android-release-files: build/app/outputs/bundle/release/app-release.aab
