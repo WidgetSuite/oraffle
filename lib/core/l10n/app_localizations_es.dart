@@ -88,7 +88,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String participantDiscarded(int count) {
-    return '$count participantes no válidos.';
+    return '$count participante(s) no válido(s).';
   }
 
   @override

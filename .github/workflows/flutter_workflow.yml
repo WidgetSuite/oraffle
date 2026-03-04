@@ -2,8 +2,7 @@ name: Flutter CI
 on:
   push:
     branches:
-      # - main
-      - feature/add-secrets-to-original-pipeline
+      - main
   workflow_dispatch:
 
   pull_request:
