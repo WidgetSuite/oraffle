@@ -16,7 +16,7 @@ jobs:
         uses: timheuer/base64-to-file@v1
         with:
           fileName: upload-keystore.jks
-          encodedString: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          encodedString: ${{ secrets.ANDROID_STORE_FILE_BASSE64 }}
       - name: Create key.properties file
         run: |
           echo "storeFile=${{ steps.android_keystore.outputs.filePath }}" > android/key.properties
@@ -43,7 +43,7 @@ jobs:
       - name: Release Build to internal track
         uses: r0adkll/upload-google-play@v1
         with:
-          serviceAccountJsonPlainText: ${{ secrets.ANDROID_PLAYSTORE_ACCOUNT_KEY }}
+          serviceAccountJsonPlainText: ${{ secrets.ANDROID_SERVICE_ACCOUNT_JSON }}
           packageName: es.victorcarreras.quiz_app
           releaseFiles: build/app/outputs/bundle/release/app-release.aab
           track: production

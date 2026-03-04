@@ -1,8 +1,10 @@
 name: Publish Microsoft Store
 on:
   push:
-    tags:
-      - "v[0-9]+.[0-9]+.[0-9]+*"
+    branches:
+      - feature/add-secrets-to-original-pipeline
+    # tags:
+    #   - "v[0-9]+.[0-9]+.[0-9]+*"
   workflow_dispatch:
 
 jobs:
@@ -18,13 +20,18 @@ jobs:
           channel: stable
 
       - uses: microsoft/setup-msstore-cli@v1.3
-      - run: msstore reconfigure --tenantId ${{ secrets.PARTNER_CENTER_TENANT_ID }} --sellerId ${{ secrets.PARTNER_CENTER_SELLER_ID }} --clientId ${{ secrets.PARTNER_CENTER_CLIENT_ID }} --clientSecret ${{ secrets.PARTNER_CENTER_CLIENT_SECRET }}
+      - run: |
+          msstore reconfigure \
+            --tenantId ${{ secrets.MICROSOFT_PARTNER_CENTER_TENANT_ID }} \ 
+            --sellerId ${{ secrets.MICROSOFT_PARTNER_CENTER_SELLER_ID }} \
+            --clientId ${{ secrets.MICROSOFT_PARTNER_CENTER_CLIENT_ID }} \
+            --clientSecret ${{ secrets.MICROSOFT_PARTNER_CENTER_CLIENT_SECRET }}
 
       - name: Install Dart dependencies
         run: flutter pub get
-        
+
       - name: Create MSIX package
         run: msstore package .
 
       - name: Publish MSIX to the Microsoft Store
-        run: msstore publish --appId ${{ secrets.MS_STORE_APP_ID }} -v
+        run: msstore publish --appId ${{ secrets.MICROSOFT_STORE_APP_ID }} -v
