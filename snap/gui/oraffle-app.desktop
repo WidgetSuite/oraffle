@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=ORaffle
+Comment=An interactive and engaging raffle experience
+Exec=oraffle-app %f
+Icon=oraffle-app.png
+Terminal=false
+Type=Application
+Categories=Education;
+MimeType=application/x-oraffle;
