@@ -1,8 +1,10 @@
 name: Publish Snap to Snapcraft
 on:
   push:
-    tags:
-      - 'v[0-9]+.[0-9]+.[0-9]+*'
+    branches:
+      - feature/add-secrets-to-original-pipeline
+    # tags:
+    #   - "v[0-9]+.[0-9]+.[0-9]+*"
   workflow_dispatch:
 
 jobs:

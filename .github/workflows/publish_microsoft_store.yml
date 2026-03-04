@@ -21,11 +21,7 @@ jobs:
 
       - uses: microsoft/setup-msstore-cli@v1.3
       - run: |
-          msstore reconfigure \
-            --tenantId ${{ secrets.MICROSOFT_PARTNER_CENTER_TENANT_ID }} \ 
-            --sellerId ${{ secrets.MICROSOFT_PARTNER_CENTER_SELLER_ID }} \
-            --clientId ${{ secrets.MICROSOFT_PARTNER_CENTER_CLIENT_ID }} \
-            --clientSecret ${{ secrets.MICROSOFT_PARTNER_CENTER_CLIENT_SECRET }}
+          msstore reconfigure --tenantId ${{ secrets.MICROSOFT_PARTNER_CENTER_TENANT_ID }} --sellerId ${{ secrets.MICROSOFT_PARTNER_CENTER_SELLER_ID }} --clientId ${{ secrets.MICROSOFT_PARTNER_CENTER_CLIENT_ID }} --clientSecret ${{ secrets.MICROSOFT_PARTNER_CENTER_CLIENT_SECRET }}
 
       - name: Install Dart dependencies
         run: flutter pub get

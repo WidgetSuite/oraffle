@@ -2,7 +2,8 @@ name: Deploy Flutter Web to GitHub Pages
 on:
   push:
     branches:
-      - main
+      - feature/add-secrets-to-original-pipeline
+      # - main
   workflow_dispatch:
 
 permissions:
