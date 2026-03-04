@@ -86,6 +86,11 @@ class AppLocalizationsEu extends AppLocalizations {
   }
 
   @override
+  String participantDiscarded(int count) {
+    return '$count parte-hartzaile baliogabeak.';
+  }
+
+  @override
   String get resetWinners => 'Irabazleak Berrezarri';
 
   @override

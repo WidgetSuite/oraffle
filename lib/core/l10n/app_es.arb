@@ -114,6 +114,16 @@
       }
     }
   },
+  "participantDiscarded": "{count} participante(s) no válido(s).",
+  "@participantDiscarded": {
+    "description": "Mensaje cuando hay valores de participantes no validos",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "3"
+      }
+    }
+  },
   "resetWinners": "Reiniciar ganadores",
   "@resetWinners": {
     "description": "Texto del botón para reiniciar ganadores"

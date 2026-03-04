@@ -101,6 +101,16 @@
       }
     }
   },
+  "participantDiscarded": "{count} parte-hartzaile baliogabeak.",
+  "@participantDiscarded": {
+    "description": "Parte-hartzaile baliogabeak direnean erakusten den mezua",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "3"
+      }
+    }
+  },
   "resetWinners": "Irabazleak Berrezarri",
   "@resetWinners": {
     "description": "Irabazleak berrezartzeko botoiaren etiketa"

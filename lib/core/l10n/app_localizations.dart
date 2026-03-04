@@ -256,6 +256,12 @@ abstract class AppLocalizations {
   /// **'{count} participant(s) ready for raffle'**
   String participantsReadyCount(int count);
 
+  /// Message when there are invalid participants
+  ///
+  /// In en, this message translates to:
+  /// **'{count} invalid participants.'**
+  String participantDiscarded(int count);
+
   /// Button text to reset winners list
   ///
   /// In en, this message translates to:

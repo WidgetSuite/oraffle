@@ -110,6 +110,16 @@
       }
     }
   },
+  "participantDiscarded": "{count} ungültige Teilnehmer.",
+  "@participantDiscarded": {
+    "description": "Nachricht wenn ungültige Teilnehmer gefunden wurden",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "3"
+      }
+    }
+  },
   "resetWinners": "Gewinner zurücksetzen",
   "@resetWinners": {
     "description": "Text des Buttons zum Zurücksetzen der Gewinner"

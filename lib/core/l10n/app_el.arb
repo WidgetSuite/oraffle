@@ -22,6 +22,16 @@
   "allParticipantsSelected": "Όλοι οι συμμετέχοντες έχουν ήδη επιλεγεί",
   "addParticipantsToStart": "Προσθέστε συμμετέχοντες για να ξεκινήσετε την κλήρωση",
   "participantsReadyCount": "{count} συμμετέχων/οντες έτοιμος/οι για κλήρωση",
+  "participantDiscarded": "{count} μη έγκυροι συμμετέχοντες.",
+  "@participantDiscarded": {
+    "description": "Μήνυμα όταν υπάρχουν μη έγκυροι συμμετέχοντες",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "3"
+      }
+    }
+  },
   "resetWinners": "Επαναφορά Νικητών",
   "resetWinnersConfirmTitle": "Επαναφορά Νικητών",
   "resetWinnersConfirmMessage": "Είστε σίγουροι ότι θέλετε να επαναφέρετε τη λίστα νικητών; Όλοι οι συμμετέχοντες θα είναι διαθέσιμοι για την κλήρωση ξανά.",

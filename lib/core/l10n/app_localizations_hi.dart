@@ -86,6 +86,11 @@ class AppLocalizationsHi extends AppLocalizations {
   }
 
   @override
+  String participantDiscarded(int count) {
+    return '$count अमान्य प्रतिभागी।';
+  }
+
+  @override
   String get resetWinners => 'विजेताओं को रीसेट करें';
 
   @override

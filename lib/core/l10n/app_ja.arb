@@ -101,6 +101,16 @@
       }
     }
   },
+  "participantDiscarded": "{count} 無効な参加者。",
+  "@participantDiscarded": {
+    "description": "無効な参加者が存在するときに表示されるメッセージ",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "3"
+      }
+    }
+  },
   "resetWinners": "当選者をリセット",
   "@resetWinners": {
     "description": "当選者をリセットするボタンのラベル"
