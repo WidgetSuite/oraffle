@@ -14,15 +14,15 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import 'package:flutter/material.dart';
-import 'package:oraffle/core/theme/app_theme.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:oraffle/core/l10n/app_localizations.dart';
+import 'package:oraffle/core/theme/app_theme.dart';
+import 'package:oraffle/domain/models/raffle/raffle_session.dart';
 import 'package:oraffle/presentation/blocs/raffle_bloc/raffle_bloc.dart';
 import 'package:oraffle/presentation/blocs/raffle_bloc/raffle_event.dart';
 import 'package:oraffle/presentation/blocs/raffle_bloc/raffle_state.dart';
-import 'package:oraffle/domain/models/raffle/raffle_session.dart';
-import 'package:oraffle/presentation/screens/widgets/raffle_animation_widget.dart';
 import 'package:oraffle/presentation/screens/widgets/clear_winners_dialog.dart';
+import 'package:oraffle/presentation/screens/widgets/raffle_animation_widget.dart';
 
 class RaffleControlsWidget extends StatelessWidget {
   const RaffleControlsWidget({super.key});
@@ -165,6 +165,15 @@ class RaffleControlsWidget extends StatelessWidget {
       } else {
         return AppLocalizations.of(context)!.addParticipantsToStart;
       }
+    }
+
+    final totalLines = session.participantText
+        .split('\n')
+        .where((element) => element.trim().isNotEmpty);
+
+    final discardedCount = totalLines.length - session.participants.length;
+    if (discardedCount > 0) {
+      return '${AppLocalizations.of(context)!.participantsReadyCount(session.activeParticipantsCount)}. ${AppLocalizations.of(context)!.participantDiscarded(discardedCount)}';
     }
 
     return AppLocalizations.of(

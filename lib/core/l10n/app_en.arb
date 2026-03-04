@@ -114,6 +114,16 @@
       }
     }
   },
+  "participantDiscarded": "{count} invalid participants.",
+  "@participantDiscarded": {
+    "description": "Message when there are invalid participants",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "3"
+      }
+    }
+  },
   "resetWinners": "Reset Winners",
   "@resetWinners": {
     "description": "Button text to reset winners list"

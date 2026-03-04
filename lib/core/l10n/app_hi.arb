@@ -101,6 +101,16 @@
       }
     }
   },
+  "participantDiscarded": "{count} अमान्य प्रतिभागी।",
+  "@participantDiscarded": {
+    "description": "अमान्य प्रतिभागी होने पर दिखाया गया संदेश",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "3"
+      }
+    }
+  },
   "resetWinners": "विजेताओं को रीसेट करें",
   "@resetWinners": {
     "description": "विजेताओं को रीसेट करने के लिए बटन लेबल"

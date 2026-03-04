@@ -84,6 +84,11 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
+  String participantDiscarded(int count) {
+    return '$count 無効な参加者。';
+  }
+
+  @override
   String get resetWinners => '当選者をリセット';
 
   @override

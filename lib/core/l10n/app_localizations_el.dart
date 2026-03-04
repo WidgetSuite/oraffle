@@ -87,6 +87,11 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
+  String participantDiscarded(int count) {
+    return '$count μη έγκυροι συμμετέχοντες.';
+  }
+
+  @override
   String get resetWinners => 'Επαναφορά Νικητών';
 
   @override

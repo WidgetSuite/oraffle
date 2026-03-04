@@ -86,6 +86,11 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String participantDiscarded(int count) {
+    return '$count invalid participants.';
+  }
+
+  @override
   String get resetWinners => 'Reset Winners';
 
   @override

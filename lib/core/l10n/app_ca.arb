@@ -104,6 +104,16 @@
       }
     }
   },
+  "participantDiscarded": "{count} participants no vàlids.",
+  "@participantDiscarded": {
+    "description": "Missatge quan hi ha valors de participants no vàlids",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "3"
+      }
+    }
+  },
   "resetWinners": "Reiniciar Guanyadors",
   "@resetWinners": {
     "description": "Etiqueta del botó per reiniciar els guanyadors"

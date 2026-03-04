@@ -14,6 +14,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import 'dart:math';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:oraffle/data/services/raffle_storage_service.dart';
 import 'package:oraffle/domain/models/raffle/raffle_logo.dart';
@@ -52,7 +53,8 @@ class RaffleBloc extends Bloc<RaffleEvent, RaffleState> {
   ) {
     try {
       // Parse the text into participants
-      final lines = event.text.split('\n');
+      final lines = _parseParticipantText(event.text);
+
       final participants = <RaffleParticipant>[];
 
       for (final line in lines) {
@@ -303,5 +305,19 @@ class RaffleBloc extends Bloc<RaffleEvent, RaffleState> {
     if (currentState is RaffleWarning) {
       emit(RaffleLoaded(currentState.session));
     }
+  }
+
+  List<String> _parseParticipantText(String text) {
+    // Split by newlines and trim each line
+    var lines = text.split('\n').map((line) => line.trim()).toList();
+
+    // Remove empty lines
+    lines = lines.where((line) => line.isNotEmpty).toList();
+
+    // Remove duplicate lines while preserving order
+    final seen = <String>{};
+    lines = lines.where((line) => seen.add(line)).toList();
+
+    return lines;
   }
 }

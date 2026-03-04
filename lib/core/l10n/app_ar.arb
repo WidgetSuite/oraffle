@@ -104,6 +104,16 @@
       }
     }
   },
+  "participantDiscarded": "{count} مشاركين غير صالحين.",
+  "@participantDiscarded": {
+    "description": "رسالة عندما يكون هناك مشاركين غير صالحين",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "3"
+      }
+    }
+  },
   "resetWinners": "إعادة تعيين الفائزين",
   "@resetWinners": {
     "description": "تسمية زر إعادة تعيين الفائزين"
