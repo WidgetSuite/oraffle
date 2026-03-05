@@ -15,7 +15,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:oraffle/core/l10n/app_localizations.dart';
-import 'package:oraffle/core/theme/app_theme.dart';
 import 'package:oraffle/core/theme/extensions/custom_colors.dart';
 import 'package:oraffle/domain/models/raffle/raffle_winner.dart';
 
