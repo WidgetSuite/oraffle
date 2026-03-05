@@ -133,7 +133,13 @@ class AppLocalizationsEu extends AppLocalizations {
   String get winnersTitle => 'Irabazleak';
 
   @override
+  String get winnersTitleShort => 'Irabazleak';
+
+  @override
   String get shareResults => 'Emaitzak Partekatu';
+
+  @override
+  String get shareResultsShort => 'Partekatu';
 
   @override
   String get noWinnersYet => 'Oraindik ez dago irabazlerik';

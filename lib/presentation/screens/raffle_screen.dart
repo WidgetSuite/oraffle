@@ -125,7 +125,7 @@ class _RaffleScreenContent extends StatelessWidget {
                       elevation: 2,
                       minimumSize: Size(0, 48),
                     ),
-                    label: Text(AppLocalizations.of(context)!.winnersTitle),
+                    label: Text(AppLocalizations.of(context)!.winnersTitleShort),
                   );
                 },
               ),

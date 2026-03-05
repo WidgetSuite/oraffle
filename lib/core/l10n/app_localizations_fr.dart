@@ -134,7 +134,13 @@ class AppLocalizationsFr extends AppLocalizations {
   String get winnersTitle => 'Gagnants du tirage';
 
   @override
+  String get winnersTitleShort => 'Gagnants';
+
+  @override
   String get shareResults => 'Partager les résultats';
+
+  @override
+  String get shareResultsShort => 'Partager';
 
   @override
   String get noWinnersYet => 'Pas encore de gagnants';

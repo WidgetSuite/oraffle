@@ -171,10 +171,12 @@
   "@winnersTitle": {
     "description": "विजेता स्क्रीन का शीर्षक"
   },
+  "winnersTitleShort": "विजेता",
   "shareResults": "परिणाम साझा करें",
   "@shareResults": {
     "description": "परिणाम साझा करने के लिए बटन लेबल"
   },
+  "shareResultsShort": "साझा करें",
   "noWinnersYet": "अभी तक कोई विजेता नहीं",
   "@noWinnersYet": {
     "description": "कोई विजेता न होने पर दिखाया गया संदेश"

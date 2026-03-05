@@ -184,10 +184,12 @@
   "@winnersTitle": {
     "description": "Título de la pantalla de ganadores"
   },
+  "winnersTitleShort": "Ganadores",
   "shareResults": "Compartir resultados",
   "@shareResults": {
     "description": "Tooltip del botón compartir resultados"
   },
+  "shareResultsShort": "Compartir",
   "noWinnersYet": "No hay ganadores aún",
   "@noWinnersYet": {
     "description": "Mensaje cuando no hay ganadores"

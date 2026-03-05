@@ -177,10 +177,12 @@
   "@winnersTitle": {
     "description": "Titolo della schermata vincitori"
   },
+  "winnersTitleShort": "Vincitori",
   "shareResults": "Condividi risultati",
   "@shareResults": {
     "description": "Tooltip del pulsante condividi risultati"
   },
+  "shareResultsShort": "Condividi",
   "noWinnersYet": "Nessun vincitore ancora",
   "@noWinnersYet": {
     "description": "Messaggio quando non ci sono vincitori"

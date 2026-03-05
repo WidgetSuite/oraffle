@@ -63,7 +63,7 @@ class WinnersScreen extends StatelessWidget {
               FilledButton.icon(
                 onPressed: () => _showShareDialog(context),
                 icon: const Icon(Icons.share),
-                label: Text(AppLocalizations.of(context)!.shareResults),
+                label: Text(AppLocalizations.of(context)!.shareResultsShort),
                 style: FilledButton.styleFrom(
                   elevation: 2,
                   minimumSize: Size(0, 48),

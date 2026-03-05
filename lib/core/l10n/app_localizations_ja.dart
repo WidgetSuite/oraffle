@@ -129,7 +129,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get winnersTitle => '当選者';
 
   @override
+  String get winnersTitleShort => '当選者';
+
+  @override
   String get shareResults => '結果を共有';
+
+  @override
+  String get shareResultsShort => '共有';
 
   @override
   String get noWinnersYet => 'まだ当選者はいません';

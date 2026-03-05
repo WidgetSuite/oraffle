@@ -133,7 +133,13 @@ class AppLocalizationsHi extends AppLocalizations {
   String get winnersTitle => 'विजेता';
 
   @override
+  String get winnersTitleShort => 'विजेता';
+
+  @override
   String get shareResults => 'परिणाम साझा करें';
+
+  @override
+  String get shareResultsShort => 'साझा करें';
 
   @override
   String get noWinnersYet => 'अभी तक कोई विजेता नहीं';

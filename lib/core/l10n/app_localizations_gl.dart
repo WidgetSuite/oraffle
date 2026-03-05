@@ -136,7 +136,13 @@ class AppLocalizationsGl extends AppLocalizations {
   String get winnersTitle => 'Gañadores';
 
   @override
+  String get winnersTitleShort => 'Gañadores';
+
+  @override
   String get shareResults => 'Compartir Resultados';
+
+  @override
+  String get shareResultsShort => 'Compartir';
 
   @override
   String get noWinnersYet => 'Aínda non hai gañadores';
