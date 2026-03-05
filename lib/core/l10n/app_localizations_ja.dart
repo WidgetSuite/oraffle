@@ -253,4 +253,13 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get invalidHexColor => '無効なヘックスカラー';
+
+  @override
+  String get statLabelTotal => '合計';
+
+  @override
+  String get statLabelActive => 'アクティブ';
+
+  @override
+  String get statLabelWinners => '勝者';
 }

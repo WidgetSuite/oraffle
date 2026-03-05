@@ -354,5 +354,8 @@
   "invalidHexColor": "Hex kolore baliogabea",
   "@invalidHexColor": {
     "description": "Hex kolore baliogabea sartzean agertzen den errore mezua"
-  }
+  },
+  "statLabelTotal": "Guztira",
+  "statLabelActive": "Aktibo",
+  "statLabelWinners": "Irabazleak"
 }

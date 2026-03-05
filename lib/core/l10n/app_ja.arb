@@ -354,5 +354,8 @@
   "invalidHexColor": "無効なヘックスカラー",
   "@invalidHexColor": {
     "description": "無効な16進カラー入力のエラーメッセージ"
-  }
+  },
+  "statLabelTotal": "合計",
+  "statLabelActive": "アクティブ",
+  "statLabelWinners": "勝者"
 }

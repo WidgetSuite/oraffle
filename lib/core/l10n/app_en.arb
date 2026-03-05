@@ -363,5 +363,17 @@
   "invalidHexColor": "Invalid hex color",
   "@invalidHexColor": {
     "description": "Error message for invalid hexadecimal color input"
+  },
+  "statLabelTotal": "Total",
+  "@statLabelTotal": {
+    "description": "Short label for total participants stat card"
+  },
+  "statLabelActive": "Active",
+  "@statLabelActive": {
+    "description": "Short label for active participants stat card"
+  },
+  "statLabelWinners": "Winners",
+  "@statLabelWinners": {
+    "description": "Short label for winners stat card"
   }
 }

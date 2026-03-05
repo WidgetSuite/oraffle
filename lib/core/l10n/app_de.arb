@@ -363,5 +363,8 @@
   "invalidHexColor": "Ungültige Hex-Farbe",
   "@invalidHexColor": {
     "description": "Fehlermeldung für ungültige hexadezimale Farbeingabe"
-  }
+  },
+  "statLabelTotal": "Gesamt",
+  "statLabelActive": "Aktiv",
+  "statLabelWinners": "Gewinner"
 }

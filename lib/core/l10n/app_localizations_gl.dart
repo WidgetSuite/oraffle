@@ -264,4 +264,13 @@ class AppLocalizationsGl extends AppLocalizations {
 
   @override
   String get invalidHexColor => 'Cor hexadecimal non válido';
+
+  @override
+  String get statLabelTotal => 'Total';
+
+  @override
+  String get statLabelActive => 'Activos';
+
+  @override
+  String get statLabelWinners => 'Gañadores';
 }

@@ -16,9 +16,63 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:oraffle/core/l10n/app_localizations.dart';
+import 'package:oraffle/core/theme/extensions/custom_colors.dart';
 import 'package:oraffle/presentation/blocs/raffle_bloc/raffle_bloc.dart';
 import 'package:oraffle/presentation/blocs/raffle_bloc/raffle_state.dart';
 import 'package:oraffle/domain/models/raffle/raffle_session.dart';
+
+enum _StatVariant { total, active, winners }
+
+class _StatCard extends StatelessWidget {
+  const _StatCard({
+    required this.value,
+    required this.label,
+    required this.variant,
+  });
+
+  final int value;
+  final String label;
+  final _StatVariant variant;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final custom = theme.extension<CustomColors>()!;
+
+    final (bg, fg) = switch (variant) {
+      _StatVariant.total => (theme.cardColor, theme.colorScheme.onSurface),
+      _StatVariant.active => (custom.successContainer!, custom.onSuccessContainer!),
+      _StatVariant.winners => (custom.winnersContainer!, custom.onWinnersContainer!),
+    };
+
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
+      decoration: BoxDecoration(
+        color: bg,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            '$value',
+            style: theme.textTheme.titleLarge!.copyWith(
+              fontWeight: FontWeight.bold,
+              color: fg,
+            ),
+          ),
+          const SizedBox(height: 2),
+          Text(
+            label,
+            style: theme.textTheme.labelSmall!.copyWith(
+              color: fg.withValues(alpha: 0.7),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
 
 class ParticipantListWidget extends StatelessWidget {
   const ParticipantListWidget({super.key});
@@ -63,38 +117,37 @@ class ParticipantListWidget extends StatelessWidget {
             .where((p) => !p.isActive)
             .toList();
 
+        final l10n = AppLocalizations.of(context)!;
         return Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             // Summary
-            Container(
-              padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                color: Colors.blue[50],
-                borderRadius: BorderRadius.circular(8),
-                border: Border.all(color: Colors.blue[200]!),
-              ),
-              child: Column(
-                children: [
-                  Text(
-                    AppLocalizations.of(
-                      context,
-                    )!.totalParticipants(session.totalParticipants),
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black87,
-                    ),
+            Row(
+              children: [
+                Expanded(
+                  child: _StatCard(
+                    value: session.totalParticipants,
+                    label: l10n.statLabelTotal,
+                    variant: _StatVariant.total,
                   ),
-                  const SizedBox(height: 4),
-                  Text(
-                    AppLocalizations.of(context)!.activeVsWinners(
-                      activeParticipants.length,
-                      session.winnersCount,
-                    ),
-                    style: TextStyle(fontSize: 12, color: Colors.grey[600]),
+                ),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: _StatCard(
+                    value: activeParticipants.length,
+                    label: l10n.statLabelActive,
+                    variant: _StatVariant.active,
                   ),
-                ],
-              ),
+                ),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: _StatCard(
+                    value: session.winnersCount,
+                    label: l10n.statLabelWinners,
+                    variant: _StatVariant.winners,
+                  ),
+                ),
+              ],
             ),
             const SizedBox(height: 16),
 

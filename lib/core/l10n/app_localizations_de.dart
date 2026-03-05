@@ -262,4 +262,13 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get invalidHexColor => 'Ungültige Hex-Farbe';
+
+  @override
+  String get statLabelTotal => 'Gesamt';
+
+  @override
+  String get statLabelActive => 'Aktiv';
+
+  @override
+  String get statLabelWinners => 'Gewinner';
 }

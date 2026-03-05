@@ -263,4 +263,13 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get invalidHexColor => 'Μη έγκυρο δεκαεξαδικό χρώμα';
+
+  @override
+  String get statLabelTotal => 'Σύνολο';
+
+  @override
+  String get statLabelActive => 'Ενεργοί';
+
+  @override
+  String get statLabelWinners => 'Νικητές';
 }
