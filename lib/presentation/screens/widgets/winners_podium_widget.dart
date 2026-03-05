@@ -34,6 +34,7 @@ class WinnersPodiumWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
       child: Row(
+        spacing: 8,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           if (second != null)

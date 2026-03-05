@@ -50,17 +50,19 @@ class WinnersListWidget extends StatelessWidget {
               // Subtitle with divider
               Row(
                 children: [
-                  Expanded(child: Container(height: 1, color: AppTheme.zinc500)),
+                  const Expanded(child: Divider()),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: Text(
-                      AppLocalizations.of(context)!.winnersSelectedCount(winners.length),
+                      AppLocalizations.of(
+                        context,
+                      )!.winnersSelectedCount(winners.length),
                       style: Theme.of(
                         context,
                       ).textTheme.bodyMedium!.copyWith(color: AppTheme.zinc500),
                     ),
                   ),
-                  Expanded(child: Container(height: 1, color: AppTheme.zinc500)),
+                  const Expanded(child: Divider()),
                 ],
               ),
             ],
@@ -68,7 +70,13 @@ class WinnersListWidget extends StatelessWidget {
         ),
 
         // Podium for top 3
-        if (podiumWinners.isNotEmpty) WinnersPodiumWidget(winners: podiumWinners),
+        if (podiumWinners.isNotEmpty) ...[
+          WinnersPodiumWidget(winners: podiumWinners),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Divider(thickness: 0.5,),
+          ),
+        ],
 
         // Remaining winners (4th place and beyond)
         if (winners.isNotEmpty)
@@ -91,29 +99,29 @@ class WinnersListWidget extends StatelessWidget {
           child: Row(
             children: [
               Expanded(
-          child: FilledButton.icon(
-            onPressed: () async {
-              final confirmed = await showResetRaffleDialog(context);
-              if (confirmed && context.mounted) {
-                context.go(AppRoutes.raffle);
-              }
-            },
-            icon: const Icon(Icons.repeat),
-            label: Text(AppLocalizations.of(context)!.newRaffle),
-          ),
+                child: FilledButton.icon(
+                  onPressed: () async {
+                    final confirmed = await showResetRaffleDialog(context);
+                    if (confirmed && context.mounted) {
+                      context.go(AppRoutes.raffle);
+                    }
+                  },
+                  icon: const Icon(Icons.repeat),
+                  label: Text(AppLocalizations.of(context)!.newRaffle),
+                ),
               ),
               const SizedBox(width: 12),
               Expanded(
-          child: OutlinedButton.icon(
-            onPressed: () async {
-              final confirmed = await showClearWinnersDialog(context);
-              if (confirmed && context.mounted) {
-                context.go(AppRoutes.raffle);
-              }
-            },
-            icon: const Icon(Icons.restart_alt),
-            label: Text(AppLocalizations.of(context)!.resetWinners),
-          ),
+                child: OutlinedButton.icon(
+                  onPressed: () async {
+                    final confirmed = await showClearWinnersDialog(context);
+                    if (confirmed && context.mounted) {
+                      context.go(AppRoutes.raffle);
+                    }
+                  },
+                  icon: const Icon(Icons.restart_alt),
+                  label: Text(AppLocalizations.of(context)!.resetWinners),
+                ),
               ),
             ],
           ),
