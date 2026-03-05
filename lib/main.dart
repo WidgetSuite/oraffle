@@ -54,18 +54,8 @@ class _ORaffleApplicationState extends State<ORaffleApplication> {
             builder: (context, localeState) {
               return MaterialApp.router(
                 routerConfig: goRouter,
-                theme: AppTheme.lightTheme.copyWith(
-                  primaryColor: settings.primaryColor,
-                  colorScheme: AppTheme.lightTheme.colorScheme.copyWith(
-                    primary: settings.primaryColor,
-                  ),
-                ),
-                darkTheme: AppTheme.darkTheme.copyWith(
-                  primaryColor: settings.primaryColor,
-                  colorScheme: AppTheme.darkTheme.colorScheme.copyWith(
-                    primary: settings.primaryColor,
-                  ),
-                ),
+                theme: AppTheme.lightTheme(settings.primaryColor),
+                darkTheme: AppTheme.darkTheme(settings.primaryColor),
                 themeMode: settings.themeMode,
                 locale: localeState.locale,
                 localizationsDelegates: AppLocalizations.localizationsDelegates,

@@ -22,6 +22,10 @@ class CustomColors extends ThemeExtension<CustomColors> {
   final Color? warning;
   final Color? warningContainer;
   final Color? onWarningContainer;
+  final Color? successContainer;
+  final Color? onSuccessContainer;
+  final Color? winnersContainer;
+  final Color? onWinnersContainer;
 
   const CustomColors({
     this.aiIconColor,
@@ -30,6 +34,10 @@ class CustomColors extends ThemeExtension<CustomColors> {
     this.warning,
     this.warningContainer,
     this.onWarningContainer,
+    this.successContainer,
+    this.onSuccessContainer,
+    this.winnersContainer,
+    this.onWinnersContainer,
   });
 
   @override
@@ -40,6 +48,10 @@ class CustomColors extends ThemeExtension<CustomColors> {
     Color? warning,
     Color? warningContainer,
     Color? onWarningContainer,
+    Color? successContainer,
+    Color? onSuccessContainer,
+    Color? winnersContainer,
+    Color? onWinnersContainer,
   }) {
     return CustomColors(
       aiIconColor: aiIconColor ?? this.aiIconColor,
@@ -48,6 +60,10 @@ class CustomColors extends ThemeExtension<CustomColors> {
       warning: warning ?? this.warning,
       warningContainer: warningContainer ?? this.warningContainer,
       onWarningContainer: onWarningContainer ?? this.onWarningContainer,
+      successContainer: successContainer ?? this.successContainer,
+      onSuccessContainer: onSuccessContainer ?? this.onSuccessContainer,
+      winnersContainer: winnersContainer ?? this.winnersContainer,
+      onWinnersContainer: onWinnersContainer ?? this.onWinnersContainer,
     );
   }
 
@@ -65,6 +81,18 @@ class CustomColors extends ThemeExtension<CustomColors> {
       onWarningContainer: Color.lerp(
         onWarningContainer,
         other.onWarningContainer,
+        t,
+      ),
+      successContainer: Color.lerp(successContainer, other.successContainer, t),
+      onSuccessContainer: Color.lerp(
+        onSuccessContainer,
+        other.onSuccessContainer,
+        t,
+      ),
+      winnersContainer: Color.lerp(winnersContainer, other.winnersContainer, t),
+      onWinnersContainer: Color.lerp(
+        onWinnersContainer,
+        other.onWinnersContainer,
         t,
       ),
     );
