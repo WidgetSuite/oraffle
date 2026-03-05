@@ -60,10 +60,14 @@ class WinnersScreen extends StatelessWidget {
               onPressed: () => context.go(AppRoutes.raffle),
             ),
             actions: [
-              IconButton(
+              FilledButton.icon(
                 onPressed: () => _showShareDialog(context),
                 icon: const Icon(Icons.share),
-                tooltip: AppLocalizations.of(context)!.shareResults,
+                label: Text(AppLocalizations.of(context)!.shareResults),
+                style: FilledButton.styleFrom(
+                  elevation: 2,
+                  minimumSize: Size(0, 48),
+                ),
               ),
             ],
           ),
@@ -182,42 +186,35 @@ class WinnersScreen extends StatelessWidget {
 
                 const SizedBox(height: 32),
 
-                SizedBox(
-                  height: 56,
-                  child: ElevatedButton.icon(
-                    onPressed: () async {
-                      Navigator.of(dialogContext).pop();
-                      await Clipboard.setData(ClipboardData(text: resultsText));
-                      if (context.mounted) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text(
-                              AppLocalizations.of(context)!.shareSuccess,
-                            ),
-                            behavior: SnackBarBehavior.floating,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
+                ElevatedButton.icon(
+                  onPressed: () async {
+                    Navigator.of(dialogContext).pop();
+                    await Clipboard.setData(ClipboardData(text: resultsText));
+                    if (context.mounted) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            AppLocalizations.of(context)!.shareSuccess,
                           ),
-                        );
-                      }
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppTheme.primaryColor,
-                      foregroundColor: Colors.white,
-                      elevation: 0,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                    ),
-                    icon: const Icon(Icons.copy, size: 20),
-                    label: Text(
-                      AppLocalizations.of(context)!.share,
-                      style: const TextStyle(
-                        fontFamily: 'Inter',
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                      ),
+                          behavior: SnackBarBehavior.floating,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                      );
+                    }
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppTheme.primaryColor,
+                    foregroundColor: Colors.white,
+                  ),
+                  icon: const Icon(Icons.copy, size: 20),
+                  label: Text(
+                    AppLocalizations.of(context)!.share,
+                    style: const TextStyle(
+                      fontFamily: 'Inter',
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                 ),

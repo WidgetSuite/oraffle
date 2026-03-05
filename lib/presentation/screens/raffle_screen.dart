@@ -16,6 +16,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:oraffle/presentation/screens/settings_dialog.dart';
 import 'package:oraffle/presentation/screens/widgets/logo_widget.dart';
 import 'package:oraffle/core/l10n/app_localizations.dart';
 import 'package:oraffle/core/theme/app_theme.dart';
@@ -28,7 +29,6 @@ import 'package:oraffle/presentation/blocs/settings_cubit/settings_state.dart';
 import 'package:oraffle/presentation/screens/widgets/raffle_narrow_layout.dart';
 import 'package:oraffle/presentation/screens/widgets/raffle_wide_layout.dart';
 import 'package:oraffle/presentation/screens/widgets/winner_dialog.dart';
-import 'package:oraffle/presentation/screens/widgets/reset_raffle_dialog.dart';
 import 'package:oraffle/routes/app_router.dart';
 
 class RaffleScreen extends StatelessWidget {
@@ -42,6 +42,15 @@ class RaffleScreen extends StatelessWidget {
 
 class _RaffleScreenContent extends StatelessWidget {
   const _RaffleScreenContent();
+
+  Future<void> _showSettingsDialog(BuildContext context) async {
+    await showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (_) => const SettingsDialog(),
+    );
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -87,6 +96,12 @@ class _RaffleScreenContent extends StatelessWidget {
               onPressed: () => context.go(AppRoutes.home),
             ),
             actions: [
+              IconButton(
+                    icon: const Icon(Icons.settings),
+                    onPressed: () => _showSettingsDialog(context),
+                    tooltip: AppLocalizations.of(context)!.settingsTitle,
+                  ),
+              SizedBox(width: 16,),
               // Winners history button
               BlocBuilder<RaffleBloc, RaffleState>(
                 builder: (context, state) {
@@ -99,26 +114,25 @@ class _RaffleScreenContent extends StatelessWidget {
                     hasWinners = state.session.hasWinners;
                   }
 
-                  return IconButton(
+                  return FilledButton.icon(
                     onPressed: hasWinners
                         ? () => context.go(AppRoutes.raffleWinners)
                         : null,
                     icon: Icon(
                       Icons.emoji_events,
                       color: hasWinners
-                          ? Theme.of(context).extension<CustomColors>()!.warning
+                          ? null
                           : AppTheme.zinc500,
                     ),
-                    tooltip: AppLocalizations.of(context)!.viewWinners,
+                    style: FilledButton.styleFrom(
+                      elevation: 2,
+                      minimumSize: Size(0, 48),
+                    ),
+                    label: Text(AppLocalizations.of(context)!.winnersTitle),
                   );
                 },
               ),
-              // Reset raffle button
-              IconButton(
-                onPressed: () => showResetRaffleDialog(context),
-                icon: const Icon(Icons.refresh),
-                tooltip: AppLocalizations.of(context)!.resetRaffleTitle,
-              ),
+              SizedBox(width: 16,),
             ],
           ),
           body: BlocListener<RaffleBloc, RaffleState>(

@@ -47,6 +47,7 @@ class RaffleControlsWidget extends StatelessWidget {
             session != null && session.canSelectWinner && !isSelecting;
 
         return Column(
+          spacing: 16,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             // Animation area
@@ -56,38 +57,24 @@ class RaffleControlsWidget extends StatelessWidget {
             ],
 
             // Start Raffle Button
-            SizedBox(
-              height: 56,
-              child: ElevatedButton.icon(
-                onPressed: canStartRaffle
-                    ? () => _startRaffle(context, session!)
-                    : null,
-                icon: isSelecting
-                    ? const SizedBox(
-                        width: 20,
-                        height: 20,
-                        child: CircularProgressIndicator(strokeWidth: 2),
-                      )
-                    : const Icon(Icons.casino),
-                label: Text(
-                  isSelecting
-                      ? AppLocalizations.of(context)!.raffling
-                      : AppLocalizations.of(context)!.startRaffle,
-                  style: const TextStyle(fontSize: 18),
-                ),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: canStartRaffle
-                      ? Theme.of(context).colorScheme.primary
-                      : null,
-                  foregroundColor: canStartRaffle ? Colors.white : null,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                ),
+            FilledButton.icon(
+              onPressed: canStartRaffle
+                  ? () => _startRaffle(context, session!)
+                  : null,
+              icon: isSelecting
+                  ? const SizedBox(
+                      width: 20,
+                      height: 20,
+                      child: CircularProgressIndicator(strokeWidth: 2),
+                    )
+                  : const Icon(Icons.casino),
+              label: Text(
+                isSelecting
+                    ? AppLocalizations.of(context)!.raffling
+                    : AppLocalizations.of(context)!.startRaffle,
+                style: const TextStyle(fontSize: 18),
               ),
             ),
-
-            const SizedBox(height: 16),
 
             // Status text
             if (session != null) ...[
@@ -100,30 +87,23 @@ class RaffleControlsWidget extends StatelessWidget {
 
             // Additional controls
             if (session != null && session.hasWinners) ...[
-              const SizedBox(height: 16),
               Row(
                 children: [
                   Expanded(
-                    child: SizedBox(
-                      height: 56,
-                      child: OutlinedButton.icon(
-                        onPressed: () => showClearWinnersDialog(context),
-                        icon: const Icon(Icons.restart_alt),
-                        label: Text(
-                          AppLocalizations.of(context)!.resetWinners,
-                          style: const TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                          ),
+                    child: OutlinedButton.icon(
+                      onPressed: () => showClearWinnersDialog(context),
+                      icon: const Icon(Icons.restart_alt),
+                      label: Text(
+                        AppLocalizations.of(context)!.resetWinners,
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
                         ),
-                        style: OutlinedButton.styleFrom(
-                          foregroundColor: AppTheme.errorColor,
-                          side: BorderSide(
-                            color: AppTheme.errorColor.withValues(alpha: 0.3),
-                          ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12),
-                          ),
+                      ),
+                      style: OutlinedButton.styleFrom(
+                        foregroundColor: AppTheme.errorColor,
+                        side: BorderSide(
+                          color: AppTheme.errorColor,
                         ),
                       ),
                     ),

@@ -155,26 +155,18 @@ class WinnerDialog extends StatelessWidget {
               children: [
                 // Continue raffle button
                 if (session.activeParticipantsCount > 1) ...[
-                  SizedBox(
-                    height: 56,
-                    child: ElevatedButton.icon(
-                      onPressed: onRepeatRaffle,
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Theme.of(context).colorScheme.primary,
-                        foregroundColor: Colors.white,
-                        elevation: 0,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                      ),
-                      icon: const Icon(Icons.casino, size: 20),
-                      label: Text(
-                        AppLocalizations.of(context)!.continueRaffle,
-                        style: const TextStyle(
-                          fontFamily: 'Inter',
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
-                        ),
+                  FilledButton.icon(
+                    onPressed: onRepeatRaffle,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Theme.of(context).colorScheme.primary,
+                    ),
+                    icon: const Icon(Icons.casino, size: 20),
+                    label: Text(
+                      AppLocalizations.of(context)!.continueRaffle,
+                      style: const TextStyle(
+                        fontFamily: 'Inter',
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                   ),
@@ -182,61 +174,44 @@ class WinnerDialog extends StatelessWidget {
                 ],
 
                 // Finish raffle / View Winners button
-                SizedBox(
-                  height: 56,
-                  child: session.activeParticipantsCount > 1
-                      ? OutlinedButton.icon(
-                          onPressed: onFinishRaffle,
-                          style: OutlinedButton.styleFrom(
-                            foregroundColor: Theme.of(
-                              context,
-                            ).colorScheme.primary,
-                            side: BorderSide(
-                              color: Theme.of(
-                                context,
-                              ).colorScheme.primary.withValues(alpha: 0.5),
-                            ),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                          ),
-                          icon: Icon(
-                            Icons.emoji_events,
-                            size: 20,
-                            color: Theme.of(context).colorScheme.primary,
-                          ),
-                          label: Text(
-                            AppLocalizations.of(context)!.winnersTitle,
-                            style: const TextStyle(
-                              fontFamily: 'Inter',
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        )
-                      : ElevatedButton.icon(
-                          onPressed: onFinishRaffle,
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Theme.of(
-                              context,
-                            ).colorScheme.primary,
-                            foregroundColor: Colors.white,
-                            elevation: 0,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                          ),
-                          icon: const Icon(Icons.emoji_events, size: 20),
-                          label: Text(
-                            AppLocalizations.of(context)!.finishRaffle,
-                            style: const TextStyle(
-                              fontFamily: 'Inter',
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                            ),
+                session.activeParticipantsCount > 1
+                    ? OutlinedButton.icon(
+                        onPressed: onFinishRaffle,
+                        icon: Icon(
+                          Icons.emoji_events,
+                          size: 20,
+                          color: Theme.of(context).colorScheme.primary,
+                        ),
+                        label: Text(
+                          AppLocalizations.of(context)!.winnersTitle,
+                          style: const TextStyle(
+                            fontFamily: 'Inter',
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
-                ),
+                      )
+                    : ElevatedButton.icon(
+                        onPressed: onFinishRaffle,
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Theme.of(
+                            context,
+                          ).colorScheme.primary,
+                          elevation: 0,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                        ),
+                        icon: const Icon(Icons.emoji_events, size: 20),
+                        label: Text(
+                          AppLocalizations.of(context)!.finishRaffle,
+                          style: const TextStyle(
+                            fontFamily: 'Inter',
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
               ],
             ),
           ],

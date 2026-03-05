@@ -119,53 +119,36 @@ class WinnersListWidget extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              SizedBox(
-                height: 56,
-                child: ElevatedButton.icon(
-                  onPressed: () async {
-                    final confirmed = await showResetRaffleDialog(context);
-                    if (confirmed && context.mounted) {
-                      context.go(AppRoutes.raffle);
-                    }
-                  },
-                  icon: const Icon(Icons.refresh),
-                  label: Text(
-                    AppLocalizations.of(context)!.newRaffle,
-                    style: const TextStyle(fontWeight: FontWeight.w600),
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Theme.of(context).colorScheme.primary,
-                    foregroundColor: Colors.white,
-                    elevation: 0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                  ),
+              FilledButton.icon(
+                onPressed: () async {
+                  final confirmed = await showResetRaffleDialog(context);
+                  if (confirmed && context.mounted) {
+                    context.go(AppRoutes.raffle);
+                  }
+                },
+                icon: const Icon(Icons.refresh),
+                label: Text(
+                  AppLocalizations.of(context)!.newRaffle,
+                  style: const TextStyle(fontWeight: FontWeight.w600),
                 ),
               ),
               const SizedBox(height: 12),
-              SizedBox(
-                height: 56,
-                child: OutlinedButton.icon(
-                  onPressed: () async {
-                    final confirmed = await showClearWinnersDialog(context);
-                    if (confirmed && context.mounted) {
-                      context.go(AppRoutes.raffle);
-                    }
-                  },
-                  icon: const Icon(Icons.restart_alt),
-                  label: Text(
-                    AppLocalizations.of(context)!.resetWinners,
-                    style: const TextStyle(fontWeight: FontWeight.w600),
-                  ),
-                  style: OutlinedButton.styleFrom(
-                    foregroundColor: AppTheme.errorColor,
-                    side: BorderSide(
-                      color: AppTheme.errorColor.withValues(alpha: 0.3),
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
+              OutlinedButton.icon(
+                onPressed: () async {
+                  final confirmed = await showClearWinnersDialog(context);
+                  if (confirmed && context.mounted) {
+                    context.go(AppRoutes.raffle);
+                  }
+                },
+                icon: const Icon(Icons.restart_alt),
+                label: Text(
+                  AppLocalizations.of(context)!.resetWinners,
+                  style: const TextStyle(fontWeight: FontWeight.w600),
+                ),
+                style: OutlinedButton.styleFrom(
+                  foregroundColor: AppTheme.errorColor,
+                  side: BorderSide(
+                    color: AppTheme.errorColor.withValues(alpha: 0.3),
                   ),
                 ),
               ),

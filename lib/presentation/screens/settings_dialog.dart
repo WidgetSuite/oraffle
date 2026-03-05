@@ -19,6 +19,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:oraffle/core/l10n/app_localizations.dart';
+import 'package:oraffle/core/theme/app_theme.dart';
 import 'package:oraffle/core/theme/extensions/confirm_dialog_colors_extension.dart';
 import 'package:oraffle/domain/models/raffle/raffle_logo.dart';
 import 'package:oraffle/presentation/blocs/locale_cubit/locale_cubit.dart';
@@ -41,7 +42,9 @@ class SettingsDialog extends StatelessWidget {
       elevation: 0,
       insetPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
       child: Container(
-        width: 520,
+        constraints: BoxConstraints(
+          maxWidth: 520,
+        ),
         decoration: BoxDecoration(
           color: colors.card,
           borderRadius: BorderRadius.circular(24),
@@ -136,17 +139,8 @@ class SettingsDialog extends StatelessWidget {
                 // Save/Close Button
                 Padding(
                   padding: const EdgeInsets.fromLTRB(32, 0, 32, 32),
-                  child: ElevatedButton(
+                  child: FilledButton(
                     onPressed: () => Navigator.of(context).pop(),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Theme.of(context).colorScheme.primary,
-                      foregroundColor: Colors.white,
-                      elevation: 0,
-                      minimumSize: const Size(double.infinity, 56),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                    ),
                     child: Text(AppLocalizations.of(context)!.okButton),
                   ),
                 ),
@@ -205,7 +199,8 @@ class _LogoSetting extends StatelessWidget {
                   icon: const Icon(Icons.delete_outline, color: Colors.red),
                   onPressed: () =>
                       context.read<SettingsCubit>().updateLogo(null),
-                  style: IconButton.styleFrom(backgroundColor: Colors.white),
+                  style: IconButton.styleFrom(backgroundColor: AppTheme.surfaceColor
+                  ),
                 ),
               ),
             ],
@@ -353,7 +348,6 @@ class _ColorSettingState extends State<_ColorSetting> {
                   ),
                 ],
               ),
-              child: const Icon(Icons.colorize, color: Colors.white, size: 20),
             ),
             const SizedBox(width: 16),
             // Hex Input
@@ -366,7 +360,6 @@ class _ColorSettingState extends State<_ColorSetting> {
                   errorText: _isValid
                       ? null
                       : AppLocalizations.of(context)!.invalidHexColor,
-                  prefixIcon: const Icon(Icons.tag, size: 18),
                   contentPadding: const EdgeInsets.symmetric(
                     horizontal: 16,
                     vertical: 12,
