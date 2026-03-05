@@ -39,7 +39,7 @@ class WinnerDialog extends StatelessWidget {
     final colors = context.appColors;
 
     // Design Tokens
-    final titleColor = isDark ? AppTheme.backgroundColor : Colors.black;
+    final titleColor = Theme.of(context).colorScheme.onSurface;
     final trophyBg = isDark
         ? Theme.of(context).colorScheme.primary.withValues(alpha: 0.2)
         : Theme.of(context).colorScheme.primary.withValues(alpha: 0.1);
@@ -47,7 +47,7 @@ class WinnerDialog extends StatelessWidget {
     final nameBg = isDark ? AppTheme.zinc700 : AppTheme.zinc100;
     final nameText = isDark ? AppTheme.backgroundColor : AppTheme.zinc900;
     final statsBg = isDark ? AppTheme.zinc900 : AppTheme.zinc50;
-    final statsLabel = isDark ? AppTheme.backgroundColor : Colors.black;
+    final statsLabel = Theme.of(context).colorScheme.onSurface;
 
     final tt = Theme.of(context).textTheme;
     return Dialog(
@@ -139,11 +139,9 @@ class WinnerDialog extends StatelessWidget {
                 if (session.activeParticipantsCount > 1) ...[
                   FilledButton.icon(
                     onPressed: onRepeatRaffle,
-               
+
                     icon: const Icon(Icons.casino, size: 20),
-                    label: Text(
-                      AppLocalizations.of(context)!.continueRaffle,
-                    ),
+                    label: Text(AppLocalizations.of(context)!.continueRaffle),
                   ),
                   const SizedBox(height: 12),
                 ],
@@ -152,12 +150,8 @@ class WinnerDialog extends StatelessWidget {
                 session.activeParticipantsCount > 1
                     ? OutlinedButton.icon(
                         onPressed: onFinishRaffle,
-                        icon: Icon(
-                          Icons.emoji_events,
-                        ),
-                        label: Text(
-                          AppLocalizations.of(context)!.winnersTitle,
-                        ),
+                        icon: Icon(Icons.emoji_events),
+                        label: Text(AppLocalizations.of(context)!.winnersTitle),
                       )
                     : ElevatedButton.icon(
                         onPressed: onFinishRaffle,
@@ -167,9 +161,7 @@ class WinnerDialog extends StatelessWidget {
                           ).colorScheme.primary,
                         ),
                         icon: const Icon(Icons.emoji_events),
-                        label: Text(
-                          AppLocalizations.of(context)!.finishRaffle,
-                        ),
+                        label: Text(AppLocalizations.of(context)!.finishRaffle),
                       ),
               ],
             ),

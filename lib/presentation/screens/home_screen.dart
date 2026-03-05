@@ -72,10 +72,10 @@ class HomeScreen extends StatelessWidget {
                               logo: logo,
                               fit: BoxFit.contain,
                               errorBuilder: (context, error, stackTrace) =>
-                                  const Icon(
+                                  Icon(
                                     Icons.broken_image,
                                     size: 80,
-                                    color: Colors.grey,
+                                    color: Theme.of(context).hintColor,
                                   ),
                             ),
                           )
@@ -84,10 +84,10 @@ class HomeScreen extends StatelessWidget {
                             onTap: () => _showSettingsDialog(context),
                             child: Column(
                               children: [
-                                const Icon(
+                                Icon(
                                   Icons.image_not_supported_outlined,
                                   size: 80,
-                                  color: Colors.grey,
+                                  color: Theme.of(context).hintColor,
                                 ),
                                 const SizedBox(height: 8),
                                 Text(

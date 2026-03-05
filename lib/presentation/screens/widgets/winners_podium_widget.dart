@@ -15,18 +15,16 @@
 
 import 'package:flutter/material.dart';
 import 'package:oraffle/domain/models/raffle/raffle_winner.dart';
+import 'package:oraffle/core/theme/extensions/custom_colors.dart';
 
 class WinnersPodiumWidget extends StatelessWidget {
   final List<RaffleWinner> winners;
 
   const WinnersPodiumWidget({super.key, required this.winners});
 
-  static const _gold = Color(0xFFFFD700);
-  static const _silver = Color(0xFFB0BEC5);
-  static const _copper = Color(0xFFCD7F32);
-
   @override
   Widget build(BuildContext context) {
+    final customColors = Theme.of(context).extension<CustomColors>();
     final first = _winnerAt(1);
     final second = _winnerAt(2);
     final third = _winnerAt(3);
@@ -38,11 +36,11 @@ class WinnersPodiumWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           if (second != null)
-            _PodiumColumn(winner: second, color: _silver, blockHeight: 80, position: 2),
+            _PodiumColumn(winner: second, color: customColors?.silverMedal ?? const Color(0xFFB0BEC5), blockHeight: 80, position: 2),
           if (first != null)
-            _PodiumColumn(winner: first, color: _gold, blockHeight: 110, position: 1),
+            _PodiumColumn(winner: first, color: customColors?.goldMedal ?? const Color(0xFFFFD700), blockHeight: 110, position: 1),
           if (third != null)
-            _PodiumColumn(winner: third, color: _copper, blockHeight: 60, position: 3),
+            _PodiumColumn(winner: third, color: customColors?.copperMedal ?? const Color(0xFFCD7F32), blockHeight: 60, position: 3),
         ],
       ),
     );
@@ -115,8 +113,8 @@ class _PodiumColumn extends StatelessWidget {
             child: Center(
               child: Text(
                 '$position',
-                style: const TextStyle(
-                  color: Colors.white,
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.onPrimary,
                   fontWeight: FontWeight.bold,
                   fontSize: 28,
                 ),

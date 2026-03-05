@@ -99,7 +99,7 @@ class ParticipantListWidget extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.people_outline, size: 64, color: Colors.grey[400]),
+                Icon(Icons.people_outline, size: 64, color: Theme.of(context).hintColor),
                 const SizedBox(height: 16),
                 Text(
                   AppLocalizations.of(context)!.noParticipants,

@@ -56,7 +56,7 @@ class WinnersEmptyState extends StatelessWidget {
                 label: Text(AppLocalizations.of(context)!.goToRaffle),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Theme.of(context).colorScheme.primary,
-                  foregroundColor: Colors.white,
+                  foregroundColor: Theme.of(context).colorScheme.onPrimary,
                 ),
               ),
             ),

@@ -119,6 +119,9 @@ class AppTheme {
             onSuccessContainer: Color(0xFF4ADE80),
             winnersContainer: Color(0xFF3D1A00),
             onWinnersContainer: Color(0xFFFB923C),
+            goldMedal: Color(0xFFFFD700),
+            silverMedal: Color(0xFFB0BEC5),
+            copperMedal: Color(0xFFCD7F32),
           )
         : const CustomColors(
             aiIconColor: defaultSeedColor,
@@ -131,6 +134,9 @@ class AppTheme {
             onSuccessContainer: Color(0xFF166534),
             winnersContainer: Color(0xFFFFF7ED),
             onWinnersContainer: Color(0xFFC2410C),
+            goldMedal: Color(0xFFFFD700),
+            silverMedal: Color(0xFFB0BEC5),
+            copperMedal: Color(0xFFCD7F32),
           );
 
     return ThemeData(

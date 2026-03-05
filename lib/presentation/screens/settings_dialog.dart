@@ -51,7 +51,7 @@ class SettingsDialog extends StatelessWidget {
           border: Border.all(color: colors.border, width: 1),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withValues(alpha: 0.1),
+              color: Theme.of(context).shadowColor.withValues(alpha: 0.1),
               blurRadius: 20,
               offset: const Offset(0, 10),
             ),
@@ -177,9 +177,9 @@ class _LogoSetting extends StatelessWidget {
                 height: 120,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: Colors.grey.withValues(alpha: 0.1),
+                  color: Theme.of(context).hintColor.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(16),
-                  border: Border.all(color: Colors.grey.withValues(alpha: 0.2)),
+                  border: Border.all(color: Theme.of(context).hintColor.withValues(alpha: 0.2)),
                 ),
                 padding: const EdgeInsets.all(16),
                 child: LogoWidget(logo: logo!, fit: BoxFit.contain),
@@ -188,7 +188,7 @@ class _LogoSetting extends StatelessWidget {
                 top: 8,
                 right: 8,
                 child: IconButton(
-                  icon: const Icon(Icons.delete_outline, color: Colors.red),
+                  icon: Icon(Icons.delete_outline, color: Theme.of(context).colorScheme.error),
                   onPressed: () =>
                       context.read<SettingsCubit>().updateLogo(null),
                   style: IconButton.styleFrom(backgroundColor: AppTheme.surfaceColor
@@ -204,10 +204,10 @@ class _LogoSetting extends StatelessWidget {
               height: 120,
               width: double.infinity,
               decoration: BoxDecoration(
-                color: Colors.grey.withValues(alpha: 0.1),
+                color: Theme.of(context).hintColor.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(16),
                 border: Border.all(
-                  color: Colors.grey.withValues(alpha: 0.2),
+                  color: Theme.of(context).hintColor.withValues(alpha: 0.2),
                   style: BorderStyle.solid,
                 ),
               ),
@@ -217,7 +217,7 @@ class _LogoSetting extends StatelessWidget {
                   Icon(
                     Icons.add_photo_alternate_outlined,
                     size: 40,
-                    color: Colors.grey,
+                    color: Theme.of(context).hintColor,
                   ),
                   SizedBox(height: 8),
                   Text(
@@ -424,7 +424,7 @@ class _ThemeModeSetting extends StatelessWidget {
           decoration: BoxDecoration(
             color: isSelected
                 ? Theme.of(context).colorScheme.primary.withValues(alpha: 0.1)
-                : Colors.grey.withValues(alpha: 0.05),
+                : Theme.of(context).hintColor.withValues(alpha: 0.05),
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
               color: isSelected
@@ -439,7 +439,7 @@ class _ThemeModeSetting extends StatelessWidget {
                 icon,
                 color: isSelected
                     ? Theme.of(context).colorScheme.primary
-                    : Colors.grey,
+                    : Theme.of(context).hintColor,
               ),
               const SizedBox(height: 4),
               Text(
@@ -465,7 +465,7 @@ class _LanguageSetting extends StatelessWidget {
         return Container(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
           decoration: BoxDecoration(
-            color: Colors.grey.withValues(alpha: 0.05),
+            color: Theme.of(context).hintColor.withValues(alpha: 0.05),
             borderRadius: BorderRadius.circular(12),
           ),
           child: DropdownButtonHideUnderline(

@@ -26,6 +26,9 @@ class CustomColors extends ThemeExtension<CustomColors> {
   final Color? onSuccessContainer;
   final Color? winnersContainer;
   final Color? onWinnersContainer;
+  final Color? goldMedal;
+  final Color? silverMedal;
+  final Color? copperMedal;
 
   const CustomColors({
     this.aiIconColor,
@@ -38,6 +41,9 @@ class CustomColors extends ThemeExtension<CustomColors> {
     this.onSuccessContainer,
     this.winnersContainer,
     this.onWinnersContainer,
+    this.goldMedal,
+    this.silverMedal,
+    this.copperMedal,
   });
 
   @override
@@ -52,6 +58,9 @@ class CustomColors extends ThemeExtension<CustomColors> {
     Color? onSuccessContainer,
     Color? winnersContainer,
     Color? onWinnersContainer,
+    Color? goldMedal,
+    Color? silverMedal,
+    Color? copperMedal,
   }) {
     return CustomColors(
       aiIconColor: aiIconColor ?? this.aiIconColor,
@@ -64,6 +73,9 @@ class CustomColors extends ThemeExtension<CustomColors> {
       onSuccessContainer: onSuccessContainer ?? this.onSuccessContainer,
       winnersContainer: winnersContainer ?? this.winnersContainer,
       onWinnersContainer: onWinnersContainer ?? this.onWinnersContainer,
+      goldMedal: goldMedal ?? this.goldMedal,
+      silverMedal: silverMedal ?? this.silverMedal,
+      copperMedal: copperMedal ?? this.copperMedal,
     );
   }
 
@@ -95,6 +107,9 @@ class CustomColors extends ThemeExtension<CustomColors> {
         other.onWinnersContainer,
         t,
       ),
+      goldMedal: Color.lerp(goldMedal, other.goldMedal, t),
+      silverMedal: Color.lerp(silverMedal, other.silverMedal, t),
+      copperMedal: Color.lerp(copperMedal, other.copperMedal, t),
     );
   }
 }

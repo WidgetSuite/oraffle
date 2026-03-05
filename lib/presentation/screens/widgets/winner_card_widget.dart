@@ -16,6 +16,7 @@
 import 'package:flutter/material.dart';
 import 'package:oraffle/core/l10n/app_localizations.dart';
 import 'package:oraffle/core/theme/app_theme.dart';
+import 'package:oraffle/core/theme/extensions/custom_colors.dart';
 import 'package:oraffle/domain/models/raffle/raffle_winner.dart';
 
 class WinnerCardWidget extends StatelessWidget {
@@ -31,30 +32,31 @@ class WinnerCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final position = winner.position;
+    final customColors = Theme.of(context).extension<CustomColors>();
     Color cardColor;
     IconData icon;
     Color iconColor;
 
     switch (position) {
       case 1:
-        cardColor = Colors.amber[50]!;
+        cardColor = (customColors?.goldMedal ?? const Color(0xFFFFD700)).withValues(alpha: 0.1);
         icon = Icons.looks_one;
-        iconColor = Colors.amber;
+        iconColor = customColors?.goldMedal ?? const Color(0xFFFFD700);
         break;
       case 2:
-        cardColor = Colors.grey[100]!;
+        cardColor = (customColors?.silverMedal ?? const Color(0xFFB0BEC5)).withValues(alpha: 0.1);
         icon = Icons.looks_two;
-        iconColor = Colors.grey[600]!;
+        iconColor = customColors?.silverMedal ?? const Color(0xFFB0BEC5);
         break;
       case 3:
-        cardColor = Colors.orange[50]!;
+        cardColor = (customColors?.copperMedal ?? const Color(0xFFCD7F32)).withValues(alpha: 0.1);
         icon = Icons.looks_3;
-        iconColor = Colors.orange;
+        iconColor = customColors?.copperMedal ?? const Color(0xFFCD7F32);
         break;
       default:
-        cardColor = Colors.blue[50]!;
+        cardColor = Theme.of(context).colorScheme.secondary.withValues(alpha: 0.1);
         icon = Icons.emoji_events;
-        iconColor = Colors.blue;
+        iconColor = Theme.of(context).colorScheme.secondary;
     }
 
     return Card(
@@ -68,11 +70,11 @@ class WinnerCardWidget extends StatelessWidget {
         ),
         title: Text(
           winner.name,
-          style: Theme.of(context).textTheme.titleMedium!.copyWith(color: AppTheme.zinc900),
+          style: Theme.of(context).textTheme.titleMedium!.copyWith(color: Theme.of(context).colorScheme.onSurface),
         ),
         subtitle: Text(
           '${AppLocalizations.of(context)!.placeLabel(_getPositionText(context, position))} • ${_formatTime(winner.selectedAt)}',
-          style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: AppTheme.zinc500),
+          style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant),
         ),
         trailing: position <= 3
             ? Icon(Icons.emoji_events, color: iconColor, size: 28)
