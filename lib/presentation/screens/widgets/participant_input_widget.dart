@@ -91,11 +91,22 @@ class _ParticipantInputWidgetState extends State<ParticipantInputWidget> {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text(
-              AppLocalizations.of(context)!.participantListHint,
-              style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+              Text(
+                AppLocalizations.of(context)!.participantListHint,
+                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                 color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6),
+                ),
               ),
+              TextButton(
+                onPressed: () {
+                _controller.clear();
+                },
+                child: Text(AppLocalizations.of(context)!.clearList),
+              ),
+              ],
             ),
             const SizedBox(height: 8),
             ConstrainedBox(
