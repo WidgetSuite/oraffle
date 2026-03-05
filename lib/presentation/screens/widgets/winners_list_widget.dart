@@ -21,6 +21,7 @@ import 'package:oraffle/domain/models/raffle/raffle_winner.dart';
 import 'package:oraffle/presentation/screens/widgets/clear_winners_dialog.dart';
 import 'package:oraffle/presentation/screens/widgets/reset_raffle_dialog.dart';
 import 'package:oraffle/presentation/screens/widgets/winner_card_widget.dart';
+import 'package:oraffle/presentation/screens/widgets/winners_podium_widget.dart';
 import 'package:oraffle/routes/app_router.dart';
 
 class WinnersListWidget extends StatelessWidget {
@@ -30,39 +31,16 @@ class WinnersListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final podiumWinners = winners.where((w) => w.position <= 3).toList();
+
     return Column(
       children: [
-        // Header with summary
+        // Header
         Container(
-          margin: const EdgeInsets.fromLTRB(16, 16, 16, 24),
+          margin: const EdgeInsets.fromLTRB(16, 16, 16, 16),
           child: Column(
             spacing: 16,
             children: [
-              // Crown icon at the top
-              Container(
-                width: 80,
-                height: 80,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: [Colors.amber[300]!, Colors.orange[400]!],
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.amber.withValues(alpha: 0.3),
-                      blurRadius: 16,
-                      offset: const Offset(0, 4),
-                    ),
-                  ],
-                ),
-                child: const Icon(
-                  Icons.emoji_events,
-                  color: Colors.white,
-                  size: 40,
-                ),
-              ),
               // Title
               Text(
                 AppLocalizations.of(context)!.raffleCompleted,
@@ -72,38 +50,40 @@ class WinnersListWidget extends StatelessWidget {
               // Subtitle with divider
               Row(
                 children: [
-                  Expanded(
-                    child: Container(height: 1, color: AppTheme.zinc500),
-                  ),
+                  Expanded(child: Container(height: 1, color: AppTheme.zinc500)),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: Text(
-                      AppLocalizations.of(
+                      AppLocalizations.of(context)!.winnersSelectedCount(winners.length),
+                      style: Theme.of(
                         context,
-                      )!.winnersSelectedCount(winners.length),
-                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: AppTheme.zinc500),
+                      ).textTheme.bodyMedium!.copyWith(color: AppTheme.zinc500),
                     ),
                   ),
-                  Expanded(
-                    child: Container(height: 1, color: AppTheme.zinc500),
-                  ),
+                  Expanded(child: Container(height: 1, color: AppTheme.zinc500)),
                 ],
               ),
             ],
           ),
         ),
 
-        // Winners list
-        Expanded(
-          child: ListView.builder(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            itemCount: winners.length,
-            itemBuilder: (context, index) {
-              final winner = winners[index];
-              return WinnerCardWidget(winner: winner, index: index);
-            },
-          ),
-        ),
+        // Podium for top 3
+        if (podiumWinners.isNotEmpty) WinnersPodiumWidget(winners: podiumWinners),
+
+        // Remaining winners (4th place and beyond)
+        if (winners.isNotEmpty)
+          Expanded(
+            child: ListView.builder(
+              padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+              itemCount: winners.length,
+              itemBuilder: (context, index) {
+                final winner = winners[index];
+                return WinnerCardWidget(winner: winner, index: index);
+              },
+            ),
+          )
+        else
+          const Spacer(),
 
         // Footer with action buttons
         Container(
@@ -118,7 +98,7 @@ class WinnersListWidget extends StatelessWidget {
                     context.go(AppRoutes.raffle);
                   }
                 },
-                icon: const Icon(Icons.refresh),
+                icon: const Icon(Icons.repeat),
                 label: Text(AppLocalizations.of(context)!.newRaffle),
               ),
               const SizedBox(height: 12),
@@ -131,12 +111,6 @@ class WinnersListWidget extends StatelessWidget {
                 },
                 icon: const Icon(Icons.restart_alt),
                 label: Text(AppLocalizations.of(context)!.resetWinners),
-                style: OutlinedButton.styleFrom(
-                  foregroundColor: AppTheme.errorColor,
-                  side: BorderSide(
-                    color: AppTheme.errorColor,
-                  ),
-                ),
               ),
             ],
           ),
