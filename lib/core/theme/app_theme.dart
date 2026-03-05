@@ -67,18 +67,19 @@ class AppTheme {
   }
 
   static ThemeData darkTheme([Color seed = defaultSeedColor]) {
-    final colorScheme = ColorScheme.fromSeed(
-      seedColor: seed,
-      brightness: Brightness.dark,
-    ).copyWith(
-      primary: seed,
-      secondary: secondaryColor,
-      surface: zinc900,
-      onSecondary: Colors.black,
-      onSurface: const Color(0xFFFAFAFA),
-      error: errorColor,
-      onError: Colors.white,
-    );
+    final colorScheme =
+        ColorScheme.fromSeed(
+          seedColor: seed,
+          brightness: Brightness.dark,
+        ).copyWith(
+          primary: seed,
+          secondary: secondaryColor,
+          surface: zinc900,
+          onSecondary: Colors.black,
+          onSurface: const Color(0xFFFAFAFA),
+          error: errorColor,
+          onError: Colors.white,
+        );
     return _buildTheme(colorScheme);
   }
 
@@ -156,21 +157,27 @@ class AppTheme {
         style: ButtonStyle(
           minimumSize: WidgetStatePropertyAll(buttonSize),
           shape: WidgetStatePropertyAll(buttonShape),
-          iconSize:  WidgetStatePropertyAll(20),
+          iconSize: WidgetStatePropertyAll(20),
         ),
       ),
-      filledButtonTheme: const FilledButtonThemeData(
+      filledButtonTheme: FilledButtonThemeData(
         style: ButtonStyle(
           minimumSize: WidgetStatePropertyAll(buttonSize),
           shape: WidgetStatePropertyAll(buttonShape),
-          iconSize:  WidgetStatePropertyAll(20),
+          iconSize: WidgetStatePropertyAll(20),
+          shadowColor: WidgetStateColor.resolveWith(
+            (state) => state.contains(WidgetState.disabled)
+                ? Colors.transparent
+                : Colors.black,
+          ),
+          elevation: WidgetStatePropertyAll(1),
         ),
       ),
       outlinedButtonTheme: const OutlinedButtonThemeData(
         style: ButtonStyle(
           minimumSize: WidgetStatePropertyAll(buttonSize),
           shape: WidgetStatePropertyAll(buttonShape),
-          iconSize:  WidgetStatePropertyAll(20),
+          iconSize: WidgetStatePropertyAll(20),
         ),
       ),
       inputDecorationTheme: const InputDecorationTheme(
