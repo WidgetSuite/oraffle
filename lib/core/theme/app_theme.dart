@@ -145,7 +145,6 @@ class AppTheme {
         elevation: 0,
         backgroundColor: colorScheme.primary,
         foregroundColor: colorScheme.onPrimary,
-        centerTitle: true,
         titleTextStyle: GoogleFonts.plusJakartaSans(
           color: colorScheme.onPrimary,
           fontSize: 20.0,
