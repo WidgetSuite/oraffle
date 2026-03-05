@@ -363,5 +363,8 @@
   "invalidHexColor": "Color hexadecimal inválido",
   "@invalidHexColor": {
     "description": "Mensaje de error para entrada de color hexadecimal inválida"
-  }
+  },
+  "statLabelTotal": "Total",
+  "statLabelActive": "Activos",
+  "statLabelWinners": "Ganadores"
 }

@@ -259,4 +259,13 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get invalidHexColor => 'अमान्य हेक्स रंग';
+
+  @override
+  String get statLabelTotal => 'कुल';
+
+  @override
+  String get statLabelActive => 'सक्रिय';
+
+  @override
+  String get statLabelWinners => 'विजेता';
 }

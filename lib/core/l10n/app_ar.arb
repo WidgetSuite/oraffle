@@ -357,5 +357,8 @@
   "invalidHexColor": "لون سداسي عشري غير صالح",
   "@invalidHexColor": {
     "description": "رسالة خطأ لإدخال لون سداسي عشري غير صالح"
-  }
+  },
+  "statLabelTotal": "المجموع",
+  "statLabelActive": "نشطاء",
+  "statLabelWinners": "الفائزون"
 }

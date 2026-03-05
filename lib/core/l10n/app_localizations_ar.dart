@@ -257,4 +257,13 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get invalidHexColor => 'لون سداسي عشري غير صالح';
+
+  @override
+  String get statLabelTotal => 'المجموع';
+
+  @override
+  String get statLabelActive => 'نشطاء';
+
+  @override
+  String get statLabelWinners => 'الفائزون';
 }

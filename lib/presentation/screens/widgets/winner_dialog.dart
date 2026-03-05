@@ -49,6 +49,7 @@ class WinnerDialog extends StatelessWidget {
     final statsBg = isDark ? AppTheme.zinc900 : AppTheme.zinc50;
     final statsLabel = isDark ? AppTheme.backgroundColor : Colors.black;
 
+    final tt = Theme.of(context).textTheme;
     return Dialog(
       backgroundColor: Colors.transparent,
       insetPadding: const EdgeInsets.symmetric(horizontal: 24),
@@ -80,12 +81,7 @@ class WinnerDialog extends StatelessWidget {
             // Winner announcement
             Text(
               AppLocalizations.of(context)!.congratulations,
-              style: TextStyle(
-                fontFamily: 'Inter',
-                fontSize: 24,
-                fontWeight: FontWeight.w700,
-                color: titleColor,
-              ),
+              style: tt.headlineSmall!.copyWith(color: titleColor),
               textAlign: TextAlign.center,
             ),
 
@@ -100,12 +96,7 @@ class WinnerDialog extends StatelessWidget {
               ),
               child: Text(
                 winnerName,
-                style: TextStyle(
-                  fontFamily: 'Inter',
-                  fontSize: 20,
-                  fontWeight: FontWeight.w700,
-                  color: nameText,
-                ),
+                style: tt.titleLarge!.copyWith(color: nameText),
                 textAlign: TextAlign.center,
               ),
             ),
@@ -125,23 +116,14 @@ class WinnerDialog extends StatelessWidget {
                     AppLocalizations.of(
                       context,
                     )!.positionLabel(session.winnersCount + 1),
-                    style: TextStyle(
-                      fontFamily: 'Inter',
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      color: statsLabel,
-                    ),
+                    style: tt.labelLarge!.copyWith(color: statsLabel),
                   ),
                   const SizedBox(height: 4),
                   Text(
                     AppLocalizations.of(context)!.remainingParticipants(
                       session.activeParticipantsCount - 1,
                     ),
-                    style: TextStyle(
-                      fontFamily: 'Inter',
-                      fontSize: 14,
-                      color: colors.subtitle,
-                    ),
+                    style: tt.bodyMedium!.copyWith(color: colors.subtitle),
                   ),
                 ],
               ),
@@ -155,88 +137,40 @@ class WinnerDialog extends StatelessWidget {
               children: [
                 // Continue raffle button
                 if (session.activeParticipantsCount > 1) ...[
-                  SizedBox(
-                    height: 56,
-                    child: ElevatedButton.icon(
-                      onPressed: onRepeatRaffle,
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Theme.of(context).colorScheme.primary,
-                        foregroundColor: Colors.white,
-                        elevation: 0,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                      ),
-                      icon: const Icon(Icons.casino, size: 20),
-                      label: Text(
-                        AppLocalizations.of(context)!.continueRaffle,
-                        style: const TextStyle(
-                          fontFamily: 'Inter',
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
+                  FilledButton.icon(
+                    onPressed: onRepeatRaffle,
+               
+                    icon: const Icon(Icons.casino, size: 20),
+                    label: Text(
+                      AppLocalizations.of(context)!.continueRaffle,
                     ),
                   ),
                   const SizedBox(height: 12),
                 ],
 
                 // Finish raffle / View Winners button
-                SizedBox(
-                  height: 56,
-                  child: session.activeParticipantsCount > 1
-                      ? OutlinedButton.icon(
-                          onPressed: onFinishRaffle,
-                          style: OutlinedButton.styleFrom(
-                            foregroundColor: Theme.of(
-                              context,
-                            ).colorScheme.primary,
-                            side: BorderSide(
-                              color: Theme.of(
-                                context,
-                              ).colorScheme.primary.withValues(alpha: 0.5),
-                            ),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                          ),
-                          icon: Icon(
-                            Icons.emoji_events,
-                            size: 20,
-                            color: Theme.of(context).colorScheme.primary,
-                          ),
-                          label: Text(
-                            AppLocalizations.of(context)!.winnersTitle,
-                            style: const TextStyle(
-                              fontFamily: 'Inter',
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        )
-                      : ElevatedButton.icon(
-                          onPressed: onFinishRaffle,
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Theme.of(
-                              context,
-                            ).colorScheme.primary,
-                            foregroundColor: Colors.white,
-                            elevation: 0,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                          ),
-                          icon: const Icon(Icons.emoji_events, size: 20),
-                          label: Text(
-                            AppLocalizations.of(context)!.finishRaffle,
-                            style: const TextStyle(
-                              fontFamily: 'Inter',
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
+                session.activeParticipantsCount > 1
+                    ? OutlinedButton.icon(
+                        onPressed: onFinishRaffle,
+                        icon: Icon(
+                          Icons.emoji_events,
                         ),
-                ),
+                        label: Text(
+                          AppLocalizations.of(context)!.winnersTitle,
+                        ),
+                      )
+                    : ElevatedButton.icon(
+                        onPressed: onFinishRaffle,
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Theme.of(
+                            context,
+                          ).colorScheme.primary,
+                        ),
+                        icon: const Icon(Icons.emoji_events),
+                        label: Text(
+                          AppLocalizations.of(context)!.finishRaffle,
+                        ),
+                      ),
               ],
             ),
           ],

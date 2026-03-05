@@ -261,4 +261,13 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get invalidHexColor => 'Hex kolore baliogabea';
+
+  @override
+  String get statLabelTotal => 'Guztira';
+
+  @override
+  String get statLabelActive => 'Aktibo';
+
+  @override
+  String get statLabelWinners => 'Irabazleak';
 }

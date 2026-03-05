@@ -119,5 +119,8 @@
   "invalidHexColor": "Μη έγκυρο δεκαεξαδικό χρώμα",
   "@invalidHexColor": {
     "description": "Μήνυμα σφάλματος για μη έγκυρη εισαγωγή δεκαεξαδικού χρώματος"
-  }
+  },
+  "statLabelTotal": "Σύνολο",
+  "statLabelActive": "Ενεργοί",
+  "statLabelWinners": "Νικητές"
 }

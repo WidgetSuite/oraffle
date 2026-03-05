@@ -354,5 +354,8 @@
   "invalidHexColor": "अमान्य हेक्स रंग",
   "@invalidHexColor": {
     "description": "अमान्य हेक्साडेसिमल रंग इनपुट के लिए त्रुटि संदेश"
-  }
+  },
+  "statLabelTotal": "कुल",
+  "statLabelActive": "सक्रिय",
+  "statLabelWinners": "विजेता"
 }

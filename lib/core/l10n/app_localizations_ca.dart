@@ -264,4 +264,13 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get invalidHexColor => 'Color hexadecimal no vàlid';
+
+  @override
+  String get statLabelTotal => 'Total';
+
+  @override
+  String get statLabelActive => 'Actius';
+
+  @override
+  String get statLabelWinners => 'Guanyadors';
 }

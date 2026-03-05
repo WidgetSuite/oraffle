@@ -567,6 +567,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Invalid hex color'**
   String get invalidHexColor;
+
+  /// Short label for total participants stat card
+  ///
+  /// In en, this message translates to:
+  /// **'Total'**
+  String get statLabelTotal;
+
+  /// Short label for active participants stat card
+  ///
+  /// In en, this message translates to:
+  /// **'Active'**
+  String get statLabelActive;
+
+  /// Short label for winners stat card
+  ///
+  /// In en, this message translates to:
+  /// **'Winners'**
+  String get statLabelWinners;
 }
 
 class _AppLocalizationsDelegate

@@ -88,7 +88,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String participantDiscarded(int count) {
-    return '$count participantes no válidos.';
+    return '$count participante(s) no válido(s).';
   }
 
   @override
@@ -262,4 +262,13 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get invalidHexColor => 'Color hexadecimal inválido';
+
+  @override
+  String get statLabelTotal => 'Total';
+
+  @override
+  String get statLabelActive => 'Activos';
+
+  @override
+  String get statLabelWinners => 'Ganadores';
 }

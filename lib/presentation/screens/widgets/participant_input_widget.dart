@@ -93,7 +93,9 @@ class _ParticipantInputWidgetState extends State<ParticipantInputWidget> {
           children: [
             Text(
               AppLocalizations.of(context)!.participantListHint,
-              style: TextStyle(fontSize: 14, color: Colors.grey[600]),
+              style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6),
+              ),
             ),
             const SizedBox(height: 8),
             ConstrainedBox(
@@ -108,9 +110,7 @@ class _ParticipantInputWidgetState extends State<ParticipantInputWidget> {
                     context,
                   )!.participantListPlaceholder,
                   border: const OutlineInputBorder(),
-                  contentPadding: const EdgeInsets.all(16),
                 ),
-                style: const TextStyle(fontSize: 16),
               ),
             ),
           ],
