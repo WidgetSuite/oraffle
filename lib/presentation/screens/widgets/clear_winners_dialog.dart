@@ -45,6 +45,7 @@ Future<bool> showClearWinnersDialog(BuildContext context) async {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.stretch,
+            spacing: 16,
             children: [
               // Header
               Row(
@@ -52,56 +53,30 @@ Future<bool> showClearWinnersDialog(BuildContext context) async {
                 children: [
                   Text(
                     AppLocalizations.of(context)!.resetWinnersConfirmTitle,
-                    style: TextStyle(
-                      fontFamily: 'Inter',
-                      fontSize: 24,
-                      fontWeight: FontWeight.w700,
-                      color: colors.title,
-                    ),
+                    style: Theme.of(context).textTheme.headlineSmall!.copyWith(color: colors.title),
                   ),
                   IconButton(
                     onPressed: () => Navigator.of(dialogContext).pop(false),
                     style: IconButton.styleFrom(
                       backgroundColor: colors.surface,
-                      fixedSize: const Size(40, 40),
-                      padding: EdgeInsets.zero,
                     ),
-                    icon: Icon(Icons.close, size: 20, color: colors.subtitle),
+                    icon: Icon(Icons.close),
                   ),
                 ],
               ),
-              const SizedBox(height: 16),
-
               // Content
               Text(
                 AppLocalizations.of(context)!.resetWinnersConfirmMessage,
-                style: TextStyle(
-                  fontFamily: 'Inter',
-                  fontSize: 16,
-                  color: colors.subtitle,
-                  height: 1.5,
-                ),
+                style: Theme.of(context).textTheme.bodyLarge!.copyWith(color: colors.subtitle),
               ),
-              const SizedBox(height: 32),
-
               // Actions
               FilledButton(
                 onPressed: () => Navigator.of(dialogContext).pop(true),
                 style: FilledButton.styleFrom(
                   backgroundColor: AppTheme.errorColor,
-                  foregroundColor: Colors.white,
-                  elevation: 0,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
                 ),
                 child: Text(
                   AppLocalizations.of(context)!.reset,
-                  style: const TextStyle(
-                    fontFamily: 'Inter',
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                  ),
                 ),
               ),
             ],

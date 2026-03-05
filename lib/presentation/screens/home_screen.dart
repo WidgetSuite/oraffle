@@ -21,6 +21,7 @@ import 'package:oraffle/presentation/blocs/settings_cubit/settings_cubit.dart';
 import 'package:oraffle/presentation/blocs/settings_cubit/settings_state.dart';
 import 'package:oraffle/presentation/screens/widgets/logo_widget.dart';
 import 'package:oraffle/routes/app_router.dart';
+import 'package:oraffle/core/theme/app_theme.dart';
 import 'package:oraffle/presentation/screens/settings_dialog.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -91,10 +92,7 @@ class HomeScreen extends StatelessWidget {
                                 const SizedBox(height: 8),
                                 Text(
                                   AppLocalizations.of(context)!.addCompanyLogo,
-                                  style: const TextStyle(
-                                    color: Colors.grey,
-                                    fontSize: 14,
-                                  ),
+                                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: AppTheme.zinc400),
                                 ),
                               ],
                             ),
@@ -104,21 +102,18 @@ class HomeScreen extends StatelessWidget {
                         // Title
                         Text(
                           AppLocalizations.of(context)!.appTitle,
-                          style: Theme.of(context).textTheme.headlineLarge
-                              ?.copyWith(
-                                fontWeight: FontWeight.bold,
-                                color: Theme.of(context).colorScheme.primary,
-                              ),
+                          style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                            color: Theme.of(context).colorScheme.primary,
+                          ),
                           textAlign: TextAlign.center,
                         ),
 
-                        const SizedBox(height: 16),
+                      
 
                         // Subtitle
                         Text(
                           AppLocalizations.of(context)!.homeSubtitle,
-                          style: Theme.of(context).textTheme.bodyLarge
-                              ?.copyWith(color: Colors.grey[600]),
+                          style: Theme.of(context).textTheme.bodyLarge!.copyWith(color: AppTheme.zinc500),
                           textAlign: TextAlign.center,
                         ),
 
@@ -134,15 +129,10 @@ class HomeScreen extends StatelessWidget {
                               onPressed: () => context.go(AppRoutes.raffle),
                               child: Text(
                                 AppLocalizations.of(context)!.startRaffle,
-                                style: const TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                ),
                               ),
                             ),
                           ),
                         ),
-                        const SizedBox(height: 16),
                       ],
                     ),
                   ),

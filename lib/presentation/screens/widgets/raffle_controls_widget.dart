@@ -72,7 +72,6 @@ class RaffleControlsWidget extends StatelessWidget {
                 isSelecting
                     ? AppLocalizations.of(context)!.raffling
                     : AppLocalizations.of(context)!.startRaffle,
-                style: const TextStyle(fontSize: 18),
               ),
             ),
 
@@ -81,7 +80,7 @@ class RaffleControlsWidget extends StatelessWidget {
               Text(
                 _getStatusText(session, isSelecting, context),
                 textAlign: TextAlign.center,
-                style: const TextStyle(fontSize: 14, color: AppTheme.zinc500),
+                style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: AppTheme.zinc500),
               ),
             ],
 
@@ -95,10 +94,6 @@ class RaffleControlsWidget extends StatelessWidget {
                       icon: const Icon(Icons.restart_alt),
                       label: Text(
                         AppLocalizations.of(context)!.resetWinners,
-                        style: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
-                        ),
                       ),
                       style: OutlinedButton.styleFrom(
                         foregroundColor: AppTheme.errorColor,

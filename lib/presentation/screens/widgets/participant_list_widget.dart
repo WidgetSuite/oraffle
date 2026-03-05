@@ -56,10 +56,7 @@ class _StatCard extends StatelessWidget {
         children: [
           Text(
             '$value',
-            style: theme.textTheme.titleLarge!.copyWith(
-              fontWeight: FontWeight.bold,
-              color: fg,
-            ),
+            style: theme.textTheme.titleLarge!.copyWith(color: fg),
           ),
           const SizedBox(height: 2),
           Text(
@@ -100,12 +97,16 @@ class ParticipantListWidget extends StatelessWidget {
                 const SizedBox(height: 16),
                 Text(
                   AppLocalizations.of(context)!.noParticipants,
-                  style: TextStyle(fontSize: 16, color: Colors.grey[600]),
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                    color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6),
+                  ),
                 ),
                 const SizedBox(height: 8),
                 Text(
                   AppLocalizations.of(context)!.addParticipantsHint,
-                  style: TextStyle(fontSize: 14, color: Colors.grey[500]),
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                    color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.5),
+                  ),
                 ),
               ],
             ),
@@ -155,9 +156,8 @@ class ParticipantListWidget extends StatelessWidget {
             if (activeParticipants.isNotEmpty) ...[
               Text(
                 AppLocalizations.of(context)!.activeParticipants,
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.green,
+                style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                  color: Theme.of(context).extension<CustomColors>()!.onSuccessContainer,
                 ),
               ),
               const SizedBox(height: 8),
@@ -181,9 +181,8 @@ class ParticipantListWidget extends StatelessWidget {
               const SizedBox(height: 16),
               Text(
                 AppLocalizations.of(context)!.alreadySelected,
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.orange,
+                style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                  color: Theme.of(context).extension<CustomColors>()!.onWinnersContainer,
                 ),
               ),
               const SizedBox(height: 8),

@@ -36,6 +36,7 @@ class WinnersListWidget extends StatelessWidget {
         Container(
           margin: const EdgeInsets.fromLTRB(16, 16, 16, 24),
           child: Column(
+            spacing: 16,
             children: [
               // Crown icon at the top
               Container(
@@ -62,22 +63,17 @@ class WinnersListWidget extends StatelessWidget {
                   size: 40,
                 ),
               ),
-              const SizedBox(height: 16),
               // Title
               Text(
                 AppLocalizations.of(context)!.raffleCompleted,
-                style: const TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: Theme.of(context).textTheme.headlineSmall,
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 8),
               // Subtitle with divider
               Row(
                 children: [
                   Expanded(
-                    child: Container(height: 1, color: AppTheme.zinc300),
+                    child: Container(height: 1, color: AppTheme.zinc500),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -85,15 +81,11 @@ class WinnersListWidget extends StatelessWidget {
                       AppLocalizations.of(
                         context,
                       )!.winnersSelectedCount(winners.length),
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                        color: AppTheme.zinc500,
-                      ),
+                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: AppTheme.zinc500),
                     ),
                   ),
                   Expanded(
-                    child: Container(height: 1, color: AppTheme.zinc300),
+                    child: Container(height: 1, color: AppTheme.zinc500),
                   ),
                 ],
               ),
@@ -127,10 +119,7 @@ class WinnersListWidget extends StatelessWidget {
                   }
                 },
                 icon: const Icon(Icons.refresh),
-                label: Text(
-                  AppLocalizations.of(context)!.newRaffle,
-                  style: const TextStyle(fontWeight: FontWeight.w600),
-                ),
+                label: Text(AppLocalizations.of(context)!.newRaffle),
               ),
               const SizedBox(height: 12),
               OutlinedButton.icon(
@@ -141,14 +130,11 @@ class WinnersListWidget extends StatelessWidget {
                   }
                 },
                 icon: const Icon(Icons.restart_alt),
-                label: Text(
-                  AppLocalizations.of(context)!.resetWinners,
-                  style: const TextStyle(fontWeight: FontWeight.w600),
-                ),
+                label: Text(AppLocalizations.of(context)!.resetWinners),
                 style: OutlinedButton.styleFrom(
                   foregroundColor: AppTheme.errorColor,
                   side: BorderSide(
-                    color: AppTheme.errorColor.withValues(alpha: 0.3),
+                    color: AppTheme.errorColor,
                   ),
                 ),
               ),

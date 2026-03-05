@@ -71,11 +71,7 @@ class SettingsDialog extends StatelessWidget {
                     children: [
                       Text(
                         AppLocalizations.of(context)!.settingsTitle,
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                          color: colors.title,
-                        ),
+                        style: Theme.of(context).textTheme.headlineSmall!.copyWith(color: colors.title),
                       ),
                       IconButton(
                         onPressed: () => Navigator.of(context).pop(),
@@ -161,11 +157,7 @@ class _SectionTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       title,
-      style: const TextStyle(
-        fontSize: 16,
-        fontWeight: FontWeight.w600,
-        color: Colors.grey,
-      ),
+      style: Theme.of(context).textTheme.labelLarge!.copyWith(color: AppTheme.zinc400),
     );
   }
 }
@@ -219,7 +211,7 @@ class _LogoSetting extends StatelessWidget {
                   style: BorderStyle.solid,
                 ),
               ),
-              child: const Column(
+              child:  Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(
@@ -230,7 +222,7 @@ class _LogoSetting extends StatelessWidget {
                   SizedBox(height: 8),
                   Text(
                     "Click to pick a logo",
-                    style: TextStyle(color: Colors.grey),
+                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: AppTheme.zinc400),
                   ),
                 ],
               ),
@@ -452,12 +444,9 @@ class _ThemeModeSetting extends StatelessWidget {
               const SizedBox(height: 4),
               Text(
                 label,
-                style: TextStyle(
-                  fontSize: 12,
-                  fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-                  color: isSelected
-                      ? Theme.of(context).colorScheme.primary
-                      : Colors.grey,
+                style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                  fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
+                  color: isSelected ? Theme.of(context).colorScheme.primary : AppTheme.zinc400,
                 ),
               ),
             ],

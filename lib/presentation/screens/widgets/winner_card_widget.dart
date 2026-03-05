@@ -15,6 +15,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:oraffle/core/l10n/app_localizations.dart';
+import 'package:oraffle/core/theme/app_theme.dart';
 import 'package:oraffle/domain/models/raffle/raffle_winner.dart';
 
 class WinnerCardWidget extends StatelessWidget {
@@ -67,15 +68,11 @@ class WinnerCardWidget extends StatelessWidget {
         ),
         title: Text(
           winner.name,
-          style: const TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-            color: Colors.black87,
-          ),
+          style: Theme.of(context).textTheme.titleMedium!.copyWith(color: AppTheme.zinc900),
         ),
         subtitle: Text(
           '${AppLocalizations.of(context)!.placeLabel(_getPositionText(context, position))} • ${_formatTime(winner.selectedAt)}',
-          style: TextStyle(color: Colors.grey[600], fontSize: 14),
+          style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: AppTheme.zinc500),
         ),
         trailing: position <= 3
             ? Icon(Icons.emoji_events, color: iconColor, size: 28)

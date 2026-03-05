@@ -52,12 +52,7 @@ Future<bool> showResetRaffleDialog(BuildContext context) async {
                 children: [
                   Text(
                     AppLocalizations.of(context)!.resetRaffleTitle,
-                    style: TextStyle(
-                      fontFamily: 'Inter',
-                      fontSize: 24,
-                      fontWeight: FontWeight.w700,
-                      color: colors.title,
-                    ),
+                    style: Theme.of(context).textTheme.headlineSmall!.copyWith(color: colors.title),
                   ),
                   IconButton(
                     onPressed: () => Navigator.of(dialogContext).pop(false),
@@ -75,36 +70,20 @@ Future<bool> showResetRaffleDialog(BuildContext context) async {
               // Content
               Text(
                 AppLocalizations.of(context)!.resetRaffleConfirmMessage,
-                style: TextStyle(
-                  fontFamily: 'Inter',
-                  fontSize: 16,
-                  color: colors.subtitle,
-                  height: 1.5,
-                ),
+                style: Theme.of(context).textTheme.bodyLarge!.copyWith(color: colors.subtitle),
               ),
               const SizedBox(height: 32),
 
               // Actions
               SizedBox(
                 width: double.infinity,
-                height: 56,
-                child: ElevatedButton(
+                child: FilledButton(
                   onPressed: () => Navigator.of(dialogContext).pop(true),
-                  style: ElevatedButton.styleFrom(
+                  style: FilledButton.styleFrom(
                     backgroundColor: AppTheme.errorColor,
-                    foregroundColor: Colors.white,
-                    elevation: 0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
                   ),
                   child: Text(
                     AppLocalizations.of(context)!.reset,
-                    style: const TextStyle(
-                      fontFamily: 'Inter',
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                    ),
                   ),
                 ),
               ),
