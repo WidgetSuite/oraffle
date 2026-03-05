@@ -15,6 +15,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:oraffle/core/theme/app_text_theme.dart';
 import 'package:oraffle/core/theme/extensions/confirm_dialog_colors_extension.dart';
 import 'package:oraffle/core/theme/extensions/custom_colors.dart';
 
@@ -137,7 +138,7 @@ class AppTheme {
       cardColor: isDark ? cardColorDark : cardColorLight,
       dividerColor: isDark ? borderColorDark : borderColor,
       hintColor: zinc400,
-      fontFamily: GoogleFonts.inter().fontFamily,
+      textTheme: AppTextTheme.textTheme,
       colorScheme: colorScheme,
       appBarTheme: AppBarTheme(
         elevation: 0,
@@ -155,18 +156,21 @@ class AppTheme {
         style: ButtonStyle(
           minimumSize: WidgetStatePropertyAll(buttonSize),
           shape: WidgetStatePropertyAll(buttonShape),
+          iconSize:  WidgetStatePropertyAll(20),
         ),
       ),
       filledButtonTheme: const FilledButtonThemeData(
         style: ButtonStyle(
           minimumSize: WidgetStatePropertyAll(buttonSize),
           shape: WidgetStatePropertyAll(buttonShape),
+          iconSize:  WidgetStatePropertyAll(20),
         ),
       ),
       outlinedButtonTheme: const OutlinedButtonThemeData(
         style: ButtonStyle(
           minimumSize: WidgetStatePropertyAll(buttonSize),
           shape: WidgetStatePropertyAll(buttonShape),
+          iconSize:  WidgetStatePropertyAll(20),
         ),
       ),
       inputDecorationTheme: const InputDecorationTheme(
