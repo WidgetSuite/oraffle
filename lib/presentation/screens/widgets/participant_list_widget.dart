@@ -187,8 +187,7 @@ class ParticipantListWidget extends StatelessWidget {
                       ).extension<CustomColors>()!.success!.withAlpha(30),
                     ),
                     child: Text(
-                      (session.totalParticipants - session.winnersCount)
-                          .toString(),
+                      activeParticipants.length.toString(),
                       style: Theme.of(context).textTheme.labelLarge!.copyWith(
                         color: Theme.of(
                           context,
@@ -204,14 +203,18 @@ class ParticipantListWidget extends StatelessWidget {
                   margin: const EdgeInsets.only(bottom: 4),
                   child: ListTile(
                     dense: true,
-                    leading: const Icon(
+                    leading:  Icon(
                       Icons.person_rounded,
-                      color: Colors.green,
+                      color: Theme.of(
+                          context,
+                        ).extension<CustomColors>()!.success,
                     ),
                     title: Text(participant.name),
-                    trailing: const Icon(
+                    trailing:  Icon(
                       Icons.check_circle_outline,
-                      color: Colors.green,
+                      color: Theme.of(
+                          context,
+                        ).extension<CustomColors>()!.success,
                     ),
                   ),
                 ),
@@ -243,7 +246,7 @@ class ParticipantListWidget extends StatelessWidget {
                       ).extension<CustomColors>()!.winnersContainer,
                     ),
                     child: Text(
-                      session.winnersCount.toString(),
+                      inactiveParticipants.length.toString(),
                       style: Theme.of(context).textTheme.labelLarge!.copyWith(
                         color: Theme.of(
                           context,
@@ -261,9 +264,11 @@ class ParticipantListWidget extends StatelessWidget {
                     dense: true,
                     leading: const Icon(Icons.person_outline_rounded),
                     title: Text(participant.name),
-                    trailing: const Icon(
+                    trailing:  Icon(
                       Icons.emoji_events,
-                      color: Colors.orange,
+                      color: Theme.of(
+                          context,
+                        ).extension<CustomColors>()!.onWinnersContainer,
                     ),
                   ),
                 ),
