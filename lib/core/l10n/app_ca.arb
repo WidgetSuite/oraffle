@@ -362,5 +362,8 @@
   },
   "statLabelTotal": "Total",
   "statLabelActive": "Actius",
-  "statLabelWinners": "Guanyadors"
+  "statLabelWinners": "Guanyadors",
+  "nextWinner": "Següent guanyador",
+  "resetToDefault": "Restablir per defecte",
+  "lowContrastWarning": "Baix contrast amb text blanc. El text dels botons pot ser difícil de llegir."
 }

@@ -268,4 +268,13 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get statLabelWinners => '勝者';
+
+  @override
+  String get nextWinner => '次の当選者';
+
+  @override
+  String get resetToDefault => 'デフォルトにリセット';
+
+  @override
+  String get lowContrastWarning => '白いテキストとのコントラストが低いです。ボタンのテキストが読みにくい場合があります。';
 }

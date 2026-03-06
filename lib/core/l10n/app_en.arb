@@ -383,5 +383,17 @@
   "statLabelWinners": "Winners",
   "@statLabelWinners": {
     "description": "Short label for winners stat card"
+  },
+  "nextWinner": "Next Winner",
+  "@nextWinner": {
+    "description": "Button text to select the next winner when at least one winner exists"
+  },
+  "resetToDefault": "Reset to default",
+  "@resetToDefault": {
+    "description": "Button text to reset theme color to the default value"
+  },
+  "lowContrastWarning": "Low contrast with white text. The button text may be hard to read.",
+  "@lowContrastWarning": {
+    "description": "Warning shown when selected primary color has low contrast with white on-primary text"
   }
 }

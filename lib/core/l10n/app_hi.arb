@@ -359,5 +359,8 @@
   },
   "statLabelTotal": "कुल",
   "statLabelActive": "सक्रिय",
-  "statLabelWinners": "विजेता"
+  "statLabelWinners": "विजेता",
+  "nextWinner": "अगला विजेता",
+  "resetToDefault": "डिफ़ॉल्ट पर रीसेट करें",
+  "lowContrastWarning": "सफेद टेक्स्ट के साथ कम कंट्रास्ट। बटन का टेक्स्ट पढ़ना मुश्किल हो सकता है।"
 }

@@ -359,5 +359,8 @@
   },
   "statLabelTotal": "合計",
   "statLabelActive": "アクティブ",
-  "statLabelWinners": "勝者"
+  "statLabelWinners": "勝者",
+  "nextWinner": "次の当選者",
+  "resetToDefault": "デフォルトにリセット",
+  "lowContrastWarning": "白いテキストとのコントラストが低いです。ボタンのテキストが読みにくい場合があります。"
 }

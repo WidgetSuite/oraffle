@@ -278,4 +278,14 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get statLabelWinners => 'Νικητές';
+
+  @override
+  String get nextWinner => 'Επόμενος νικητής';
+
+  @override
+  String get resetToDefault => 'Επαναφορά στην προεπιλογή';
+
+  @override
+  String get lowContrastWarning =>
+      'Χαμηλή αντίθεση με λευκό κείμενο. Το κείμενο των κουμπιών μπορεί να είναι δύσκολο να διαβαστεί.';
 }

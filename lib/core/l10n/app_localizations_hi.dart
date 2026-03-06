@@ -274,4 +274,14 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get statLabelWinners => 'विजेता';
+
+  @override
+  String get nextWinner => 'अगला विजेता';
+
+  @override
+  String get resetToDefault => 'डिफ़ॉल्ट पर रीसेट करें';
+
+  @override
+  String get lowContrastWarning =>
+      'सफेद टेक्स्ट के साथ कम कंट्रास्ट। बटन का टेक्स्ट पढ़ना मुश्किल हो सकता है।';
 }

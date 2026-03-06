@@ -124,5 +124,8 @@
   },
   "statLabelTotal": "Σύνολο",
   "statLabelActive": "Ενεργοί",
-  "statLabelWinners": "Νικητές"
+  "statLabelWinners": "Νικητές",
+  "nextWinner": "Επόμενος νικητής",
+  "resetToDefault": "Επαναφορά στην προεπιλογή",
+  "lowContrastWarning": "Χαμηλή αντίθεση με λευκό κείμενο. Το κείμενο των κουμπιών μπορεί να είναι δύσκολο να διαβαστεί."
 }

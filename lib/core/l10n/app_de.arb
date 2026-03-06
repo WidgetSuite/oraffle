@@ -368,5 +368,8 @@
   },
   "statLabelTotal": "Gesamt",
   "statLabelActive": "Aktiv",
-  "statLabelWinners": "Gewinner"
+  "statLabelWinners": "Gewinner",
+  "nextWinner": "Nächster Gewinner",
+  "resetToDefault": "Auf Standard zurücksetzen",
+  "lowContrastWarning": "Geringer Kontrast mit weißem Text. Der Schaltflächentext ist möglicherweise schwer lesbar."
 }

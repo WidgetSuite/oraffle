@@ -365,5 +365,8 @@
   },
   "statLabelTotal": "Totale",
   "statLabelActive": "Attivi",
-  "statLabelWinners": "Vincitori"
+  "statLabelWinners": "Vincitori",
+  "nextWinner": "Prossimo vincitore",
+  "resetToDefault": "Ripristina predefinito",
+  "lowContrastWarning": "Basso contrasto con testo bianco. Il testo dei pulsanti potrebbe essere difficile da leggere."
 }

@@ -66,6 +66,10 @@ class SettingsCubit extends Cubit<SettingsState> {
     );
   }
 
+  void resetPrimaryColor() {
+    updatePrimaryColor(const Color(0xFF8B5CF6));
+  }
+
   void updateThemeMode(ThemeMode mode) async {
     await _storageService.saveThemeMode(mode);
     emit(

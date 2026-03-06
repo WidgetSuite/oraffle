@@ -359,5 +359,8 @@
   },
   "statLabelTotal": "Total",
   "statLabelActive": "Activos",
-  "statLabelWinners": "Gañadores"
+  "statLabelWinners": "Gañadores",
+  "nextWinner": "Seguinte gañador",
+  "resetToDefault": "Restablecer por defecto",
+  "lowContrastWarning": "Baixo contraste con texto branco. O texto dos botóns pode ser difícil de ler."
 }

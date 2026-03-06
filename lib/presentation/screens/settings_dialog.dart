@@ -319,6 +319,8 @@ class _ColorSettingState extends State<_ColorSetting> {
       context,
     ).extension<ConfirmingDialogColorsExtension>()!;
 
+    final l10n = AppLocalizations.of(context)!;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -349,16 +351,7 @@ class _ColorSettingState extends State<_ColorSetting> {
                 onChanged: _onChanged,
                 decoration: InputDecoration(
                   hintText: '#RRGGBB',
-                  errorText: _isValid
-                      ? null
-                      : AppLocalizations.of(context)!.invalidHexColor,
-                  contentPadding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 12,
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
+                  errorText: _isValid ? null : l10n.invalidHexColor,
                   filled: true,
                   fillColor: colors.card.withValues(alpha: 0.5),
                 ),
@@ -423,7 +416,7 @@ class _ThemeModeSetting extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 12),
           decoration: BoxDecoration(
             color: isSelected
-                ? Theme.of(context).colorScheme.primary.withValues(alpha: 0.1)
+                ? Theme.of(context).colorScheme.primary
                 : Theme.of(context).hintColor.withValues(alpha: 0.05),
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
@@ -438,7 +431,7 @@ class _ThemeModeSetting extends StatelessWidget {
               Icon(
                 icon,
                 color: isSelected
-                    ? Theme.of(context).colorScheme.primary
+                    ? Theme.of(context).colorScheme.onPrimary
                     : Theme.of(context).hintColor,
               ),
               const SizedBox(height: 4),
@@ -446,7 +439,7 @@ class _ThemeModeSetting extends StatelessWidget {
                 label,
                 style: Theme.of(context).textTheme.bodySmall!.copyWith(
                   fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
-                  color: isSelected ? Theme.of(context).colorScheme.primary : AppTheme.zinc400,
+                  color: isSelected ? Theme.of(context).colorScheme.onPrimary : AppTheme.zinc400,
                 ),
               ),
             ],
