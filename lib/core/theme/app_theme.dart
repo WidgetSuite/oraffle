@@ -53,9 +53,31 @@ class AppTheme {
   static const Color violet500 = defaultSeedColor;
   static const Color violet900 = Color(0xFF4C1D95);
 
+  /// Returns the best contrasting on-color (white or near-black) for [background]
+  /// using the WCAG relative luminance threshold (0.179).
+  static Color onColor(Color background) {
+    return background.computeLuminance() > 0.179 ? zinc900 : Colors.white;
+  }
+
+  /// WCAG contrast ratio between two colors.
+  static double contrastRatio(Color a, Color b) {
+    final la = a.computeLuminance();
+    final lb = b.computeLuminance();
+    final lighter = la > lb ? la : lb;
+    final darker = la > lb ? lb : la;
+    return (lighter + 0.05) / (darker + 0.05);
+  }
+
+  /// Returns [color] if it has sufficient contrast (≥ 3.0) against [background],
+  /// otherwise returns a high-contrast fallback via [onColor].
+  static Color readable(Color color, Color background) {
+    return contrastRatio(color, background) >= 3.0 ? color : onColor(background);
+  }
+
   static ThemeData lightTheme([Color seed = defaultSeedColor]) {
     final colorScheme = ColorScheme.fromSeed(seedColor: seed).copyWith(
       primary: seed,
+      onPrimary: onColor(seed),
       secondary: secondaryColor,
       surface: Colors.white,
       onSecondary: Colors.black,
@@ -73,6 +95,7 @@ class AppTheme {
           brightness: Brightness.dark,
         ).copyWith(
           primary: seed,
+          onPrimary: onColor(seed),
           secondary: secondaryColor,
           surface: zinc900,
           onSecondary: Colors.black,
@@ -90,6 +113,11 @@ class AppTheme {
       borderRadius: BorderRadius.all(Radius.circular(12)),
     );
     const buttonSize = Size(0, 56);
+
+    // Primary as text/icon on the scaffold surface (ElevatedButton, OutlinedButton,
+    // TextButton). If the chosen primary is not readable on the surface (e.g. white
+    // primary on white background) fall back to a contrasting color.
+    final primaryForText = readable(colorScheme.primary, colorScheme.surface);
 
     final dialogColors = isDark
         ? const ConfirmingDialogColorsExtension(
@@ -158,18 +186,39 @@ class AppTheme {
         ),
         iconTheme: IconThemeData(color: colorScheme.onPrimary),
       ),
-      elevatedButtonTheme: const ElevatedButtonThemeData(
+      // ElevatedButton (M3): surfaceContainerLow bg, primary as text.
+      // Ensure primary is readable on that surface.
+      elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
           minimumSize: WidgetStatePropertyAll(buttonSize),
           shape: WidgetStatePropertyAll(buttonShape),
           iconSize: WidgetStatePropertyAll(20),
+          foregroundColor: WidgetStateProperty.resolveWith((states) {
+            if (states.contains(WidgetState.disabled)) {
+              return colorScheme.onSurface.withValues(alpha: 0.38);
+            }
+            return primaryForText;
+          }),
         ),
       ),
+      // FilledButton: primary bg, onPrimary text — both explicitly set.
       filledButtonTheme: FilledButtonThemeData(
         style: ButtonStyle(
           minimumSize: WidgetStatePropertyAll(buttonSize),
           shape: WidgetStatePropertyAll(buttonShape),
           iconSize: WidgetStatePropertyAll(20),
+          backgroundColor: WidgetStateProperty.resolveWith((states) {
+            if (states.contains(WidgetState.disabled)) {
+              return colorScheme.onSurface.withValues(alpha: 0.12);
+            }
+            return colorScheme.primary;
+          }),
+          foregroundColor: WidgetStateProperty.resolveWith((states) {
+            if (states.contains(WidgetState.disabled)) {
+              return colorScheme.onSurface.withValues(alpha: 0.38);
+            }
+            return colorScheme.onPrimary;
+          }),
           shadowColor: WidgetStateColor.resolveWith(
             (state) => state.contains(WidgetState.disabled)
                 ? Colors.transparent
@@ -178,15 +227,34 @@ class AppTheme {
           elevation: WidgetStatePropertyAll(1),
         ),
       ),
-      outlinedButtonTheme: const OutlinedButtonThemeData(
+      // OutlinedButton: transparent bg, primary as text.
+      outlinedButtonTheme: OutlinedButtonThemeData(
         style: ButtonStyle(
           minimumSize: WidgetStatePropertyAll(buttonSize),
           shape: WidgetStatePropertyAll(buttonShape),
           iconSize: WidgetStatePropertyAll(20),
+          foregroundColor: WidgetStateProperty.resolveWith((states) {
+            if (states.contains(WidgetState.disabled)) {
+              return colorScheme.onSurface.withValues(alpha: 0.38);
+            }
+            return primaryForText;
+          }),
         ),
       ),
-      inputDecorationTheme: const InputDecorationTheme(
+      // TextButton: transparent bg, primary as text.
+      textButtonTheme: TextButtonThemeData(
+        style: ButtonStyle(
+          foregroundColor: WidgetStateProperty.resolveWith((states) {
+            if (states.contains(WidgetState.disabled)) {
+              return colorScheme.onSurface.withValues(alpha: 0.38);
+            }
+            return primaryForText;
+          }),
+        ),
+      ),
+      inputDecorationTheme: InputDecorationTheme(
         hintStyle: TextStyle(color: zinc400),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
       ),
       extensions: [dialogColors, customColors],
     );

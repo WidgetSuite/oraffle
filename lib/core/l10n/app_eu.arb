@@ -359,5 +359,8 @@
   },
   "statLabelTotal": "Guztira",
   "statLabelActive": "Aktibo",
-  "statLabelWinners": "Irabazleak"
+  "statLabelWinners": "Irabazleak",
+  "nextWinner": "Hurrengo irabazlea",
+  "resetToDefault": "Lehenetsi",
+  "lowContrastWarning": "Kontraste baxua testu zuriarekin. Botoietako testua irakurtzeko zaila izan daiteke."
 }

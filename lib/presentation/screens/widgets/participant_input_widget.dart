@@ -120,7 +120,6 @@ class _ParticipantInputWidgetState extends State<ParticipantInputWidget> {
                   hintText: AppLocalizations.of(
                     context,
                   )!.participantListPlaceholder,
-                  border: const OutlineInputBorder(),
                 ),
               ),
             ),

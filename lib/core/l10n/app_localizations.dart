@@ -597,6 +597,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Winners'**
   String get statLabelWinners;
+
+  /// Button text to select the next winner when at least one winner exists
+  ///
+  /// In en, this message translates to:
+  /// **'Next Winner'**
+  String get nextWinner;
+
+  /// Button text to reset theme color to the default value
+  ///
+  /// In en, this message translates to:
+  /// **'Reset to default'**
+  String get resetToDefault;
+
+  /// Warning shown when selected primary color has low contrast with white on-primary text
+  ///
+  /// In en, this message translates to:
+  /// **'Low contrast with white text. The button text may be hard to read.'**
+  String get lowContrastWarning;
 }
 
 class _AppLocalizationsDelegate

@@ -277,4 +277,14 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get statLabelWinners => 'Gagnants';
+
+  @override
+  String get nextWinner => 'Gagnant suivant';
+
+  @override
+  String get resetToDefault => 'Réinitialiser par défaut';
+
+  @override
+  String get lowContrastWarning =>
+      'Faible contraste avec le texte blanc. Le texte des boutons peut être difficile à lire.';
 }

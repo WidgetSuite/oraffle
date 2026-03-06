@@ -279,4 +279,14 @@ class AppLocalizationsGl extends AppLocalizations {
 
   @override
   String get statLabelWinners => 'Gañadores';
+
+  @override
+  String get nextWinner => 'Seguinte gañador';
+
+  @override
+  String get resetToDefault => 'Restablecer por defecto';
+
+  @override
+  String get lowContrastWarning =>
+      'Baixo contraste con texto branco. O texto dos botóns pode ser difícil de ler.';
 }

@@ -362,5 +362,8 @@
   },
   "statLabelTotal": "المجموع",
   "statLabelActive": "نشطاء",
-  "statLabelWinners": "الفائزون"
+  "statLabelWinners": "الفائزون",
+  "nextWinner": "الفائز التالي",
+  "resetToDefault": "إعادة إلى الافتراضي",
+  "lowContrastWarning": "تباين منخفض مع النص الأبيض. قد يصعب قراءة نص الأزرار."
 }

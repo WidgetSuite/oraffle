@@ -71,7 +71,9 @@ class RaffleControlsWidget extends StatelessWidget {
               label: Text(
                 isSelecting
                     ? AppLocalizations.of(context)!.raffling
-                    : AppLocalizations.of(context)!.startRaffle,
+                    : (session != null && session.hasWinners)
+                        ? AppLocalizations.of(context)!.nextWinner
+                        : AppLocalizations.of(context)!.startRaffle,
               ),
             ),
 

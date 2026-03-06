@@ -276,4 +276,14 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get statLabelWinners => 'Irabazleak';
+
+  @override
+  String get nextWinner => 'Hurrengo irabazlea';
+
+  @override
+  String get resetToDefault => 'Lehenetsi';
+
+  @override
+  String get lowContrastWarning =>
+      'Kontraste baxua testu zuriarekin. Botoietako testua irakurtzeko zaila izan daiteke.';
 }

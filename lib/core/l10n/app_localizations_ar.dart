@@ -272,4 +272,14 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get statLabelWinners => 'الفائزون';
+
+  @override
+  String get nextWinner => 'الفائز التالي';
+
+  @override
+  String get resetToDefault => 'إعادة إلى الافتراضي';
+
+  @override
+  String get lowContrastWarning =>
+      'تباين منخفض مع النص الأبيض. قد يصعب قراءة نص الأزرار.';
 }

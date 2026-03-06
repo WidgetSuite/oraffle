@@ -40,9 +40,7 @@ class WinnerDialog extends StatelessWidget {
 
     // Design Tokens
     final titleColor = Theme.of(context).colorScheme.onSurface;
-    final trophyBg = isDark
-        ? Theme.of(context).colorScheme.primary.withValues(alpha: 0.2)
-        : Theme.of(context).colorScheme.primary.withValues(alpha: 0.1);
+    final trophyBg = Theme.of(context).colorScheme.onPrimary.withValues(alpha: 0.2);
     final trophyIcon = Theme.of(context).colorScheme.primary;
     final nameBg = isDark ? AppTheme.zinc700 : AppTheme.zinc100;
     final nameText = isDark ? AppTheme.backgroundColor : AppTheme.zinc900;
@@ -71,6 +69,10 @@ class WinnerDialog extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: trophyBg,
                   shape: BoxShape.circle,
+                  border: BoxBorder.all(
+                    color: trophyIcon,
+                    width: 2,
+                  )
                 ),
                 child: Icon(Icons.emoji_events, size: 48, color: trophyIcon),
               ),
@@ -153,13 +155,8 @@ class WinnerDialog extends StatelessWidget {
                         icon: Icon(Icons.emoji_events),
                         label: Text(AppLocalizations.of(context)!.winnersTitle),
                       )
-                    : ElevatedButton.icon(
+                    : FilledButton.icon(
                         onPressed: onFinishRaffle,
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Theme.of(
-                            context,
-                          ).colorScheme.primary,
-                        ),
                         icon: const Icon(Icons.emoji_events),
                         label: Text(AppLocalizations.of(context)!.finishRaffle),
                       ),

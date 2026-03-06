@@ -97,14 +97,14 @@ class _RaffleAnimationWidgetState extends State<RaffleAnimationWidget>
                       child: Container(
                         padding: const EdgeInsets.all(16),
                         decoration: BoxDecoration(
-                          color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.1),
+                          color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.1),
                           shape: BoxShape.circle,
-                          border: Border.all(color: Theme.of(context).colorScheme.primary, width: 2),
+                          border: Border.all(color: Theme.of(context).colorScheme.onSurface, width: 2),
                         ),
                         child: Icon(
                           Icons.casino,
                           size: 32,
-                          color: Theme.of(context).colorScheme.primary,
+                          color: Theme.of(context).colorScheme.onSurface,
                         ),
                       ),
                     ),
@@ -124,7 +124,7 @@ class _RaffleAnimationWidgetState extends State<RaffleAnimationWidget>
                   child: Text(
                     AppLocalizations.of(context)!.raffling,
                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                      color: Theme.of(context).colorScheme.primary,
+                      color: Theme.of(context).colorScheme.onSurface,
                     ),
                   ),
                 );
@@ -151,7 +151,7 @@ class _RaffleAnimationWidgetState extends State<RaffleAnimationWidget>
                       width: 8,
                       height: 8,
                       decoration: BoxDecoration(
-                        color: Theme.of(context).colorScheme.primary.withValues(
+                        color: Theme.of(context).colorScheme.onSurface.withValues(
                           alpha: opacity * 0.8 + 0.2,
                         ),
                         shape: BoxShape.circle,
