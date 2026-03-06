@@ -174,10 +174,12 @@
   "@winnersTitle": {
     "description": "عنوان شاشة الفائزين"
   },
+  "winnersTitleShort": "الفائزون",
   "shareResults": "مشاركة النتائج",
   "@shareResults": {
     "description": "تسمية زر مشاركة النتائج"
   },
+  "shareResultsShort": "مشاركة",
   "noWinnersYet": "لا يوجد فائزون بعد",
   "@noWinnersYet": {
     "description": "رسالة تظهر عندما لا يوجد فائزون"

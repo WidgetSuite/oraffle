@@ -67,18 +67,19 @@ class AppTheme {
   }
 
   static ThemeData darkTheme([Color seed = defaultSeedColor]) {
-    final colorScheme = ColorScheme.fromSeed(
-      seedColor: seed,
-      brightness: Brightness.dark,
-    ).copyWith(
-      primary: seed,
-      secondary: secondaryColor,
-      surface: zinc900,
-      onSecondary: Colors.black,
-      onSurface: const Color(0xFFFAFAFA),
-      error: errorColor,
-      onError: Colors.white,
-    );
+    final colorScheme =
+        ColorScheme.fromSeed(
+          seedColor: seed,
+          brightness: Brightness.dark,
+        ).copyWith(
+          primary: seed,
+          secondary: secondaryColor,
+          surface: zinc900,
+          onSecondary: Colors.black,
+          onSurface: const Color(0xFFFAFAFA),
+          error: errorColor,
+          onError: Colors.white,
+        );
     return _buildTheme(colorScheme);
   }
 
@@ -118,6 +119,9 @@ class AppTheme {
             onSuccessContainer: Color(0xFF4ADE80),
             winnersContainer: Color(0xFF3D1A00),
             onWinnersContainer: Color(0xFFFB923C),
+            goldMedal: Color(0xFFFFD700),
+            silverMedal: Color(0xFFB0BEC5),
+            copperMedal: Color(0xFFCD7F32),
           )
         : const CustomColors(
             aiIconColor: defaultSeedColor,
@@ -130,6 +134,9 @@ class AppTheme {
             onSuccessContainer: Color(0xFF166534),
             winnersContainer: Color(0xFFFFF7ED),
             onWinnersContainer: Color(0xFFC2410C),
+            goldMedal: Color(0xFFFFD700),
+            silverMedal: Color(0xFFB0BEC5),
+            copperMedal: Color(0xFFCD7F32),
           );
 
     return ThemeData(
@@ -144,7 +151,6 @@ class AppTheme {
         elevation: 0,
         backgroundColor: colorScheme.primary,
         foregroundColor: colorScheme.onPrimary,
-        centerTitle: true,
         titleTextStyle: GoogleFonts.plusJakartaSans(
           color: colorScheme.onPrimary,
           fontSize: 20.0,
@@ -156,21 +162,27 @@ class AppTheme {
         style: ButtonStyle(
           minimumSize: WidgetStatePropertyAll(buttonSize),
           shape: WidgetStatePropertyAll(buttonShape),
-          iconSize:  WidgetStatePropertyAll(20),
+          iconSize: WidgetStatePropertyAll(20),
         ),
       ),
-      filledButtonTheme: const FilledButtonThemeData(
+      filledButtonTheme: FilledButtonThemeData(
         style: ButtonStyle(
           minimumSize: WidgetStatePropertyAll(buttonSize),
           shape: WidgetStatePropertyAll(buttonShape),
-          iconSize:  WidgetStatePropertyAll(20),
+          iconSize: WidgetStatePropertyAll(20),
+          shadowColor: WidgetStateColor.resolveWith(
+            (state) => state.contains(WidgetState.disabled)
+                ? Colors.transparent
+                : Colors.black,
+          ),
+          elevation: WidgetStatePropertyAll(1),
         ),
       ),
       outlinedButtonTheme: const OutlinedButtonThemeData(
         style: ButtonStyle(
           minimumSize: WidgetStatePropertyAll(buttonSize),
           shape: WidgetStatePropertyAll(buttonShape),
-          iconSize:  WidgetStatePropertyAll(20),
+          iconSize: WidgetStatePropertyAll(20),
         ),
       ),
       inputDecorationTheme: const InputDecorationTheme(

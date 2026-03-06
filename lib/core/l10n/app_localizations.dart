@@ -334,11 +334,23 @@ abstract class AppLocalizations {
   /// **'Raffle Winners'**
   String get winnersTitle;
 
+  /// Short label for the winners button in the app bar
+  ///
+  /// In en, this message translates to:
+  /// **'Winners'**
+  String get winnersTitleShort;
+
   /// Button to share raffle results
   ///
   /// In en, this message translates to:
   /// **'Share results'**
   String get shareResults;
+
+  /// Short label for the share button in the app bar
+  ///
+  /// In en, this message translates to:
+  /// **'Share'**
+  String get shareResultsShort;
 
   /// Message when no winners have been selected
   ///

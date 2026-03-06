@@ -174,10 +174,12 @@
   "@winnersTitle": {
     "description": "Títol de la pantalla de guanyadors"
   },
+  "winnersTitleShort": "Guanyadors",
   "shareResults": "Compartir Resultats",
   "@shareResults": {
     "description": "Etiqueta del botó per compartir els resultats"
   },
+  "shareResultsShort": "Compartir",
   "noWinnersYet": "Encara no hi ha guanyadors",
   "@noWinnersYet": {
     "description": "Missatge mostrat quan no hi ha guanyadors"

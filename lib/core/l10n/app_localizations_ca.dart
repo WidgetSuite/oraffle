@@ -136,7 +136,13 @@ class AppLocalizationsCa extends AppLocalizations {
   String get winnersTitle => 'Guanyadors';
 
   @override
+  String get winnersTitleShort => 'Guanyadors';
+
+  @override
   String get shareResults => 'Compartir Resultats';
+
+  @override
+  String get shareResultsShort => 'Compartir';
 
   @override
   String get noWinnersYet => 'Encara no hi ha guanyadors';

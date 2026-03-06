@@ -125,7 +125,7 @@ class _RaffleScreenContent extends StatelessWidget {
                       elevation: 2,
                       minimumSize: Size(0, 48),
                     ),
-                    label: Text(AppLocalizations.of(context)!.winnersTitle),
+                    label: Text(AppLocalizations.of(context)!.winnersTitleShort),
                   );
                 },
               ),
@@ -153,7 +153,7 @@ class _RaffleScreenContent extends StatelessWidget {
                     duration: const Duration(seconds: 5),
                     action: SnackBarAction(
                       label: AppLocalizations.of(context)!.okButton,
-                      textColor: Colors.white,
+                      textColor: Theme.of(context).colorScheme.onPrimary,
                       onPressed: () {
                         ScaffoldMessenger.of(context).hideCurrentSnackBar();
                       },
@@ -231,7 +231,7 @@ class _RaffleWideLayout extends StatelessWidget {
               ],
             ),
           ),
-          Container(width: 1, color: Colors.grey),
+          Container(width: 1, color: Theme.of(context).dividerColor),
           // Right side: Participant list
           Flexible(
             flex: 1,

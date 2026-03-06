@@ -184,9 +184,17 @@
   "@winnersTitle": {
     "description": "Title for the winners screen"
   },
+  "winnersTitleShort": "Winners",
+  "@winnersTitleShort": {
+    "description": "Short label for the winners button in the app bar"
+  },
   "shareResults": "Share results",
   "@shareResults": {
     "description": "Button to share raffle results"
+  },
+  "shareResultsShort": "Share",
+  "@shareResultsShort": {
+    "description": "Short label for the share button in the app bar"
   },
   "noWinnersYet": "No winners yet",
   "@noWinnersYet": {

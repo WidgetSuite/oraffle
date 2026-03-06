@@ -63,7 +63,7 @@ class WinnersScreen extends StatelessWidget {
               FilledButton.icon(
                 onPressed: () => _showShareDialog(context),
                 icon: const Icon(Icons.share),
-                label: Text(AppLocalizations.of(context)!.shareResults),
+                label: Text(AppLocalizations.of(context)!.shareResultsShort),
                 style: FilledButton.styleFrom(
                   elevation: 2,
                   minimumSize: Size(0, 48),
@@ -113,7 +113,7 @@ class WinnersScreen extends StatelessWidget {
         final tt = Theme.of(context).textTheme;
 
         // Design Tokens
-        final titleColor = isDark ? Colors.white : Colors.black;
+        final titleColor = Theme.of(context).colorScheme.onSurface;
         final codeBg = isDark ? AppTheme.textColor : AppTheme.cardColorLight;
         final codeText = isDark ? AppTheme.borderColor : AppTheme.textColor;
 
@@ -184,7 +184,9 @@ class WinnersScreen extends StatelessWidget {
                     if (context.mounted) {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
-                          content: Text(AppLocalizations.of(context)!.shareSuccess),
+                          content: Text(
+                            AppLocalizations.of(context)!.shareSuccess,
+                          ),
                           behavior: SnackBarBehavior.floating,
                         ),
                       );

@@ -133,7 +133,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get winnersTitle => 'Raffle Winners';
 
   @override
+  String get winnersTitleShort => 'Winners';
+
+  @override
   String get shareResults => 'Share results';
+
+  @override
+  String get shareResultsShort => 'Share';
 
   @override
   String get noWinnersYet => 'No winners yet';

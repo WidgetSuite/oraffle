@@ -171,10 +171,12 @@
   "@winnersTitle": {
     "description": "当選者画面のタイトル"
   },
+  "winnersTitleShort": "当選者",
   "shareResults": "結果を共有",
   "@shareResults": {
     "description": "結果を共有するボタンのラベル"
   },
+  "shareResultsShort": "共有",
   "noWinnersYet": "まだ当選者はいません",
   "@noWinnersYet": {
     "description": "当選者がいない時に表示されるメッセージ"

@@ -15,6 +15,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:oraffle/domain/models/raffle/raffle_logo.dart';
+import 'package:oraffle/core/theme/app_theme.dart';
 
 abstract class SettingsState {
   final RaffleLogo? companyLogo;
@@ -43,7 +44,7 @@ abstract class SettingsState {
 
 class SettingsInitial extends SettingsState {
   const SettingsInitial()
-    : super(primaryColor: const Color(0xFF8B5CF6), themeMode: ThemeMode.system);
+    : super(primaryColor: AppTheme.defaultSeedColor, themeMode: ThemeMode.system);
 }
 
 class SettingsUpdated extends SettingsState {

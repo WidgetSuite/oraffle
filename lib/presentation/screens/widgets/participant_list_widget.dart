@@ -41,8 +41,14 @@ class _StatCard extends StatelessWidget {
 
     final (bg, fg) = switch (variant) {
       _StatVariant.total => (theme.cardColor, theme.colorScheme.onSurface),
-      _StatVariant.active => (custom.successContainer!, custom.onSuccessContainer!),
-      _StatVariant.winners => (custom.winnersContainer!, custom.onWinnersContainer!),
+      _StatVariant.active => (
+        custom.successContainer!,
+        custom.onSuccessContainer!,
+      ),
+      _StatVariant.winners => (
+        custom.winnersContainer!,
+        custom.onWinnersContainer!,
+      ),
     };
 
     return Container(
@@ -93,19 +99,23 @@ class ParticipantListWidget extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.people_outline, size: 64, color: Colors.grey[400]),
+                Icon(Icons.people_outline, size: 64, color: Theme.of(context).hintColor),
                 const SizedBox(height: 16),
                 Text(
                   AppLocalizations.of(context)!.noParticipants,
                   style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                    color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6),
+                    color: Theme.of(
+                      context,
+                    ).colorScheme.onSurface.withValues(alpha: 0.6),
                   ),
                 ),
                 const SizedBox(height: 8),
                 Text(
                   AppLocalizations.of(context)!.addParticipantsHint,
                   style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                    color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.5),
+                    color: Theme.of(
+                      context,
+                    ).colorScheme.onSurface.withValues(alpha: 0.5),
                   ),
                 ),
               ],
@@ -154,11 +164,38 @@ class ParticipantListWidget extends StatelessWidget {
 
             // Participants list
             if (activeParticipants.isNotEmpty) ...[
-              Text(
-                AppLocalizations.of(context)!.activeParticipants,
-                style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                  color: Theme.of(context).extension<CustomColors>()!.onSuccessContainer,
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    AppLocalizations.of(context)!.activeParticipants,
+                    style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                      color: Theme.of(
+                        context,
+                      ).extension<CustomColors>()!.onSuccessContainer,
+                    ),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 2,
+                      horizontal: 10,
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(80),
+                      color: Theme.of(
+                        context,
+                      ).extension<CustomColors>()!.success!.withAlpha(30),
+                    ),
+                    child: Text(
+                      activeParticipants.length.toString(),
+                      style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                        color: Theme.of(
+                          context,
+                        ).extension<CustomColors>()!.success,
+                      ),
+                    ),
+                  ),
+                ],
               ),
               const SizedBox(height: 8),
               ...activeParticipants.map(
@@ -166,11 +203,18 @@ class ParticipantListWidget extends StatelessWidget {
                   margin: const EdgeInsets.only(bottom: 4),
                   child: ListTile(
                     dense: true,
-                    leading: const Icon(Icons.person, color: Colors.green),
+                    leading:  Icon(
+                      Icons.person_rounded,
+                      color: Theme.of(
+                          context,
+                        ).extension<CustomColors>()!.success,
+                    ),
                     title: Text(participant.name),
-                    trailing: const Icon(
+                    trailing:  Icon(
                       Icons.check_circle_outline,
-                      color: Colors.green,
+                      color: Theme.of(
+                          context,
+                        ).extension<CustomColors>()!.success,
                     ),
                   ),
                 ),
@@ -179,30 +223,52 @@ class ParticipantListWidget extends StatelessWidget {
 
             if (inactiveParticipants.isNotEmpty) ...[
               const SizedBox(height: 16),
-              Text(
-                AppLocalizations.of(context)!.alreadySelected,
-                style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                  color: Theme.of(context).extension<CustomColors>()!.onWinnersContainer,
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    AppLocalizations.of(context)!.alreadySelected,
+                    style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                      color: Theme.of(
+                        context,
+                      ).extension<CustomColors>()!.onWinnersContainer,
+                    ),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 2,
+                      horizontal: 10,
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(80),
+                      color: Theme.of(
+                        context,
+                      ).extension<CustomColors>()!.winnersContainer,
+                    ),
+                    child: Text(
+                      inactiveParticipants.length.toString(),
+                      style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                        color: Theme.of(
+                          context,
+                        ).extension<CustomColors>()!.onWinnersContainer,
+                      ),
+                    ),
+                  ),
+                ],
               ),
               const SizedBox(height: 8),
               ...inactiveParticipants.map(
                 (participant) => Card(
                   margin: const EdgeInsets.only(bottom: 4),
-                  color: Colors.grey[100],
                   child: ListTile(
                     dense: true,
-                    leading: const Icon(Icons.person_off, color: Colors.grey),
-                    title: Text(
-                      participant.name,
-                      style: const TextStyle(
-                        color: Colors.grey,
-                        decoration: TextDecoration.lineThrough,
-                      ),
-                    ),
-                    trailing: const Icon(
+                    leading: const Icon(Icons.person_outline_rounded),
+                    title: Text(participant.name),
+                    trailing:  Icon(
                       Icons.emoji_events,
-                      color: Colors.orange,
+                      color: Theme.of(
+                          context,
+                        ).extension<CustomColors>()!.onWinnersContainer,
                     ),
                   ),
                 ),

@@ -171,10 +171,12 @@
   "@winnersTitle": {
     "description": "Irabazleen pantailaren izenburua"
   },
+  "winnersTitleShort": "Irabazleak",
   "shareResults": "Emaitzak Partekatu",
   "@shareResults": {
     "description": "Emaitzak partekatzeko botoiaren etiketa"
   },
+  "shareResultsShort": "Partekatu",
   "noWinnersYet": "Oraindik ez dago irabazlerik",
   "@noWinnersYet": {
     "description": "Irabazlerik ez dagoenean erakusten den mezua"

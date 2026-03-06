@@ -132,7 +132,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get winnersTitle => 'الفائزون';
 
   @override
+  String get winnersTitleShort => 'الفائزون';
+
+  @override
   String get shareResults => 'مشاركة النتائج';
+
+  @override
+  String get shareResultsShort => 'مشاركة';
 
   @override
   String get noWinnersYet => 'لا يوجد فائزون بعد';

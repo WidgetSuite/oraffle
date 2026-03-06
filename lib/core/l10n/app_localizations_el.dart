@@ -134,7 +134,13 @@ class AppLocalizationsEl extends AppLocalizations {
   String get winnersTitle => 'Νικητές Κλήρωσης';
 
   @override
+  String get winnersTitleShort => 'Νικητές';
+
+  @override
   String get shareResults => 'Κοινοποίηση αποτελεσμάτων';
+
+  @override
+  String get shareResultsShort => 'Κοινοποίηση';
 
   @override
   String get noWinnersYet => 'Δεν υπάρχουν νικητές ακόμα';

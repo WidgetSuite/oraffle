@@ -67,7 +67,7 @@ class RaffleControlsWidget extends StatelessWidget {
                       height: 20,
                       child: CircularProgressIndicator(strokeWidth: 2),
                     )
-                  : const Icon(Icons.casino),
+                  : const Icon(Icons.shuffle_rounded),
               label: Text(
                 isSelecting
                     ? AppLocalizations.of(context)!.raffling
@@ -80,7 +80,9 @@ class RaffleControlsWidget extends StatelessWidget {
               Text(
                 _getStatusText(session, isSelecting, context),
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: AppTheme.zinc500),
+                style: Theme.of(
+                  context,
+                ).textTheme.bodyMedium!.copyWith(color: AppTheme.zinc500),
               ),
             ],
 
@@ -92,15 +94,7 @@ class RaffleControlsWidget extends StatelessWidget {
                     child: OutlinedButton.icon(
                       onPressed: () => showClearWinnersDialog(context),
                       icon: const Icon(Icons.restart_alt),
-                      label: Text(
-                        AppLocalizations.of(context)!.resetWinners,
-                      ),
-                      style: OutlinedButton.styleFrom(
-                        foregroundColor: AppTheme.errorColor,
-                        side: BorderSide(
-                          color: AppTheme.errorColor,
-                        ),
-                      ),
+                      label: Text(AppLocalizations.of(context)!.resetWinners),
                     ),
                   ),
                 ],
