@@ -129,7 +129,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get winnersTitle => '当選者';
 
   @override
+  String get winnersTitleShort => '当選者';
+
+  @override
   String get shareResults => '結果を共有';
+
+  @override
+  String get shareResultsShort => '共有';
 
   @override
   String get noWinnersYet => 'まだ当選者はいません';
@@ -253,4 +259,22 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get invalidHexColor => '無効なヘックスカラー';
+
+  @override
+  String get statLabelTotal => '合計';
+
+  @override
+  String get statLabelActive => 'アクティブ';
+
+  @override
+  String get statLabelWinners => '勝者';
+
+  @override
+  String get nextWinner => '次の当選者';
+
+  @override
+  String get resetToDefault => 'デフォルトにリセット';
+
+  @override
+  String get lowContrastWarning => '白いテキストとのコントラストが低いです。ボタンのテキストが読みにくい場合があります。';
 }

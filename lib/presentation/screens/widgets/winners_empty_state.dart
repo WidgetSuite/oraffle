@@ -36,16 +36,12 @@ class WinnersEmptyState extends StatelessWidget {
           const SizedBox(height: 24),
           Text(
             AppLocalizations.of(context)!.noWinnersYet,
-            style: const TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-              color: AppTheme.zinc600,
-            ),
+            style: Theme.of(context).textTheme.headlineSmall!.copyWith(color: AppTheme.zinc600),
           ),
           const SizedBox(height: 16),
           Text(
             AppLocalizations.of(context)!.performRaffleToSeeWinners,
-            style: const TextStyle(fontSize: 16, color: AppTheme.zinc500),
+            style: Theme.of(context).textTheme.bodyLarge!.copyWith(color: AppTheme.zinc500),
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 32),
@@ -57,17 +53,10 @@ class WinnersEmptyState extends StatelessWidget {
               child: ElevatedButton.icon(
                 onPressed: () => context.go(AppRoutes.raffle),
                 icon: const Icon(Icons.casino),
-                label: Text(
-                  AppLocalizations.of(context)!.goToRaffle,
-                  style: const TextStyle(fontWeight: FontWeight.w600),
-                ),
+                label: Text(AppLocalizations.of(context)!.goToRaffle),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Theme.of(context).colorScheme.primary,
-                  foregroundColor: Colors.white,
-                  elevation: 0,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
+                  foregroundColor: Theme.of(context).colorScheme.onPrimary,
                 ),
               ),
             ),

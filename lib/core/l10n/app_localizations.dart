@@ -334,11 +334,23 @@ abstract class AppLocalizations {
   /// **'Raffle Winners'**
   String get winnersTitle;
 
+  /// Short label for the winners button in the app bar
+  ///
+  /// In en, this message translates to:
+  /// **'Winners'**
+  String get winnersTitleShort;
+
   /// Button to share raffle results
   ///
   /// In en, this message translates to:
   /// **'Share results'**
   String get shareResults;
+
+  /// Short label for the share button in the app bar
+  ///
+  /// In en, this message translates to:
+  /// **'Share'**
+  String get shareResultsShort;
 
   /// Message when no winners have been selected
   ///
@@ -567,6 +579,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Invalid hex color'**
   String get invalidHexColor;
+
+  /// Short label for total participants stat card
+  ///
+  /// In en, this message translates to:
+  /// **'Total'**
+  String get statLabelTotal;
+
+  /// Short label for active participants stat card
+  ///
+  /// In en, this message translates to:
+  /// **'Active'**
+  String get statLabelActive;
+
+  /// Short label for winners stat card
+  ///
+  /// In en, this message translates to:
+  /// **'Winners'**
+  String get statLabelWinners;
+
+  /// Button text to select the next winner when at least one winner exists
+  ///
+  /// In en, this message translates to:
+  /// **'Next Winner'**
+  String get nextWinner;
+
+  /// Button text to reset theme color to the default value
+  ///
+  /// In en, this message translates to:
+  /// **'Reset to default'**
+  String get resetToDefault;
+
+  /// Warning shown when selected primary color has low contrast with white on-primary text
+  ///
+  /// In en, this message translates to:
+  /// **'Low contrast with white text. The button text may be hard to read.'**
+  String get lowContrastWarning;
 }
 
 class _AppLocalizationsDelegate

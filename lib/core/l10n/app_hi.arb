@@ -171,10 +171,12 @@
   "@winnersTitle": {
     "description": "विजेता स्क्रीन का शीर्षक"
   },
+  "winnersTitleShort": "विजेता",
   "shareResults": "परिणाम साझा करें",
   "@shareResults": {
     "description": "परिणाम साझा करने के लिए बटन लेबल"
   },
+  "shareResultsShort": "साझा करें",
   "noWinnersYet": "अभी तक कोई विजेता नहीं",
   "@noWinnersYet": {
     "description": "कोई विजेता न होने पर दिखाया गया संदेश"
@@ -354,5 +356,11 @@
   "invalidHexColor": "अमान्य हेक्स रंग",
   "@invalidHexColor": {
     "description": "अमान्य हेक्साडेसिमल रंग इनपुट के लिए त्रुटि संदेश"
-  }
+  },
+  "statLabelTotal": "कुल",
+  "statLabelActive": "सक्रिय",
+  "statLabelWinners": "विजेता",
+  "nextWinner": "अगला विजेता",
+  "resetToDefault": "डिफ़ॉल्ट पर रीसेट करें",
+  "lowContrastWarning": "सफेद टेक्स्ट के साथ कम कंट्रास्ट। बटन का टेक्स्ट पढ़ना मुश्किल हो सकता है।"
 }

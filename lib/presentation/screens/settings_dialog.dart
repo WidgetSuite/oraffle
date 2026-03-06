@@ -19,6 +19,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:oraffle/core/l10n/app_localizations.dart';
+import 'package:oraffle/core/theme/app_theme.dart';
 import 'package:oraffle/core/theme/extensions/confirm_dialog_colors_extension.dart';
 import 'package:oraffle/domain/models/raffle/raffle_logo.dart';
 import 'package:oraffle/presentation/blocs/locale_cubit/locale_cubit.dart';
@@ -41,14 +42,16 @@ class SettingsDialog extends StatelessWidget {
       elevation: 0,
       insetPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
       child: Container(
-        width: 520,
+        constraints: BoxConstraints(
+          maxWidth: 520,
+        ),
         decoration: BoxDecoration(
           color: colors.card,
           borderRadius: BorderRadius.circular(24),
           border: Border.all(color: colors.border, width: 1),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withValues(alpha: 0.1),
+              color: Theme.of(context).shadowColor.withValues(alpha: 0.1),
               blurRadius: 20,
               offset: const Offset(0, 10),
             ),
@@ -68,11 +71,7 @@ class SettingsDialog extends StatelessWidget {
                     children: [
                       Text(
                         AppLocalizations.of(context)!.settingsTitle,
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                          color: colors.title,
-                        ),
+                        style: Theme.of(context).textTheme.headlineSmall!.copyWith(color: colors.title),
                       ),
                       IconButton(
                         onPressed: () => Navigator.of(context).pop(),
@@ -136,17 +135,8 @@ class SettingsDialog extends StatelessWidget {
                 // Save/Close Button
                 Padding(
                   padding: const EdgeInsets.fromLTRB(32, 0, 32, 32),
-                  child: ElevatedButton(
+                  child: FilledButton(
                     onPressed: () => Navigator.of(context).pop(),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Theme.of(context).colorScheme.primary,
-                      foregroundColor: Colors.white,
-                      elevation: 0,
-                      minimumSize: const Size(double.infinity, 56),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                    ),
                     child: Text(AppLocalizations.of(context)!.okButton),
                   ),
                 ),
@@ -167,11 +157,7 @@ class _SectionTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       title,
-      style: const TextStyle(
-        fontSize: 16,
-        fontWeight: FontWeight.w600,
-        color: Colors.grey,
-      ),
+      style: Theme.of(context).textTheme.labelLarge!.copyWith(color: AppTheme.zinc400),
     );
   }
 }
@@ -191,9 +177,9 @@ class _LogoSetting extends StatelessWidget {
                 height: 120,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: Colors.grey.withValues(alpha: 0.1),
+                  color: Theme.of(context).hintColor.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(16),
-                  border: Border.all(color: Colors.grey.withValues(alpha: 0.2)),
+                  border: Border.all(color: Theme.of(context).hintColor.withValues(alpha: 0.2)),
                 ),
                 padding: const EdgeInsets.all(16),
                 child: LogoWidget(logo: logo!, fit: BoxFit.contain),
@@ -202,10 +188,11 @@ class _LogoSetting extends StatelessWidget {
                 top: 8,
                 right: 8,
                 child: IconButton(
-                  icon: const Icon(Icons.delete_outline, color: Colors.red),
+                  icon: Icon(Icons.delete_outline, color: Theme.of(context).colorScheme.error),
                   onPressed: () =>
                       context.read<SettingsCubit>().updateLogo(null),
-                  style: IconButton.styleFrom(backgroundColor: Colors.white),
+                  style: IconButton.styleFrom(backgroundColor: AppTheme.surfaceColor
+                  ),
                 ),
               ),
             ],
@@ -217,25 +204,25 @@ class _LogoSetting extends StatelessWidget {
               height: 120,
               width: double.infinity,
               decoration: BoxDecoration(
-                color: Colors.grey.withValues(alpha: 0.1),
+                color: Theme.of(context).hintColor.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(16),
                 border: Border.all(
-                  color: Colors.grey.withValues(alpha: 0.2),
+                  color: Theme.of(context).hintColor.withValues(alpha: 0.2),
                   style: BorderStyle.solid,
                 ),
               ),
-              child: const Column(
+              child:  Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(
                     Icons.add_photo_alternate_outlined,
                     size: 40,
-                    color: Colors.grey,
+                    color: Theme.of(context).hintColor,
                   ),
                   SizedBox(height: 8),
                   Text(
                     "Click to pick a logo",
-                    style: TextStyle(color: Colors.grey),
+                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: AppTheme.zinc400),
                   ),
                 ],
               ),
@@ -332,6 +319,8 @@ class _ColorSettingState extends State<_ColorSetting> {
       context,
     ).extension<ConfirmingDialogColorsExtension>()!;
 
+    final l10n = AppLocalizations.of(context)!;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -353,7 +342,6 @@ class _ColorSettingState extends State<_ColorSetting> {
                   ),
                 ],
               ),
-              child: const Icon(Icons.colorize, color: Colors.white, size: 20),
             ),
             const SizedBox(width: 16),
             // Hex Input
@@ -363,17 +351,7 @@ class _ColorSettingState extends State<_ColorSetting> {
                 onChanged: _onChanged,
                 decoration: InputDecoration(
                   hintText: '#RRGGBB',
-                  errorText: _isValid
-                      ? null
-                      : AppLocalizations.of(context)!.invalidHexColor,
-                  prefixIcon: const Icon(Icons.tag, size: 18),
-                  contentPadding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 12,
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
+                  errorText: _isValid ? null : l10n.invalidHexColor,
                   filled: true,
                   fillColor: colors.card.withValues(alpha: 0.5),
                 ),
@@ -438,8 +416,8 @@ class _ThemeModeSetting extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 12),
           decoration: BoxDecoration(
             color: isSelected
-                ? Theme.of(context).colorScheme.primary.withValues(alpha: 0.1)
-                : Colors.grey.withValues(alpha: 0.05),
+                ? Theme.of(context).colorScheme.primary
+                : Theme.of(context).hintColor.withValues(alpha: 0.05),
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
               color: isSelected
@@ -453,18 +431,15 @@ class _ThemeModeSetting extends StatelessWidget {
               Icon(
                 icon,
                 color: isSelected
-                    ? Theme.of(context).colorScheme.primary
-                    : Colors.grey,
+                    ? Theme.of(context).colorScheme.onPrimary
+                    : Theme.of(context).hintColor,
               ),
               const SizedBox(height: 4),
               Text(
                 label,
-                style: TextStyle(
-                  fontSize: 12,
-                  fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-                  color: isSelected
-                      ? Theme.of(context).colorScheme.primary
-                      : Colors.grey,
+                style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                  fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
+                  color: isSelected ? Theme.of(context).colorScheme.onPrimary : AppTheme.zinc400,
                 ),
               ),
             ],
@@ -483,7 +458,7 @@ class _LanguageSetting extends StatelessWidget {
         return Container(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
           decoration: BoxDecoration(
-            color: Colors.grey.withValues(alpha: 0.05),
+            color: Theme.of(context).hintColor.withValues(alpha: 0.05),
             borderRadius: BorderRadius.circular(12),
           ),
           child: DropdownButtonHideUnderline(

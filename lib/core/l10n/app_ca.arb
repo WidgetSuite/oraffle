@@ -174,10 +174,12 @@
   "@winnersTitle": {
     "description": "Títol de la pantalla de guanyadors"
   },
+  "winnersTitleShort": "Guanyadors",
   "shareResults": "Compartir Resultats",
   "@shareResults": {
     "description": "Etiqueta del botó per compartir els resultats"
   },
+  "shareResultsShort": "Compartir",
   "noWinnersYet": "Encara no hi ha guanyadors",
   "@noWinnersYet": {
     "description": "Missatge mostrat quan no hi ha guanyadors"
@@ -357,5 +359,11 @@
   "invalidHexColor": "Color hexadecimal no vàlid",
   "@invalidHexColor": {
     "description": "Missatge d'error per a una entrada de color hexadecimal no vàlida"
-  }
+  },
+  "statLabelTotal": "Total",
+  "statLabelActive": "Actius",
+  "statLabelWinners": "Guanyadors",
+  "nextWinner": "Següent guanyador",
+  "resetToDefault": "Restablir per defecte",
+  "lowContrastWarning": "Baix contrast amb text blanc. El text dels botons pot ser difícil de llegir."
 }

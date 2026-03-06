@@ -136,7 +136,13 @@ class AppLocalizationsGl extends AppLocalizations {
   String get winnersTitle => 'Gañadores';
 
   @override
+  String get winnersTitleShort => 'Gañadores';
+
+  @override
   String get shareResults => 'Compartir Resultados';
+
+  @override
+  String get shareResultsShort => 'Compartir';
 
   @override
   String get noWinnersYet => 'Aínda non hai gañadores';
@@ -264,4 +270,23 @@ class AppLocalizationsGl extends AppLocalizations {
 
   @override
   String get invalidHexColor => 'Cor hexadecimal non válido';
+
+  @override
+  String get statLabelTotal => 'Total';
+
+  @override
+  String get statLabelActive => 'Activos';
+
+  @override
+  String get statLabelWinners => 'Gañadores';
+
+  @override
+  String get nextWinner => 'Seguinte gañador';
+
+  @override
+  String get resetToDefault => 'Restablecer por defecto';
+
+  @override
+  String get lowContrastWarning =>
+      'Baixo contraste con texto branco. O texto dos botóns pode ser difícil de ler.';
 }

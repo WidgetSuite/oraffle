@@ -133,7 +133,13 @@ class AppLocalizationsHi extends AppLocalizations {
   String get winnersTitle => 'विजेता';
 
   @override
+  String get winnersTitleShort => 'विजेता';
+
+  @override
   String get shareResults => 'परिणाम साझा करें';
+
+  @override
+  String get shareResultsShort => 'साझा करें';
 
   @override
   String get noWinnersYet => 'अभी तक कोई विजेता नहीं';
@@ -259,4 +265,23 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get invalidHexColor => 'अमान्य हेक्स रंग';
+
+  @override
+  String get statLabelTotal => 'कुल';
+
+  @override
+  String get statLabelActive => 'सक्रिय';
+
+  @override
+  String get statLabelWinners => 'विजेता';
+
+  @override
+  String get nextWinner => 'अगला विजेता';
+
+  @override
+  String get resetToDefault => 'डिफ़ॉल्ट पर रीसेट करें';
+
+  @override
+  String get lowContrastWarning =>
+      'सफेद टेक्स्ट के साथ कम कंट्रास्ट। बटन का टेक्स्ट पढ़ना मुश्किल हो सकता है।';
 }

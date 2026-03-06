@@ -132,7 +132,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get winnersTitle => 'الفائزون';
 
   @override
+  String get winnersTitleShort => 'الفائزون';
+
+  @override
   String get shareResults => 'مشاركة النتائج';
+
+  @override
+  String get shareResultsShort => 'مشاركة';
 
   @override
   String get noWinnersYet => 'لا يوجد فائزون بعد';
@@ -257,4 +263,23 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get invalidHexColor => 'لون سداسي عشري غير صالح';
+
+  @override
+  String get statLabelTotal => 'المجموع';
+
+  @override
+  String get statLabelActive => 'نشطاء';
+
+  @override
+  String get statLabelWinners => 'الفائزون';
+
+  @override
+  String get nextWinner => 'الفائز التالي';
+
+  @override
+  String get resetToDefault => 'إعادة إلى الافتراضي';
+
+  @override
+  String get lowContrastWarning =>
+      'تباين منخفض مع النص الأبيض. قد يصعب قراءة نص الأزرار.';
 }

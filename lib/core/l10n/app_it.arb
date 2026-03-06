@@ -177,10 +177,12 @@
   "@winnersTitle": {
     "description": "Titolo della schermata vincitori"
   },
+  "winnersTitleShort": "Vincitori",
   "shareResults": "Condividi risultati",
   "@shareResults": {
     "description": "Tooltip del pulsante condividi risultati"
   },
+  "shareResultsShort": "Condividi",
   "noWinnersYet": "Nessun vincitore ancora",
   "@noWinnersYet": {
     "description": "Messaggio quando non ci sono vincitori"
@@ -360,5 +362,11 @@
   "invalidHexColor": "Colore esadecimale non valido",
   "@invalidHexColor": {
     "description": "Messaggio di errore per l'immissione di un colore esadecimale non valido"
-  }
+  },
+  "statLabelTotal": "Totale",
+  "statLabelActive": "Attivi",
+  "statLabelWinners": "Vincitori",
+  "nextWinner": "Prossimo vincitore",
+  "resetToDefault": "Ripristina predefinito",
+  "lowContrastWarning": "Basso contrasto con testo bianco. Il testo dei pulsanti potrebbe essere difficile da leggere."
 }

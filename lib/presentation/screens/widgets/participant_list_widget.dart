@@ -16,9 +16,66 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:oraffle/core/l10n/app_localizations.dart';
+import 'package:oraffle/core/theme/extensions/custom_colors.dart';
 import 'package:oraffle/presentation/blocs/raffle_bloc/raffle_bloc.dart';
 import 'package:oraffle/presentation/blocs/raffle_bloc/raffle_state.dart';
 import 'package:oraffle/domain/models/raffle/raffle_session.dart';
+
+enum _StatVariant { total, active, winners }
+
+class _StatCard extends StatelessWidget {
+  const _StatCard({
+    required this.value,
+    required this.label,
+    required this.variant,
+  });
+
+  final int value;
+  final String label;
+  final _StatVariant variant;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final custom = theme.extension<CustomColors>()!;
+
+    final (bg, fg) = switch (variant) {
+      _StatVariant.total => (theme.cardColor, theme.colorScheme.onSurface),
+      _StatVariant.active => (
+        custom.successContainer!,
+        custom.onSuccessContainer!,
+      ),
+      _StatVariant.winners => (
+        custom.winnersContainer!,
+        custom.onWinnersContainer!,
+      ),
+    };
+
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
+      decoration: BoxDecoration(
+        color: bg,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            '$value',
+            style: theme.textTheme.titleLarge!.copyWith(color: fg),
+          ),
+          const SizedBox(height: 2),
+          Text(
+            label,
+            style: theme.textTheme.labelSmall!.copyWith(
+              color: fg.withValues(alpha: 0.7),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
 
 class ParticipantListWidget extends StatelessWidget {
   const ParticipantListWidget({super.key});
@@ -42,16 +99,24 @@ class ParticipantListWidget extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.people_outline, size: 64, color: Colors.grey[400]),
+                Icon(Icons.people_outline, size: 64, color: Theme.of(context).hintColor),
                 const SizedBox(height: 16),
                 Text(
                   AppLocalizations.of(context)!.noParticipants,
-                  style: TextStyle(fontSize: 16, color: Colors.grey[600]),
+                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                    color: Theme.of(
+                      context,
+                    ).colorScheme.onSurface.withValues(alpha: 0.6),
+                  ),
                 ),
                 const SizedBox(height: 8),
                 Text(
                   AppLocalizations.of(context)!.addParticipantsHint,
-                  style: TextStyle(fontSize: 14, color: Colors.grey[500]),
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                    color: Theme.of(
+                      context,
+                    ).colorScheme.onSurface.withValues(alpha: 0.5),
+                  ),
                 ),
               ],
             ),
@@ -63,49 +128,74 @@ class ParticipantListWidget extends StatelessWidget {
             .where((p) => !p.isActive)
             .toList();
 
+        final l10n = AppLocalizations.of(context)!;
         return Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             // Summary
-            Container(
-              padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                color: Colors.blue[50],
-                borderRadius: BorderRadius.circular(8),
-                border: Border.all(color: Colors.blue[200]!),
-              ),
-              child: Column(
-                children: [
-                  Text(
-                    AppLocalizations.of(
-                      context,
-                    )!.totalParticipants(session.totalParticipants),
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black87,
-                    ),
+            Row(
+              children: [
+                Expanded(
+                  child: _StatCard(
+                    value: session.totalParticipants,
+                    label: l10n.statLabelTotal,
+                    variant: _StatVariant.total,
                   ),
-                  const SizedBox(height: 4),
-                  Text(
-                    AppLocalizations.of(context)!.activeVsWinners(
-                      activeParticipants.length,
-                      session.winnersCount,
-                    ),
-                    style: TextStyle(fontSize: 12, color: Colors.grey[600]),
+                ),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: _StatCard(
+                    value: activeParticipants.length,
+                    label: l10n.statLabelActive,
+                    variant: _StatVariant.active,
                   ),
-                ],
-              ),
+                ),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: _StatCard(
+                    value: session.winnersCount,
+                    label: l10n.statLabelWinners,
+                    variant: _StatVariant.winners,
+                  ),
+                ),
+              ],
             ),
             const SizedBox(height: 16),
 
             // Participants list
             if (activeParticipants.isNotEmpty) ...[
-              Text(
-                AppLocalizations.of(context)!.activeParticipants,
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.green,
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    AppLocalizations.of(context)!.activeParticipants,
+                    style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                      color: Theme.of(
+                        context,
+                      ).extension<CustomColors>()!.onSuccessContainer,
+                    ),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 2,
+                      horizontal: 10,
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(80),
+                      color: Theme.of(
+                        context,
+                      ).extension<CustomColors>()!.success!.withAlpha(30),
+                    ),
+                    child: Text(
+                      activeParticipants.length.toString(),
+                      style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                        color: Theme.of(
+                          context,
+                        ).extension<CustomColors>()!.success,
+                      ),
+                    ),
+                  ),
+                ],
               ),
               const SizedBox(height: 8),
               ...activeParticipants.map(
@@ -113,11 +203,18 @@ class ParticipantListWidget extends StatelessWidget {
                   margin: const EdgeInsets.only(bottom: 4),
                   child: ListTile(
                     dense: true,
-                    leading: const Icon(Icons.person, color: Colors.green),
+                    leading:  Icon(
+                      Icons.person_rounded,
+                      color: Theme.of(
+                          context,
+                        ).extension<CustomColors>()!.success,
+                    ),
                     title: Text(participant.name),
-                    trailing: const Icon(
+                    trailing:  Icon(
                       Icons.check_circle_outline,
-                      color: Colors.green,
+                      color: Theme.of(
+                          context,
+                        ).extension<CustomColors>()!.success,
                     ),
                   ),
                 ),
@@ -126,31 +223,52 @@ class ParticipantListWidget extends StatelessWidget {
 
             if (inactiveParticipants.isNotEmpty) ...[
               const SizedBox(height: 16),
-              Text(
-                AppLocalizations.of(context)!.alreadySelected,
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.orange,
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    AppLocalizations.of(context)!.alreadySelected,
+                    style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                      color: Theme.of(
+                        context,
+                      ).extension<CustomColors>()!.onWinnersContainer,
+                    ),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 2,
+                      horizontal: 10,
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(80),
+                      color: Theme.of(
+                        context,
+                      ).extension<CustomColors>()!.winnersContainer,
+                    ),
+                    child: Text(
+                      inactiveParticipants.length.toString(),
+                      style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                        color: Theme.of(
+                          context,
+                        ).extension<CustomColors>()!.onWinnersContainer,
+                      ),
+                    ),
+                  ),
+                ],
               ),
               const SizedBox(height: 8),
               ...inactiveParticipants.map(
                 (participant) => Card(
                   margin: const EdgeInsets.only(bottom: 4),
-                  color: Colors.grey[100],
                   child: ListTile(
                     dense: true,
-                    leading: const Icon(Icons.person_off, color: Colors.grey),
-                    title: Text(
-                      participant.name,
-                      style: const TextStyle(
-                        color: Colors.grey,
-                        decoration: TextDecoration.lineThrough,
-                      ),
-                    ),
-                    trailing: const Icon(
+                    leading: const Icon(Icons.person_outline_rounded),
+                    title: Text(participant.name),
+                    trailing:  Icon(
                       Icons.emoji_events,
-                      color: Colors.orange,
+                      color: Theme.of(
+                          context,
+                        ).extension<CustomColors>()!.onWinnersContainer,
                     ),
                   ),
                 ),

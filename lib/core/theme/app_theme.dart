@@ -15,134 +15,248 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:oraffle/core/theme/app_text_theme.dart';
 import 'package:oraffle/core/theme/extensions/confirm_dialog_colors_extension.dart';
 import 'package:oraffle/core/theme/extensions/custom_colors.dart';
 
 class AppTheme {
-  // Define main application colors
-  static const Color primaryColor = Color(0xFF8B5CF6);
+  static const Color defaultSeedColor = Color(0xFF8B5CF6);
   static const Color secondaryColor = Color(0xFF03DAC6);
-  static const Color backgroundColor = Colors.white;
-  static const Color cardColorLight = Color(0xFFF4F4F5); // Zinc 100
-  static const Color surfaceColor = Colors.white;
-  static const Color errorColor = Color(0xFFEF4444); // Lucide red
-  static const Color textColor = Color(0xFF18181B); // Zinc 900
-  static const Color textSecondaryColor = Color(0xFF71717A); // Zinc 500
-  static const Color borderColor = Color(0xFFE4E4E7); // Zinc 200
-  static const Color cardColorDark = Color(0xFF27272A); // Zinc 800
-  static const Color borderColorDark = Color(0xFF3F3F46); // Zinc 700
-  static const Color zinc50 = Color(0xFFFAFAFA);
-  static const Color zinc100 = Color(0xFFF4F4F5); // cardColorLight
-  static const Color zinc200 = Color(0xFFE4E4E7); // borderColor
+  static const Color errorColor = Color(0xFFEF4444);
+
+  // Zinc palette
+  static const Color zinc100 = Color(0xFFF4F4F5);
+  static const Color zinc200 = Color(0xFFE4E4E7);
   static const Color zinc300 = Color(0xFFD4D4D8);
   static const Color zinc400 = Color(0xFFA1A1AA);
-  static const Color zinc500 = Color(0xFF71717A); // textSecondaryColor
+  static const Color zinc500 = Color(0xFF71717A);
   static const Color zinc600 = Color(0xFF52525B);
-  static const Color zinc700 = Color(0xFF3F3F46); // borderColorDark
-  static const Color zinc800 = Color(0xFF27272A); // cardColorDark
-  static const Color zinc900 = Color(0xFF18181B); // textColor
+  static const Color zinc700 = Color(0xFF3F3F46);
+  static const Color zinc800 = Color(0xFF27272A);
+  static const Color zinc900 = Color(0xFF18181B);
 
-  static const Color violet100 = Color(0xFFEDE9FE);
-  static const Color violet400 = Color(0xFFA78BFA);
-  static const Color violet500 = Color(0xFF8B5CF6); // primaryColor
-  static const Color violet900 = Color(0xFF4C1D95);
-
+  // Semantic aliases kept for external references
+  static const Color primaryColor = defaultSeedColor;
+  static const Color backgroundColor = Colors.white;
+  static const Color cardColorLight = zinc100;
+  static const Color surfaceColor = Colors.white;
+  static const Color textColor = zinc900;
+  static const Color textSecondaryColor = zinc500;
+  static const Color borderColor = zinc200;
+  static const Color cardColorDark = zinc800;
+  static const Color borderColorDark = zinc700;
+  static const Color zinc50 = Color(0xFFFAFAFA);
   static const Color shadowColor = Colors.black;
   static const Color transparent = Colors.transparent;
+  static const Color violet100 = Color(0xFFEDE9FE);
+  static const Color violet400 = Color(0xFFA78BFA);
+  static const Color violet500 = defaultSeedColor;
+  static const Color violet900 = Color(0xFF4C1D95);
 
-  static ThemeData get lightTheme => ThemeData(
-    primaryColor: primaryColor,
-    scaffoldBackgroundColor: backgroundColor,
-    cardColor: cardColorLight,
-    dividerColor: borderColor,
-    hintColor: zinc400,
-    fontFamily: GoogleFonts.inter().fontFamily,
-    colorScheme: const ColorScheme.light(
-      primary: primaryColor,
+  /// Returns the best contrasting on-color (white or near-black) for [background]
+  /// using the WCAG relative luminance threshold (0.179).
+  static Color onColor(Color background) {
+    return background.computeLuminance() > 0.179 ? zinc900 : Colors.white;
+  }
+
+  /// WCAG contrast ratio between two colors.
+  static double contrastRatio(Color a, Color b) {
+    final la = a.computeLuminance();
+    final lb = b.computeLuminance();
+    final lighter = la > lb ? la : lb;
+    final darker = la > lb ? lb : la;
+    return (lighter + 0.05) / (darker + 0.05);
+  }
+
+  /// Returns [color] if it has sufficient contrast (≥ 3.0) against [background],
+  /// otherwise returns a high-contrast fallback via [onColor].
+  static Color readable(Color color, Color background) {
+    return contrastRatio(color, background) >= 3.0 ? color : onColor(background);
+  }
+
+  static ThemeData lightTheme([Color seed = defaultSeedColor]) {
+    final colorScheme = ColorScheme.fromSeed(seedColor: seed).copyWith(
+      primary: seed,
+      onPrimary: onColor(seed),
       secondary: secondaryColor,
-      surface: surfaceColor,
-      error: errorColor,
-      onPrimary: Colors.white,
+      surface: Colors.white,
       onSecondary: Colors.black,
       onSurface: textColor,
-      onError: Colors.white,
-    ),
-    appBarTheme: AppBarTheme(
-      backgroundColor: surfaceColor,
-      foregroundColor: textColor,
-      elevation: 0,
-      centerTitle: true,
-      titleTextStyle: GoogleFonts.plusJakartaSans(
-        color: textColor,
-        fontSize: 20.0,
-        fontWeight: FontWeight.bold,
-      ),
-      iconTheme: const IconThemeData(color: textColor),
-    ),
-    extensions: [
-      const ConfirmingDialogColorsExtension(
-        card: Colors.white,
-        title: textColor,
-        subtitle: textSecondaryColor,
-        surface: cardColorLight,
-        border: borderColor,
-      ),
-      const CustomColors(
-        aiIconColor: primaryColor,
-        success: Color(0xFF10B981),
-        info: Color(0xFF3B82F6),
-        warning: Color(0xFFFBBF24),
-        warningContainer: Color(0xFFFEF3C7),
-        onWarningContainer: Color(0xFFD97706),
-      ),
-    ],
-  );
-
-  static ThemeData get darkTheme => ThemeData(
-    primaryColor: primaryColor,
-    scaffoldBackgroundColor: const Color(0xFF18181B),
-    cardColor: cardColorDark,
-    dividerColor: borderColorDark,
-    hintColor: zinc400,
-    fontFamily: GoogleFonts.inter().fontFamily,
-    colorScheme: const ColorScheme.dark(
-      primary: primaryColor,
-      secondary: secondaryColor,
-      surface: Color(0xFF18181B),
       error: errorColor,
-      onPrimary: Colors.white,
-      onSecondary: Colors.black,
-      onSurface: Color(0xFFFAFAFA),
       onError: Colors.white,
-    ),
-    appBarTheme: AppBarTheme(
-      backgroundColor: const Color(0xFF18181B),
-      foregroundColor: Colors.white,
-      elevation: 0,
-      centerTitle: true,
-      titleTextStyle: GoogleFonts.plusJakartaSans(
-        color: Colors.white,
-        fontSize: 20.0,
-        fontWeight: FontWeight.bold,
+    );
+    return _buildTheme(colorScheme);
+  }
+
+  static ThemeData darkTheme([Color seed = defaultSeedColor]) {
+    final colorScheme =
+        ColorScheme.fromSeed(
+          seedColor: seed,
+          brightness: Brightness.dark,
+        ).copyWith(
+          primary: seed,
+          onPrimary: onColor(seed),
+          secondary: secondaryColor,
+          surface: zinc900,
+          onSecondary: Colors.black,
+          onSurface: const Color(0xFFFAFAFA),
+          error: errorColor,
+          onError: Colors.white,
+        );
+    return _buildTheme(colorScheme);
+  }
+
+  static ThemeData _buildTheme(ColorScheme colorScheme) {
+    final isDark = colorScheme.brightness == Brightness.dark;
+
+    const buttonShape = RoundedRectangleBorder(
+      borderRadius: BorderRadius.all(Radius.circular(12)),
+    );
+    const buttonSize = Size(0, 56);
+
+    // Primary as text/icon on the scaffold surface (ElevatedButton, OutlinedButton,
+    // TextButton). If the chosen primary is not readable on the surface (e.g. white
+    // primary on white background) fall back to a contrasting color.
+    final primaryForText = readable(colorScheme.primary, colorScheme.surface);
+
+    final dialogColors = isDark
+        ? const ConfirmingDialogColorsExtension(
+            card: cardColorDark,
+            title: Colors.white,
+            subtitle: zinc400,
+            surface: borderColorDark,
+            border: borderColorDark,
+          )
+        : const ConfirmingDialogColorsExtension(
+            card: Colors.white,
+            title: textColor,
+            subtitle: textSecondaryColor,
+            surface: cardColorLight,
+            border: borderColor,
+          );
+
+    final customColors = isDark
+        ? const CustomColors(
+            aiIconColor: defaultSeedColor,
+            success: Color(0xFF10B981),
+            info: Color(0xFF3B82F6),
+            warning: Color(0xFFFBBF24),
+            warningContainer: Color(0xFF3D2000),
+            onWarningContainer: Color(0xFFF59E0B),
+            successContainer: Color(0xFF1B4332),
+            onSuccessContainer: Color(0xFF4ADE80),
+            winnersContainer: Color(0xFF3D1A00),
+            onWinnersContainer: Color(0xFFFB923C),
+            goldMedal: Color(0xFFFFD700),
+            silverMedal: Color(0xFFB0BEC5),
+            copperMedal: Color(0xFFCD7F32),
+          )
+        : const CustomColors(
+            aiIconColor: defaultSeedColor,
+            success: Color(0xFF10B981),
+            info: Color(0xFF3B82F6),
+            warning: Color(0xFFFBBF24),
+            warningContainer: Color(0xFFFEF3C7),
+            onWarningContainer: Color(0xFFD97706),
+            successContainer: Color(0xFFDCFCE7),
+            onSuccessContainer: Color(0xFF166534),
+            winnersContainer: Color(0xFFFFF7ED),
+            onWinnersContainer: Color(0xFFC2410C),
+            goldMedal: Color(0xFFFFD700),
+            silverMedal: Color(0xFFB0BEC5),
+            copperMedal: Color(0xFFCD7F32),
+          );
+
+    return ThemeData(
+      primaryColor: colorScheme.primary,
+      scaffoldBackgroundColor: colorScheme.surface,
+      cardColor: isDark ? cardColorDark : cardColorLight,
+      dividerColor: isDark ? borderColorDark : borderColor,
+      hintColor: zinc400,
+      textTheme: AppTextTheme.textTheme,
+      colorScheme: colorScheme,
+      appBarTheme: AppBarTheme(
+        elevation: 0,
+        backgroundColor: colorScheme.primary,
+        foregroundColor: colorScheme.onPrimary,
+        titleTextStyle: GoogleFonts.plusJakartaSans(
+          color: colorScheme.onPrimary,
+          fontSize: 20.0,
+          fontWeight: FontWeight.bold,
+        ),
+        iconTheme: IconThemeData(color: colorScheme.onPrimary),
       ),
-      iconTheme: const IconThemeData(color: Colors.white),
-    ),
-    extensions: [
-      const ConfirmingDialogColorsExtension(
-        card: cardColorDark,
-        title: Colors.white,
-        subtitle: zinc400,
-        surface: borderColorDark,
-        border: borderColorDark,
+      // ElevatedButton (M3): surfaceContainerLow bg, primary as text.
+      // Ensure primary is readable on that surface.
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ButtonStyle(
+          minimumSize: WidgetStatePropertyAll(buttonSize),
+          shape: WidgetStatePropertyAll(buttonShape),
+          iconSize: WidgetStatePropertyAll(20),
+          foregroundColor: WidgetStateProperty.resolveWith((states) {
+            if (states.contains(WidgetState.disabled)) {
+              return colorScheme.onSurface.withValues(alpha: 0.38);
+            }
+            return primaryForText;
+          }),
+        ),
       ),
-      CustomColors(
-        aiIconColor: primaryColor,
-        success: const Color(0xFF10B981),
-        info: const Color(0xFF3B82F6),
-        warning: const Color(0xFFFBBF24),
-        warningContainer: const Color(0xFFF59E0B).withValues(alpha: 0.2),
-        onWarningContainer: const Color(0xFFF59E0B),
+      // FilledButton: primary bg, onPrimary text — both explicitly set.
+      filledButtonTheme: FilledButtonThemeData(
+        style: ButtonStyle(
+          minimumSize: WidgetStatePropertyAll(buttonSize),
+          shape: WidgetStatePropertyAll(buttonShape),
+          iconSize: WidgetStatePropertyAll(20),
+          backgroundColor: WidgetStateProperty.resolveWith((states) {
+            if (states.contains(WidgetState.disabled)) {
+              return colorScheme.onSurface.withValues(alpha: 0.12);
+            }
+            return colorScheme.primary;
+          }),
+          foregroundColor: WidgetStateProperty.resolveWith((states) {
+            if (states.contains(WidgetState.disabled)) {
+              return colorScheme.onSurface.withValues(alpha: 0.38);
+            }
+            return colorScheme.onPrimary;
+          }),
+          shadowColor: WidgetStateColor.resolveWith(
+            (state) => state.contains(WidgetState.disabled)
+                ? Colors.transparent
+                : Colors.black,
+          ),
+          elevation: WidgetStatePropertyAll(1),
+        ),
       ),
-    ],
-  );
+      // OutlinedButton: transparent bg, primary as text.
+      outlinedButtonTheme: OutlinedButtonThemeData(
+        style: ButtonStyle(
+          minimumSize: WidgetStatePropertyAll(buttonSize),
+          shape: WidgetStatePropertyAll(buttonShape),
+          iconSize: WidgetStatePropertyAll(20),
+          foregroundColor: WidgetStateProperty.resolveWith((states) {
+            if (states.contains(WidgetState.disabled)) {
+              return colorScheme.onSurface.withValues(alpha: 0.38);
+            }
+            return primaryForText;
+          }),
+        ),
+      ),
+      // TextButton: transparent bg, primary as text.
+      textButtonTheme: TextButtonThemeData(
+        style: ButtonStyle(
+          foregroundColor: WidgetStateProperty.resolveWith((states) {
+            if (states.contains(WidgetState.disabled)) {
+              return colorScheme.onSurface.withValues(alpha: 0.38);
+            }
+            return primaryForText;
+          }),
+        ),
+      ),
+      inputDecorationTheme: InputDecorationTheme(
+        hintStyle: TextStyle(color: zinc400),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+      ),
+      extensions: [dialogColors, customColors],
+    );
+  }
 }

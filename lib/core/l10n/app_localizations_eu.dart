@@ -133,7 +133,13 @@ class AppLocalizationsEu extends AppLocalizations {
   String get winnersTitle => 'Irabazleak';
 
   @override
+  String get winnersTitleShort => 'Irabazleak';
+
+  @override
   String get shareResults => 'Emaitzak Partekatu';
+
+  @override
+  String get shareResultsShort => 'Partekatu';
 
   @override
   String get noWinnersYet => 'Oraindik ez dago irabazlerik';
@@ -261,4 +267,23 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get invalidHexColor => 'Hex kolore baliogabea';
+
+  @override
+  String get statLabelTotal => 'Guztira';
+
+  @override
+  String get statLabelActive => 'Aktibo';
+
+  @override
+  String get statLabelWinners => 'Irabazleak';
+
+  @override
+  String get nextWinner => 'Hurrengo irabazlea';
+
+  @override
+  String get resetToDefault => 'Lehenetsi';
+
+  @override
+  String get lowContrastWarning =>
+      'Kontraste baxua testu zuriarekin. Botoietako testua irakurtzeko zaila izan daiteke.';
 }

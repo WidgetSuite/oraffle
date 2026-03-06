@@ -134,7 +134,13 @@ class AppLocalizationsIt extends AppLocalizations {
   String get winnersTitle => 'Vincitori dell\'estrazione';
 
   @override
+  String get winnersTitleShort => 'Vincitori';
+
+  @override
   String get shareResults => 'Condividi risultati';
+
+  @override
+  String get shareResultsShort => 'Condividi';
 
   @override
   String get noWinnersYet => 'Nessun vincitore ancora';
@@ -262,4 +268,23 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get invalidHexColor => 'Colore esadecimale non valido';
+
+  @override
+  String get statLabelTotal => 'Totale';
+
+  @override
+  String get statLabelActive => 'Attivi';
+
+  @override
+  String get statLabelWinners => 'Vincitori';
+
+  @override
+  String get nextWinner => 'Prossimo vincitore';
+
+  @override
+  String get resetToDefault => 'Ripristina predefinito';
+
+  @override
+  String get lowContrastWarning =>
+      'Basso contrasto con testo bianco. Il testo dei pulsanti potrebbe essere difficile da leggere.';
 }

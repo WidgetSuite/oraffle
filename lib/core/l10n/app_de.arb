@@ -180,10 +180,12 @@
   "@winnersTitle": {
     "description": "Titel des Gewinnerbildschirms"
   },
+  "winnersTitleShort": "Gewinner",
   "shareResults": "Ergebnisse teilen",
   "@shareResults": {
     "description": "Tooltip des Buttons zum Teilen der Ergebnisse"
   },
+  "shareResultsShort": "Teilen",
   "noWinnersYet": "Noch keine Gewinner",
   "@noWinnersYet": {
     "description": "Nachricht wenn noch keine Gewinner vorhanden sind"
@@ -363,5 +365,11 @@
   "invalidHexColor": "Ungültige Hex-Farbe",
   "@invalidHexColor": {
     "description": "Fehlermeldung für ungültige hexadezimale Farbeingabe"
-  }
+  },
+  "statLabelTotal": "Gesamt",
+  "statLabelActive": "Aktiv",
+  "statLabelWinners": "Gewinner",
+  "nextWinner": "Nächster Gewinner",
+  "resetToDefault": "Auf Standard zurücksetzen",
+  "lowContrastWarning": "Geringer Kontrast mit weißem Text. Der Schaltflächentext ist möglicherweise schwer lesbar."
 }

@@ -44,7 +44,9 @@
   "continueRaffle": "Συνέχεια Κλήρωσης",
   "finishRaffle": "Ολοκλήρωση Κλήρωσης",
   "winnersTitle": "Νικητές Κλήρωσης",
+  "winnersTitleShort": "Νικητές",
   "shareResults": "Κοινοποίηση αποτελεσμάτων",
+  "shareResultsShort": "Κοινοποίηση",
   "noWinnersYet": "Δεν υπάρχουν νικητές ακόμα",
   "performRaffleToSeeWinners": "Πραγματοποιήστε μια κλήρωση για να δείτε τους νικητές εδώ",
   "goToRaffle": "Μετάβαση στην Κλήρωση",
@@ -119,5 +121,11 @@
   "invalidHexColor": "Μη έγκυρο δεκαεξαδικό χρώμα",
   "@invalidHexColor": {
     "description": "Μήνυμα σφάλματος για μη έγκυρη εισαγωγή δεκαεξαδικού χρώματος"
-  }
+  },
+  "statLabelTotal": "Σύνολο",
+  "statLabelActive": "Ενεργοί",
+  "statLabelWinners": "Νικητές",
+  "nextWinner": "Επόμενος νικητής",
+  "resetToDefault": "Επαναφορά στην προεπιλογή",
+  "lowContrastWarning": "Χαμηλή αντίθεση με λευκό κείμενο. Το κείμενο των κουμπιών μπορεί να είναι δύσκολο να διαβαστεί."
 }

@@ -133,7 +133,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get winnersTitle => 'Raffle Winners';
 
   @override
+  String get winnersTitleShort => 'Winners';
+
+  @override
   String get shareResults => 'Share results';
+
+  @override
+  String get shareResultsShort => 'Share';
 
   @override
   String get noWinnersYet => 'No winners yet';
@@ -260,4 +266,23 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get invalidHexColor => 'Invalid hex color';
+
+  @override
+  String get statLabelTotal => 'Total';
+
+  @override
+  String get statLabelActive => 'Active';
+
+  @override
+  String get statLabelWinners => 'Winners';
+
+  @override
+  String get nextWinner => 'Next Winner';
+
+  @override
+  String get resetToDefault => 'Reset to default';
+
+  @override
+  String get lowContrastWarning =>
+      'Low contrast with white text. The button text may be hard to read.';
 }

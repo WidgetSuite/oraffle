@@ -60,10 +60,14 @@ class WinnersScreen extends StatelessWidget {
               onPressed: () => context.go(AppRoutes.raffle),
             ),
             actions: [
-              IconButton(
+              FilledButton.icon(
                 onPressed: () => _showShareDialog(context),
                 icon: const Icon(Icons.share),
-                tooltip: AppLocalizations.of(context)!.shareResults,
+                label: Text(AppLocalizations.of(context)!.shareResultsShort),
+                style: FilledButton.styleFrom(
+                  elevation: 2,
+                  minimumSize: Size(0, 48),
+                ),
               ),
             ],
           ),
@@ -106,9 +110,10 @@ class WinnersScreen extends StatelessWidget {
       builder: (dialogContext) {
         final isDark = Theme.of(context).brightness == Brightness.dark;
         final colors = context.appColors;
+        final tt = Theme.of(context).textTheme;
 
         // Design Tokens
-        final titleColor = isDark ? Colors.white : Colors.black;
+        final titleColor = Theme.of(context).colorScheme.onSurface;
         final codeBg = isDark ? AppTheme.textColor : AppTheme.cardColorLight;
         final codeText = isDark ? AppTheme.borderColor : AppTheme.textColor;
 
@@ -131,21 +136,15 @@ class WinnersScreen extends StatelessWidget {
                   children: [
                     Text(
                       AppLocalizations.of(context)!.shareResultsTitle,
-                      style: TextStyle(
-                        fontFamily: 'Inter',
-                        fontSize: 24,
-                        fontWeight: FontWeight.w700,
-                        color: titleColor,
-                      ),
+                      style: tt.headlineSmall!.copyWith(color: titleColor),
                     ),
                     IconButton(
                       onPressed: () => Navigator.of(dialogContext).pop(),
                       style: IconButton.styleFrom(
                         backgroundColor: colors.surface,
-                        fixedSize: const Size(40, 40),
                         padding: EdgeInsets.zero,
                       ),
-                      icon: Icon(Icons.close, size: 20, color: colors.subtitle),
+                      icon: Icon(Icons.close, color: colors.subtitle),
                     ),
                   ],
                 ),
@@ -153,11 +152,7 @@ class WinnersScreen extends StatelessWidget {
 
                 Text(
                   AppLocalizations.of(context)!.raffleResultsLabel,
-                  style: TextStyle(
-                    fontFamily: 'Inter',
-                    fontSize: 14,
-                    color: colors.subtitle,
-                  ),
+                  style: tt.bodyMedium!.copyWith(color: colors.subtitle),
                 ),
                 const SizedBox(height: 12),
 
@@ -182,44 +177,23 @@ class WinnersScreen extends StatelessWidget {
 
                 const SizedBox(height: 32),
 
-                SizedBox(
-                  height: 56,
-                  child: ElevatedButton.icon(
-                    onPressed: () async {
-                      Navigator.of(dialogContext).pop();
-                      await Clipboard.setData(ClipboardData(text: resultsText));
-                      if (context.mounted) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text(
-                              AppLocalizations.of(context)!.shareSuccess,
-                            ),
-                            behavior: SnackBarBehavior.floating,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
+                FilledButton.icon(
+                  onPressed: () async {
+                    Navigator.of(dialogContext).pop();
+                    await Clipboard.setData(ClipboardData(text: resultsText));
+                    if (context.mounted) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            AppLocalizations.of(context)!.shareSuccess,
                           ),
-                        );
-                      }
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppTheme.primaryColor,
-                      foregroundColor: Colors.white,
-                      elevation: 0,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                    ),
-                    icon: const Icon(Icons.copy, size: 20),
-                    label: Text(
-                      AppLocalizations.of(context)!.share,
-                      style: const TextStyle(
-                        fontFamily: 'Inter',
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
+                          behavior: SnackBarBehavior.floating,
+                        ),
+                      );
+                    }
+                  },
+                  icon: const Icon(Icons.copy),
+                  label: Text(AppLocalizations.of(context)!.share),
                 ),
               ],
             ),

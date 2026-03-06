@@ -171,10 +171,12 @@
   "@winnersTitle": {
     "description": "Irabazleen pantailaren izenburua"
   },
+  "winnersTitleShort": "Irabazleak",
   "shareResults": "Emaitzak Partekatu",
   "@shareResults": {
     "description": "Emaitzak partekatzeko botoiaren etiketa"
   },
+  "shareResultsShort": "Partekatu",
   "noWinnersYet": "Oraindik ez dago irabazlerik",
   "@noWinnersYet": {
     "description": "Irabazlerik ez dagoenean erakusten den mezua"
@@ -354,5 +356,11 @@
   "invalidHexColor": "Hex kolore baliogabea",
   "@invalidHexColor": {
     "description": "Hex kolore baliogabea sartzean agertzen den errore mezua"
-  }
+  },
+  "statLabelTotal": "Guztira",
+  "statLabelActive": "Aktibo",
+  "statLabelWinners": "Irabazleak",
+  "nextWinner": "Hurrengo irabazlea",
+  "resetToDefault": "Lehenetsi",
+  "lowContrastWarning": "Kontraste baxua testu zuriarekin. Botoietako testua irakurtzeko zaila izan daiteke."
 }

@@ -134,7 +134,13 @@ class AppLocalizationsDe extends AppLocalizations {
   String get winnersTitle => 'Verlosungsgewinner';
 
   @override
+  String get winnersTitleShort => 'Gewinner';
+
+  @override
   String get shareResults => 'Ergebnisse teilen';
+
+  @override
+  String get shareResultsShort => 'Teilen';
 
   @override
   String get noWinnersYet => 'Noch keine Gewinner';
@@ -262,4 +268,23 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get invalidHexColor => 'Ungültige Hex-Farbe';
+
+  @override
+  String get statLabelTotal => 'Gesamt';
+
+  @override
+  String get statLabelActive => 'Aktiv';
+
+  @override
+  String get statLabelWinners => 'Gewinner';
+
+  @override
+  String get nextWinner => 'Nächster Gewinner';
+
+  @override
+  String get resetToDefault => 'Auf Standard zurücksetzen';
+
+  @override
+  String get lowContrastWarning =>
+      'Geringer Kontrast mit weißem Text. Der Schaltflächentext ist möglicherweise schwer lesbar.';
 }

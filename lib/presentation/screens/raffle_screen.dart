@@ -16,6 +16,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:oraffle/presentation/screens/settings_dialog.dart';
 import 'package:oraffle/presentation/screens/widgets/logo_widget.dart';
 import 'package:oraffle/core/l10n/app_localizations.dart';
 import 'package:oraffle/core/theme/app_theme.dart';
@@ -25,10 +26,10 @@ import 'package:oraffle/presentation/blocs/raffle_bloc/raffle_event.dart';
 import 'package:oraffle/presentation/blocs/raffle_bloc/raffle_state.dart';
 import 'package:oraffle/presentation/blocs/settings_cubit/settings_cubit.dart';
 import 'package:oraffle/presentation/blocs/settings_cubit/settings_state.dart';
-import 'package:oraffle/presentation/screens/widgets/raffle_narrow_layout.dart';
-import 'package:oraffle/presentation/screens/widgets/raffle_wide_layout.dart';
+import 'package:oraffle/presentation/screens/widgets/participant_input_widget.dart';
+import 'package:oraffle/presentation/screens/widgets/participant_list_widget.dart';
+import 'package:oraffle/presentation/screens/widgets/raffle_controls_widget.dart';
 import 'package:oraffle/presentation/screens/widgets/winner_dialog.dart';
-import 'package:oraffle/presentation/screens/widgets/reset_raffle_dialog.dart';
 import 'package:oraffle/routes/app_router.dart';
 
 class RaffleScreen extends StatelessWidget {
@@ -42,6 +43,14 @@ class RaffleScreen extends StatelessWidget {
 
 class _RaffleScreenContent extends StatelessWidget {
   const _RaffleScreenContent();
+
+  Future<void> _showSettingsDialog(BuildContext context) async {
+    await showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (_) => const SettingsDialog(),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -87,6 +96,12 @@ class _RaffleScreenContent extends StatelessWidget {
               onPressed: () => context.go(AppRoutes.home),
             ),
             actions: [
+              IconButton(
+                icon: const Icon(Icons.settings),
+                onPressed: () => _showSettingsDialog(context),
+                tooltip: AppLocalizations.of(context)!.settingsTitle,
+              ),
+              SizedBox(width: 16),
               // Winners history button
               BlocBuilder<RaffleBloc, RaffleState>(
                 builder: (context, state) {
@@ -99,26 +114,22 @@ class _RaffleScreenContent extends StatelessWidget {
                     hasWinners = state.session.hasWinners;
                   }
 
-                  return IconButton(
+                  return FilledButton.icon(
                     onPressed: hasWinners
                         ? () => context.go(AppRoutes.raffleWinners)
                         : null,
                     icon: Icon(
                       Icons.emoji_events,
-                      color: hasWinners
-                          ? Theme.of(context).extension<CustomColors>()!.warning
-                          : AppTheme.zinc500,
                     ),
-                    tooltip: AppLocalizations.of(context)!.viewWinners,
+                    style: FilledButton.styleFrom(
+                      elevation: 2,
+                      minimumSize: Size(0, 48),
+                    ),
+                    label: Text(AppLocalizations.of(context)!.winnersTitleShort),
                   );
                 },
               ),
-              // Reset raffle button
-              IconButton(
-                onPressed: () => showResetRaffleDialog(context),
-                icon: const Icon(Icons.refresh),
-                tooltip: AppLocalizations.of(context)!.resetRaffleTitle,
-              ),
+              SizedBox(width: 16),
             ],
           ),
           body: BlocListener<RaffleBloc, RaffleState>(
@@ -142,7 +153,7 @@ class _RaffleScreenContent extends StatelessWidget {
                     duration: const Duration(seconds: 5),
                     action: SnackBarAction(
                       label: AppLocalizations.of(context)!.okButton,
-                      textColor: Colors.white,
+                      textColor: Theme.of(context).colorScheme.onPrimary,
                       onPressed: () {
                         ScaffoldMessenger.of(context).hideCurrentSnackBar();
                       },
@@ -159,9 +170,9 @@ class _RaffleScreenContent extends StatelessWidget {
                 final isWideScreen = constraints.maxWidth > 800;
 
                 if (isWideScreen) {
-                  return const RaffleWideLayout();
+                  return const _RaffleWideLayout();
                 } else {
-                  return const RaffleNarrowLayout();
+                  return const _RaffleNarrowLayout();
                 }
               },
             ),
@@ -187,6 +198,86 @@ class _RaffleScreenContent extends StatelessWidget {
           context.read<RaffleBloc>().add(ConfirmWinner(winner));
           context.go(AppRoutes.raffleWinners);
         },
+      ),
+    );
+  }
+}
+
+class _RaffleWideLayout extends StatelessWidget {
+  const _RaffleWideLayout();
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      padding: const EdgeInsets.all(16.0),
+      child: Flex(
+        direction: Axis.horizontal,
+        spacing: 16,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // Left side: Input and controls
+          Flexible(
+            flex: 2,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              spacing: 16,
+              children: [
+                Text(
+                  AppLocalizations.of(context)!.participantListTitle,
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+                const ParticipantInputWidget(),
+                const RaffleControlsWidget(),
+              ],
+            ),
+          ),
+          Container(width: 1, color: Theme.of(context).dividerColor),
+          // Right side: Participant list
+          Flexible(
+            flex: 1,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              spacing: 16,
+              children: [
+                Text(
+                  AppLocalizations.of(context)!.participants,
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+                const ParticipantListWidget(),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _RaffleNarrowLayout extends StatelessWidget {
+  const _RaffleNarrowLayout();
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      padding: const EdgeInsets.all(16.0),
+      child: Flex(
+        direction: Axis.vertical,
+        spacing: 16,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Text(
+            AppLocalizations.of(context)!.participantListTitle,
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
+          const ParticipantInputWidget(),
+          const RaffleControlsWidget(),
+          SizedBox(height: 32),
+          Text(
+            AppLocalizations.of(context)!.activeParticipants,
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
+          const ParticipantListWidget(),
+        ],
       ),
     );
   }

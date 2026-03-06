@@ -47,6 +47,7 @@ class RaffleControlsWidget extends StatelessWidget {
             session != null && session.canSelectWinner && !isSelecting;
 
         return Column(
+          spacing: 16,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             // Animation area
@@ -56,76 +57,46 @@ class RaffleControlsWidget extends StatelessWidget {
             ],
 
             // Start Raffle Button
-            SizedBox(
-              height: 56,
-              child: ElevatedButton.icon(
-                onPressed: canStartRaffle
-                    ? () => _startRaffle(context, session!)
-                    : null,
-                icon: isSelecting
-                    ? const SizedBox(
-                        width: 20,
-                        height: 20,
-                        child: CircularProgressIndicator(strokeWidth: 2),
-                      )
-                    : const Icon(Icons.casino),
-                label: Text(
-                  isSelecting
-                      ? AppLocalizations.of(context)!.raffling
-                      : AppLocalizations.of(context)!.startRaffle,
-                  style: const TextStyle(fontSize: 18),
-                ),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: canStartRaffle
-                      ? Theme.of(context).colorScheme.primary
-                      : null,
-                  foregroundColor: canStartRaffle ? Colors.white : null,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                ),
+            FilledButton.icon(
+              onPressed: canStartRaffle
+                  ? () => _startRaffle(context, session!)
+                  : null,
+              icon: isSelecting
+                  ? const SizedBox(
+                      width: 20,
+                      height: 20,
+                      child: CircularProgressIndicator(strokeWidth: 2),
+                    )
+                  : const Icon(Icons.shuffle_rounded),
+              label: Text(
+                isSelecting
+                    ? AppLocalizations.of(context)!.raffling
+                    : (session != null && session.hasWinners)
+                        ? AppLocalizations.of(context)!.nextWinner
+                        : AppLocalizations.of(context)!.startRaffle,
               ),
             ),
-
-            const SizedBox(height: 16),
 
             // Status text
             if (session != null) ...[
               Text(
                 _getStatusText(session, isSelecting, context),
                 textAlign: TextAlign.center,
-                style: const TextStyle(fontSize: 14, color: AppTheme.zinc500),
+                style: Theme.of(
+                  context,
+                ).textTheme.bodyMedium!.copyWith(color: AppTheme.zinc500),
               ),
             ],
 
             // Additional controls
             if (session != null && session.hasWinners) ...[
-              const SizedBox(height: 16),
               Row(
                 children: [
                   Expanded(
-                    child: SizedBox(
-                      height: 56,
-                      child: OutlinedButton.icon(
-                        onPressed: () => showClearWinnersDialog(context),
-                        icon: const Icon(Icons.restart_alt),
-                        label: Text(
-                          AppLocalizations.of(context)!.resetWinners,
-                          style: const TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        style: OutlinedButton.styleFrom(
-                          foregroundColor: AppTheme.errorColor,
-                          side: BorderSide(
-                            color: AppTheme.errorColor.withValues(alpha: 0.3),
-                          ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                        ),
-                      ),
+                    child: OutlinedButton.icon(
+                      onPressed: () => showClearWinnersDialog(context),
+                      icon: const Icon(Icons.restart_alt),
+                      label: Text(AppLocalizations.of(context)!.resetWinners),
                     ),
                   ),
                 ],

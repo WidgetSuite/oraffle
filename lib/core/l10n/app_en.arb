@@ -184,9 +184,17 @@
   "@winnersTitle": {
     "description": "Title for the winners screen"
   },
+  "winnersTitleShort": "Winners",
+  "@winnersTitleShort": {
+    "description": "Short label for the winners button in the app bar"
+  },
   "shareResults": "Share results",
   "@shareResults": {
     "description": "Button to share raffle results"
+  },
+  "shareResultsShort": "Share",
+  "@shareResultsShort": {
+    "description": "Short label for the share button in the app bar"
   },
   "noWinnersYet": "No winners yet",
   "@noWinnersYet": {
@@ -363,5 +371,29 @@
   "invalidHexColor": "Invalid hex color",
   "@invalidHexColor": {
     "description": "Error message for invalid hexadecimal color input"
+  },
+  "statLabelTotal": "Total",
+  "@statLabelTotal": {
+    "description": "Short label for total participants stat card"
+  },
+  "statLabelActive": "Active",
+  "@statLabelActive": {
+    "description": "Short label for active participants stat card"
+  },
+  "statLabelWinners": "Winners",
+  "@statLabelWinners": {
+    "description": "Short label for winners stat card"
+  },
+  "nextWinner": "Next Winner",
+  "@nextWinner": {
+    "description": "Button text to select the next winner when at least one winner exists"
+  },
+  "resetToDefault": "Reset to default",
+  "@resetToDefault": {
+    "description": "Button text to reset theme color to the default value"
+  },
+  "lowContrastWarning": "Low contrast with white text. The button text may be hard to read.",
+  "@lowContrastWarning": {
+    "description": "Warning shown when selected primary color has low contrast with white on-primary text"
   }
 }

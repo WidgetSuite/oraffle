@@ -174,10 +174,12 @@
   "@winnersTitle": {
     "description": "عنوان شاشة الفائزين"
   },
+  "winnersTitleShort": "الفائزون",
   "shareResults": "مشاركة النتائج",
   "@shareResults": {
     "description": "تسمية زر مشاركة النتائج"
   },
+  "shareResultsShort": "مشاركة",
   "noWinnersYet": "لا يوجد فائزون بعد",
   "@noWinnersYet": {
     "description": "رسالة تظهر عندما لا يوجد فائزون"
@@ -357,5 +359,11 @@
   "invalidHexColor": "لون سداسي عشري غير صالح",
   "@invalidHexColor": {
     "description": "رسالة خطأ لإدخال لون سداسي عشري غير صالح"
-  }
+  },
+  "statLabelTotal": "المجموع",
+  "statLabelActive": "نشطاء",
+  "statLabelWinners": "الفائزون",
+  "nextWinner": "الفائز التالي",
+  "resetToDefault": "إعادة إلى الافتراضي",
+  "lowContrastWarning": "تباين منخفض مع النص الأبيض. قد يصعب قراءة نص الأزرار."
 }

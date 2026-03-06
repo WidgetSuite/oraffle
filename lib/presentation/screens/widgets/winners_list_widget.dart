@@ -21,6 +21,7 @@ import 'package:oraffle/domain/models/raffle/raffle_winner.dart';
 import 'package:oraffle/presentation/screens/widgets/clear_winners_dialog.dart';
 import 'package:oraffle/presentation/screens/widgets/reset_raffle_dialog.dart';
 import 'package:oraffle/presentation/screens/widgets/winner_card_widget.dart';
+import 'package:oraffle/presentation/screens/widgets/winners_podium_widget.dart';
 import 'package:oraffle/routes/app_router.dart';
 
 class WinnersListWidget extends StatelessWidget {
@@ -30,122 +31,87 @@ class WinnersListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final podiumWinners = winners.where((w) => w.position <= 3).toList();
+
     return Column(
       children: [
-        // Header with summary
+        // Header
         Container(
-          margin: const EdgeInsets.fromLTRB(16, 16, 16, 24),
+          margin: const EdgeInsets.fromLTRB(16, 16, 16, 16),
           child: Column(
+            spacing: 16,
             children: [
-              // Crown icon at the top
-              Container(
-                width: 80,
-                height: 80,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: [Colors.amber[300]!, Colors.orange[400]!],
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.amber.withValues(alpha: 0.3),
-                      blurRadius: 16,
-                      offset: const Offset(0, 4),
-                    ),
-                  ],
-                ),
-                child: const Icon(
-                  Icons.emoji_events,
-                  color: Colors.white,
-                  size: 40,
-                ),
-              ),
-              const SizedBox(height: 16),
               // Title
               Text(
                 AppLocalizations.of(context)!.raffleCompleted,
-                style: const TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: Theme.of(context).textTheme.headlineSmall,
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 8),
               // Subtitle with divider
               Row(
                 children: [
-                  Expanded(
-                    child: Container(height: 1, color: AppTheme.zinc300),
-                  ),
+                  const Expanded(child: Divider()),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: Text(
                       AppLocalizations.of(
                         context,
                       )!.winnersSelectedCount(winners.length),
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                        color: AppTheme.zinc500,
-                      ),
+                      style: Theme.of(
+                        context,
+                      ).textTheme.bodyMedium!.copyWith(color: AppTheme.zinc500),
                     ),
                   ),
-                  Expanded(
-                    child: Container(height: 1, color: AppTheme.zinc300),
-                  ),
+                  const Expanded(child: Divider()),
                 ],
               ),
             ],
           ),
         ),
 
-        // Winners list
-        Expanded(
-          child: ListView.builder(
+        // Podium for top 3
+        if (podiumWinners.isNotEmpty) ...[
+          WinnersPodiumWidget(winners: podiumWinners),
+          Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
-            itemCount: winners.length,
-            itemBuilder: (context, index) {
-              final winner = winners[index];
-              return WinnerCardWidget(winner: winner, index: index);
-            },
+            child: Divider(thickness: 0.5,),
           ),
-        ),
+        ],
+
+        // Remaining winners (4th place and beyond)
+        if (winners.isNotEmpty)
+          Expanded(
+            child: ListView.builder(
+              padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+              itemCount: winners.length,
+              itemBuilder: (context, index) {
+                final winner = winners[index];
+                return WinnerCardWidget(winner: winner, index: index);
+              },
+            ),
+          )
+        else
+          const Spacer(),
 
         // Footer with action buttons
         Container(
           padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+          child: Row(
             children: [
-              SizedBox(
-                height: 56,
-                child: ElevatedButton.icon(
+              Expanded(
+                child: FilledButton.icon(
                   onPressed: () async {
                     final confirmed = await showResetRaffleDialog(context);
                     if (confirmed && context.mounted) {
                       context.go(AppRoutes.raffle);
                     }
                   },
-                  icon: const Icon(Icons.refresh),
-                  label: Text(
-                    AppLocalizations.of(context)!.newRaffle,
-                    style: const TextStyle(fontWeight: FontWeight.w600),
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Theme.of(context).colorScheme.primary,
-                    foregroundColor: Colors.white,
-                    elevation: 0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                  ),
+                  icon: const Icon(Icons.repeat),
+                  label: Text(AppLocalizations.of(context)!.newRaffle),
                 ),
               ),
-              const SizedBox(height: 12),
-              SizedBox(
-                height: 56,
+              const SizedBox(width: 12),
+              Expanded(
                 child: OutlinedButton.icon(
                   onPressed: () async {
                     final confirmed = await showClearWinnersDialog(context);
@@ -154,19 +120,7 @@ class WinnersListWidget extends StatelessWidget {
                     }
                   },
                   icon: const Icon(Icons.restart_alt),
-                  label: Text(
-                    AppLocalizations.of(context)!.resetWinners,
-                    style: const TextStyle(fontWeight: FontWeight.w600),
-                  ),
-                  style: OutlinedButton.styleFrom(
-                    foregroundColor: AppTheme.errorColor,
-                    side: BorderSide(
-                      color: AppTheme.errorColor.withValues(alpha: 0.3),
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                  ),
+                  label: Text(AppLocalizations.of(context)!.resetWinners),
                 ),
               ),
             ],

@@ -21,6 +21,7 @@ import 'package:oraffle/presentation/blocs/settings_cubit/settings_cubit.dart';
 import 'package:oraffle/presentation/blocs/settings_cubit/settings_state.dart';
 import 'package:oraffle/presentation/screens/widgets/logo_widget.dart';
 import 'package:oraffle/routes/app_router.dart';
+import 'package:oraffle/core/theme/app_theme.dart';
 import 'package:oraffle/presentation/screens/settings_dialog.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -71,51 +72,48 @@ class HomeScreen extends StatelessWidget {
                               logo: logo,
                               fit: BoxFit.contain,
                               errorBuilder: (context, error, stackTrace) =>
-                                  const Icon(
+                                  Icon(
                                     Icons.broken_image,
                                     size: 80,
-                                    color: Colors.grey,
+                                    color: Theme.of(context).hintColor,
                                   ),
                             ),
                           )
                         else
-                          Column(
-                            children: [
-                              const Icon(
-                                Icons.image_not_supported_outlined,
-                                size: 80,
-                                color: Colors.grey,
-                              ),
-                              const SizedBox(height: 8),
-                              Text(
-                                AppLocalizations.of(context)!.addCompanyLogo,
-                                style: const TextStyle(
-                                  color: Colors.grey,
-                                  fontSize: 14,
+                          GestureDetector(
+                            onTap: () => _showSettingsDialog(context),
+                            child: Column(
+                              children: [
+                                Icon(
+                                  Icons.image_not_supported_outlined,
+                                  size: 80,
+                                  color: Theme.of(context).hintColor,
                                 ),
-                              ),
-                            ],
+                                const SizedBox(height: 8),
+                                Text(
+                                  AppLocalizations.of(context)!.addCompanyLogo,
+                                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: AppTheme.zinc400),
+                                ),
+                              ],
+                            ),
                           ),
                         const SizedBox(height: 48),
 
                         // Title
                         Text(
                           AppLocalizations.of(context)!.appTitle,
-                          style: Theme.of(context).textTheme.headlineLarge
-                              ?.copyWith(
-                                fontWeight: FontWeight.bold,
-                                color: Theme.of(context).colorScheme.primary,
-                              ),
+                          style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                            color: Theme.of(context).colorScheme.primary,
+                          ),
                           textAlign: TextAlign.center,
                         ),
 
-                        const SizedBox(height: 16),
+                      
 
                         // Subtitle
                         Text(
                           AppLocalizations.of(context)!.homeSubtitle,
-                          style: Theme.of(context).textTheme.bodyLarge
-                              ?.copyWith(color: Colors.grey[600]),
+                          style: Theme.of(context).textTheme.bodyLarge!.copyWith(color: AppTheme.zinc500),
                           textAlign: TextAlign.center,
                         ),
 
@@ -127,29 +125,14 @@ class HomeScreen extends StatelessWidget {
                           child: SizedBox(
                             width: double.infinity,
                             height: 60,
-                            child: ElevatedButton(
+                            child: FilledButton(
                               onPressed: () => context.go(AppRoutes.raffle),
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Theme.of(
-                                  context,
-                                ).colorScheme.primary,
-                                foregroundColor: Colors.white,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(16),
-                                ),
-                                elevation: 2,
-                              ),
                               child: Text(
                                 AppLocalizations.of(context)!.startRaffle,
-                                style: const TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                ),
                               ),
                             ),
                           ),
                         ),
-                        const SizedBox(height: 16),
                       ],
                     ),
                   ),

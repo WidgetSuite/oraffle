@@ -171,10 +171,12 @@
   "@winnersTitle": {
     "description": "Título da pantalla de gañadores"
   },
+  "winnersTitleShort": "Gañadores",
   "shareResults": "Compartir Resultados",
   "@shareResults": {
     "description": "Etiqueta do botón para compartir os resultados"
   },
+  "shareResultsShort": "Compartir",
   "noWinnersYet": "Aínda non hai gañadores",
   "@noWinnersYet": {
     "description": "Mensaxe mostrada cando non hai gañadores"
@@ -354,5 +356,11 @@
   "invalidHexColor": "Cor hexadecimal non válido",
   "@invalidHexColor": {
     "description": "Mensaxe de erro para unha entrada de cor hexadecimal non válida"
-  }
+  },
+  "statLabelTotal": "Total",
+  "statLabelActive": "Activos",
+  "statLabelWinners": "Gañadores",
+  "nextWinner": "Seguinte gañador",
+  "resetToDefault": "Restablecer por defecto",
+  "lowContrastWarning": "Baixo contraste con texto branco. O texto dos botóns pode ser difícil de ler."
 }

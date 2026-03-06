@@ -136,7 +136,13 @@ class AppLocalizationsCa extends AppLocalizations {
   String get winnersTitle => 'Guanyadors';
 
   @override
+  String get winnersTitleShort => 'Guanyadors';
+
+  @override
   String get shareResults => 'Compartir Resultats';
+
+  @override
+  String get shareResultsShort => 'Compartir';
 
   @override
   String get noWinnersYet => 'Encara no hi ha guanyadors';
@@ -264,4 +270,23 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get invalidHexColor => 'Color hexadecimal no vàlid';
+
+  @override
+  String get statLabelTotal => 'Total';
+
+  @override
+  String get statLabelActive => 'Actius';
+
+  @override
+  String get statLabelWinners => 'Guanyadors';
+
+  @override
+  String get nextWinner => 'Següent guanyador';
+
+  @override
+  String get resetToDefault => 'Restablir per defecte';
+
+  @override
+  String get lowContrastWarning =>
+      'Baix contrast amb text blanc. El text dels botons pot ser difícil de llegir.';
 }

@@ -134,7 +134,13 @@ class AppLocalizationsEl extends AppLocalizations {
   String get winnersTitle => 'Νικητές Κλήρωσης';
 
   @override
+  String get winnersTitleShort => 'Νικητές';
+
+  @override
   String get shareResults => 'Κοινοποίηση αποτελεσμάτων';
+
+  @override
+  String get shareResultsShort => 'Κοινοποίηση';
 
   @override
   String get noWinnersYet => 'Δεν υπάρχουν νικητές ακόμα';
@@ -263,4 +269,23 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get invalidHexColor => 'Μη έγκυρο δεκαεξαδικό χρώμα';
+
+  @override
+  String get statLabelTotal => 'Σύνολο';
+
+  @override
+  String get statLabelActive => 'Ενεργοί';
+
+  @override
+  String get statLabelWinners => 'Νικητές';
+
+  @override
+  String get nextWinner => 'Επόμενος νικητής';
+
+  @override
+  String get resetToDefault => 'Επαναφορά στην προεπιλογή';
+
+  @override
+  String get lowContrastWarning =>
+      'Χαμηλή αντίθεση με λευκό κείμενο. Το κείμενο των κουμπιών μπορεί να είναι δύσκολο να διαβαστεί.';
 }

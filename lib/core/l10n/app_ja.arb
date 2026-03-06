@@ -171,10 +171,12 @@
   "@winnersTitle": {
     "description": "当選者画面のタイトル"
   },
+  "winnersTitleShort": "当選者",
   "shareResults": "結果を共有",
   "@shareResults": {
     "description": "結果を共有するボタンのラベル"
   },
+  "shareResultsShort": "共有",
   "noWinnersYet": "まだ当選者はいません",
   "@noWinnersYet": {
     "description": "当選者がいない時に表示されるメッセージ"
@@ -354,5 +356,11 @@
   "invalidHexColor": "無効なヘックスカラー",
   "@invalidHexColor": {
     "description": "無効な16進カラー入力のエラーメッセージ"
-  }
+  },
+  "statLabelTotal": "合計",
+  "statLabelActive": "アクティブ",
+  "statLabelWinners": "勝者",
+  "nextWinner": "次の当選者",
+  "resetToDefault": "デフォルトにリセット",
+  "lowContrastWarning": "白いテキストとのコントラストが低いです。ボタンのテキストが読みにくい場合があります。"
 }
