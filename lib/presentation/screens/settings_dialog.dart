@@ -14,7 +14,6 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import 'package:file_picker/file_picker.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lucide_icons/lucide_icons.dart';
@@ -22,8 +21,6 @@ import 'package:oraffle/core/l10n/app_localizations.dart';
 import 'package:oraffle/core/theme/app_theme.dart';
 import 'package:oraffle/core/theme/extensions/confirm_dialog_colors_extension.dart';
 import 'package:oraffle/domain/models/raffle/raffle_logo.dart';
-import 'package:oraffle/presentation/blocs/locale_cubit/locale_cubit.dart';
-import 'package:oraffle/presentation/blocs/locale_cubit/locale_state.dart';
 import 'package:oraffle/presentation/blocs/settings_cubit/settings_cubit.dart';
 import 'package:oraffle/presentation/blocs/settings_cubit/settings_state.dart';
 import 'package:oraffle/presentation/screens/widgets/logo_widget.dart';
@@ -42,9 +39,7 @@ class SettingsDialog extends StatelessWidget {
       elevation: 0,
       insetPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
       child: Container(
-        constraints: BoxConstraints(
-          maxWidth: 520,
-        ),
+        constraints: BoxConstraints(maxWidth: 520),
         decoration: BoxDecoration(
           color: colors.card,
           borderRadius: BorderRadius.circular(24),
@@ -71,7 +66,8 @@ class SettingsDialog extends StatelessWidget {
                     children: [
                       Text(
                         AppLocalizations.of(context)!.settingsTitle,
-                        style: Theme.of(context).textTheme.headlineSmall!.copyWith(color: colors.title),
+                        style: Theme.of(context).textTheme.headlineSmall!
+                            .copyWith(color: colors.title),
                       ),
                       IconButton(
                         onPressed: () => Navigator.of(context).pop(),
@@ -122,11 +118,6 @@ class SettingsDialog extends StatelessWidget {
                         _ThemeModeSetting(selectedMode: state.themeMode),
 
                         const SizedBox(height: 32),
-                        if (kDebugMode) ...[
-                          _SectionTitle(title: "Language"),
-                          const SizedBox(height: 16),
-                          _LanguageSetting(),
-                        ],
                       ],
                     ),
                   ),
@@ -157,7 +148,9 @@ class _SectionTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       title,
-      style: Theme.of(context).textTheme.labelLarge!.copyWith(color: AppTheme.zinc400),
+      style: Theme.of(
+        context,
+      ).textTheme.labelLarge!.copyWith(color: AppTheme.zinc400),
     );
   }
 }
@@ -179,7 +172,9 @@ class _LogoSetting extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: Theme.of(context).hintColor.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(16),
-                  border: Border.all(color: Theme.of(context).hintColor.withValues(alpha: 0.2)),
+                  border: Border.all(
+                    color: Theme.of(context).hintColor.withValues(alpha: 0.2),
+                  ),
                 ),
                 padding: const EdgeInsets.all(16),
                 child: LogoWidget(logo: logo!, fit: BoxFit.contain),
@@ -188,10 +183,14 @@ class _LogoSetting extends StatelessWidget {
                 top: 8,
                 right: 8,
                 child: IconButton(
-                  icon: Icon(Icons.delete_outline, color: Theme.of(context).colorScheme.error),
+                  icon: Icon(
+                    Icons.delete_outline,
+                    color: Theme.of(context).colorScheme.error,
+                  ),
                   onPressed: () =>
                       context.read<SettingsCubit>().updateLogo(null),
-                  style: IconButton.styleFrom(backgroundColor: AppTheme.surfaceColor
+                  style: IconButton.styleFrom(
+                    backgroundColor: AppTheme.surfaceColor,
                   ),
                 ),
               ),
@@ -211,7 +210,7 @@ class _LogoSetting extends StatelessWidget {
                   style: BorderStyle.solid,
                 ),
               ),
-              child:  Column(
+              child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(
@@ -222,7 +221,9 @@ class _LogoSetting extends StatelessWidget {
                   SizedBox(height: 8),
                   Text(
                     "Click to pick a logo",
-                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: AppTheme.zinc400),
+                    style: Theme.of(
+                      context,
+                    ).textTheme.bodyMedium!.copyWith(color: AppTheme.zinc400),
                   ),
                 ],
               ),
@@ -439,7 +440,9 @@ class _ThemeModeSetting extends StatelessWidget {
                 label,
                 style: Theme.of(context).textTheme.bodySmall!.copyWith(
                   fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
-                  color: isSelected ? Theme.of(context).colorScheme.onPrimary : AppTheme.zinc400,
+                  color: isSelected
+                      ? Theme.of(context).colorScheme.onPrimary
+                      : AppTheme.zinc400,
                 ),
               ),
             ],
@@ -447,72 +450,5 @@ class _ThemeModeSetting extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-class _LanguageSetting extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<LocaleCubit, LocaleState>(
-      builder: (context, state) {
-        return Container(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-          decoration: BoxDecoration(
-            color: Theme.of(context).hintColor.withValues(alpha: 0.05),
-            borderRadius: BorderRadius.circular(12),
-          ),
-          child: DropdownButtonHideUnderline(
-            child: DropdownButton<Locale>(
-              value: state.locale ?? const Locale('en'),
-              isExpanded: true,
-              items: AppLocalizations.supportedLocales.map((locale) {
-                return DropdownMenuItem(
-                  value: locale,
-                  child: Text(_getLanguageName(locale)),
-                );
-              }).toList(),
-              onChanged: (locale) {
-                if (locale != null) {
-                  context.read<LocaleCubit>().changeLocale(locale);
-                }
-              },
-            ),
-          ),
-        );
-      },
-    );
-  }
-
-  String _getLanguageName(Locale locale) {
-    switch (locale.languageCode) {
-      case 'en':
-        return 'English';
-      case 'es':
-        return 'Español';
-      case 'fr':
-        return 'Français';
-      case 'de':
-        return 'Deutsch';
-      case 'it':
-        return 'Italiano';
-      case 'pt':
-        return 'Português';
-      case 'ja':
-        return '日本語';
-      case 'ar':
-        return 'العربية';
-      case 'ca':
-        return 'Català';
-      case 'gl':
-        return 'Galego';
-      case 'eu':
-        return 'Euskara';
-      case 'el':
-        return 'Ελληνικά';
-      case 'hi':
-        return 'हिन्दी';
-      default:
-        return locale.languageCode;
-    }
   }
 }
