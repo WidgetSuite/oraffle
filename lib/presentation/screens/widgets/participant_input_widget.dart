@@ -164,6 +164,7 @@ class _ListParticipantsActions extends StatelessWidget {
       final bytes = result.files.single.bytes;
       final dataFileCsv = utf8.decode(bytes?.toList() ?? []);
       final lists = csv.decode(dataFileCsv);
+      // ignore: use_build_context_synchronously
       final indexName = await _SelectNameColumn.show(context, lists);
 
       if (indexName == -1) {
