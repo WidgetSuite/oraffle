@@ -1,6 +1,10 @@
 {
   "@@locale": "eu",
   "okButton": "Ados",
+  "selectButton": "Aukeratu",
+  "@selectButton": {
+    "description": "Hautatu butoiaren testu generikoa"
+  },
   "cancelButton": "Utzi",
   "@cancelButton": {
     "description": "Utzi botoia."
@@ -358,9 +362,45 @@
     "description": "Hex kolore baliogabea sartzean agertzen den errore mezua"
   },
   "statLabelTotal": "Guztira",
+  "@statLabelTotal": {
+    "description": "Etiketa labur parte-hartzaile guztien tarjeta estatistikoarentzat"
+  },
   "statLabelActive": "Aktibo",
+  "@statLabelActive": {
+    "description": "Etiketa labur parte-hartzaile aktiboen tarjeta estatistikoarentzat"
+  },
   "statLabelWinners": "Irabazleak",
+  "@statLabelWinners": {
+    "description": "Etiketa labur irabazleen tarjeta estatistikoarentzat"
+  },
   "nextWinner": "Hurrengo irabazlea",
+  "@nextWinner": {
+    "description": "Hurrengo irabazlea hautatzeko botoi testua"
+  },
   "resetToDefault": "Lehenetsi",
-  "lowContrastWarning": "Kontraste baxua testu zuriarekin. Botoietako testua irakurtzeko zaila izan daiteke."
+  "@resetToDefault": {
+    "description": "Gaiaren kolorea berrezartzeko botoi testua"
+  },
+  "lowContrastWarning": "Kontraste baxua testu zuriarekin. Botoietako testua irakurtzeko zaila izan daiteke.",
+  "@lowContrastWarning": {
+    "description": "Abisua kolore primarioak kontraste baxua duenean"
+  },
+  "importListTitle": "Inportatu parte-hartzaileen zerrenda",
+  "@importListTitle": {
+    "description": "Parte-hartzaileen zerrenda inportatzeko botoi testua"
+  },
+  "selectNameColumn": "Zein zutabek dagokio izena?",
+  "@selectNameColumn": {
+    "description": "Izenak hautatzeko dialogo izenburua"
+  },
+  "columnName": "Zutabea: {column}",
+  "@columnName": {
+    "description": "Zutabe izena erakusteko etiketa",
+    "placeholders": {
+      "column": {
+        "type": "int",
+        "example": "4"
+      }
+    }
+  }
 }

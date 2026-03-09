@@ -4,6 +4,10 @@
   "@okButton": {
     "description": "Texto genérico del botón Aceptar"
   },
+  "selectButton": "Seleccionar",
+  "@selectButton": {
+    "description": "Texto genérico del botón Seleccionar"
+  },
   "cancelButton": "Cancelar",
   "@cancelButton": {
     "description": "Botón de cancelar."
@@ -185,11 +189,17 @@
     "description": "Título de la pantalla de ganadores"
   },
   "winnersTitleShort": "Ganadores",
+  "@winnersTitleShort": {
+    "description": "Etiqueta corta para ganadores en la app bar"
+  },
   "shareResults": "Compartir resultados",
   "@shareResults": {
     "description": "Tooltip del botón compartir resultados"
   },
   "shareResultsShort": "Compartir",
+  "@shareResultsShort": {
+    "description": "Etiqueta corta para el botón compartir en la app bar"
+  },
   "noWinnersYet": "No hay ganadores aún",
   "@noWinnersYet": {
     "description": "Mensaje cuando no hay ganadores"
@@ -367,9 +377,45 @@
     "description": "Mensaje de error para entrada de color hexadecimal inválida"
   },
   "statLabelTotal": "Total",
+  "@statLabelTotal": {
+    "description": "Etiqueta corta para la tarjeta de stat de participantes totales"
+  },
   "statLabelActive": "Activos",
+  "@statLabelActive": {
+    "description": "Etiqueta corta para la tarjeta de stat de participantes activos"
+  },
   "statLabelWinners": "Ganadores",
+  "@statLabelWinners": {
+    "description": "Etiqueta corta para la tarjeta de stat de ganadores"
+  },
   "nextWinner": "Siguiente ganador",
+  "@nextWinner": {
+    "description": "Texto del botón para seleccionar el siguiente ganador cuando al menos uno existe"
+  },
   "resetToDefault": "Restablecer por defecto",
-  "lowContrastWarning": "Bajo contraste con texto blanco. El texto de los botones puede ser difícil de leer."
+  "@resetToDefault": {
+    "description": "Texto del botón para restablecer el color del tema al valor predeterminado"
+  },
+  "lowContrastWarning": "Bajo contraste con texto blanco. El texto de los botones puede ser difícil de leer.",
+  "@lowContrastWarning": {
+    "description": "Advertencia mostrada cuando el color principal seleccionado tiene bajo contraste con texto blanco en botones"
+  },
+  "importListTitle": "Importar lista de participantes",
+  "@importListTitle": {
+    "description": "Texto del botón para importar lista de participantes"
+  },
+  "selectNameColumn": "¿Que columna corresponde al nombre?",
+  "@selectNameColumn": {
+    "description": "Título del diálogo para seleccionar la columna de nombres al importar una lista de participantes"
+  },
+  "columnName": "Columna: {column}",
+  "@columnName": {
+    "description": "Etiqueta para mostrar el nombre de la columna durante la selección de columna",
+    "placeholders": {
+      "column": {
+        "type": "int",
+        "example": "4"
+      }
+    }
+  }
 }

@@ -1,6 +1,7 @@
 {
   "@@locale": "el",
   "okButton": "ΟΚ",
+  "selectButton": "Επιλογή",
   "cancelButton": "Ακύρωση",
   "reset": "Επαναφορά",
   "raffleTitle": "Κλήρωση",
@@ -127,5 +128,26 @@
   "statLabelWinners": "Νικητές",
   "nextWinner": "Επόμενος νικητής",
   "resetToDefault": "Επαναφορά στην προεπιλογή",
-  "lowContrastWarning": "Χαμηλή αντίθεση με λευκό κείμενο. Το κείμενο των κουμπιών μπορεί να είναι δύσκολο να διαβαστεί."
+  "lowContrastWarning": "Χαμηλή αντίθεση με λευκό κείμενο. Το κείμενο των κουμπιών μπορεί να είναι δύσκολο να διαβαστεί.",
+  "@selectButton": {
+    "description": "Generic select button text"
+  },
+  "importListTitle": "Εισαγωγή λίστας συμμετεχόντων",
+  "@importListTitle": {
+    "description": "Text for the button to import participant list"
+  },
+  "selectNameColumn": "Ποια στήλη αντιστοιχεί στο όνομα;",
+  "@selectNameColumn": {
+    "description": "Title for the dialog to select the name column when importing a participant list"
+  },
+  "columnName": "Στήλη: {column}",
+  "@columnName": {
+    "description": "Label for displaying column name during column selection",
+    "placeholders": {
+      "column": {
+        "type": "int",
+        "example": "4"
+      }
+    }
+  }
 }

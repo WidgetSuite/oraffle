@@ -4,6 +4,10 @@
   "@okButton": {
     "description": "Generic OK button text"
   },
+  "selectButton": "Select",
+  "@selectButton": {
+    "description": "Generic select button text"
+  },
   "cancelButton": "Cancel",
   "@cancelButton": {
     "description": "Cancel button text"
@@ -395,5 +399,23 @@
   "lowContrastWarning": "Low contrast with white text. The button text may be hard to read.",
   "@lowContrastWarning": {
     "description": "Warning shown when selected primary color has low contrast with white on-primary text"
+  },
+  "importListTitle": "Import Participant List",
+  "@importListTitle": {
+    "description": "Text for the button to import participant list"
+  },
+  "selectNameColumn": "Which column corresponds to the name?",
+  "@selectNameColumn": {
+    "description": "Title for the dialog to select the name column when importing a participant list"
+  },
+  "columnName": "Column: {column}",
+  "@columnName": {
+    "description": "Label for displaying column name during column selection",
+    "placeholders": {
+      "column": {
+        "type": "int",
+        "example": "4"
+      }
+    }
   }
 }

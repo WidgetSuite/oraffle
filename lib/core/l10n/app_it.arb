@@ -1,6 +1,13 @@
 {
   "@@locale": "it",
   "okButton": "OK",
+  "@okButton": {
+    "description": "Testo generico del pulsante OK"
+  },
+  "selectButton": "Seleziona",
+  "@selectButton": {
+    "description": "Testo generico del pulsante di selezione"
+  },
   "cancelButton": "Annulla",
   "@cancelButton": {
     "description": "Pulsante Annulla."
@@ -364,9 +371,45 @@
     "description": "Messaggio di errore per l'immissione di un colore esadecimale non valido"
   },
   "statLabelTotal": "Totale",
+  "@statLabelTotal": {
+    "description": "Etiqueta corta para la tarjeta de stat de participantes totales"
+  },
   "statLabelActive": "Attivi",
+  "@statLabelActive": {
+    "description": "Etiqueta corta para la tarjeta de stat de participantes activos"
+  },
   "statLabelWinners": "Vincitori",
+  "@statLabelWinners": {
+    "description": "Etiqueta corta para la tarjeta de stat de ganadores"
+  },
   "nextWinner": "Prossimo vincitore",
+  "@nextWinner": {
+    "description": "Testo del pulsante per selezionare il prossimo vincitore"
+  },
   "resetToDefault": "Ripristina predefinito",
-  "lowContrastWarning": "Basso contrasto con testo bianco. Il testo dei pulsanti potrebbe essere difficile da leggere."
+  "@resetToDefault": {
+    "description": "Testo del pulsante per ripristinare il colore del tema"
+  },
+  "lowContrastWarning": "Basso contrasto con testo bianco. Il testo dei pulsanti potrebbe essere difficile da leggere.",
+  "@lowContrastWarning": {
+    "description": "Avviso quando il colore principale selezionato ha basso contrasto"
+  },
+  "importListTitle": "Importa lista di partecipanti",
+  "@importListTitle": {
+    "description": "Testo del pulsante per importare la lista di partecipanti"
+  },
+  "selectNameColumn": "Quale colonna corrisponde al nome?",
+  "@selectNameColumn": {
+    "description": "Titolo del dialogo per selezionare la colonna dei nomi"
+  },
+  "columnName": "Colonna: {column}",
+  "@columnName": {
+    "description": "Etichetta per visualizzare il nome della colonna",
+    "placeholders": {
+      "column": {
+        "type": "int",
+        "example": "4"
+      }
+    }
+  }
 }
