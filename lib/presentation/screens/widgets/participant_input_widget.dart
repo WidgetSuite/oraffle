@@ -167,8 +167,7 @@ class _ListParticipantsActions extends StatelessWidget {
       final indexName = await _SelectNameColumn.show(context, lists);
 
       if (indexName == -1) {
-        //TODO: Show error
-        //context.showError();
+        //TODO: Show error format reading file
         return;
       }
 
@@ -212,7 +211,6 @@ class _SelectNameColumnState extends State<_SelectNameColumn> {
       title: Text(AppLocalizations.of(context)!.selectNameColumn),
       contentPadding: EdgeInsetsGeometry.all(32),
       alignment: .center,
-
       children: [
         DropdownMenu(
           onSelected: (value) {
