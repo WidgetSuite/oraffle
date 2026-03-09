@@ -24,15 +24,11 @@ jobs:
           channel: "stable"
       - run: flutter pub get
       - run: flutter analyze
-      - run: flutter test
-      - name: Generate localizations
-        run: flutter gen-l10n
       - name: Check for untranslated messages
         run: |
           content=$(cat untranslated_messages.json)
           if [ "$content" = "{}" ]; then
             echo "✅ All translations are complete!"
-            exit 0
           else
             echo "❌ Found untranslated messages:"
             cat untranslated_messages.json
@@ -50,3 +46,4 @@ jobs:
           else
             echo "✅ All files have the correct GPL-3.0 license header."
           fi
+      - run: flutter test
