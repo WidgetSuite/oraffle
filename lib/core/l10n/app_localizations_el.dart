@@ -12,6 +12,9 @@ class AppLocalizationsEl extends AppLocalizations {
   String get okButton => 'ΟΚ';
 
   @override
+  String get selectButton => 'Επιλογή';
+
+  @override
   String get cancelButton => 'Ακύρωση';
 
   @override
@@ -288,4 +291,15 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get lowContrastWarning =>
       'Χαμηλή αντίθεση με λευκό κείμενο. Το κείμενο των κουμπιών μπορεί να είναι δύσκολο να διαβαστεί.';
+
+  @override
+  String get importListTitle => 'Εισαγωγή λίστας συμμετεχόντων';
+
+  @override
+  String get selectNameColumn => 'Ποια στήλη αντιστοιχεί στο όνομα;';
+
+  @override
+  String columnName(int column) {
+    return 'Στήλη: $column';
+  }
 }

@@ -12,6 +12,9 @@ class AppLocalizationsHi extends AppLocalizations {
   String get okButton => 'ठीक है';
 
   @override
+  String get selectButton => 'चुनें';
+
+  @override
   String get cancelButton => 'रद्द करें';
 
   @override
@@ -284,4 +287,15 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get lowContrastWarning =>
       'सफेद टेक्स्ट के साथ कम कंट्रास्ट। बटन का टेक्स्ट पढ़ना मुश्किल हो सकता है।';
+
+  @override
+  String get importListTitle => 'प्रतिभागी सूची आयात करें';
+
+  @override
+  String get selectNameColumn => 'कौन सी पंक्ति नाम से मेल खाती है?';
+
+  @override
+  String columnName(int column) {
+    return 'स्तंभ: $column';
+  }
 }

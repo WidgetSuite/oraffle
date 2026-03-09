@@ -12,6 +12,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get okButton => 'موافق';
 
   @override
+  String get selectButton => 'Select';
+
+  @override
   String get cancelButton => 'إلغاء';
 
   @override
@@ -282,4 +285,15 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get lowContrastWarning =>
       'تباين منخفض مع النص الأبيض. قد يصعب قراءة نص الأزرار.';
+
+  @override
+  String get importListTitle => 'Import Participant List';
+
+  @override
+  String get selectNameColumn => 'Which column corresponds to the name?';
+
+  @override
+  String columnName(int column) {
+    return 'Column: $column';
+  }
 }

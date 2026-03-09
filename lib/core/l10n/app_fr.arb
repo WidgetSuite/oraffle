@@ -1,6 +1,10 @@
 {
   "@@locale": "fr",
   "okButton": "OK",
+  "selectButton": "Sélectionner",
+  "@selectButton": {
+    "description": "Texte générique du bouton de sélection"
+  },
   "cancelButton": "Annuler",
   "@cancelButton": {
     "description": "Bouton Annuler."
@@ -364,9 +368,45 @@
     "description": "Message d'erreur pour une entrée de couleur hexadécimale non valide"
   },
   "statLabelTotal": "Total",
+  "@statLabelTotal": {
+    "description": "Étiquette courte pour la carte de statistique des participants totaux"
+  },
   "statLabelActive": "Actifs",
+  "@statLabelActive": {
+    "description": "Étiquette courte pour la carte de statistique des participants actifs"
+  },
   "statLabelWinners": "Gagnants",
+  "@statLabelWinners": {
+    "description": "Étiquette courte pour la carte de statistique des gagnants"
+  },
   "nextWinner": "Gagnant suivant",
+  "@nextWinner": {
+    "description": "Texte du bouton pour sélectionner le gagnant suivant"
+  },
   "resetToDefault": "Réinitialiser par défaut",
-  "lowContrastWarning": "Faible contraste avec le texte blanc. Le texte des boutons peut être difficile à lire."
+  "@resetToDefault": {
+    "description": "Texte du bouton pour réinitialiser la couleur du thème"
+  },
+  "lowContrastWarning": "Faible contraste avec le texte blanc. Le texte des boutons peut être difficile à lire.",
+  "@lowContrastWarning": {
+    "description": "Avertissement quand la couleur principale a un faible contraste"
+  },
+  "importListTitle": "Importer la liste des participants",
+  "@importListTitle": {
+    "description": "Texte du bouton pour importer la liste de participants"
+  },
+  "selectNameColumn": "Quelle colonne correspond au nom ?",
+  "@selectNameColumn": {
+    "description": "Titre du diálogo pour sélectionner la colonne des noms"
+  },
+  "columnName": "Colonne : {column}",
+  "@columnName": {
+    "description": "Étiquette pour afficher le nom de la colonne",
+    "placeholders": {
+      "column": {
+        "type": "int",
+        "example": "4"
+      }
+    }
+  }
 }

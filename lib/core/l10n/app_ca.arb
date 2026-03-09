@@ -4,6 +4,10 @@
   "@okButton": {
     "description": "Generic OK button text"
   },
+  "selectButton": "Seleccionar",
+  "@selectButton": {
+    "description": "Text gen\u00e8ric del bot\u00f3 de selecci\u00f3"
+  },
   "cancelButton": "Cancel·lar",
   "@cancelButton": {
     "description": "Botó Cancel·lar."
@@ -361,9 +365,45 @@
     "description": "Missatge d'error per a una entrada de color hexadecimal no vàlida"
   },
   "statLabelTotal": "Total",
+  "@statLabelTotal": {
+    "description": "Etiqueta curta per a la targeta d'estad\u00edstica de participants totals"
+  },
   "statLabelActive": "Actius",
+  "@statLabelActive": {
+    "description": "Etiqueta curta per a la targeta d'estad\u00edstica de participants actius"
+  },
   "statLabelWinners": "Guanyadors",
-  "nextWinner": "Següent guanyador",
+  "@statLabelWinners": {
+    "description": "Etiqueta curta per a la targeta d'estad\u00edstica de guanyadors"
+  },
+  "nextWinner": "Seg\u00fcent guanyador",
+  "@nextWinner": {
+    "description": "Text del bot\u00f3 per seleccionar el proper guanyador"
+  },
   "resetToDefault": "Restablir per defecte",
-  "lowContrastWarning": "Baix contrast amb text blanc. El text dels botons pot ser difícil de llegir."
+  "@resetToDefault": {
+    "description": "Text del bot\u00f3 per restablir el color del tema"
+  },
+  "lowContrastWarning": "Baix contrast amb text blanc. El text dels botons pot ser dif\u00edcil de llegir.",
+  "@lowContrastWarning": {
+    "description": "Av\u00eds quan el color principal t\u00e9 baix contrast"
+  },
+  "importListTitle": "Importar llista de participants",
+  "@importListTitle": {
+    "description": "Text del bot\u00f3 per importar la llista de participants"
+  },
+  "selectNameColumn": "Quina columna correspon al nom?",
+  "@selectNameColumn": {
+    "description": "T\u00edtol del di\u00e0leg per seleccionar la columna de noms"
+  },
+  "columnName": "Columna {column}",
+  "@columnName": {
+    "description": "Etiqueta per mostrar el nom de la columna",
+    "placeholders": {
+      "column": {
+        "type": "int",
+        "example": "4"
+      }
+    }
+  }
 }

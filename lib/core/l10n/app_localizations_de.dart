@@ -12,6 +12,9 @@ class AppLocalizationsDe extends AppLocalizations {
   String get okButton => 'OK';
 
   @override
+  String get selectButton => 'Auswählen';
+
+  @override
   String get cancelButton => 'Abbrechen';
 
   @override
@@ -287,4 +290,15 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get lowContrastWarning =>
       'Geringer Kontrast mit weißem Text. Der Schaltflächentext ist möglicherweise schwer lesbar.';
+
+  @override
+  String get importListTitle => 'Teilnehmerliste importieren';
+
+  @override
+  String get selectNameColumn => 'Welche Spalte entspricht dem Namen?';
+
+  @override
+  String columnName(int column) {
+    return 'Spalte: $column';
+  }
 }

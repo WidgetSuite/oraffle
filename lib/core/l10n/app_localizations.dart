@@ -124,6 +124,12 @@ abstract class AppLocalizations {
   /// **'OK'**
   String get okButton;
 
+  /// Generic select button text
+  ///
+  /// In en, this message translates to:
+  /// **'Select'**
+  String get selectButton;
+
   /// Cancel button text
   ///
   /// In en, this message translates to:
@@ -615,6 +621,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Low contrast with white text. The button text may be hard to read.'**
   String get lowContrastWarning;
+
+  /// Text for the button to import participant list
+  ///
+  /// In en, this message translates to:
+  /// **'Import Participant List'**
+  String get importListTitle;
+
+  /// Title for the dialog to select the name column when importing a participant list
+  ///
+  /// In en, this message translates to:
+  /// **'Which column corresponds to the name?'**
+  String get selectNameColumn;
+
+  /// Label for displaying column name during column selection
+  ///
+  /// In en, this message translates to:
+  /// **'Column: {column}'**
+  String columnName(int column);
 }
 
 class _AppLocalizationsDelegate

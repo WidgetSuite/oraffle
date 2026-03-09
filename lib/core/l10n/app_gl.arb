@@ -1,6 +1,10 @@
 {
   "@@locale": "gl",
   "okButton": "Aceptar",
+  "selectButton": "Seleccionar",
+  "@selectButton": {
+    "description": "Texto xenérico do botón de selección"
+  },
   "cancelButton": "Cancelar",
   "@cancelButton": {
     "description": "Botón Cancelar."
@@ -358,9 +362,45 @@
     "description": "Mensaxe de erro para unha entrada de cor hexadecimal non válida"
   },
   "statLabelTotal": "Total",
+  "@statLabelTotal": {
+    "description": "Etiqueta corta para a tarxeta de estatísticas de participantes totais"
+  },
   "statLabelActive": "Activos",
+  "@statLabelActive": {
+    "description": "Etiqueta corta para a tarxeta de estatísticas de participantes activos"
+  },
   "statLabelWinners": "Gañadores",
+  "@statLabelWinners": {
+    "description": "Etiqueta corta para a tarxeta de estatísticas de gañadores"
+  },
   "nextWinner": "Seguinte gañador",
+  "@nextWinner": {
+    "description": "Texto do botón para seleccionar o seguinte gañador"
+  },
   "resetToDefault": "Restablecer por defecto",
-  "lowContrastWarning": "Baixo contraste con texto branco. O texto dos botóns pode ser difícil de ler."
+  "@resetToDefault": {
+    "description": "Texto do botón para restablecer a cor do tema"
+  },
+  "lowContrastWarning": "Baixo contraste con texto branco. O texto dos botóns pode ser difícil de ler.",
+  "@lowContrastWarning": {
+    "description": "Aviso cando a cor primaria ten baixo contraste"
+  },
+  "importListTitle": "Importar lista de participantes",
+  "@importListTitle": {
+    "description": "Texto do botón para importar a lista de participantes"
+  },
+  "selectNameColumn": "Cal columna corresponde ao nome?",
+  "@selectNameColumn": {
+    "description": "Título do diálogo para seleccionar a columna de nomes"
+  },
+  "columnName": "Columna: {column}",
+  "@columnName": {
+    "description": "Etiqueta para mostrar o nome da columna",
+    "placeholders": {
+      "column": {
+        "type": "int",
+        "example": "4"
+      }
+    }
+  }
 }

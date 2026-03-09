@@ -1,6 +1,10 @@
 {
   "@@locale": "hi",
   "okButton": "ठीक है",
+  "selectButton": "चुनें",
+  "@selectButton": {
+    "description": "सामान्य चयन बटन पाठ"
+  },
   "cancelButton": "रद्द करें",
   "@cancelButton": {
     "description": "Cancel button."
@@ -358,9 +362,45 @@
     "description": "अमान्य हेक्साडेसिमल रंग इनपुट के लिए त्रुटि संदेश"
   },
   "statLabelTotal": "कुल",
+  "@statLabelTotal": {
+    "description": "कुल प्रतिभागी स्टेट कार्ड के लिए संक्षिप्त लेबल"
+  },
   "statLabelActive": "सक्रिय",
+  "@statLabelActive": {
+    "description": "सक्रिय प्रतिभागी स्टेट कार्ड के लिए संक्षिप्त लेबल"
+  },
   "statLabelWinners": "विजेता",
+  "@statLabelWinners": {
+    "description": "विजेता स्टेट कार्ड के लिए संक्षिप्त लेबल"
+  },
   "nextWinner": "अगला विजेता",
+  "@nextWinner": {
+    "description": "अगले विजेता को चुनने के लिए बटन पाठ"
+  },
   "resetToDefault": "डिफ़ॉल्ट पर रीसेट करें",
-  "lowContrastWarning": "सफेद टेक्स्ट के साथ कम कंट्रास्ट। बटन का टेक्स्ट पढ़ना मुश्किल हो सकता है।"
+  "@resetToDefault": {
+    "description": "थीम रंग को रीसेट करने के लिए बटन पाठ"
+  },
+  "lowContrastWarning": "सफेद टेक्स्ट के साथ कम कंट्रास्ट। बटन का टेक्स्ट पढ़ना मुश्किल हो सकता है।",
+  "@lowContrastWarning": {
+    "description": "चेतावनी जब प्राथमिक रंग कम कंट्रास्ट है"
+  },
+  "importListTitle": "प्रतिभागी सूची आयात करें",
+  "@importListTitle": {
+    "description": "प्रतिभागी सूची आयात करने के लिए बटन पाठ"
+  },
+  "selectNameColumn": "कौन सी पंक्ति नाम से मेल खाती है?",
+  "@selectNameColumn": {
+    "description": "नाम कॉलम चुनने के लिए डायलॉग शीर्षक"
+  },
+  "columnName": "स्तंभ: {column}",
+  "@columnName": {
+    "description": "स्तंभ का नाम दिखाने के लिए लेबल",
+    "placeholders": {
+      "column": {
+        "type": "int",
+        "example": "4"
+      }
+    }
+  }
 }

@@ -362,5 +362,27 @@
   "statLabelWinners": "勝者",
   "nextWinner": "次の当選者",
   "resetToDefault": "デフォルトにリセット",
-  "lowContrastWarning": "白いテキストとのコントラストが低いです。ボタンのテキストが読みにくい場合があります。"
+  "lowContrastWarning": "白いテキストとのコントラストが低いです。ボタンのテキストが読みにくい場合があります。",
+  "selectButton": "選択",
+  "@selectButton": {
+    "description": "Generic select button text"
+  },
+  "importListTitle": "参加者リストをインポート",
+  "@importListTitle": {
+    "description": "Text for the button to import participant list"
+  },
+  "selectNameColumn": "名前に対応する列はどれですか？",
+  "@selectNameColumn": {
+    "description": "Title for the dialog to select the name column when importing a participant list"
+  },
+  "columnName": "列: {column}",
+  "@columnName": {
+    "description": "Label for displaying column name during column selection",
+    "placeholders": {
+      "column": {
+        "type": "int",
+        "example": "4"
+      }
+    }
+  }
 }

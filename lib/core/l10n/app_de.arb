@@ -4,6 +4,10 @@
   "@okButton": {
     "description": "Generic OK button text"
   },
+  "selectButton": "Auswählen",
+  "@selectButton": {
+    "description": "Generischer Text der Schaltfläche zum Auswählen"
+  },
   "cancelButton": "Abbrechen",
   "@cancelButton": {
     "description": "Abbrechen-Schaltfläche."
@@ -367,9 +371,45 @@
     "description": "Fehlermeldung für ungültige hexadezimale Farbeingabe"
   },
   "statLabelTotal": "Gesamt",
+  "@statLabelTotal": {
+    "description": "Kurze Beschriftung für die Stat-Karte der Gesamtteilnehmer"
+  },
   "statLabelActive": "Aktiv",
+  "@statLabelActive": {
+    "description": "Kurze Beschriftung für die Stat-Karte der aktiven Teilnehmer"
+  },
   "statLabelWinners": "Gewinner",
+  "@statLabelWinners": {
+    "description": "Kurze Beschriftung für die Stat-Karte der Gewinner"
+  },
   "nextWinner": "Nächster Gewinner",
+  "@nextWinner": {
+    "description": "Schaltflächentext zur Auswahl des nächsten Gewinners"
+  },
   "resetToDefault": "Auf Standard zurücksetzen",
-  "lowContrastWarning": "Geringer Kontrast mit weißem Text. Der Schaltflächentext ist möglicherweise schwer lesbar."
+  "@resetToDefault": {
+    "description": "Schaltflächentext zum Zurücksetzen der Designfarbe"
+  },
+  "lowContrastWarning": "Geringer Kontrast mit weißem Text. Der Schaltflächentext ist möglicherweise schwer lesbar.",
+  "@lowContrastWarning": {
+    "description": "Warnung wenn die Primärfarbe niedriger Kontrast hat"
+  },
+  "importListTitle": "Teilnehmerliste importieren",
+  "@importListTitle": {
+    "description": "Schaltflächentext zum Importieren der Teilnehmerliste"
+  },
+  "selectNameColumn": "Welche Spalte entspricht dem Namen?",
+  "@selectNameColumn": {
+    "description": "Titel des Dialogs zur Auswahl der Namensspalte"
+  },
+  "columnName": "Spalte: {column}",
+  "@columnName": {
+    "description": "Beschriftung zur Anzeige des Spaltennamens",
+    "placeholders": {
+      "column": {
+        "type": "int",
+        "example": "4"
+      }
+    }
+  }
 }

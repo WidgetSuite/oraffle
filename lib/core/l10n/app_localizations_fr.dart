@@ -12,6 +12,9 @@ class AppLocalizationsFr extends AppLocalizations {
   String get okButton => 'OK';
 
   @override
+  String get selectButton => 'Sélectionner';
+
+  @override
   String get cancelButton => 'Annuler';
 
   @override
@@ -287,4 +290,15 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get lowContrastWarning =>
       'Faible contraste avec le texte blanc. Le texte des boutons peut être difficile à lire.';
+
+  @override
+  String get importListTitle => 'Importer la liste des participants';
+
+  @override
+  String get selectNameColumn => 'Quelle colonne correspond au nom ?';
+
+  @override
+  String columnName(int column) {
+    return 'Colonne : $column';
+  }
 }

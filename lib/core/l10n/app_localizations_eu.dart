@@ -12,6 +12,9 @@ class AppLocalizationsEu extends AppLocalizations {
   String get okButton => 'Ados';
 
   @override
+  String get selectButton => 'Aukeratu';
+
+  @override
   String get cancelButton => 'Utzi';
 
   @override
@@ -286,4 +289,15 @@ class AppLocalizationsEu extends AppLocalizations {
   @override
   String get lowContrastWarning =>
       'Kontraste baxua testu zuriarekin. Botoietako testua irakurtzeko zaila izan daiteke.';
+
+  @override
+  String get importListTitle => 'Inportatu parte-hartzaileen zerrenda';
+
+  @override
+  String get selectNameColumn => 'Zein zutabek dagokio izena?';
+
+  @override
+  String columnName(int column) {
+    return 'Zutabea: $column';
+  }
 }
