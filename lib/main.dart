@@ -14,17 +14,14 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import 'package:flutter/material.dart';
-import 'package:oraffle/routes/app_router.dart';
-import 'package:flutter_web_plugins/url_strategy.dart';
-
-import 'package:oraffle/core/theme/app_theme.dart';
-import 'package:oraffle/core/l10n/app_localizations.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:oraffle/presentation/blocs/locale_cubit/locale_cubit.dart';
-import 'package:oraffle/presentation/blocs/locale_cubit/locale_state.dart';
+import 'package:flutter_web_plugins/url_strategy.dart';
+import 'package:oraffle/core/l10n/app_localizations.dart';
+import 'package:oraffle/core/theme/app_theme.dart';
 import 'package:oraffle/presentation/blocs/raffle_bloc/raffle_bloc.dart';
 import 'package:oraffle/presentation/blocs/settings_cubit/settings_cubit.dart';
 import 'package:oraffle/presentation/blocs/settings_cubit/settings_state.dart';
+import 'package:oraffle/routes/app_router.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -44,58 +41,57 @@ class _ORaffleApplicationState extends State<ORaffleApplication> {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => LocaleCubit()),
         BlocProvider(create: (context) => SettingsCubit()),
         BlocProvider(create: (context) => RaffleBloc()),
       ],
       child: BlocBuilder<SettingsCubit, SettingsState>(
         builder: (context, settings) {
-          return BlocBuilder<LocaleCubit, LocaleState>(
-            builder: (context, localeState) {
-              return MaterialApp.router(
-                routerConfig: goRouter,
-                theme: AppTheme.lightTheme(settings.primaryColor),
-                darkTheme: AppTheme.darkTheme(settings.primaryColor),
-                themeMode: settings.themeMode,
-                locale: localeState.locale,
-                localizationsDelegates: AppLocalizations.localizationsDelegates,
-                supportedLocales: AppLocalizations.supportedLocales,
-                localeResolutionCallback: (locale, supportedLocales) {
-                  if (locale == null) {
-                    return supportedLocales.first;
-                  }
-
-                  // Check if the current device locale is supported
-                  for (final supportedLocale in supportedLocales) {
-                    if (supportedLocale.languageCode == locale.languageCode &&
-                        supportedLocale.countryCode == locale.countryCode) {
-                      return supportedLocale;
-                    }
-                  }
-
-                  // If not supported, check if the language code is supported
-                  for (final supportedLocale in supportedLocales) {
-                    if (supportedLocale.languageCode == locale.languageCode) {
-                      return supportedLocale;
-                    }
-                  }
-
-                  // If the locale is not supported, check if we have a fallback for this language
-                  // ignoring country code
-                  try {
-                    return supportedLocales.firstWhere(
-                      (l) => l.languageCode == locale.languageCode,
-                      orElse: () => const Locale('en'),
-                    );
-                  } catch (e) {
-                    return const Locale('en');
-                  }
-                },
-              );
-            },
+          return MaterialApp.router(
+            routerConfig: goRouter,
+            theme: AppTheme.lightTheme(settings.primaryColor),
+            darkTheme: AppTheme.darkTheme(settings.primaryColor),
+            themeMode: settings.themeMode,
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            supportedLocales: AppLocalizations.supportedLocales,
+            localeResolutionCallback: _localeResolutionCallback,
           );
         },
       ),
     );
+  }
+
+  Locale? _localeResolutionCallback(
+    Locale? locale,
+    Iterable<Locale> supportedLocales,
+  ) {
+    if (locale == null) {
+      return supportedLocales.first;
+    }
+
+    // Check if the current device locale is supported
+    for (final supportedLocale in supportedLocales) {
+      if (supportedLocale.languageCode == locale.languageCode &&
+          supportedLocale.countryCode == locale.countryCode) {
+        return supportedLocale;
+      }
+    }
+
+    // If not supported, check if the language code is supported
+    for (final supportedLocale in supportedLocales) {
+      if (supportedLocale.languageCode == locale.languageCode) {
+        return supportedLocale;
+      }
+    }
+
+    // If the locale is not supported, check if we have a fallback for this language
+    // ignoring country code
+    try {
+      return supportedLocales.firstWhere(
+        (l) => l.languageCode == locale.languageCode,
+        orElse: () => const Locale('en'),
+      );
+    } catch (e) {
+      return const Locale('en');
+    }
   }
 }
