@@ -56,9 +56,15 @@
   "@alreadySelected": {
     "description": "وصف للمشاركين الذين تم اختيارهم بالفعل"
   },
-  "totalParticipants": "إجمالي المشاركين",
+  "totalParticipants": "إجمالي: {count}",
   "@totalParticipants": {
-    "description": "عداد إجمالي المشاركين"
+    "description": "عداد إجمالي المشاركين",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "10"
+      }
+    }
   },
   "activeVsWinners": "{active} نشطون، {winners} فائزون",
   "@activeVsWinners": {
@@ -252,9 +258,15 @@
       }
     }
   },
-  "placeLabel": "المركز",
+  "placeLabel": "{position} مكان",
   "@placeLabel": {
-    "description": "تسمية عامة للمركز"
+    "description": "تسمية عامة للمركز",
+    "placeholders": {
+      "position": {
+        "type": "String",
+        "example": "1st"
+      }
+    }
   },
   "raffleResultsHeader": "نتائج السحب - {count} فائزين",
   "@raffleResultsHeader": {
@@ -365,5 +377,27 @@
   "statLabelWinners": "الفائزون",
   "nextWinner": "الفائز التالي",
   "resetToDefault": "إعادة إلى الافتراضي",
-  "lowContrastWarning": "تباين منخفض مع النص الأبيض. قد يصعب قراءة نص الأزرار."
+  "lowContrastWarning": "تباين منخفض مع النص الأبيض. قد يصعب قراءة نص الأزرار.",
+  "selectButton": "Select",
+  "@selectButton": {
+    "description": "Generic select button text"
+  },
+  "importListTitle": "Import Participant List",
+  "@importListTitle": {
+    "description": "Text for the button to import participant list"
+  },
+  "selectNameColumn": "Which column corresponds to the name?",
+  "@selectNameColumn": {
+    "description": "Title for the dialog to select the name column when importing a participant list"
+  },
+  "columnName": "Column: {column}",
+  "@columnName": {
+    "description": "Label for displaying column name during column selection",
+    "placeholders": {
+      "column": {
+        "type": "int",
+        "example": "4"
+      }
+    }
+  }
 }
