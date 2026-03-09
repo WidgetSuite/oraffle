@@ -43,7 +43,7 @@ dependencies:
   get_it: ^9.2.0
   shared_preferences: ^2.5.4
   file_picker: ^10.3.10
-  flutter_svg: ^2.2.3
+  flutter_svg: ^2.2.4
   google_fonts: ^8.0.2
   lucide_icons: ^0.257.0
   path_provider: ^2.1.5
