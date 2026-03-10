@@ -408,5 +408,9 @@
         "example": "4"
       }
     }
+  },
+  "import_error_not_columns": "Le fichier sélectionné ne contient pas de données",
+  "@import_error_not_columns": {
+    "description": "Message d'erreur affiché lorsque le fichier importé ne contient pas de données"
   }
 }

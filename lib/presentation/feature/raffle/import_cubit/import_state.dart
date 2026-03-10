@@ -66,6 +66,9 @@ extension ImportStateExtensions on ImportState {
   /// Returns true if the current state is `ImportSuccess`.
   bool get isSuccess => this is ImportSuccess;
 
+  /// Returns true if the current state is `ImportError`.
+  bool get isError => this is ImportError;
+
   /// Returns true if the current state expects the user to select a column.
   bool get hasToSelectColumn => this is ImportSelectColumn;
 

@@ -17,10 +17,33 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:oraffle/core/l10n/app_localizations.dart';
 import 'package:oraffle/presentation/feature/raffle/import_cubit/import_cubit.dart';
+import 'package:oraffle/presentation/widgets/error_toast.dart';
 
 class ImportParticipantsButton extends StatelessWidget {
   const ImportParticipantsButton({super.key, required this.onImportSuccess});
 
+  final Function(List<String> participants) onImportSuccess;
+
+  @override
+  Widget build(BuildContext context) {
+    return ImportListeners(
+      onImportSuccess: onImportSuccess,
+      child: TextButton(
+        onPressed: () => context.read<ImportCubit>().importButtonPressed(),
+        child: Text(AppLocalizations.of(context)!.importListTitle),
+      ),
+    );
+  }
+}
+
+class ImportListeners extends StatelessWidget {
+  const ImportListeners({
+    super.key,
+    required this.child,
+    required this.onImportSuccess,
+  });
+
+  final Widget child;
   final Function(List<String> participants) onImportSuccess;
 
   @override
@@ -47,11 +70,19 @@ class ImportParticipantsButton extends StatelessWidget {
             );
           },
         ),
+        BlocListener<ImportCubit, ImportState>(
+          listenWhen: (previous, current) => current.isError,
+          listener: (context, state) {
+            if (state is ImportErrorNotColumnsInFile) {
+              ErrorSnackbar.show(
+                context: context,
+                message: AppLocalizations.of(context)!.import_error_not_columns,
+              );
+            }
+          },
+        ),
       ],
-      child: TextButton(
-        onPressed: () => context.read<ImportCubit>().importButtonPressed(),
-        child: Text(AppLocalizations.of(context)!.importListTitle),
-      ),
+      child: child,
     );
   }
 }
