@@ -17,11 +17,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
 import 'package:oraffle/core/l10n/app_localizations.dart';
+import 'package:oraffle/core/routes/app_router.dart';
 import 'package:oraffle/core/theme/app_theme.dart';
 import 'package:oraffle/presentation/blocs/raffle_bloc/raffle_bloc.dart';
 import 'package:oraffle/presentation/blocs/settings_cubit/settings_cubit.dart';
 import 'package:oraffle/presentation/blocs/settings_cubit/settings_state.dart';
-import 'package:oraffle/routes/app_router.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

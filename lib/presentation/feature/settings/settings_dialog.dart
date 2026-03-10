@@ -23,7 +23,7 @@ import 'package:oraffle/core/theme/extensions/confirm_dialog_colors_extension.da
 import 'package:oraffle/domain/models/raffle/raffle_logo.dart';
 import 'package:oraffle/presentation/blocs/settings_cubit/settings_cubit.dart';
 import 'package:oraffle/presentation/blocs/settings_cubit/settings_state.dart';
-import 'package:oraffle/presentation/screens/widgets/logo_widget.dart';
+import 'package:oraffle/presentation/feature/widgets/logo_widget.dart';
 
 class SettingsDialog extends StatelessWidget {
   const SettingsDialog({super.key});

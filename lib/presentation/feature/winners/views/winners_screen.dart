@@ -18,16 +18,16 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:oraffle/core/l10n/app_localizations.dart';
+import 'package:oraffle/core/routes/app_router.dart';
 import 'package:oraffle/core/theme/app_theme.dart';
 import 'package:oraffle/core/theme/extensions/confirm_dialog_colors_extension.dart';
-import 'package:oraffle/domain/models/raffle/raffle_winner.dart';
 import 'package:oraffle/domain/models/raffle/raffle_logo.dart';
+import 'package:oraffle/domain/models/raffle/raffle_winner.dart';
 import 'package:oraffle/presentation/blocs/raffle_bloc/raffle_bloc.dart';
 import 'package:oraffle/presentation/blocs/raffle_bloc/raffle_state.dart';
-import 'package:oraffle/presentation/screens/widgets/logo_widget.dart';
-import 'package:oraffle/presentation/screens/widgets/winners_empty_state.dart';
-import 'package:oraffle/presentation/screens/widgets/winners_list_widget.dart';
-import 'package:oraffle/routes/app_router.dart';
+import 'package:oraffle/presentation/feature/widgets/logo_widget.dart';
+import 'package:oraffle/presentation/feature/winners/widgets/winners_empty_state.dart';
+import 'package:oraffle/presentation/feature/winners/widgets/winners_list_widget.dart';
 
 class WinnersScreen extends StatelessWidget {
   const WinnersScreen({super.key});

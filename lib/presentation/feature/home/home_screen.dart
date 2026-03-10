@@ -17,12 +17,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:oraffle/core/l10n/app_localizations.dart';
+import 'package:oraffle/core/routes/app_router.dart';
+import 'package:oraffle/core/theme/app_theme.dart';
 import 'package:oraffle/presentation/blocs/settings_cubit/settings_cubit.dart';
 import 'package:oraffle/presentation/blocs/settings_cubit/settings_state.dart';
-import 'package:oraffle/presentation/screens/widgets/logo_widget.dart';
-import 'package:oraffle/routes/app_router.dart';
-import 'package:oraffle/core/theme/app_theme.dart';
-import 'package:oraffle/presentation/screens/settings_dialog.dart';
+import 'package:oraffle/presentation/feature/settings/settings_dialog.dart';
+import 'package:oraffle/presentation/feature/widgets/logo_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -92,7 +92,8 @@ class HomeScreen extends StatelessWidget {
                                 const SizedBox(height: 8),
                                 Text(
                                   AppLocalizations.of(context)!.addCompanyLogo,
-                                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: AppTheme.zinc400),
+                                  style: Theme.of(context).textTheme.bodyMedium!
+                                      .copyWith(color: AppTheme.zinc400),
                                 ),
                               ],
                             ),
@@ -102,18 +103,18 @@ class HomeScreen extends StatelessWidget {
                         // Title
                         Text(
                           AppLocalizations.of(context)!.appTitle,
-                          style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-                            color: Theme.of(context).colorScheme.primary,
-                          ),
+                          style: Theme.of(context).textTheme.headlineLarge!
+                              .copyWith(
+                                color: Theme.of(context).colorScheme.primary,
+                              ),
                           textAlign: TextAlign.center,
                         ),
-
-                      
 
                         // Subtitle
                         Text(
                           AppLocalizations.of(context)!.homeSubtitle,
-                          style: Theme.of(context).textTheme.bodyLarge!.copyWith(color: AppTheme.zinc500),
+                          style: Theme.of(context).textTheme.bodyLarge!
+                              .copyWith(color: AppTheme.zinc500),
                           textAlign: TextAlign.center,
                         ),
 
