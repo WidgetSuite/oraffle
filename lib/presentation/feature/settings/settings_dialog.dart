@@ -21,9 +21,9 @@ import 'package:oraffle/core/l10n/app_localizations.dart';
 import 'package:oraffle/core/theme/app_theme.dart';
 import 'package:oraffle/core/theme/extensions/confirm_dialog_colors_extension.dart';
 import 'package:oraffle/domain/models/raffle/raffle_logo.dart';
-import 'package:oraffle/presentation/blocs/settings_cubit/settings_cubit.dart';
-import 'package:oraffle/presentation/blocs/settings_cubit/settings_state.dart';
-import 'package:oraffle/presentation/feature/widgets/logo_widget.dart';
+import 'package:oraffle/presentation/feature/settings/settings_cubit/settings_cubit.dart';
+import 'package:oraffle/presentation/feature/settings/settings_cubit/settings_state.dart';
+import 'package:oraffle/presentation/widgets/logo_widget.dart';
 
 class SettingsDialog extends StatelessWidget {
   const SettingsDialog({super.key});

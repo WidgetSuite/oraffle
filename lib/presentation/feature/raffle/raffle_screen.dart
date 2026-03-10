@@ -20,17 +20,17 @@ import 'package:oraffle/core/l10n/app_localizations.dart';
 import 'package:oraffle/core/routes/app_router.dart';
 import 'package:oraffle/core/theme/app_theme.dart';
 import 'package:oraffle/core/theme/extensions/custom_colors.dart';
-import 'package:oraffle/presentation/blocs/raffle_bloc/raffle_bloc.dart';
-import 'package:oraffle/presentation/blocs/raffle_bloc/raffle_event.dart';
-import 'package:oraffle/presentation/blocs/raffle_bloc/raffle_state.dart';
-import 'package:oraffle/presentation/blocs/settings_cubit/settings_cubit.dart';
-import 'package:oraffle/presentation/blocs/settings_cubit/settings_state.dart';
+import 'package:oraffle/presentation/feature/raffle/raffle_bloc/raffle_bloc.dart';
+import 'package:oraffle/presentation/feature/raffle/raffle_bloc/raffle_event.dart';
+import 'package:oraffle/presentation/feature/raffle/raffle_bloc/raffle_state.dart';
 import 'package:oraffle/presentation/feature/raffle/widgets/participant_input_widget.dart';
 import 'package:oraffle/presentation/feature/raffle/widgets/participant_list_widget.dart';
 import 'package:oraffle/presentation/feature/raffle/widgets/raffle_controls_widget.dart';
+import 'package:oraffle/presentation/feature/settings/settings_cubit/settings_cubit.dart';
+import 'package:oraffle/presentation/feature/settings/settings_cubit/settings_state.dart';
 import 'package:oraffle/presentation/feature/settings/settings_dialog.dart';
-import 'package:oraffle/presentation/feature/widgets/logo_widget.dart';
 import 'package:oraffle/presentation/feature/winners/widgets/winner_dialog.dart';
+import 'package:oraffle/presentation/widgets/logo_widget.dart';
 
 class RaffleScreen extends StatelessWidget {
   const RaffleScreen({super.key});

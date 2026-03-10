@@ -1,0 +1,105 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:oraffle/core/l10n/app_localizations.dart';
+import 'package:oraffle/presentation/feature/raffle/import_cubit/import_cubit.dart';
+
+class ImportParticipantsButton extends StatelessWidget {
+  const ImportParticipantsButton({super.key, required this.onImportSuccess});
+
+  final Function(List<String> participants) onImportSuccess;
+
+  @override
+  Widget build(BuildContext context) {
+    return MultiBlocListener(
+      listeners: [
+        BlocListener<ImportCubit, ImportState>(
+          listenWhen: (previous, current) => current.isSuccess,
+          listener: (context, state) {
+            onImportSuccess(state.participantsList);
+          },
+        ),
+        BlocListener<ImportCubit, ImportState>(
+          listenWhen: (previous, current) => current.hasToSelectColumn,
+          listener: (context, state) async {
+            final columnSelected = await SelectNameColumn.show(
+              context,
+              state.columnsAvailables,
+            );
+            // ignore: use_build_context_synchronously
+            context.read<ImportCubit>().columnSelected(
+              state.rawData,
+              columnSelected,
+            );
+          },
+        ),
+      ],
+      child: TextButton(
+        onPressed: () => context.read<ImportCubit>().importButtonPressed(),
+        child: Text(AppLocalizations.of(context)!.importListTitle),
+      ),
+    );
+  }
+}
+
+class SelectNameColumn extends StatefulWidget {
+  const SelectNameColumn({super.key, required this.listToSelect});
+
+  final List<String> listToSelect;
+
+  static Future<int> show(
+    BuildContext context,
+    List<String> listToSelect,
+  ) async {
+    final result = await showDialog<int>(
+      context: context,
+      builder: (_) => SelectNameColumn(listToSelect: listToSelect),
+    );
+    return result ?? -1;
+  }
+
+  @override
+  State<SelectNameColumn> createState() => _SelectNameColumnState();
+}
+
+class _SelectNameColumnState extends State<SelectNameColumn> {
+  int? indexName;
+
+  @override
+  Widget build(BuildContext context) {
+    return SimpleDialog(
+      title: Text(AppLocalizations.of(context)!.selectNameColumn),
+      contentPadding: EdgeInsetsGeometry.all(32),
+      alignment: .center,
+      children: [
+        DropdownMenu(
+          onSelected: (value) {
+            indexName = widget.listToSelect.indexOf(value ?? '');
+            setState(() {});
+          },
+          dropdownMenuEntries: widget.listToSelect
+              .map((entry) => DropdownMenuEntry(value: entry, label: entry))
+              .toList(),
+        ),
+        SizedBox(height: 24),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text(AppLocalizations.of(context)!.cancelButton),
+            ),
+            SizedBox(width: 8),
+            FilledButton(
+              onPressed: () {
+                Navigator.of(context).pop(indexName);
+              },
+              child: Text(AppLocalizations.of(context)!.selectButton),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}

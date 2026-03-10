@@ -13,16 +13,13 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import 'dart:convert';
-
-import 'package:csv/csv.dart';
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:oraffle/core/l10n/app_localizations.dart';
-import 'package:oraffle/presentation/blocs/raffle_bloc/raffle_bloc.dart';
-import 'package:oraffle/presentation/blocs/raffle_bloc/raffle_event.dart';
-import 'package:oraffle/presentation/blocs/raffle_bloc/raffle_state.dart';
+import 'package:oraffle/presentation/feature/raffle/raffle_bloc/raffle_bloc.dart';
+import 'package:oraffle/presentation/feature/raffle/raffle_bloc/raffle_event.dart';
+import 'package:oraffle/presentation/feature/raffle/raffle_bloc/raffle_state.dart';
+import 'package:oraffle/presentation/feature/raffle/widgets/import_participants_button.dart';
 
 class ParticipantInputWidget extends StatefulWidget {
   const ParticipantInputWidget({super.key});
@@ -141,9 +138,10 @@ class _ListParticipantsActions extends StatelessWidget {
     return Row(
       spacing: 16,
       children: [
-        TextButton(
-          onPressed: () => _onPressedImportButton(context),
-          child: Text(AppLocalizations.of(context)!.importListTitle),
+        ImportParticipantsButton(
+          onImportSuccess: (participants) {
+            controller.text = participants.join('\n');
+          },
         ),
         TextButton(
           onPressed: () {
@@ -153,111 +151,5 @@ class _ListParticipantsActions extends StatelessWidget {
         ),
       ],
     );
-  }
-
-  void _onPressedImportButton(BuildContext context) async {
-    final result = await FilePicker.platform.pickFiles(
-      allowedExtensions: ['csv'],
-      type: FileType.custom,
-    );
-    if (result != null) {
-      final bytes = result.files.single.bytes;
-      final dataFileCsv = utf8.decode(bytes?.toList() ?? []);
-      final lists = csv.decode(dataFileCsv);
-      // ignore: use_build_context_synchronously
-      final indexName = await _SelectNameColumn.show(context, lists);
-
-      if (indexName == -1) {
-        //TODO: Show error format reading file
-        return;
-      }
-
-      final participants = lists
-          .skip(1)
-          .map((row) => row.length > indexName ? row[indexName] : null)
-          .whereType<String>()
-          .toList();
-
-      controller.text = participants.join('\n');
-    }
-  }
-}
-
-class _SelectNameColumn extends StatefulWidget {
-  const _SelectNameColumn({required this.lists});
-
-  final List<List<dynamic>> lists;
-
-  static Future<int> show(
-    BuildContext context,
-    List<List<dynamic>> lists,
-  ) async {
-    final result = await showDialog<int>(
-      context: context,
-      builder: (_) => _SelectNameColumn(lists: lists),
-    );
-    return result ?? -1;
-  }
-
-  @override
-  State<_SelectNameColumn> createState() => _SelectNameColumnState();
-}
-
-class _SelectNameColumnState extends State<_SelectNameColumn> {
-  int? indexName;
-
-  @override
-  Widget build(BuildContext context) {
-    return SimpleDialog(
-      title: Text(AppLocalizations.of(context)!.selectNameColumn),
-      contentPadding: EdgeInsetsGeometry.all(32),
-      alignment: .center,
-      children: [
-        DropdownMenu(
-          onSelected: (value) {
-            indexName = value;
-            setState(() {});
-          },
-          dropdownMenuEntries: widget.lists.first
-              .map((e) => _valueToString(e, widget.lists.first.indexOf(e)))
-              .toList()
-              .asMap()
-              .entries
-              .map(
-                (entry) => DropdownMenuEntry(
-                  value: entry.key,
-                  label: _valueToString(entry.value, 0),
-                ),
-              )
-              .toList(),
-        ),
-        SizedBox(height: 24),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text(AppLocalizations.of(context)!.cancelButton),
-            ),
-            SizedBox(width: 8),
-            FilledButton(
-              onPressed: () {
-                Navigator.of(context).pop(indexName);
-              },
-              child: Text(AppLocalizations.of(context)!.selectButton),
-            ),
-          ],
-        ),
-      ],
-    );
-  }
-
-  String _valueToString(dynamic value, int index) {
-    if (value == null || value == '') {
-      return AppLocalizations.of(context)!.columnName(index);
-    }
-    return value.toString();
   }
 }
