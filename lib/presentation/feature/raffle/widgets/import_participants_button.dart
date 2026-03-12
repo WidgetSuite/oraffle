@@ -115,9 +115,12 @@ class _SelectNameColumnState extends State<SelectNameColumn> {
     return SimpleDialog(
       title: Text(AppLocalizations.of(context)!.selectNameColumn),
       contentPadding: EdgeInsetsGeometry.all(32),
-      alignment: .center,
       children: [
         DropdownMenu(
+          width: double.infinity,
+          menuStyle: MenuStyle(
+            maximumSize: WidgetStatePropertyAll(Size(300, double.infinity)),
+          ),
           onSelected: (value) {
             indexName = widget.listToSelect.indexOf(value ?? '');
             setState(() {});
