@@ -417,5 +417,9 @@
         "example": "4"
       }
     }
+  },
+  "export_results": "Export results",
+  "@export_results": {
+    "description": "Button text to export results"
   }
 }

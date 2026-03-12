@@ -408,5 +408,9 @@
         "example": "4"
       }
     }
+  },
+  "export_results": "Exporter les résultats",
+  "@export_results": {
+    "description": "Texte du bouton pour exporter les résultats"
   }
 }

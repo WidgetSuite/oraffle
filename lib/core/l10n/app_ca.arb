@@ -405,5 +405,9 @@
         "example": "4"
       }
     }
+  },
+  "export_results": "Exportar resultats",
+  "@export_results": {
+    "description": "Text del botó per exportar els resultats"
   }
 }

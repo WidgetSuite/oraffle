@@ -14,9 +14,9 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import 'package:go_router/go_router.dart';
+import 'package:oraffle/presentation/feature/winners/winners_screen.dart';
 import 'package:oraffle/presentation/screens/home_screen.dart';
 import 'package:oraffle/presentation/screens/raffle_screen.dart';
-import 'package:oraffle/presentation/screens/winners_screen.dart';
 
 class AppRoutes {
   static const String home = '/';

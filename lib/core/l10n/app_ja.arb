@@ -384,5 +384,9 @@
         "example": "4"
       }
     }
+  },
+  "export_results": "結果をエクスポート",
+  "@export_results": {
+    "description": "結果をエクスポートするボタンのテキスト"
   }
 }

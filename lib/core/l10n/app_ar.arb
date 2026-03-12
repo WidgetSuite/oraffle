@@ -399,5 +399,9 @@
         "example": "4"
       }
     }
+  },
+  "export_results": "تصدير النتائج",
+  "@export_results": {
+    "description": "نص الزر لتصدير النتائج"
   }
 }

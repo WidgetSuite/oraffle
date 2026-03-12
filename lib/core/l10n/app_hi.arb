@@ -402,5 +402,9 @@
         "example": "4"
       }
     }
+  },
+  "export_results": "परिणाम निर्यात करें",
+  "@export_results": {
+    "description": "परिणाम निर्यात करने के लिए बटन का टेक्स्ट"
   }
 }

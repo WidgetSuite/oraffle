@@ -403,4 +403,9 @@
       }
     }
   }
+},
+"export_results": "Emaitzak esportatu",
+"@export_results": {
+  "description": "Emaitzen esportaziorako botoiaren testua"
+}
 }
