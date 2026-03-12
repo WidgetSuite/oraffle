@@ -17,9 +17,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:oraffle/core/l10n/app_localizations.dart';
 import 'package:oraffle/core/theme/extensions/custom_colors.dart';
-import 'package:oraffle/presentation/blocs/raffle_bloc/raffle_bloc.dart';
-import 'package:oraffle/presentation/blocs/raffle_bloc/raffle_state.dart';
 import 'package:oraffle/domain/models/raffle/raffle_session.dart';
+import 'package:oraffle/presentation/feature/raffle/raffle_bloc/raffle_bloc.dart';
+import 'package:oraffle/presentation/feature/raffle/raffle_bloc/raffle_state.dart';
 
 enum _StatVariant { total, active, winners }
 
@@ -99,7 +99,11 @@ class ParticipantListWidget extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.people_outline, size: 64, color: Theme.of(context).hintColor),
+                Icon(
+                  Icons.people_outline,
+                  size: 64,
+                  color: Theme.of(context).hintColor,
+                ),
                 const SizedBox(height: 16),
                 Text(
                   AppLocalizations.of(context)!.noParticipants,
@@ -203,18 +207,18 @@ class ParticipantListWidget extends StatelessWidget {
                   margin: const EdgeInsets.only(bottom: 4),
                   child: ListTile(
                     dense: true,
-                    leading:  Icon(
+                    leading: Icon(
                       Icons.person_rounded,
                       color: Theme.of(
-                          context,
-                        ).extension<CustomColors>()!.success,
+                        context,
+                      ).extension<CustomColors>()!.success,
                     ),
                     title: Text(participant.name),
-                    trailing:  Icon(
+                    trailing: Icon(
                       Icons.check_circle_outline,
                       color: Theme.of(
-                          context,
-                        ).extension<CustomColors>()!.success,
+                        context,
+                      ).extension<CustomColors>()!.success,
                     ),
                   ),
                 ),
@@ -264,11 +268,11 @@ class ParticipantListWidget extends StatelessWidget {
                     dense: true,
                     leading: const Icon(Icons.person_outline_rounded),
                     title: Text(participant.name),
-                    trailing:  Icon(
+                    trailing: Icon(
                       Icons.emoji_events,
                       color: Theme.of(
-                          context,
-                        ).extension<CustomColors>()!.onWinnersContainer,
+                        context,
+                      ).extension<CustomColors>()!.onWinnersContainer,
                     ),
                   ),
                 ),

@@ -16,21 +16,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:oraffle/presentation/screens/settings_dialog.dart';
-import 'package:oraffle/presentation/screens/widgets/logo_widget.dart';
 import 'package:oraffle/core/l10n/app_localizations.dart';
+import 'package:oraffle/core/routes/app_router.dart';
 import 'package:oraffle/core/theme/app_theme.dart';
 import 'package:oraffle/core/theme/extensions/custom_colors.dart';
-import 'package:oraffle/presentation/blocs/raffle_bloc/raffle_bloc.dart';
-import 'package:oraffle/presentation/blocs/raffle_bloc/raffle_event.dart';
-import 'package:oraffle/presentation/blocs/raffle_bloc/raffle_state.dart';
-import 'package:oraffle/presentation/blocs/settings_cubit/settings_cubit.dart';
-import 'package:oraffle/presentation/blocs/settings_cubit/settings_state.dart';
-import 'package:oraffle/presentation/screens/widgets/participant_input_widget.dart';
-import 'package:oraffle/presentation/screens/widgets/participant_list_widget.dart';
-import 'package:oraffle/presentation/screens/widgets/raffle_controls_widget.dart';
-import 'package:oraffle/presentation/screens/widgets/winner_dialog.dart';
-import 'package:oraffle/routes/app_router.dart';
+import 'package:oraffle/presentation/feature/raffle/raffle_bloc/raffle_bloc.dart';
+import 'package:oraffle/presentation/feature/raffle/raffle_bloc/raffle_event.dart';
+import 'package:oraffle/presentation/feature/raffle/raffle_bloc/raffle_state.dart';
+import 'package:oraffle/presentation/feature/raffle/widgets/participant_input_widget.dart';
+import 'package:oraffle/presentation/feature/raffle/widgets/participant_list_widget.dart';
+import 'package:oraffle/presentation/feature/raffle/widgets/raffle_controls_widget.dart';
+import 'package:oraffle/presentation/feature/settings/settings_cubit/settings_cubit.dart';
+import 'package:oraffle/presentation/feature/settings/settings_cubit/settings_state.dart';
+import 'package:oraffle/presentation/feature/settings/settings_dialog.dart';
+import 'package:oraffle/presentation/feature/winners/widgets/winner_dialog.dart';
+import 'package:oraffle/presentation/widgets/logo_widget.dart';
 
 class RaffleScreen extends StatelessWidget {
   const RaffleScreen({super.key});
@@ -118,14 +118,14 @@ class _RaffleScreenContent extends StatelessWidget {
                     onPressed: hasWinners
                         ? () => context.go(AppRoutes.raffleWinners)
                         : null,
-                    icon: Icon(
-                      Icons.emoji_events,
-                    ),
+                    icon: Icon(Icons.emoji_events),
                     style: FilledButton.styleFrom(
                       elevation: 2,
                       minimumSize: Size(0, 48),
                     ),
-                    label: Text(AppLocalizations.of(context)!.winnersTitleShort),
+                    label: Text(
+                      AppLocalizations.of(context)!.winnersTitleShort,
+                    ),
                   );
                 },
               ),

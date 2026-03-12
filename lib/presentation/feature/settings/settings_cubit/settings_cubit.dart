@@ -17,7 +17,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:oraffle/data/services/raffle_storage_service.dart';
 import 'package:oraffle/domain/models/raffle/raffle_logo.dart';
-import 'package:oraffle/presentation/blocs/settings_cubit/settings_state.dart';
+import 'package:oraffle/presentation/feature/settings/settings_cubit/settings_state.dart';
 
 class SettingsCubit extends Cubit<SettingsState> {
   final RaffleStorageService _storageService = RaffleStorageService.instance;

@@ -399,5 +399,9 @@
         "example": "4"
       }
     }
+  },
+  "import_error_not_columns": "الملف المحدد لا يحتوي على بيانات",
+  "@import_error_not_columns": {
+    "description": "رسالة خطأ للعرض عندما لا يحتوي الملف المستورد على بيانات"
   }
 }

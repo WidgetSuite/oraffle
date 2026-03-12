@@ -17,11 +17,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
 import 'package:oraffle/core/l10n/app_localizations.dart';
+import 'package:oraffle/core/routes/app_router.dart';
 import 'package:oraffle/core/theme/app_theme.dart';
-import 'package:oraffle/presentation/blocs/raffle_bloc/raffle_bloc.dart';
-import 'package:oraffle/presentation/blocs/settings_cubit/settings_cubit.dart';
-import 'package:oraffle/presentation/blocs/settings_cubit/settings_state.dart';
-import 'package:oraffle/routes/app_router.dart';
+import 'package:oraffle/presentation/feature/raffle/import_cubit/import_cubit.dart';
+import 'package:oraffle/presentation/feature/raffle/raffle_bloc/raffle_bloc.dart';
+import 'package:oraffle/presentation/feature/settings/settings_cubit/settings_cubit.dart';
+import 'package:oraffle/presentation/feature/settings/settings_cubit/settings_state.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -43,6 +44,7 @@ class _ORaffleApplicationState extends State<ORaffleApplication> {
       providers: [
         BlocProvider(create: (context) => SettingsCubit()),
         BlocProvider(create: (context) => RaffleBloc()),
+        BlocProvider(create: (context) => ImportCubit()),
       ],
       child: BlocBuilder<SettingsCubit, SettingsState>(
         builder: (context, settings) {
