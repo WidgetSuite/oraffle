@@ -406,5 +406,9 @@
   "export_results": "Exportar resultados",
   "@export_results": {
     "description": "Texto do botón para exportar os resultados"
+  },
+  "export_format_title": "En que formato quieres exportar?",
+  "@export_format_title": {
+    "description": "Título para elixir o formato de exportación"
   }
 }

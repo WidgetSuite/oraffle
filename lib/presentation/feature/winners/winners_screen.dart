@@ -62,6 +62,7 @@ class WinnersScreen extends StatelessWidget {
             ),
             actions: [
               ExportButton(),
+              SizedBox(width: 8),
               FilledButton.icon(
                 onPressed: () => _showShareDialog(context),
                 icon: const Icon(Icons.share),

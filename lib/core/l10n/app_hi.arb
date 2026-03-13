@@ -406,5 +406,9 @@
   "export_results": "परिणाम निर्यात करें",
   "@export_results": {
     "description": "परिणाम निर्यात करने के लिए बटन का टेक्स्ट"
+  },
+  "export_format_title": "आप किस प्रारूप में निर्यात करना चाहते हैं?",
+  "@export_format_title": {
+    "description": "निर्यात प्रारूप चुनने के लिए शीर्षक"
   }
 }

@@ -153,5 +153,9 @@
   "export_results": "Εξαγωγή αποτελεσμάτων",
   "@export_results": {
     "description": "Κείμενο του κουμπιού για εξαγωγή αποτελεσμάτων"
+  },
+  "export_format_title": "Σε ποια μορφή θέλετε να εξαγάγετε;",
+  "@export_format_title": {
+    "description": "Τίτλος για επιλογή μορφής εξαγωγής"
   }
 }

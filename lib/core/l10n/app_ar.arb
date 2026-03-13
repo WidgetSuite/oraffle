@@ -403,5 +403,9 @@
   "export_results": "تصدير النتائج",
   "@export_results": {
     "description": "نص الزر لتصدير النتائج"
+  },
+  "export_format_title": "بأي صيغة تريد التصدير؟",
+  "@export_format_title": {
+    "description": "عنوان اختيار صيغة التصدير"
   }
 }

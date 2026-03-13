@@ -402,10 +402,13 @@
         "example": "4"
       }
     }
+  },
+  "export_results": "Emaitzak esportatu",
+  "@export_results": {
+    "description": "Emaitzen esportaziorako botoiaren testua"
+  },
+  "export_format_title": "Zer formatutan esportatu nahi duzu?",
+  "@export_format_title": {
+    "description": "Esportatzeko formatua aukeratzeko titulua"
   }
-},
-"export_results": "Emaitzak esportatu",
-"@export_results": {
-  "description": "Emaitzen esportaziorako botoiaren testua"
-}
 }

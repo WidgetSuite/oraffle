@@ -409,5 +409,9 @@
   "export_results": "Exportar resultats",
   "@export_results": {
     "description": "Text del botó per exportar els resultats"
+  },
+  "export_format_title": "En quin format vols exportar?",
+  "@export_format_title": {
+    "description": "Títol per triar el format d'exportació"
   }
 }

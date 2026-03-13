@@ -388,5 +388,9 @@
   "export_results": "結果をエクスポート",
   "@export_results": {
     "description": "結果をエクスポートするボタンのテキスト"
+  },
+  "export_format_title": "どの形式でエクスポートしますか？",
+  "@export_format_title": {
+    "description": "エクスポート形式を選択するタイトル"
   }
 }

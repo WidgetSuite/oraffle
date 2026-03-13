@@ -57,3 +57,7 @@ class RaffleWarning extends RaffleState {
 
   RaffleWarning(this.session, this.message);
 }
+
+extension RaffleStateX on RaffleState {
+  RaffleSession get getSession => (this as RaffleLoaded).session;
+}

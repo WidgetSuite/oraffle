@@ -21,6 +21,7 @@ import 'package:oraffle/core/theme/app_theme.dart';
 import 'package:oraffle/presentation/blocs/raffle_bloc/raffle_bloc.dart';
 import 'package:oraffle/presentation/blocs/settings_cubit/settings_cubit.dart';
 import 'package:oraffle/presentation/blocs/settings_cubit/settings_state.dart';
+import 'package:oraffle/presentation/feature/winners/export_cubit/export_cubit.dart';
 import 'package:oraffle/routes/app_router.dart';
 
 void main() {
@@ -43,6 +44,7 @@ class _ORaffleApplicationState extends State<ORaffleApplication> {
       providers: [
         BlocProvider(create: (context) => SettingsCubit()),
         BlocProvider(create: (context) => RaffleBloc()),
+        BlocProvider(create: (context) => ExportCubit()),
       ],
       child: BlocBuilder<SettingsCubit, SettingsState>(
         builder: (context, settings) {

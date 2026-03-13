@@ -415,5 +415,9 @@
   "export_results": "Ergebnisse exportieren",
   "@export_results": {
     "description": "Text des Buttons zum Exportieren der Ergebnisse"
+  },
+  "export_format_title": "In welchem Format möchten Sie exportieren?",
+  "@export_format_title": {
+    "description": "Titel zur Wahl des Exportformats"
   }
 }
