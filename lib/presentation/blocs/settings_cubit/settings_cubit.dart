@@ -30,12 +30,14 @@ class SettingsCubit extends Cubit<SettingsState> {
     final logo = await _storageService.getLogo();
     final color = await _storageService.getPrimaryColor();
     final mode = await _storageService.getThemeMode();
+    final hasToBlur = await _storageService.getBlurMode();
 
     emit(
       SettingsUpdated(
         companyLogo: logo,
         primaryColor: color ?? state.primaryColor,
         themeMode: mode ?? state.themeMode,
+        hasToBlur: hasToBlur ?? state.hasToBlur,
       ),
     );
   }
@@ -51,6 +53,7 @@ class SettingsCubit extends Cubit<SettingsState> {
         companyLogo: logo,
         primaryColor: state.primaryColor,
         themeMode: state.themeMode,
+        hasToBlur: state.hasToBlur,
       ),
     );
   }
@@ -62,6 +65,7 @@ class SettingsCubit extends Cubit<SettingsState> {
         companyLogo: state.companyLogo,
         primaryColor: color,
         themeMode: state.themeMode,
+        hasToBlur: state.hasToBlur,
       ),
     );
   }
@@ -77,6 +81,19 @@ class SettingsCubit extends Cubit<SettingsState> {
         companyLogo: state.companyLogo,
         primaryColor: state.primaryColor,
         themeMode: mode,
+        hasToBlur: state.hasToBlur,
+      ),
+    );
+  }
+
+  void updateBlurParticipantsMode(bool hasToBlur) async {
+    await _storageService.saveBlurMode(hasToBlur);
+    emit(
+      SettingsUpdated(
+        companyLogo: state.companyLogo,
+        primaryColor: state.primaryColor,
+        themeMode: state.themeMode,
+        hasToBlur: hasToBlur,
       ),
     );
   }

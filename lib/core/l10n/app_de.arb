@@ -411,5 +411,13 @@
         "example": "4"
       }
     }
+  },
+  "blur_mode_title": "Modus Teilnehmer verbergen",
+  "@blur_mode_title": {
+    "description": "Titel des Bereichs Blur-Modus"
+  },
+  "blur_mode_tile": "Möchten Sie die Teilnehmer verbergen?",
+  "@blur_mode_tile": {
+    "description": "Frage zum Aktivieren des Verbergens von Teilnehmern"
   }
 }

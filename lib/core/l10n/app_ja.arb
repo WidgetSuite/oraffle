@@ -384,5 +384,13 @@
         "example": "4"
       }
     }
+  },
+  "blur_mode_title": "参加者非表示モード",
+  "@blur_mode_title": {
+    "description": "Title of the blur mode section"
+  },
+  "blur_mode_tile": "参加者を非表示にしますか？",
+  "@blur_mode_tile": {
+    "description": "Question to enable hiding participants"
   }
 }

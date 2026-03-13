@@ -408,5 +408,13 @@
         "example": "4"
       }
     }
+  },
+  "blur_mode_title": "Mode participants masqués",
+  "@blur_mode_title": {
+    "description": "Titre de la section mode flou"
+  },
+  "blur_mode_tile": "Voulez-vous masquer les participants ?",
+  "@blur_mode_tile": {
+    "description": "Question pour activer le masquage des participants"
   }
 }

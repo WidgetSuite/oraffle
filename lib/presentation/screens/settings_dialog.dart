@@ -118,6 +118,13 @@ class SettingsDialog extends StatelessWidget {
                         _ThemeModeSetting(selectedMode: state.themeMode),
 
                         const SizedBox(height: 32),
+                        _SectionTitle(
+                          title: AppLocalizations.of(context)!.blur_mode_title,
+                        ),
+                        const SizedBox(height: 16),
+                        _BlurModeSettings(hasToBlur: state.hasToBlur),
+
+                        const SizedBox(height: 32),
                       ],
                     ),
                   ),
@@ -449,6 +456,23 @@ class _ThemeModeSetting extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class _BlurModeSettings extends StatelessWidget {
+  const _BlurModeSettings({required this.hasToBlur});
+
+  final bool hasToBlur;
+
+  @override
+  Widget build(BuildContext context) {
+    return SwitchListTile(
+      title: Text(AppLocalizations.of(context)!.blur_mode_tile),
+      value: hasToBlur,
+      onChanged: (value) {
+        context.read<SettingsCubit>().updateBlurParticipantsMode(value);
+      },
     );
   }
 }

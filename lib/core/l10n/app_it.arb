@@ -411,5 +411,13 @@
         "example": "4"
       }
     }
+  },
+  "blur_mode_title": "Modalità Partecipanti Nascosti",
+  "@blur_mode_title": {
+    "description": "Titolo della sezione modalità blur"
+  },
+  "blur_mode_tile": "Desiderate nascondere i partecipanti?",
+  "@blur_mode_tile": {
+    "description": "Domanda per abilitare il nascondimento dei partecipanti"
   }
 }

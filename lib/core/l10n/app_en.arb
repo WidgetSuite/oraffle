@@ -417,5 +417,13 @@
         "example": "4"
       }
     }
+  },
+  "blur_mode_title": "Hidden Participants Mode",
+  "@blur_mode_title": {
+    "description": "Title of the blur mode section"
+  },
+  "blur_mode_tile": "Do you want to hide the participants?",
+  "@blur_mode_tile": {
+    "description": "Question to enable hiding participants"
   }
 }
