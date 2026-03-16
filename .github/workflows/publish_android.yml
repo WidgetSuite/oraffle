@@ -19,7 +19,7 @@ jobs:
         uses: timheuer/base64-to-file@v1
         with:
           fileName: upload-keystore.jks
-          encodedString: ${{ secrets.ANDROID_STORE_FILE_BASSE64 }}
+          encodedString: ${{ secrets.ANDROID_STORE_FILE_BASE64 }}
       - name: Create key.properties file
         run: |
           echo "storeFile=${{ steps.android_keystore.outputs.filePath }}" > android/key.properties
@@ -40,7 +40,7 @@ jobs:
         with:
           name: android-release-artifacts
           path: build/app/outputs/bundle/release/app-release.aab
-      - name: Release Build to internal track
+      - name: Release Build to production track
         uses: r0adkll/upload-google-play@v1
         with:
           serviceAccountJsonPlainText: ${{ secrets.ANDROID_SERVICE_ACCOUNT_JSON }}
