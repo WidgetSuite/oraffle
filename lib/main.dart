@@ -23,6 +23,7 @@ import 'package:oraffle/presentation/feature/raffle/import_cubit/import_cubit.da
 import 'package:oraffle/presentation/feature/raffle/raffle_bloc/raffle_bloc.dart';
 import 'package:oraffle/presentation/feature/settings/settings_cubit/settings_cubit.dart';
 import 'package:oraffle/presentation/feature/settings/settings_cubit/settings_state.dart';
+import 'package:oraffle/presentation/feature/winners/export_cubit/export_cubit.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -44,6 +45,7 @@ class _ORaffleApplicationState extends State<ORaffleApplication> {
       providers: [
         BlocProvider(create: (context) => SettingsCubit()),
         BlocProvider(create: (context) => RaffleBloc()),
+        BlocProvider(create: (context) => ExportCubit()),
         BlocProvider(create: (context) => ImportCubit()),
       ],
       child: BlocBuilder<SettingsCubit, SettingsState>(

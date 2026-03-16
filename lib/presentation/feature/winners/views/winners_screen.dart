@@ -25,6 +25,7 @@ import 'package:oraffle/domain/models/raffle/raffle_logo.dart';
 import 'package:oraffle/domain/models/raffle/raffle_winner.dart';
 import 'package:oraffle/presentation/feature/raffle/raffle_bloc/raffle_bloc.dart';
 import 'package:oraffle/presentation/feature/raffle/raffle_bloc/raffle_state.dart';
+import 'package:oraffle/presentation/feature/winners/widgets/export_button.dart';
 import 'package:oraffle/presentation/feature/winners/widgets/winners_empty_state.dart';
 import 'package:oraffle/presentation/feature/winners/widgets/winners_list_widget.dart';
 import 'package:oraffle/presentation/widgets/logo_widget.dart';
@@ -60,6 +61,8 @@ class WinnersScreen extends StatelessWidget {
               onPressed: () => context.go(AppRoutes.raffle),
             ),
             actions: [
+              ExportButton(),
+              SizedBox(width: 8),
               FilledButton.icon(
                 onPressed: () => _showShareDialog(context),
                 icon: const Icon(Icons.share),

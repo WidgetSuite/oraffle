@@ -406,6 +406,14 @@
       }
     }
   },
+  "export_results": "Exportar resultats",
+  "@export_results": {
+    "description": "Text del botó per exportar els resultats"
+  },
+  "export_format_title": "En quin format vols exportar?",
+  "@export_format_title": {
+    "description": "Títol per triar el format d'exportació"
+  },
   "import_error_not_columns": "El fitxer seleccionat no conté dades",
   "@import_error_not_columns": {
     "description": "Missatge d'error que es mostra quan el fitxer importat no conté dades"
