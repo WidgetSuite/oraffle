@@ -47,13 +47,13 @@ class _SelectExtension extends StatelessWidget {
       contentPadding: EdgeInsetsGeometry.all(32),
       children: [
         ...extensionsAvailables.map(
-          (e) => ListTile(
-            title: Text(e),
+          (extension) => ListTile(
+            title: Text(extension),
             leading: Icon(Icons.download),
             minVerticalPadding: 8,
             onTap: () {
               context.read<ExportCubit>().selectExtension(
-                e,
+                extension,
                 context.read<RaffleBloc>().state.getSession,
               );
               context.pop();
