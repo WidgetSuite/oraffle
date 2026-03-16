@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:oraffle/core/l10n/app_localizations.dart';
 import 'package:oraffle/presentation/feature/raffle/raffle_bloc/raffle_bloc.dart';
 import 'package:oraffle/presentation/feature/raffle/raffle_bloc/raffle_state.dart';
@@ -27,8 +28,8 @@ class ExportButton extends StatelessWidget {
   }
 }
 
-class _SelectExtension extends StatefulWidget {
-  const _SelectExtension();
+class _SelectExtension extends StatelessWidget {
+  _SelectExtension();
 
   static Future<void> show(BuildContext context) async {
     await showDialog<void>(
@@ -37,14 +38,7 @@ class _SelectExtension extends StatefulWidget {
     );
   }
 
-  @override
-  State<_SelectExtension> createState() => _SelectExtensionState();
-}
-
-class _SelectExtensionState extends State<_SelectExtension> {
-  String? extensionSelected;
-
-  List<String> extensionsAvailables = ['csv', 'xlsx', 'json'];
+  final List<String> extensionsAvailables = ['csv', 'xlsx', 'json'];
 
   @override
   Widget build(BuildContext context) {
@@ -53,32 +47,18 @@ class _SelectExtensionState extends State<_SelectExtension> {
       contentPadding: EdgeInsetsGeometry.all(32),
       children: [
         ...extensionsAvailables.map(
-          (extension) => RadioMenuButton(
-            value: extension,
-            groupValue: 'extension',
-            onChanged: (value) {
-              extensionSelected = value;
-              setState(() {});
+          (e) => ListTile(
+            title: Text(e),
+            leading: Icon(Icons.download),
+            minVerticalPadding: 8,
+            onTap: () {
+              context.read<ExportCubit>().selectExtension(
+                e,
+                context.read<RaffleBloc>().state.getSession,
+              );
+              context.pop();
             },
-            child: Text(extension),
           ),
-        ),
-
-        SizedBox(height: 24),
-        Row(
-          children: [
-            Spacer(),
-            FilledButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-                context.read<ExportCubit>().selectExtension(
-                  extensionSelected ?? '',
-                  context.read<RaffleBloc>().state.getSession,
-                );
-              },
-              child: Text(AppLocalizations.of(context)!.selectButton),
-            ),
-          ],
         ),
       ],
     );
