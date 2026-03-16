@@ -407,5 +407,17 @@
   "blur_mode_tile": "هل تريد إخفاء المشاركين؟",
   "@blur_mode_tile": {
     "description": "Question to enable hiding participants"
+  },
+  "export_results": "تصدير النتائج",
+  "@export_results": {
+    "description": "نص الزر لتصدير النتائج"
+  },
+  "export_format_title": "بأي صيغة تريد التصدير؟",
+  "@export_format_title": {
+    "description": "عنوان اختيار صيغة التصدير"
+  },
+  "import_error_not_columns": "الملف المحدد لا يحتوي على بيانات",
+  "@import_error_not_columns": {
+    "description": "رسالة خطأ للعرض عندما لا يحتوي الملف المستورد على بيانات"
   }
 }

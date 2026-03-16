@@ -15,14 +15,14 @@
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:oraffle/core/theme/app_theme.dart';
 import 'package:oraffle/core/l10n/app_localizations.dart';
+import 'package:oraffle/core/routes/app_router.dart';
+import 'package:oraffle/core/theme/app_theme.dart';
 import 'package:oraffle/domain/models/raffle/raffle_winner.dart';
-import 'package:oraffle/presentation/screens/widgets/clear_winners_dialog.dart';
-import 'package:oraffle/presentation/screens/widgets/reset_raffle_dialog.dart';
-import 'package:oraffle/presentation/screens/widgets/winner_card_widget.dart';
-import 'package:oraffle/presentation/screens/widgets/winners_podium_widget.dart';
-import 'package:oraffle/routes/app_router.dart';
+import 'package:oraffle/presentation/feature/raffle/widgets/reset_raffle_dialog.dart';
+import 'package:oraffle/presentation/feature/winners/widgets/clear_winners_dialog.dart';
+import 'package:oraffle/presentation/feature/winners/widgets/winner_card_widget.dart';
+import 'package:oraffle/presentation/feature/winners/widgets/winners_podium_widget.dart';
 
 class WinnersListWidget extends StatelessWidget {
   final List<RaffleWinner> winners;
@@ -74,7 +74,7 @@ class WinnersListWidget extends StatelessWidget {
           WinnersPodiumWidget(winners: podiumWinners),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Divider(thickness: 0.5,),
+            child: Divider(thickness: 0.5),
           ),
         ],
 

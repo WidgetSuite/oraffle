@@ -419,5 +419,17 @@
   "blur_mode_tile": "Desiderate nascondere i partecipanti?",
   "@blur_mode_tile": {
     "description": "Domanda per abilitare il nascondimento dei partecipanti"
+  },
+  "export_results": "Esporta risultati",
+  "@export_results": {
+    "description": "Testo del pulsante per esportare i risultati"
+  },
+  "export_format_title": "In quale formato desideri esportare?",
+  "@export_format_title": {
+    "description": "Titolo per scegliere il formato di esportazione"
+  },
+  "import_error_not_columns": "Il file selezionato non contiene dati",
+  "@import_error_not_columns": {
+    "description": "Messaggio di errore mostrato quando il file importato non contiene dati"
   }
 }

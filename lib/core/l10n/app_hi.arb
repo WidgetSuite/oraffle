@@ -410,5 +410,17 @@
   "blur_mode_tile": "क्या आप प्रतिभागियों को छिपाना चाहते हैं?",
   "@blur_mode_tile": {
     "description": "प्रतिभागियों को छिपाने को सक्षम करने के लिए प्रश्न"
+  },
+  "export_results": "परिणाम निर्यात करें",
+  "@export_results": {
+    "description": "परिणाम निर्यात करने के लिए बटन का टेक्स्ट"
+  },
+  "export_format_title": "आप किस प्रारूप में निर्यात करना चाहते हैं?",
+  "@export_format_title": {
+    "description": "निर्यात प्रारूप चुनने के लिए शीर्षक"
+  },
+  "import_error_not_columns": "चयनित फ़ाइल में कोई डेटा नहीं है",
+  "@import_error_not_columns": {
+    "description": "त्रुटि संदेश जब आयात की गई फ़ाइल में डेटा नहीं होता है"
   }
 }

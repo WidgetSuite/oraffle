@@ -16,7 +16,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:oraffle/core/l10n/app_localizations.dart';
-import 'package:oraffle/routes/app_router.dart';
+import 'package:oraffle/core/routes/app_router.dart';
 import 'package:oraffle/core/theme/app_theme.dart';
 
 class WinnersEmptyState extends StatelessWidget {
@@ -36,12 +36,16 @@ class WinnersEmptyState extends StatelessWidget {
           const SizedBox(height: 24),
           Text(
             AppLocalizations.of(context)!.noWinnersYet,
-            style: Theme.of(context).textTheme.headlineSmall!.copyWith(color: AppTheme.zinc600),
+            style: Theme.of(
+              context,
+            ).textTheme.headlineSmall!.copyWith(color: AppTheme.zinc600),
           ),
           const SizedBox(height: 16),
           Text(
             AppLocalizations.of(context)!.performRaffleToSeeWinners,
-            style: Theme.of(context).textTheme.bodyLarge!.copyWith(color: AppTheme.zinc500),
+            style: Theme.of(
+              context,
+            ).textTheme.bodyLarge!.copyWith(color: AppTheme.zinc500),
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 32),

@@ -16,10 +16,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:oraffle/core/l10n/app_localizations.dart';
-import 'package:oraffle/presentation/blocs/raffle_bloc/raffle_bloc.dart';
-import 'package:oraffle/presentation/blocs/raffle_bloc/raffle_event.dart';
 import 'package:oraffle/core/theme/app_theme.dart';
 import 'package:oraffle/core/theme/extensions/confirm_dialog_colors_extension.dart';
+import 'package:oraffle/presentation/feature/raffle/raffle_bloc/raffle_bloc.dart';
+import 'package:oraffle/presentation/feature/raffle/raffle_bloc/raffle_event.dart';
 
 /// Shows a confirmation dialog to reset the entire raffle.
 ///
@@ -52,7 +52,9 @@ Future<bool> showResetRaffleDialog(BuildContext context) async {
                 children: [
                   Text(
                     AppLocalizations.of(context)!.resetRaffleTitle,
-                    style: Theme.of(context).textTheme.headlineSmall!.copyWith(color: colors.title),
+                    style: Theme.of(
+                      context,
+                    ).textTheme.headlineSmall!.copyWith(color: colors.title),
                   ),
                   IconButton(
                     onPressed: () => Navigator.of(dialogContext).pop(false),
@@ -70,7 +72,9 @@ Future<bool> showResetRaffleDialog(BuildContext context) async {
               // Content
               Text(
                 AppLocalizations.of(context)!.resetRaffleConfirmMessage,
-                style: Theme.of(context).textTheme.bodyLarge!.copyWith(color: colors.subtitle),
+                style: Theme.of(
+                  context,
+                ).textTheme.bodyLarge!.copyWith(color: colors.subtitle),
               ),
               const SizedBox(height: 32),
 
@@ -82,9 +86,7 @@ Future<bool> showResetRaffleDialog(BuildContext context) async {
                   style: FilledButton.styleFrom(
                     backgroundColor: AppTheme.errorColor,
                   ),
-                  child: Text(
-                    AppLocalizations.of(context)!.reset,
-                  ),
+                  child: Text(AppLocalizations.of(context)!.reset),
                 ),
               ),
             ],

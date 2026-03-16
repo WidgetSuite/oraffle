@@ -410,5 +410,17 @@
   "blur_mode_tile": "Parte-hartzaileak ezkutatu nahi dituzu?",
   "@blur_mode_tile": {
     "description": "Galdera parte-hartzaileak ezkutatzea gaitzeko"
+  },
+  "export_results": "Emaitzak esportatu",
+  "@export_results": {
+    "description": "Emaitzen esportaziorako botoiaren testua"
+  },
+  "export_format_title": "Zer formatutan esportatu nahi duzu?",
+  "@export_format_title": {
+    "description": "Esportatzeko formatua aukeratzeko titulua"
+  },
+  "import_error_not_columns": "Hautatutako fitxategiak ez du daturik",
+  "@import_error_not_columns": {
+    "description": "Errore-mezua inportatutako fitxategiak daturik ez duenean erakusten dena"
   }
 }

@@ -419,5 +419,17 @@
   "blur_mode_tile": "Möchten Sie die Teilnehmer verbergen?",
   "@blur_mode_tile": {
     "description": "Frage zum Aktivieren des Verbergens von Teilnehmern"
+  },
+  "export_results": "Ergebnisse exportieren",
+  "@export_results": {
+    "description": "Text des Buttons zum Exportieren der Ergebnisse"
+  },
+  "export_format_title": "In welchem Format möchten Sie exportieren?",
+  "@export_format_title": {
+    "description": "Titel zur Wahl des Exportformats"
+  },
+  "import_error_not_columns": "Die ausgewählte Datei enthält keine Daten",
+  "@import_error_not_columns": {
+    "description": "Fehlermeldung, die angezeigt wird, wenn die importierte Datei keine Daten enthält"
   }
 }

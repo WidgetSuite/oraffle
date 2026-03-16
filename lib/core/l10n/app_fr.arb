@@ -416,5 +416,17 @@
   "blur_mode_tile": "Voulez-vous masquer les participants ?",
   "@blur_mode_tile": {
     "description": "Question pour activer le masquage des participants"
+  },
+  "export_results": "Exporter les résultats",
+  "@export_results": {
+    "description": "Texte du bouton pour exporter les résultats"
+  },
+  "export_format_title": "En quel format voulez-vous exporter ?",
+  "@export_format_title": {
+    "description": "Titre pour choisir le format d'exportation"
+  },
+  "import_error_not_columns": "Le fichier sélectionné ne contient pas de données",
+  "@import_error_not_columns": {
+    "description": "Message d'erreur affiché lorsque le fichier importé ne contient pas de données"
   }
 }

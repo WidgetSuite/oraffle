@@ -392,5 +392,17 @@
   "blur_mode_tile": "参加者を非表示にしますか？",
   "@blur_mode_tile": {
     "description": "Question to enable hiding participants"
+  },
+  "export_results": "結果をエクスポート",
+  "@export_results": {
+    "description": "結果をエクスポートするボタンのテキスト"
+  },
+  "export_format_title": "どの形式でエクスポートしますか？",
+  "@export_format_title": {
+    "description": "エクスポート形式を選択するタイトル"
+  },
+  "import_error_not_columns": "選択したファイルにデータがありません",
+  "@import_error_not_columns": {
+    "description": "インポートされたファイルにデータがない場合に表示されるエラーメッセージ"
   }
 }
