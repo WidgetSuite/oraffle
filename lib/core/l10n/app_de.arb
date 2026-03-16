@@ -412,6 +412,14 @@
       }
     }
   },
+  "blur_mode_title": "Modus Teilnehmer verbergen",
+  "@blur_mode_title": {
+    "description": "Titel des Bereichs Blur-Modus"
+  },
+  "blur_mode_tile": "Möchten Sie die Teilnehmer verbergen?",
+  "@blur_mode_tile": {
+    "description": "Frage zum Aktivieren des Verbergens von Teilnehmern"
+  },
   "export_results": "Ergebnisse exportieren",
   "@export_results": {
     "description": "Text des Buttons zum Exportieren der Ergebnisse"

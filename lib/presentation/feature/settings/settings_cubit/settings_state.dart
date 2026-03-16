@@ -14,18 +14,20 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import 'package:flutter/material.dart';
-import 'package:oraffle/domain/models/raffle/raffle_logo.dart';
 import 'package:oraffle/core/theme/app_theme.dart';
+import 'package:oraffle/domain/models/raffle/raffle_logo.dart';
 
 abstract class SettingsState {
   final RaffleLogo? companyLogo;
   final Color primaryColor;
   final ThemeMode themeMode;
+  final bool hasToBlur;
 
   const SettingsState({
     this.companyLogo,
     required this.primaryColor,
     required this.themeMode,
+    required this.hasToBlur,
   });
 
   @override
@@ -34,17 +36,25 @@ abstract class SettingsState {
     return other is SettingsState &&
         other.companyLogo == companyLogo &&
         other.primaryColor == primaryColor &&
-        other.themeMode == themeMode;
+        other.themeMode == themeMode &&
+        other.hasToBlur == hasToBlur;
   }
 
   @override
   int get hashCode =>
-      companyLogo.hashCode ^ primaryColor.hashCode ^ themeMode.hashCode;
+      companyLogo.hashCode ^
+      primaryColor.hashCode ^
+      themeMode.hashCode ^
+      hasToBlur.hashCode;
 }
 
 class SettingsInitial extends SettingsState {
   const SettingsInitial()
-    : super(primaryColor: AppTheme.defaultSeedColor, themeMode: ThemeMode.system);
+    : super(
+        primaryColor: AppTheme.defaultSeedColor,
+        themeMode: ThemeMode.system,
+        hasToBlur: false,
+      );
 }
 
 class SettingsUpdated extends SettingsState {
@@ -52,5 +62,6 @@ class SettingsUpdated extends SettingsState {
     super.companyLogo,
     required super.primaryColor,
     required super.themeMode,
+    required super.hasToBlur,
   });
 }
