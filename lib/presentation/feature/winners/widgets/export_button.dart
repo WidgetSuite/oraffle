@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:oraffle/core/l10n/app_localizations.dart';
-import 'package:oraffle/presentation/blocs/raffle_bloc/raffle_bloc.dart';
-import 'package:oraffle/presentation/blocs/raffle_bloc/raffle_state.dart';
+import 'package:oraffle/presentation/feature/raffle/raffle_bloc/raffle_bloc.dart';
+import 'package:oraffle/presentation/feature/raffle/raffle_bloc/raffle_state.dart';
 import 'package:oraffle/presentation/feature/winners/export_cubit/export_cubit.dart';
 
 class ExportButton extends StatelessWidget {
@@ -49,7 +49,7 @@ class _SelectExtensionState extends State<_SelectExtension> {
   @override
   Widget build(BuildContext context) {
     return SimpleDialog(
-      title: Text('¿En que formato quieres exportar?'),
+      title: Text(AppLocalizations.of(context)!.export_format_title),
       contentPadding: EdgeInsetsGeometry.all(32),
       children: [
         ...extensionsAvailables.map(
