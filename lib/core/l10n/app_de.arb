@@ -419,5 +419,9 @@
   "export_format_title": "In welchem Format möchten Sie exportieren?",
   "@export_format_title": {
     "description": "Titel zur Wahl des Exportformats"
+  },
+  "import_error_not_columns": "Die ausgewählte Datei enthält keine Daten",
+  "@import_error_not_columns": {
+    "description": "Fehlermeldung, die angezeigt wird, wenn die importierte Datei keine Daten enthält"
   }
 }

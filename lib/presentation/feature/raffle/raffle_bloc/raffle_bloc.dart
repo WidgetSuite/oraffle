@@ -21,8 +21,8 @@ import 'package:oraffle/domain/models/raffle/raffle_logo.dart';
 import 'package:oraffle/domain/models/raffle/raffle_participant.dart';
 import 'package:oraffle/domain/models/raffle/raffle_session.dart';
 import 'package:oraffle/domain/models/raffle/raffle_winner.dart';
-import 'package:oraffle/presentation/blocs/raffle_bloc/raffle_event.dart';
-import 'package:oraffle/presentation/blocs/raffle_bloc/raffle_state.dart';
+import 'package:oraffle/presentation/feature/raffle/raffle_bloc/raffle_event.dart';
+import 'package:oraffle/presentation/feature/raffle/raffle_bloc/raffle_state.dart';
 
 /// BLoC for managing raffle functionality.
 class RaffleBloc extends Bloc<RaffleEvent, RaffleState> {
