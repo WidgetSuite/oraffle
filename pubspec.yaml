@@ -33,6 +33,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   excel: ^4.0.6
   file_picker: ^10.3.10
+  file_saver: ^0.3.1
   flutter:
     sdk: flutter
   flutter_bloc: ^9.1.1
@@ -46,6 +47,7 @@ dependencies:
   go_router: ^17.0.1
   google_fonts: ^8.0.2
   lucide_icons: ^0.257.0
+  path: ^1.9.1
   path_provider: ^2.1.5
   shared_preferences: ^2.5.4
 
