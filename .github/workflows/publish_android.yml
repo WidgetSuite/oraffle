@@ -26,9 +26,6 @@ jobs:
           echo "storePassword=${{ secrets.ANDROID_STORE_PASSWORD }}" >> android/key.properties
           echo "keyPassword=${{ secrets.ANDROID_KEY_PASSWORD }}" >> android/key.properties
           echo "keyAlias=${{ secrets.ANDROID_KEY_ALIAS }}" >> android/key.properties
-      - name: Create local.properties file
-        run: |
-          echo '${{ secrets.ANDROID_LOCAL_PROPERTIES_FILE }}' > android/local.properties
       - uses: actions/setup-java@v4
         with:
           distribution: 'zulu'
