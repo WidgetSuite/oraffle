@@ -384,5 +384,9 @@
         "example": "4"
       }
     }
+  },
+  "import_error_not_columns": "選択したファイルにデータがありません",
+  "@import_error_not_columns": {
+    "description": "インポートされたファイルにデータがない場合に表示されるエラーメッセージ"
   }
 }

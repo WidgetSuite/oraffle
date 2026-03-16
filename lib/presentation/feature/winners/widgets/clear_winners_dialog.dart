@@ -16,10 +16,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:oraffle/core/l10n/app_localizations.dart';
-import 'package:oraffle/presentation/blocs/raffle_bloc/raffle_bloc.dart';
-import 'package:oraffle/presentation/blocs/raffle_bloc/raffle_event.dart';
 import 'package:oraffle/core/theme/app_theme.dart';
 import 'package:oraffle/core/theme/extensions/confirm_dialog_colors_extension.dart';
+import 'package:oraffle/presentation/feature/raffle/raffle_bloc/raffle_bloc.dart';
+import 'package:oraffle/presentation/feature/raffle/raffle_bloc/raffle_event.dart';
 
 /// Shows a confirmation dialog to clear all winners from the raffle.
 ///

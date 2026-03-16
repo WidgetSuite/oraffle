@@ -402,5 +402,9 @@
         "example": "4"
       }
     }
+  },
+  "import_error_not_columns": "Hautatutako fitxategiak ez du daturik",
+  "@import_error_not_columns": {
+    "description": "Errore-mezua inportatutako fitxategiak daturik ez duenean erakusten dena"
   }
 }
