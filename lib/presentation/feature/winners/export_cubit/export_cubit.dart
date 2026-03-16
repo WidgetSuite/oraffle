@@ -15,15 +15,13 @@ class ExportCubit extends Cubit<ExportState> {
     emit(ExportSelectExtension());
   }
 
-  void selectExtension(String selectedExtension, RaffleSession data) {
-    if (selectedExtension == 'json') {
-      _exportJsonFile(data);
-    } else if (selectedExtension == 'csv') {
-      _exportCsvFile(data);
-    } else if (selectedExtension == 'xlsx') {
-      _exportExcelFile(data);
-    }
-  }
+  void selectExtension(String selectedExtension, RaffleSession data) =>
+      switch (selectedExtension) {
+        'json' => _exportJsonFile(data),
+        'csv' => _exportCsvFile(data),
+        'xlsx' => _exportExcelFile(data),
+        _ => _exportCsvFile(data),
+      };
 
   String _createNameFile(String extension) {
     final now = DateTime.now().toIso8601String().replaceAll(':', '-');
