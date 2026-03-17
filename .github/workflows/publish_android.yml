@@ -46,5 +46,5 @@ jobs:
           serviceAccountJsonPlainText: ${{ secrets.ANDROID_SERVICE_ACCOUNT_JSON }}
           packageName: es.victorcarreras.oraffle
           releaseFiles: build/app/outputs/bundle/release/app-release.aab
-          track: production
+          track: internal
           status: completed

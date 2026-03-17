@@ -1,0 +1,40 @@
+name: oraffle-app
+version: "1.0.0"
+summary: QORaffley
+description: |
+  A opensource Raffle application.
+base: core24
+confinement: strict
+grade: stable
+
+apps:
+  oraffle-app:
+    command: oraffle_app
+    extensions: [gnome]
+    plugs:
+      - network
+      - home
+    desktop: usr/share/applications/oraffle-app.desktop
+
+parts:
+  oraffle-app:
+    plugin: flutter
+    source: .
+    flutter-target: lib/main.dart
+    build-packages:
+      - lld
+      - llvm
+    build-environment:
+      - PUB_CACHE: "$SNAPCRAFT_PART_BUILD/.pub-cache"
+
+  desktop-file:
+    plugin: dump
+    source: snap/gui
+    organize:
+      oraffle-app.desktop: usr/share/applications/oraffle-app.desktop
+
+  icon:
+    plugin: dump
+    source: snap/gui
+    organize:
+      oraffle-app.png: usr/share/icons/hicolor/256x256/apps/oraffle-app.png
