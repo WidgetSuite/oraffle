@@ -404,5 +404,9 @@
   "import_error_not_columns": "選択したファイルにデータがありません",
   "@import_error_not_columns": {
     "description": "インポートされたファイルにデータがない場合に表示されるエラーメッセージ"
+  },
+  "winners_by_draw": "抽選ごとの当選者",
+  "@winners_by_draw": {
+    "description": "抽選ごとの当選者を定義するタイトル"
   }
 }

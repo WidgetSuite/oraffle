@@ -119,7 +119,7 @@ class RaffleBloc extends Bloc<RaffleEvent, RaffleState> {
     if (state is RaffleSelecting) {
       final currentSession = (state as RaffleSelecting).session;
       final updatedSession = currentSession.copyWith(isSelecting: false);
-      emit(RaffleWinnerSelected(updatedSession, event.winnerName));
+      emit(RaffleWinnerSelected(updatedSession, event.winnersNames));
     }
   }
 
@@ -136,17 +136,29 @@ class RaffleBloc extends Bloc<RaffleEvent, RaffleState> {
     }
 
     try {
+      List<RaffleWinner> newWinners = event.winnersName
+          .map(
+            (winner) => RaffleWinner(
+              name: winner,
+              position:
+                  currentSession.winners.length +
+                  event.winnersName.indexOf(winner) +
+                  1,
+              selectedAt: DateTime.now(),
+            ),
+          )
+          .toList();
       // Add winner to winners list
-      final newWinner = RaffleWinner(
-        name: event.winnerName,
-        position: currentSession.winners.length + 1,
-        selectedAt: DateTime.now(),
-      );
+      // final newWinner = RaffleWinner(
+      //   name: event.winnerName,
+      //   position: currentSession.winners.length + 1,
+      //   selectedAt: DateTime.now(),
+      // );
 
       // Update participants to mark the winner as inactive
       final updatedParticipants = currentSession.participants
           .map(
-            (participant) => participant.name == event.winnerName
+            (participant) => event.winnersName.contains(participant.name)
                 ? participant.copyWith(isActive: false)
                 : participant,
           )
@@ -154,7 +166,7 @@ class RaffleBloc extends Bloc<RaffleEvent, RaffleState> {
 
       final updatedSession = currentSession.copyWith(
         participants: updatedParticipants,
-        winners: [...currentSession.winners, newWinner],
+        winners: currentSession.winners + newWinners,
         isSelecting: false,
       );
 
@@ -208,13 +220,27 @@ class RaffleBloc extends Bloc<RaffleEvent, RaffleState> {
   }
 
   /// Selects a random winner from active participants.
-  String selectRandomWinner(List<RaffleParticipant> activeParticipants) {
+  List<String> selectRandomWinners(
+    List<RaffleParticipant> activeParticipants,
+    int amountWinners,
+  ) {
     if (activeParticipants.isEmpty) {
       throw Exception('No hay participantes activos');
     }
 
-    final randomIndex = _random.nextInt(activeParticipants.length);
-    return activeParticipants[randomIndex].name;
+    final winners = List<String>.empty(growable: true);
+    int winnersToSelect = amountWinners;
+    List<RaffleParticipant> remainingParticipants = activeParticipants;
+
+    while (winnersToSelect > 0 && remainingParticipants.isNotEmpty) {
+      final randomIndex = _random.nextInt(remainingParticipants.length);
+      final winner = remainingParticipants.elementAt(randomIndex);
+      winners.add(winner.name);
+      remainingParticipants.removeAt(randomIndex);
+      winnersToSelect--;
+    }
+
+    return winners;
   }
 
   void _onSetRaffleLogo(SetRaffleLogo event, Emitter<RaffleState> emit) async {

@@ -22,6 +22,7 @@ import 'package:oraffle/presentation/feature/raffle/raffle_bloc/raffle_bloc.dart
 import 'package:oraffle/presentation/feature/raffle/raffle_bloc/raffle_event.dart';
 import 'package:oraffle/presentation/feature/raffle/raffle_bloc/raffle_state.dart';
 import 'package:oraffle/presentation/feature/raffle/widgets/raffle_animation_widget.dart';
+import 'package:oraffle/presentation/feature/settings/settings_cubit/settings_cubit.dart';
 import 'package:oraffle/presentation/feature/winners/widgets/clear_winners_dialog.dart';
 
 class RaffleControlsWidget extends StatelessWidget {
@@ -110,13 +111,17 @@ class RaffleControlsWidget extends StatelessWidget {
 
   void _startRaffle(BuildContext context, RaffleSession session) {
     final raffleBloc = context.read<RaffleBloc>();
+    final winnersByDraw = context.read<SettingsCubit>().state.winnersByDraw;
 
     // Start the selection animation
     raffleBloc.add(StartRaffleSelection());
 
     // Simulate animation duration and then select winner
     Future.delayed(const Duration(seconds: 3), () {
-      final winner = raffleBloc.selectRandomWinner(session.activeParticipants);
+      final winner = raffleBloc.selectRandomWinners(
+        session.activeParticipants,
+        winnersByDraw,
+      );
       raffleBloc.add(CompleteRaffleSelection(winner));
     });
   }

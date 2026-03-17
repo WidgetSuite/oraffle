@@ -15,6 +15,7 @@
 
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:oraffle/core/l10n/app_localizations.dart';
@@ -123,6 +124,13 @@ class SettingsDialog extends StatelessWidget {
                         ),
                         const SizedBox(height: 16),
                         _BlurModeSettings(hasToBlur: state.hasToBlur),
+
+                        const SizedBox(height: 32),
+                        _SectionTitle(
+                          title: AppLocalizations.of(context)!.winners_by_draw,
+                        ),
+                        const SizedBox(height: 16),
+                        _WinnersByDrawSettings(amount: state.winnersByDraw),
 
                         const SizedBox(height: 32),
                       ],
@@ -474,5 +482,54 @@ class _BlurModeSettings extends StatelessWidget {
         context.read<SettingsCubit>().updateBlurParticipantsMode(value);
       },
     );
+  }
+}
+
+class _WinnersByDrawSettings extends StatefulWidget {
+  const _WinnersByDrawSettings({required this.amount});
+
+  final int amount;
+
+  @override
+  State<_WinnersByDrawSettings> createState() => _WinnersByDrawSettingsState();
+}
+
+class _WinnersByDrawSettingsState extends State<_WinnersByDrawSettings> {
+  final _controller = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    _controller.text = widget.amount.toString();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return TextField(
+      controller: _controller,
+      keyboardType: TextInputType.number,
+      onChanged: _onChange,
+      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+      style: const TextStyle(
+        fontFamily: 'JetBrainsMono',
+        fontWeight: FontWeight.bold,
+        letterSpacing: 1.2,
+      ),
+    );
+  }
+
+  void _onChange(String value) {
+    final newAmount = int.tryParse(value);
+    if (newAmount != null && newAmount > 1) {
+      context.read<SettingsCubit>().updateWinnersByDraw(newAmount);
+    } else {
+      context.read<SettingsCubit>().updateWinnersByDraw(1);
+    }
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 }

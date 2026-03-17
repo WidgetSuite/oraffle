@@ -15,19 +15,19 @@
 
 import 'package:flutter/material.dart';
 import 'package:oraffle/core/l10n/app_localizations.dart';
-import 'package:oraffle/domain/models/raffle/raffle_session.dart';
 import 'package:oraffle/core/theme/app_theme.dart';
 import 'package:oraffle/core/theme/extensions/confirm_dialog_colors_extension.dart';
+import 'package:oraffle/domain/models/raffle/raffle_session.dart';
 
 class WinnerDialog extends StatelessWidget {
-  final String winnerName;
+  final List<String> winnersName;
   final RaffleSession session;
   final VoidCallback onRepeatRaffle;
   final VoidCallback onFinishRaffle;
 
   const WinnerDialog({
     super.key,
-    required this.winnerName,
+    required this.winnersName,
     required this.session,
     required this.onRepeatRaffle,
     required this.onFinishRaffle,
@@ -40,7 +40,9 @@ class WinnerDialog extends StatelessWidget {
 
     // Design Tokens
     final titleColor = Theme.of(context).colorScheme.onSurface;
-    final trophyBg = Theme.of(context).colorScheme.onPrimary.withValues(alpha: 0.2);
+    final trophyBg = Theme.of(
+      context,
+    ).colorScheme.onPrimary.withValues(alpha: 0.2);
     final trophyIcon = Theme.of(context).colorScheme.primary;
     final nameBg = isDark ? AppTheme.zinc700 : AppTheme.zinc100;
     final nameText = isDark ? AppTheme.backgroundColor : AppTheme.zinc900;
@@ -69,10 +71,7 @@ class WinnerDialog extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: trophyBg,
                   shape: BoxShape.circle,
-                  border: BoxBorder.all(
-                    color: trophyIcon,
-                    width: 2,
-                  )
+                  border: BoxBorder.all(color: trophyIcon, width: 2),
                 ),
                 child: Icon(Icons.emoji_events, size: 48, color: trophyIcon),
               ),
@@ -96,10 +95,17 @@ class WinnerDialog extends StatelessWidget {
                 color: nameBg,
                 borderRadius: BorderRadius.circular(16),
               ),
-              child: Text(
-                winnerName,
-                style: tt.titleLarge!.copyWith(color: nameText),
-                textAlign: TextAlign.center,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: winnersName
+                    .map(
+                      (winner) => Text(
+                        winner,
+                        style: tt.titleLarge!.copyWith(color: nameText),
+                        textAlign: TextAlign.center,
+                      ),
+                    )
+                    .toList(),
               ),
             ),
 

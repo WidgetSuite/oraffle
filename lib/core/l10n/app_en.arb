@@ -437,5 +437,9 @@
   "import_error_not_columns": "The selected file contains no data",
   "@import_error_not_columns": {
     "description": "Error message shown when the imported file contains no data"
+  },
+  "winners_by_draw": "Winners by draw",
+  "@winners_by_draw": {
+    "description": "Title for defining winners by draw"
   }
 }

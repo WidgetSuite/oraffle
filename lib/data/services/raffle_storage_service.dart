@@ -28,6 +28,7 @@ class RaffleStorageService {
   static const String _primaryColor = 'primary_color';
   static const String _themeMode = 'theme_mode';
   static const String _hasToBlur = 'has_to_blur';
+  static const String _winnersByDraw = 'winners_by_draw';
   // Maximum size for base64 encoded image (approximately 2MB in base64)
   static const int _maxBase64Size = 2 * 1024 * 1024; // 2MB in bytes
 
@@ -145,5 +146,18 @@ class RaffleStorageService {
     final prefs = await SharedPreferences.getInstance();
     final hasToBlur = prefs.getBool(_hasToBlur);
     return hasToBlur;
+  }
+
+  /// Saves the winners by draw amount
+  Future<void> saveWinnersByDrawAmount(int amount) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setInt(_winnersByDraw, amount);
+  }
+
+  /// Retrieves the winners by draw amount
+  Future<int> getWinnersByDrawAmount() async {
+    final prefs = await SharedPreferences.getInstance();
+    final amount = prefs.getInt(_winnersByDraw);
+    return amount ?? 1;
   }
 }

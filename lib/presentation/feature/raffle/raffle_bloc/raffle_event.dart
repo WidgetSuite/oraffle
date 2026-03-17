@@ -29,14 +29,14 @@ class StartRaffleSelection extends RaffleEvent {}
 
 /// Event to complete the raffle selection with a winner.
 class CompleteRaffleSelection extends RaffleEvent {
-  final String winnerName;
-  CompleteRaffleSelection(this.winnerName);
+  final List<String> winnersNames;
+  CompleteRaffleSelection(this.winnersNames);
 }
 
 /// Event to remove a winner from the participants and add to winners list.
 class ConfirmWinner extends RaffleEvent {
-  final String winnerName;
-  ConfirmWinner(this.winnerName);
+  final List<String> winnersName;
+  ConfirmWinner(this.winnersName);
 }
 
 /// Event to reset the entire raffle session.

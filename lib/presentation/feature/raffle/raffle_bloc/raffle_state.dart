@@ -38,9 +38,9 @@ class RaffleSelecting extends RaffleState {
 /// State representing that a winner has been selected.
 class RaffleWinnerSelected extends RaffleState {
   final RaffleSession session;
-  final String selectedWinner;
+  final List<String> selectedWinners;
 
-  RaffleWinnerSelected(this.session, this.selectedWinner);
+  RaffleWinnerSelected(this.session, this.selectedWinners);
 }
 
 /// State representing an error in the raffle process.
