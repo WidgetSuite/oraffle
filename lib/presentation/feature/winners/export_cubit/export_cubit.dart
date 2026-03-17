@@ -16,6 +16,7 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:excel/excel.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:oraffle/core/utils/export/export_utils.dart';
 import 'package:oraffle/domain/models/raffle/raffle_session.dart';
@@ -39,7 +40,7 @@ class ExportCubit extends Cubit<ExportState> {
 
   String _createNameFile(String extension) {
     final now = DateTime.now().toIso8601String().replaceAll(':', '-');
-    return 'oraffle_session_$now$extension';
+    return 'oraffle_session_$now.$extension';
   }
 
   void _exportJsonFile(RaffleSession data) async {
@@ -65,7 +66,7 @@ class ExportCubit extends Cubit<ExportState> {
       final result = await downloadFile(
         _createNameFile('json'),
         bytes,
-        'application/json',
+        .custom,
       );
 
       emit(ExportSuccess(result));
@@ -107,7 +108,7 @@ class ExportCubit extends Cubit<ExportState> {
       final result = await downloadFile(
         _createNameFile('.csv'),
         bytes,
-        'text/csv',
+        FileType .custom,
       );
 
       emit(ExportSuccess(result));
@@ -156,7 +157,7 @@ class ExportCubit extends Cubit<ExportState> {
       final result = await downloadFile(
         fileName,
         Uint8List.fromList(bytes),
-        'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+        .custom,
       );
 
       emit(ExportSuccess(result));
