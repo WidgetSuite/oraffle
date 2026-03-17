@@ -425,5 +425,9 @@
   "import_error_not_columns": "El fitxer seleccionat no conté dades",
   "@import_error_not_columns": {
     "description": "Missatge d'error que es mostra quan el fitxer importat no conté dades"
+  },
+  "winners_by_draw": "Guanyadors per sorteig",
+  "@winners_by_draw": {
+    "description": "Títol per definir els guanyadors per sorteig"
   }
 }

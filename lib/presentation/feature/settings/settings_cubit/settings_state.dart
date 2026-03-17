@@ -22,12 +22,14 @@ abstract class SettingsState {
   final Color primaryColor;
   final ThemeMode themeMode;
   final bool hasToBlur;
+  final int winnersByDraw;
 
   const SettingsState({
     this.companyLogo,
     required this.primaryColor,
     required this.themeMode,
     required this.hasToBlur,
+    required this.winnersByDraw,
   });
 
   @override
@@ -37,7 +39,8 @@ abstract class SettingsState {
         other.companyLogo == companyLogo &&
         other.primaryColor == primaryColor &&
         other.themeMode == themeMode &&
-        other.hasToBlur == hasToBlur;
+        other.hasToBlur == hasToBlur &&
+        other.winnersByDraw == winnersByDraw;
   }
 
   @override
@@ -45,7 +48,8 @@ abstract class SettingsState {
       companyLogo.hashCode ^
       primaryColor.hashCode ^
       themeMode.hashCode ^
-      hasToBlur.hashCode;
+      hasToBlur.hashCode ^
+      winnersByDraw.hashCode;
 }
 
 class SettingsInitial extends SettingsState {
@@ -54,6 +58,7 @@ class SettingsInitial extends SettingsState {
         primaryColor: AppTheme.defaultSeedColor,
         themeMode: ThemeMode.system,
         hasToBlur: false,
+        winnersByDraw: 1,
       );
 }
 
@@ -63,5 +68,6 @@ class SettingsUpdated extends SettingsState {
     required super.primaryColor,
     required super.themeMode,
     required super.hasToBlur,
+    required super.winnersByDraw,
   });
 }

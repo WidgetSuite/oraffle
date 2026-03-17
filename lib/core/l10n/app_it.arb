@@ -431,5 +431,9 @@
   "import_error_not_columns": "Il file selezionato non contiene dati",
   "@import_error_not_columns": {
     "description": "Messaggio di errore mostrato quando il file importato non contiene dati"
+  },
+  "winners_by_draw": "Vincitori per estrazione",
+  "@winners_by_draw": {
+    "description": "Titolo per definire i vincitori per estrazione"
   }
 }
