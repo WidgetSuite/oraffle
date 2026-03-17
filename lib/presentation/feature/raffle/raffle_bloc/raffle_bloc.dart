@@ -148,12 +148,6 @@ class RaffleBloc extends Bloc<RaffleEvent, RaffleState> {
             ),
           )
           .toList();
-      // Add winner to winners list
-      // final newWinner = RaffleWinner(
-      //   name: event.winnerName,
-      //   position: currentSession.winners.length + 1,
-      //   selectedAt: DateTime.now(),
-      // );
 
       // Update participants to mark the winner as inactive
       final updatedParticipants = currentSession.participants
