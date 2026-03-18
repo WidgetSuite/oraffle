@@ -403,6 +403,14 @@
       }
     }
   },
+  "blur_mode_title": "Modo Participantes Ocultos",
+  "@blur_mode_title": {
+    "description": "Título da sección de modo blur"
+  },
+  "blur_mode_tile": "¿Quere ocultar os participantes?",
+  "@blur_mode_tile": {
+    "description": "Pregunta para activar a ocultación de participantes"
+  },
   "export_results": "Exportar resultados",
   "@export_results": {
     "description": "Texto do botón para exportar os resultados"

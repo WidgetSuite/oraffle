@@ -16,11 +16,11 @@
 // Facade that conditionally imports the correct implementation for the current platform.
 import 'dart:typed_data';
 
-import 'package:file_saver/file_saver.dart';
+import 'package:file_picker/file_picker.dart';
 
-Future<String> downloadFile(String filename, Uint8List bytes, String mime) =>
-    FileSaver.instance.saveFile(
-      name: filename,
+Future<String?> downloadFile(String filename, Uint8List bytes, FileType type) =>
+    FilePicker.platform.saveFile(
+      fileName: filename,
       bytes: bytes,
-      customMimeType: mime,
+      type: type,
     );

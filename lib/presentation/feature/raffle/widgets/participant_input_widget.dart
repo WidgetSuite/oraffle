@@ -13,6 +13,8 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:oraffle/core/l10n/app_localizations.dart';
@@ -20,6 +22,7 @@ import 'package:oraffle/presentation/feature/raffle/raffle_bloc/raffle_bloc.dart
 import 'package:oraffle/presentation/feature/raffle/raffle_bloc/raffle_event.dart';
 import 'package:oraffle/presentation/feature/raffle/raffle_bloc/raffle_state.dart';
 import 'package:oraffle/presentation/feature/raffle/widgets/import_participants_button.dart';
+import 'package:oraffle/presentation/feature/settings/settings_cubit/settings_cubit.dart';
 
 class ParticipantInputWidget extends StatefulWidget {
   const ParticipantInputWidget({super.key});
@@ -89,6 +92,10 @@ class _ParticipantInputWidgetState extends State<ParticipantInputWidget> {
           }
         }
 
+        final hasToBlur = context.select(
+          (SettingsCubit cubit) => cubit.state.hasToBlur,
+        );
+
         return Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -109,16 +116,31 @@ class _ParticipantInputWidgetState extends State<ParticipantInputWidget> {
             const SizedBox(height: 8),
             ConstrainedBox(
               constraints: const BoxConstraints(minHeight: 200),
-              child: TextField(
-                controller: _controller,
-                maxLines: null,
-                minLines: 8,
-                textAlignVertical: TextAlignVertical.top,
-                decoration: InputDecoration(
-                  hintText: AppLocalizations.of(
-                    context,
-                  )!.participantListPlaceholder,
-                ),
+              child: Stack(
+                children: [
+                  TextField(
+                    controller: _controller,
+                    maxLines: null,
+                    minLines: 8,
+                    textAlignVertical: TextAlignVertical.top,
+                    decoration: InputDecoration(
+                      hintText: AppLocalizations.of(
+                        context,
+                      )!.participantListPlaceholder,
+                    ),
+                  ),
+                  if (hasToBlur)
+                    Positioned.fill(
+                      child: IgnorePointer(
+                        child: ClipRect(
+                          child: BackdropFilter(
+                            filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+                            child: Container(color: Colors.transparent),
+                          ),
+                        ),
+                      ),
+                    ),
+                ],
               ),
             ),
           ],

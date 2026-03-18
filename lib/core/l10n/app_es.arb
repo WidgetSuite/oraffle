@@ -418,6 +418,14 @@
       }
     }
   },
+  "blur_mode_title": "Modo participantes ocultos",
+  "@blur_mode_title": {
+    "description": "Título de la sección del modo blur"
+  },
+  "blur_mode_tile": "¿Quieres ocultar los participantes?",
+  "@blur_mode_tile": {
+    "description": "Pregunta para establecer el modo ocultar participantes"
+  },
   "export_results": "Exportar resultados",
   "@export_results": {
     "description": "Texto del botón para exportar resultados"

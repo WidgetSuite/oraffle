@@ -406,6 +406,14 @@
       }
     }
   },
+  "blur_mode_title": "Mode de participants ocults",
+  "@blur_mode_title": {
+    "description": "Título de la secció de mode blur"
+  },
+  "blur_mode_tile": "Vols ocultar els participants?",
+  "@blur_mode_tile": {
+    "description": "Pregunta per activar l'ocultació de participants"
+  },
   "export_results": "Exportar resultats",
   "@export_results": {
     "description": "Text del botó per exportar els resultats"
