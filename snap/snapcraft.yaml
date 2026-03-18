@@ -1,6 +1,6 @@
 name: oraffle-app
 version: "1.0.0"
-summary: QORaffley
+summary: ORaffle
 description: |
   A opensource Raffle application.
 base: core24
