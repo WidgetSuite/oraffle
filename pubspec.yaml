@@ -29,7 +29,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   collection: ^1.19.1
-  csv: ^7.2.0
+  csv: ^8.0.0
   cupertino_icons: ^1.0.8
   excel: ^4.0.6
   file_picker: ^10.3.10
