@@ -99,19 +99,13 @@ class _ParticipantInputWidgetState extends State<ParticipantInputWidget> {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Row(
-              children: [
-                Text(
-                  AppLocalizations.of(context)!.participantListHint,
-                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                    color: Theme.of(
-                      context,
-                    ).colorScheme.onSurface.withValues(alpha: 0.6),
-                  ),
-                ),
-                Spacer(),
-                _ListParticipantsActions(controller: _controller),
-              ],
+            Text(
+              AppLocalizations.of(context)!.participantListHint,
+              style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                color: Theme.of(
+                  context,
+                ).colorScheme.onSurface.withValues(alpha: 0.6),
+              ),
             ),
             const SizedBox(height: 8),
             ConstrainedBox(
@@ -143,6 +137,7 @@ class _ParticipantInputWidgetState extends State<ParticipantInputWidget> {
                 ],
               ),
             ),
+            _ListParticipantsActions(controller: _controller),
           ],
         );
       },
@@ -157,7 +152,9 @@ class _ListParticipantsActions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Wrap(
+      direction: Axis.horizontal,
+      alignment: WrapAlignment.end,
       spacing: 16,
       children: [
         ImportParticipantsButton(
