@@ -135,7 +135,11 @@ class _RaffleScreenContent extends StatelessWidget {
           body: BlocListener<RaffleBloc, RaffleState>(
             listener: (context, state) {
               if (state is RaffleWinnerSelected) {
-                _showWinnerDialog(context, state.selectedWinner, state.session);
+                _showWinnerDialog(
+                  context,
+                  state.selectedWinners,
+                  state.session,
+                );
               } else if (state is RaffleError) {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
@@ -182,20 +186,24 @@ class _RaffleScreenContent extends StatelessWidget {
     );
   }
 
-  void _showWinnerDialog(BuildContext context, String winner, dynamic session) {
+  void _showWinnerDialog(
+    BuildContext context,
+    List<String> winners,
+    dynamic session,
+  ) {
     showDialog(
       context: context,
       barrierDismissible: false,
       builder: (dialogContext) => WinnerDialog(
-        winnerName: winner,
+        winnersName: winners,
         session: session,
         onRepeatRaffle: () {
           Navigator.of(dialogContext).pop();
-          context.read<RaffleBloc>().add(ConfirmWinner(winner));
+          context.read<RaffleBloc>().add(ConfirmWinner(winners));
         },
         onFinishRaffle: () {
           Navigator.of(dialogContext).pop();
-          context.read<RaffleBloc>().add(ConfirmWinner(winner));
+          context.read<RaffleBloc>().add(ConfirmWinner(winners));
           context.go(AppRoutes.raffleWinners);
         },
       ),

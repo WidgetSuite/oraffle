@@ -422,5 +422,9 @@
   "import_error_not_columns": "चयनित फ़ाइल में कोई डेटा नहीं है",
   "@import_error_not_columns": {
     "description": "त्रुटि संदेश जब आयात की गई फ़ाइल में डेटा नहीं होता है"
+  },
+  "winners_by_draw": "ड्रा के अनुसार विजेता",
+  "@winners_by_draw": {
+    "description": "ड्रा के अनुसार विजेताओं को परिभाषित करने के लिए शीर्षक"
   }
 }

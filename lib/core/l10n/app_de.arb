@@ -431,5 +431,9 @@
   "import_error_not_columns": "Die ausgewählte Datei enthält keine Daten",
   "@import_error_not_columns": {
     "description": "Fehlermeldung, die angezeigt wird, wenn die importierte Datei keine Daten enthält"
+  },
+  "winners_by_draw": "Gewinner pro Ziehung",
+  "@winners_by_draw": {
+    "description": "Titel zur Definition der Gewinner pro Ziehung"
   }
 }
