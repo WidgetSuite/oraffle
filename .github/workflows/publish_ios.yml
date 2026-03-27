@@ -21,7 +21,7 @@ jobs:
           build-platforms: "ios"
           publish-destinations: "ios-app-store"
           ios-distribution-certificate-base64: ${{ secrets.IOS_DISTRIBUTION_CERTIFICATE_BASE64 }}
-          ios-distribution-certificate-password: ${{ secrets.IOS_DISTISTRIBUTION_CERTIFICATE_PASSWORD }}
+          ios-distribution-certificate-password: ${{ secrets.IOS_DISTRIBUTION_CERTIFICATE_PASSWORD }}
           ios-provisioning-profile-base64: ${{ secrets.IOS_PROVISIONING_PROFILE_BASE64 }}
           apple-api-key-id: ${{ secrets.APPLE_API_KEY_ID }}
           apple-api-key-issuer-id: ${{ secrets.APPLE_API_KEY_ISSUER }}
