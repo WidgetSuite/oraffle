@@ -30,7 +30,7 @@ environment:
 dependencies:
   collection: ^1.19.1
   csv: ^8.0.0
-  cupertino_icons: ^1.0.8
+  cupertino_icons: ^1.0.9
   excel: ^4.0.6
   file_picker: ^10.3.10
   flutter:
