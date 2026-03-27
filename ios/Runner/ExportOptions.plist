@@ -19,7 +19,7 @@
     <key>provisioningProfiles</key>
     <dict>
         <key>es.victorcarreras.raffle-app</key>
-        <string>Quiz App AppStore</string>
+        <string>ORaffle AppStore</string>
     </dict>
 </dict>
 </plist>
