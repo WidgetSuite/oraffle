@@ -19,7 +19,7 @@ import 'dart:typed_data';
 import 'package:file_picker/file_picker.dart';
 
 Future<String?> downloadFile(String filename, Uint8List bytes, FileType type) =>
-    FilePicker.platform.saveFile(
+    FilePicker.saveFile(
       fileName: filename,
       bytes: bytes,
       type: type,

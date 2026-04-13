@@ -37,7 +37,7 @@ class ImportCubit extends Cubit<ImportState> {
   /// - `ImportErrorNotColumnsInFile` when the file has no columns.
   /// - `ImportSuccess` when participants were successfully extracted.
   Future<void> importButtonPressed() async {
-    final result = await FilePicker.platform.pickFiles(
+    final result = await FilePicker.pickFiles(
       allowedExtensions: ImportUtils.extensionsAllowed,
       type: FileType.custom,
     );
