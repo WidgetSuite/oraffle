@@ -1,15 +1,21 @@
 name: oraffle-app
 version: "1.0.0"
+title: ORaffle
 summary: ORaffle
 description: |
   A opensource Raffle application.
+contact: https://github.com/WidgetSuite/oraffle/issues
+license: GPL-3.0-or-later
+issues: https://github.com/WidgetSuite/oraffle/issues
+source-code: https://github.com/WidgetSuite/oraffle
+website: https://widgetsuite.github.io/oraffle/
 base: core24
 confinement: strict
 grade: stable
 
 apps:
   oraffle-app:
-    command: oraffle_app
+    command: oraffle
     extensions: [gnome]
     plugs:
       - network
