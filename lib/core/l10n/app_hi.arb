@@ -1,6 +1,10 @@
 {
   "@@locale": "hi",
   "okButton": "ठीक है",
+  "selectButton": "चुनें",
+  "@selectButton": {
+    "description": "सामान्य चयन बटन पाठ"
+  },
   "cancelButton": "रद्द करें",
   "@cancelButton": {
     "description": "Cancel button."
@@ -101,6 +105,16 @@
       }
     }
   },
+  "participantDiscarded": "{count} अमान्य प्रतिभागी।",
+  "@participantDiscarded": {
+    "description": "अमान्य प्रतिभागी होने पर दिखाया गया संदेश",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "3"
+      }
+    }
+  },
   "resetWinners": "विजेताओं को रीसेट करें",
   "@resetWinners": {
     "description": "विजेताओं को रीसेट करने के लिए बटन लेबल"
@@ -161,10 +175,12 @@
   "@winnersTitle": {
     "description": "विजेता स्क्रीन का शीर्षक"
   },
+  "winnersTitleShort": "विजेता",
   "shareResults": "परिणाम साझा करें",
   "@shareResults": {
     "description": "परिणाम साझा करने के लिए बटन लेबल"
   },
+  "shareResultsShort": "साझा करें",
   "noWinnersYet": "अभी तक कोई विजेता नहीं",
   "@noWinnersYet": {
     "description": "कोई विजेता न होने पर दिखाया गया संदेश"
@@ -344,5 +360,71 @@
   "invalidHexColor": "अमान्य हेक्स रंग",
   "@invalidHexColor": {
     "description": "अमान्य हेक्साडेसिमल रंग इनपुट के लिए त्रुटि संदेश"
+  },
+  "statLabelTotal": "कुल",
+  "@statLabelTotal": {
+    "description": "कुल प्रतिभागी स्टेट कार्ड के लिए संक्षिप्त लेबल"
+  },
+  "statLabelActive": "सक्रिय",
+  "@statLabelActive": {
+    "description": "सक्रिय प्रतिभागी स्टेट कार्ड के लिए संक्षिप्त लेबल"
+  },
+  "statLabelWinners": "विजेता",
+  "@statLabelWinners": {
+    "description": "विजेता स्टेट कार्ड के लिए संक्षिप्त लेबल"
+  },
+  "nextWinner": "अगला विजेता",
+  "@nextWinner": {
+    "description": "अगले विजेता को चुनने के लिए बटन पाठ"
+  },
+  "resetToDefault": "डिफ़ॉल्ट पर रीसेट करें",
+  "@resetToDefault": {
+    "description": "थीम रंग को रीसेट करने के लिए बटन पाठ"
+  },
+  "lowContrastWarning": "सफेद टेक्स्ट के साथ कम कंट्रास्ट। बटन का टेक्स्ट पढ़ना मुश्किल हो सकता है।",
+  "@lowContrastWarning": {
+    "description": "चेतावनी जब प्राथमिक रंग कम कंट्रास्ट है"
+  },
+  "importListTitle": "प्रतिभागी सूची आयात करें",
+  "@importListTitle": {
+    "description": "प्रतिभागी सूची आयात करने के लिए बटन पाठ"
+  },
+  "selectNameColumn": "कौन सी पंक्ति नाम से मेल खाती है?",
+  "@selectNameColumn": {
+    "description": "नाम कॉलम चुनने के लिए डायलॉग शीर्षक"
+  },
+  "columnName": "स्तंभ: {column}",
+  "@columnName": {
+    "description": "स्तंभ का नाम दिखाने के लिए लेबल",
+    "placeholders": {
+      "column": {
+        "type": "int",
+        "example": "4"
+      }
+    }
+  },
+  "blur_mode_title": "छिपे हुए प्रतिभागी मोड",
+  "@blur_mode_title": {
+    "description": "ब्लर मोड सेक्शन का शीर्षक"
+  },
+  "blur_mode_tile": "क्या आप प्रतिभागियों को छिपाना चाहते हैं?",
+  "@blur_mode_tile": {
+    "description": "प्रतिभागियों को छिपाने को सक्षम करने के लिए प्रश्न"
+  },
+  "export_results": "परिणाम निर्यात करें",
+  "@export_results": {
+    "description": "परिणाम निर्यात करने के लिए बटन का टेक्स्ट"
+  },
+  "export_format_title": "आप किस प्रारूप में निर्यात करना चाहते हैं?",
+  "@export_format_title": {
+    "description": "निर्यात प्रारूप चुनने के लिए शीर्षक"
+  },
+  "import_error_not_columns": "चयनित फ़ाइल में कोई डेटा नहीं है",
+  "@import_error_not_columns": {
+    "description": "त्रुटि संदेश जब आयात की गई फ़ाइल में डेटा नहीं होता है"
+  },
+  "winners_by_draw": "ड्रा के अनुसार विजेता",
+  "@winners_by_draw": {
+    "description": "ड्रा के अनुसार विजेताओं को परिभाषित करने के लिए शीर्षक"
   }
 }

@@ -1,6 +1,13 @@
 {
   "@@locale": "it",
   "okButton": "OK",
+  "@okButton": {
+    "description": "Testo generico del pulsante OK"
+  },
+  "selectButton": "Seleziona",
+  "@selectButton": {
+    "description": "Testo generico del pulsante di selezione"
+  },
   "cancelButton": "Annulla",
   "@cancelButton": {
     "description": "Pulsante Annulla."
@@ -107,6 +114,16 @@
       }
     }
   },
+  "participantDiscarded": "{count} partecipanti non validi.",
+  "@participantDiscarded": {
+    "description": "Messaggio quando ci sono partecipanti non validi",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "3"
+      }
+    }
+  },
   "resetWinners": "Reimposta vincitori",
   "@resetWinners": {
     "description": "Testo del pulsante per reimpostare i vincitori"
@@ -167,10 +184,12 @@
   "@winnersTitle": {
     "description": "Titolo della schermata vincitori"
   },
+  "winnersTitleShort": "Vincitori",
   "shareResults": "Condividi risultati",
   "@shareResults": {
     "description": "Tooltip del pulsante condividi risultati"
   },
+  "shareResultsShort": "Condividi",
   "noWinnersYet": "Nessun vincitore ancora",
   "@noWinnersYet": {
     "description": "Messaggio quando non ci sono vincitori"
@@ -350,5 +369,71 @@
   "invalidHexColor": "Colore esadecimale non valido",
   "@invalidHexColor": {
     "description": "Messaggio di errore per l'immissione di un colore esadecimale non valido"
+  },
+  "statLabelTotal": "Totale",
+  "@statLabelTotal": {
+    "description": "Etiqueta corta para la tarjeta de stat de participantes totales"
+  },
+  "statLabelActive": "Attivi",
+  "@statLabelActive": {
+    "description": "Etiqueta corta para la tarjeta de stat de participantes activos"
+  },
+  "statLabelWinners": "Vincitori",
+  "@statLabelWinners": {
+    "description": "Etiqueta corta para la tarjeta de stat de ganadores"
+  },
+  "nextWinner": "Prossimo vincitore",
+  "@nextWinner": {
+    "description": "Testo del pulsante per selezionare il prossimo vincitore"
+  },
+  "resetToDefault": "Ripristina predefinito",
+  "@resetToDefault": {
+    "description": "Testo del pulsante per ripristinare il colore del tema"
+  },
+  "lowContrastWarning": "Basso contrasto con testo bianco. Il testo dei pulsanti potrebbe essere difficile da leggere.",
+  "@lowContrastWarning": {
+    "description": "Avviso quando il colore principale selezionato ha basso contrasto"
+  },
+  "importListTitle": "Importa lista di partecipanti",
+  "@importListTitle": {
+    "description": "Testo del pulsante per importare la lista di partecipanti"
+  },
+  "selectNameColumn": "Quale colonna corrisponde al nome?",
+  "@selectNameColumn": {
+    "description": "Titolo del dialogo per selezionare la colonna dei nomi"
+  },
+  "columnName": "Colonna: {column}",
+  "@columnName": {
+    "description": "Etichetta per visualizzare il nome della colonna",
+    "placeholders": {
+      "column": {
+        "type": "int",
+        "example": "4"
+      }
+    }
+  },
+  "blur_mode_title": "Modalità Partecipanti Nascosti",
+  "@blur_mode_title": {
+    "description": "Titolo della sezione modalità blur"
+  },
+  "blur_mode_tile": "Desiderate nascondere i partecipanti?",
+  "@blur_mode_tile": {
+    "description": "Domanda per abilitare il nascondimento dei partecipanti"
+  },
+  "export_results": "Esporta risultati",
+  "@export_results": {
+    "description": "Testo del pulsante per esportare i risultati"
+  },
+  "export_format_title": "In quale formato desideri esportare?",
+  "@export_format_title": {
+    "description": "Titolo per scegliere il formato di esportazione"
+  },
+  "import_error_not_columns": "Il file selezionato non contiene dati",
+  "@import_error_not_columns": {
+    "description": "Messaggio di errore mostrato quando il file importato non contiene dati"
+  },
+  "winners_by_draw": "Vincitori per estrazione",
+  "@winners_by_draw": {
+    "description": "Titolo per definire i vincitori per estrazione"
   }
 }

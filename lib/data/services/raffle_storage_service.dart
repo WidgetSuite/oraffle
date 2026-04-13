@@ -1,8 +1,24 @@
+// Copyright (C) 2026 Widget Suite
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
 import 'dart:convert';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:oraffle/domain/models/raffle/raffle_logo.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 /// Service for handling raffle-specific persistent storage
 class RaffleStorageService {
@@ -11,6 +27,8 @@ class RaffleStorageService {
   static const String _raffleLogoFilename = 'raffle_logo_filename';
   static const String _primaryColor = 'primary_color';
   static const String _themeMode = 'theme_mode';
+  static const String _hasToBlur = 'has_to_blur';
+  static const String _winnersByDraw = 'winners_by_draw';
   // Maximum size for base64 encoded image (approximately 2MB in base64)
   static const int _maxBase64Size = 2 * 1024 * 1024; // 2MB in bytes
 
@@ -115,5 +133,31 @@ class RaffleStorageService {
       (m) => m.name == modeName,
       orElse: () => ThemeMode.system,
     );
+  }
+
+  /// Saves the blur mode
+  Future<void> saveBlurMode(bool hasToBlur) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool(_hasToBlur, hasToBlur);
+  }
+
+  /// Retrieves the blur mode
+  Future<bool?> getBlurMode() async {
+    final prefs = await SharedPreferences.getInstance();
+    final hasToBlur = prefs.getBool(_hasToBlur);
+    return hasToBlur;
+  }
+
+  /// Saves the winners by draw amount
+  Future<void> saveWinnersByDrawAmount(int amount) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setInt(_winnersByDraw, amount);
+  }
+
+  /// Retrieves the winners by draw amount
+  Future<int> getWinnersByDrawAmount() async {
+    final prefs = await SharedPreferences.getInstance();
+    final amount = prefs.getInt(_winnersByDraw);
+    return amount ?? 1;
   }
 }

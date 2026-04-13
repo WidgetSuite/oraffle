@@ -56,9 +56,15 @@
   "@alreadySelected": {
     "description": "وصف للمشاركين الذين تم اختيارهم بالفعل"
   },
-  "totalParticipants": "إجمالي المشاركين",
+  "totalParticipants": "إجمالي: {count}",
   "@totalParticipants": {
-    "description": "عداد إجمالي المشاركين"
+    "description": "عداد إجمالي المشاركين",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "10"
+      }
+    }
   },
   "activeVsWinners": "{active} نشطون، {winners} فائزون",
   "@activeVsWinners": {
@@ -101,6 +107,16 @@
       "count": {
         "type": "int",
         "example": "5"
+      }
+    }
+  },
+  "participantDiscarded": "{count} مشاركين غير صالحين.",
+  "@participantDiscarded": {
+    "description": "رسالة عندما يكون هناك مشاركين غير صالحين",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "3"
       }
     }
   },
@@ -164,10 +180,12 @@
   "@winnersTitle": {
     "description": "عنوان شاشة الفائزين"
   },
+  "winnersTitleShort": "الفائزون",
   "shareResults": "مشاركة النتائج",
   "@shareResults": {
     "description": "تسمية زر مشاركة النتائج"
   },
+  "shareResultsShort": "مشاركة",
   "noWinnersYet": "لا يوجد فائزون بعد",
   "@noWinnersYet": {
     "description": "رسالة تظهر عندما لا يوجد فائزون"
@@ -240,9 +258,15 @@
       }
     }
   },
-  "placeLabel": "المركز",
+  "placeLabel": "{position} مكان",
   "@placeLabel": {
-    "description": "تسمية عامة للمركز"
+    "description": "تسمية عامة للمركز",
+    "placeholders": {
+      "position": {
+        "type": "String",
+        "example": "1st"
+      }
+    }
   },
   "raffleResultsHeader": "نتائج السحب - {count} فائزين",
   "@raffleResultsHeader": {
@@ -347,5 +371,57 @@
   "invalidHexColor": "لون سداسي عشري غير صالح",
   "@invalidHexColor": {
     "description": "رسالة خطأ لإدخال لون سداسي عشري غير صالح"
+  },
+  "statLabelTotal": "المجموع",
+  "statLabelActive": "نشطاء",
+  "statLabelWinners": "الفائزون",
+  "nextWinner": "الفائز التالي",
+  "resetToDefault": "إعادة إلى الافتراضي",
+  "lowContrastWarning": "تباين منخفض مع النص الأبيض. قد يصعب قراءة نص الأزرار.",
+  "selectButton": "Select",
+  "@selectButton": {
+    "description": "Generic select button text"
+  },
+  "importListTitle": "Import Participant List",
+  "@importListTitle": {
+    "description": "Text for the button to import participant list"
+  },
+  "selectNameColumn": "Which column corresponds to the name?",
+  "@selectNameColumn": {
+    "description": "Title for the dialog to select the name column when importing a participant list"
+  },
+  "columnName": "Column: {column}",
+  "@columnName": {
+    "description": "Label for displaying column name during column selection",
+    "placeholders": {
+      "column": {
+        "type": "int",
+        "example": "4"
+      }
+    }
+  },
+  "blur_mode_title": "وضع الاشتراكين المخفيين",
+  "@blur_mode_title": {
+    "description": "Title of the blur mode section"
+  },
+  "blur_mode_tile": "هل تريد إخفاء المشاركين؟",
+  "@blur_mode_tile": {
+    "description": "Question to enable hiding participants"
+  },
+  "export_results": "تصدير النتائج",
+  "@export_results": {
+    "description": "نص الزر لتصدير النتائج"
+  },
+  "export_format_title": "بأي صيغة تريد التصدير؟",
+  "@export_format_title": {
+    "description": "عنوان اختيار صيغة التصدير"
+  },
+  "import_error_not_columns": "الملف المحدد لا يحتوي على بيانات",
+  "@import_error_not_columns": {
+    "description": "رسالة خطأ للعرض عندما لا يحتوي الملف المستورد على بيانات"
+  },
+  "winners_by_draw": "الفائزون حسب السحب",
+  "@winners_by_draw": {
+    "description": "عنوان لتحديد الفائزين حسب السحب"
   }
 }

@@ -101,6 +101,16 @@
       }
     }
   },
+  "participantDiscarded": "{count} 無効な参加者。",
+  "@participantDiscarded": {
+    "description": "無効な参加者が存在するときに表示されるメッセージ",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "3"
+      }
+    }
+  },
   "resetWinners": "当選者をリセット",
   "@resetWinners": {
     "description": "当選者をリセットするボタンのラベル"
@@ -161,10 +171,12 @@
   "@winnersTitle": {
     "description": "当選者画面のタイトル"
   },
+  "winnersTitleShort": "当選者",
   "shareResults": "結果を共有",
   "@shareResults": {
     "description": "結果を共有するボタンのラベル"
   },
+  "shareResultsShort": "共有",
   "noWinnersYet": "まだ当選者はいません",
   "@noWinnersYet": {
     "description": "当選者がいない時に表示されるメッセージ"
@@ -344,5 +356,57 @@
   "invalidHexColor": "無効なヘックスカラー",
   "@invalidHexColor": {
     "description": "無効な16進カラー入力のエラーメッセージ"
+  },
+  "statLabelTotal": "合計",
+  "statLabelActive": "アクティブ",
+  "statLabelWinners": "勝者",
+  "nextWinner": "次の当選者",
+  "resetToDefault": "デフォルトにリセット",
+  "lowContrastWarning": "白いテキストとのコントラストが低いです。ボタンのテキストが読みにくい場合があります。",
+  "selectButton": "選択",
+  "@selectButton": {
+    "description": "Generic select button text"
+  },
+  "importListTitle": "参加者リストをインポート",
+  "@importListTitle": {
+    "description": "Text for the button to import participant list"
+  },
+  "selectNameColumn": "名前に対応する列はどれですか？",
+  "@selectNameColumn": {
+    "description": "Title for the dialog to select the name column when importing a participant list"
+  },
+  "columnName": "列: {column}",
+  "@columnName": {
+    "description": "Label for displaying column name during column selection",
+    "placeholders": {
+      "column": {
+        "type": "int",
+        "example": "4"
+      }
+    }
+  },
+  "blur_mode_title": "参加者非表示モード",
+  "@blur_mode_title": {
+    "description": "Title of the blur mode section"
+  },
+  "blur_mode_tile": "参加者を非表示にしますか？",
+  "@blur_mode_tile": {
+    "description": "Question to enable hiding participants"
+  },
+  "export_results": "結果をエクスポート",
+  "@export_results": {
+    "description": "結果をエクスポートするボタンのテキスト"
+  },
+  "export_format_title": "どの形式でエクスポートしますか？",
+  "@export_format_title": {
+    "description": "エクスポート形式を選択するタイトル"
+  },
+  "import_error_not_columns": "選択したファイルにデータがありません",
+  "@import_error_not_columns": {
+    "description": "インポートされたファイルにデータがない場合に表示されるエラーメッセージ"
+  },
+  "winners_by_draw": "抽選ごとの当選者",
+  "@winners_by_draw": {
+    "description": "抽選ごとの当選者を定義するタイトル"
   }
 }

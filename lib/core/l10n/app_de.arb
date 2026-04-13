@@ -4,6 +4,10 @@
   "@okButton": {
     "description": "Generic OK button text"
   },
+  "selectButton": "Auswählen",
+  "@selectButton": {
+    "description": "Generischer Text der Schaltfläche zum Auswählen"
+  },
   "cancelButton": "Abbrechen",
   "@cancelButton": {
     "description": "Abbrechen-Schaltfläche."
@@ -110,6 +114,16 @@
       }
     }
   },
+  "participantDiscarded": "{count} ungültige Teilnehmer.",
+  "@participantDiscarded": {
+    "description": "Nachricht wenn ungültige Teilnehmer gefunden wurden",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "3"
+      }
+    }
+  },
   "resetWinners": "Gewinner zurücksetzen",
   "@resetWinners": {
     "description": "Text des Buttons zum Zurücksetzen der Gewinner"
@@ -170,10 +184,12 @@
   "@winnersTitle": {
     "description": "Titel des Gewinnerbildschirms"
   },
+  "winnersTitleShort": "Gewinner",
   "shareResults": "Ergebnisse teilen",
   "@shareResults": {
     "description": "Tooltip des Buttons zum Teilen der Ergebnisse"
   },
+  "shareResultsShort": "Teilen",
   "noWinnersYet": "Noch keine Gewinner",
   "@noWinnersYet": {
     "description": "Nachricht wenn noch keine Gewinner vorhanden sind"
@@ -353,5 +369,71 @@
   "invalidHexColor": "Ungültige Hex-Farbe",
   "@invalidHexColor": {
     "description": "Fehlermeldung für ungültige hexadezimale Farbeingabe"
+  },
+  "statLabelTotal": "Gesamt",
+  "@statLabelTotal": {
+    "description": "Kurze Beschriftung für die Stat-Karte der Gesamtteilnehmer"
+  },
+  "statLabelActive": "Aktiv",
+  "@statLabelActive": {
+    "description": "Kurze Beschriftung für die Stat-Karte der aktiven Teilnehmer"
+  },
+  "statLabelWinners": "Gewinner",
+  "@statLabelWinners": {
+    "description": "Kurze Beschriftung für die Stat-Karte der Gewinner"
+  },
+  "nextWinner": "Nächster Gewinner",
+  "@nextWinner": {
+    "description": "Schaltflächentext zur Auswahl des nächsten Gewinners"
+  },
+  "resetToDefault": "Auf Standard zurücksetzen",
+  "@resetToDefault": {
+    "description": "Schaltflächentext zum Zurücksetzen der Designfarbe"
+  },
+  "lowContrastWarning": "Geringer Kontrast mit weißem Text. Der Schaltflächentext ist möglicherweise schwer lesbar.",
+  "@lowContrastWarning": {
+    "description": "Warnung wenn die Primärfarbe niedriger Kontrast hat"
+  },
+  "importListTitle": "Teilnehmerliste importieren",
+  "@importListTitle": {
+    "description": "Schaltflächentext zum Importieren der Teilnehmerliste"
+  },
+  "selectNameColumn": "Welche Spalte entspricht dem Namen?",
+  "@selectNameColumn": {
+    "description": "Titel des Dialogs zur Auswahl der Namensspalte"
+  },
+  "columnName": "Spalte: {column}",
+  "@columnName": {
+    "description": "Beschriftung zur Anzeige des Spaltennamens",
+    "placeholders": {
+      "column": {
+        "type": "int",
+        "example": "4"
+      }
+    }
+  },
+  "blur_mode_title": "Modus Teilnehmer verbergen",
+  "@blur_mode_title": {
+    "description": "Titel des Bereichs Blur-Modus"
+  },
+  "blur_mode_tile": "Möchten Sie die Teilnehmer verbergen?",
+  "@blur_mode_tile": {
+    "description": "Frage zum Aktivieren des Verbergens von Teilnehmern"
+  },
+  "export_results": "Ergebnisse exportieren",
+  "@export_results": {
+    "description": "Text des Buttons zum Exportieren der Ergebnisse"
+  },
+  "export_format_title": "In welchem Format möchten Sie exportieren?",
+  "@export_format_title": {
+    "description": "Titel zur Wahl des Exportformats"
+  },
+  "import_error_not_columns": "Die ausgewählte Datei enthält keine Daten",
+  "@import_error_not_columns": {
+    "description": "Fehlermeldung, die angezeigt wird, wenn die importierte Datei keine Daten enthält"
+  },
+  "winners_by_draw": "Gewinner pro Ziehung",
+  "@winners_by_draw": {
+    "description": "Titel zur Definition der Gewinner pro Ziehung"
   }
 }

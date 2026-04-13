@@ -4,6 +4,10 @@
   "@okButton": {
     "description": "Generic OK button text"
   },
+  "selectButton": "Select",
+  "@selectButton": {
+    "description": "Generic select button text"
+  },
   "cancelButton": "Cancel",
   "@cancelButton": {
     "description": "Cancel button text"
@@ -114,6 +118,16 @@
       }
     }
   },
+  "participantDiscarded": "{count} invalid participants.",
+  "@participantDiscarded": {
+    "description": "Message when there are invalid participants",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "3"
+      }
+    }
+  },
   "resetWinners": "Reset Winners",
   "@resetWinners": {
     "description": "Button text to reset winners list"
@@ -174,9 +188,17 @@
   "@winnersTitle": {
     "description": "Title for the winners screen"
   },
+  "winnersTitleShort": "Winners",
+  "@winnersTitleShort": {
+    "description": "Short label for the winners button in the app bar"
+  },
   "shareResults": "Share results",
   "@shareResults": {
     "description": "Button to share raffle results"
+  },
+  "shareResultsShort": "Share",
+  "@shareResultsShort": {
+    "description": "Short label for the share button in the app bar"
   },
   "noWinnersYet": "No winners yet",
   "@noWinnersYet": {
@@ -353,5 +375,71 @@
   "invalidHexColor": "Invalid hex color",
   "@invalidHexColor": {
     "description": "Error message for invalid hexadecimal color input"
+  },
+  "statLabelTotal": "Total",
+  "@statLabelTotal": {
+    "description": "Short label for total participants stat card"
+  },
+  "statLabelActive": "Active",
+  "@statLabelActive": {
+    "description": "Short label for active participants stat card"
+  },
+  "statLabelWinners": "Winners",
+  "@statLabelWinners": {
+    "description": "Short label for winners stat card"
+  },
+  "nextWinner": "Next Winner",
+  "@nextWinner": {
+    "description": "Button text to select the next winner when at least one winner exists"
+  },
+  "resetToDefault": "Reset to default",
+  "@resetToDefault": {
+    "description": "Button text to reset theme color to the default value"
+  },
+  "lowContrastWarning": "Low contrast with white text. The button text may be hard to read.",
+  "@lowContrastWarning": {
+    "description": "Warning shown when selected primary color has low contrast with white on-primary text"
+  },
+  "importListTitle": "Import Participant List",
+  "@importListTitle": {
+    "description": "Text for the button to import participant list"
+  },
+  "selectNameColumn": "Which column corresponds to the name?",
+  "@selectNameColumn": {
+    "description": "Title for the dialog to select the name column when importing a participant list"
+  },
+  "columnName": "Column: {column}",
+  "@columnName": {
+    "description": "Label for displaying column name during column selection",
+    "placeholders": {
+      "column": {
+        "type": "int",
+        "example": "4"
+      }
+    }
+  },
+  "blur_mode_title": "Hidden Participants Mode",
+  "@blur_mode_title": {
+    "description": "Title of the blur mode section"
+  },
+  "blur_mode_tile": "Do you want to hide the participants?",
+  "@blur_mode_tile": {
+    "description": "Question to enable hiding participants"
+  },
+  "export_results": "Export results",
+  "@export_results": {
+    "description": "Button text to export results"
+  },
+  "export_format_title": "What format would you like to export?",
+  "@export_format_title": {
+    "description": "Title to choose export format"
+  },
+  "import_error_not_columns": "The selected file contains no data",
+  "@import_error_not_columns": {
+    "description": "Error message shown when the imported file contains no data"
+  },
+  "winners_by_draw": "Winners by draw",
+  "@winners_by_draw": {
+    "description": "Title for defining winners by draw"
   }
 }
