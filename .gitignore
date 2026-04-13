@@ -50,3 +50,7 @@ lib/core/l10n/app_localizations*.dart
 
 # Generated Snap package
 *.snap
+
+# Local settings
+/settings.json
+/.vscode/settings.json
