@@ -647,7 +647,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PROVISIONING_PROFILE_SPECIFIER = "ORaffle Mac AppStore";
+				PROVISIONING_PROFILE_SPECIFIER = "ORaffle MacStore";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
