@@ -648,6 +648,8 @@
 					"@executable_path/../Frameworks",
 				);
 				PROVISIONING_PROFILE_SPECIFIER = "ORaffle MacStore";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "ORaffle MacStore";
+				PRODUCT_BUNDLE_IDENTIFIER = "es.victorcarreras.raffle-app";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
