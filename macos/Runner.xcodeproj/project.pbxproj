@@ -651,7 +651,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "es.victorcarreras.raffle-app";
 				PROVISIONING_PROFILE_SPECIFIER = "ORaffle MacStore";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "Quiz App MacStore Distribution";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

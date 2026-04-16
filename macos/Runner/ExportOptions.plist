@@ -21,7 +21,7 @@
     <key>provisioningProfiles</key>
     <dict>
         <key>es.victorcarreras.raffle-app</key>
-        <string>ORaffle Mac AppStore</string>
+        <string>ORaffle MacStore</string>
     </dict>
 </dict>
 </plist>
