@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
@@ -650,7 +650,8 @@
 					"@executable_path/../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "es.victorcarreras.raffle-app";
-				PROVISIONING_PROFILE_SPECIFIER = "ORaffle MacStore";
+				PROVISIONING_PROFILE_SPECIFIER = "ORaffle MacStore Distribution";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "ORaffle MacStore Distribution";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
