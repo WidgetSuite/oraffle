@@ -8,5 +8,7 @@
 	<true/>
 	<key>com.apple.security.files.user-selected.read-only</key>
 	<true/>
+	<key>com.apple.application-identifier</key>
+	<string>N2G3952MP8.es.victorcarreras.quiz-app</string>
 </dict>
 </plist>
