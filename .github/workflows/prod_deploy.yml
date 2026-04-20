@@ -4,7 +4,7 @@ on:
     # tags:
     #   - 'v[0-9]+.[0-9]+.[0-9]+*'
     branches:
-      - feature/ci
+      - main
   workflow_dispatch:
 
 permissions:
@@ -91,29 +91,29 @@ jobs:
           ios-export-options-plist: "ios/Runner/ExportOptions.plist"
 
 
-  build_and_deploy_macos:
-    runs-on: macos-latest
-    name: Build & Publish macos
-    needs: [prepare_and_check]
-    steps:
-      - name: Download prepared workspace
-        uses: actions/download-artifact@v4
-        with:
-          name: prepared-repo
+  # build_and_deploy_macos:
+  #   runs-on: macos-latest
+  #   name: Build & Publish macos
+  #   needs: [prepare_and_check]
+  #   steps:
+  #     - name: Download prepared workspace
+  #       uses: actions/download-artifact@v4
+  #       with:
+  #         name: prepared-repo
 
-      - name: Build macos
-        uses: Spaccesi/flutter-ci-suite@main
-        with:
-          macos-distribution-certificate-base64: ${{ secrets.MACOS_DISTRIBUTION_CERTIFICATE_BASE64 }}
-          macos-distribution-certificate-password: ${{ secrets.MACOS_DISTRIBUTION_CERTIFICATE_PASSWORD }}
-          macos-installer-certificate-base64: ${{ secrets.MACOS_INSTALLER_CERTIFICATE_BASE64 }}
-          macos-installer-certificate-password: ${{ secrets.MACOS_INSTALLER_CERTIFICATE_PASSWORD }}
-          macos-provisioning-profile-base64: ${{ secrets.MACOS_PROVISIONING_PROFILE_BASE64 }}
-          apple-api-key-id: ${{ secrets.APPLE_API_KEY_ID }}
-          apple-api-key-issuer-id: ${{ secrets.APPLE_API_KEY_ISSUER }}
-          apple-api-key-content: ${{ secrets.APPLE_API_KEY_CONTENT }}
-          build-platforms: "macos"
-          publish-destinations: "macos-app-store"
+  #     - name: Build macos
+  #       uses: Spaccesi/flutter-ci-suite@main
+  #       with:
+  #         macos-distribution-certificate-base64: ${{ secrets.MACOS_DISTRIBUTION_CERTIFICATE_BASE64 }}
+  #         macos-distribution-certificate-password: ${{ secrets.MACOS_DISTRIBUTION_CERTIFICATE_PASSWORD }}
+  #         macos-installer-certificate-base64: ${{ secrets.MACOS_INSTALLER_CERTIFICATE_BASE64 }}
+  #         macos-installer-certificate-password: ${{ secrets.MACOS_INSTALLER_CERTIFICATE_PASSWORD }}
+  #         macos-provisioning-profile-base64: ${{ secrets.MACOS_PROVISIONING_PROFILE_BASE64 }}
+  #         apple-api-key-id: ${{ secrets.APPLE_API_KEY_ID }}
+  #         apple-api-key-issuer-id: ${{ secrets.APPLE_API_KEY_ISSUER }}
+  #         apple-api-key-content: ${{ secrets.APPLE_API_KEY_CONTENT }}
+  #         build-platforms: "macos"
+  #         publish-destinations: "macos-app-store"
 
 
   build_and_deploy_linux:
@@ -192,7 +192,7 @@ jobs:
         build_and_deploy_windows,
         build_and_deploy_android,
         build_and_deploy_linux,
-        build_and_deploy_macos,
+        # build_and_deploy_macos,
         build_and_deploy_ios
       ]
     steps:
