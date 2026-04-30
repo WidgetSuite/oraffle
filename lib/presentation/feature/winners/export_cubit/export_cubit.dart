@@ -48,7 +48,9 @@ class ExportCubit extends Cubit<ExportState> {
 
     try {
       final Map<String, dynamic> sessionMap = {
-        'participants': data.participants.map((p) => {'name': p.name}).toList(),
+        'participants': data.participants
+            .map((p) => {'name': p.name, 'weight': p.weight})
+            .toList(),
         'winners': data.winners
             .map(
               (w) => {
@@ -84,9 +86,9 @@ class ExportCubit extends Cubit<ExportState> {
       // Participants section
       csvBuffer.writeln('=== PARTICIPANTS ===');
       if (data.participants.isNotEmpty) {
-        csvBuffer.writeln('Name');
+        csvBuffer.writeln('Name,Weight');
         for (final participant in data.participants) {
-          csvBuffer.writeln(participant.name);
+          csvBuffer.writeln('"${participant.name}",${participant.weight}');
         }
       }
 
@@ -125,10 +127,14 @@ class ExportCubit extends Cubit<ExportState> {
 
       // Create Participants sheet
       final participantsSheet = excel['Participants'];
-      participantsSheet.insertRowIterables([TextCellValue('Name')], 0);
+      participantsSheet.insertRowIterables([
+        TextCellValue('Name'),
+        TextCellValue('Weight'),
+      ], 0);
       for (int i = 0; i < data.participants.length; i++) {
         participantsSheet.insertRowIterables([
           TextCellValue(data.participants[i].name),
+          IntCellValue(data.participants[i].weight),
         ], i + 1);
       }
 

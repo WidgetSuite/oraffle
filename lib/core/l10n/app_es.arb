@@ -32,11 +32,11 @@
   "@participantListTitle": {
     "description": "Título de la sección de lista de participantes"
   },
-  "participantListHint": "Ingresa un nombre por línea:",
+  "participantListHint": "Ingresa un nombre por línea. Agrega (x5) para mayor peso:",
   "@participantListHint": {
     "description": "Instrucción para el campo de entrada de participantes"
   },
-  "participantListPlaceholder": "Juan Pérez\nMaría García\nPedro López\n...",
+  "participantListPlaceholder": "Juan Pérez\nMaría García (x3)\nPedro López\n...",
   "@participantListPlaceholder": {
     "description": "Texto de ejemplo en el campo de participantes"
   },

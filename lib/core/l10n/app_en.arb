@@ -32,11 +32,11 @@
   "@participantListTitle": {
     "description": "Title for the participant list section"
   },
-  "participantListHint": "Enter one name per line:",
+  "participantListHint": "Enter one name per line. Add (x5) to give extra weight:",
   "@participantListHint": {
     "description": "Hint text for the participant input field"
   },
-  "participantListPlaceholder": "John Doe\nJane Smith\nBob Johnson\n...",
+  "participantListPlaceholder": "John Doe\nJane Smith (x3)\nBob Johnson\n...",
   "@participantListPlaceholder": {
     "description": "Placeholder text for the participant input field"
   },
