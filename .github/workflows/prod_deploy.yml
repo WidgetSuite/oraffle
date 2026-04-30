@@ -1,10 +1,8 @@
 name: Flutter CI
 on:
   push:
-    # tags:
-    #   - 'v[0-9]+.[0-9]+.[0-9]+*'
-    branches:
-      - main
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+*'
   workflow_dispatch:
 
 permissions:
@@ -91,6 +89,7 @@ jobs:
           ios-export-options-plist: "ios/Runner/ExportOptions.plist"
 
 
+  # TODO: Re-enable macos deployment when works
   # build_and_deploy_macos:
   #   runs-on: macos-latest
   #   name: Build & Publish macos
