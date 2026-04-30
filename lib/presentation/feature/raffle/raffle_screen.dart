@@ -191,12 +191,15 @@ class _RaffleScreenContent extends StatelessWidget {
     List<String> winners,
     dynamic session,
   ) {
+    final confettiEnabled =
+        context.read<SettingsCubit>().state.confettiEnabled;
     showDialog(
       context: context,
       barrierDismissible: false,
       builder: (dialogContext) => WinnerDialog(
         winnersName: winners,
         session: session,
+        confettiEnabled: confettiEnabled,
         onRepeatRaffle: () {
           Navigator.of(dialogContext).pop();
           context.read<RaffleBloc>().add(ConfirmWinner(winners));
