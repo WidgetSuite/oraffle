@@ -133,6 +133,17 @@ class SettingsDialog extends StatelessWidget {
                         _WinnersByDrawSettings(amount: state.winnersByDraw),
 
                         const SizedBox(height: 32),
+                        _SectionTitle(
+                          title: AppLocalizations.of(
+                            context,
+                          )!.confetti_mode_title,
+                        ),
+                        const SizedBox(height: 16),
+                        _ConfettiModeSettings(
+                          confettiEnabled: state.confettiEnabled,
+                        ),
+
+                        const SizedBox(height: 32),
                       ],
                     ),
                   ),
@@ -480,6 +491,23 @@ class _BlurModeSettings extends StatelessWidget {
       value: hasToBlur,
       onChanged: (value) {
         context.read<SettingsCubit>().updateBlurParticipantsMode(value);
+      },
+    );
+  }
+}
+
+class _ConfettiModeSettings extends StatelessWidget {
+  const _ConfettiModeSettings({required this.confettiEnabled});
+
+  final bool confettiEnabled;
+
+  @override
+  Widget build(BuildContext context) {
+    return SwitchListTile(
+      title: Text(AppLocalizations.of(context)!.confetti_mode_tile),
+      value: confettiEnabled,
+      onChanged: (value) {
+        context.read<SettingsCubit>().updateConfettiEnabled(value);
       },
     );
   }

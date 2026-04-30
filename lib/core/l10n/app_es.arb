@@ -441,5 +441,13 @@
   "winners_by_draw": "Ganadores por rifa",
   "@winners_by_draw": {
     "description": "Titulo para definir los ganadores por rifa"
+  },
+  "confetti_mode_title": "Animación de confeti",
+  "@confetti_mode_title": {
+    "description": "Título de la sección de animación de confeti en ajustes"
+  },
+  "confetti_mode_tile": "¿Mostrar confeti cuando se revela un ganador?",
+  "@confetti_mode_tile": {
+    "description": "Interruptor para activar/desactivar la animación de confeti al revelar un ganador"
   }
 }
