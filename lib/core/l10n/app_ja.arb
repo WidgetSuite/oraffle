@@ -408,5 +408,13 @@
   "winners_by_draw": "抽選ごとの当選者",
   "@winners_by_draw": {
     "description": "抽選ごとの当選者を定義するタイトル"
+  },
+  "confetti_mode_title": "Confetti Animation",
+  "@confetti_mode_title": {
+    "description": "Title of the confetti animation section in settings"
+  },
+  "confetti_mode_tile": "Show confetti when a winner is revealed",
+  "@confetti_mode_tile": {
+    "description": "Toggle to enable/disable confetti animation on winner reveal"
   }
 }

@@ -137,9 +137,11 @@ class ParticipantListWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             // Summary
-            Row(
+            Flex(
+              direction: Axis.horizontal,
               children: [
-                Expanded(
+                Flexible(
+                  fit: FlexFit.tight,
                   child: _StatCard(
                     value: session.totalParticipants,
                     label: l10n.statLabelTotal,
@@ -147,7 +149,8 @@ class ParticipantListWidget extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 8),
-                Expanded(
+                Flexible(
+                  fit: FlexFit.tight,
                   child: _StatCard(
                     value: activeParticipants.length,
                     label: l10n.statLabelActive,
@@ -155,7 +158,8 @@ class ParticipantListWidget extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 8),
-                Expanded(
+                Flexible(
+                  fit: FlexFit.tight,
                   child: _StatCard(
                     value: session.winnersCount,
                     label: l10n.statLabelWinners,
@@ -168,7 +172,8 @@ class ParticipantListWidget extends StatelessWidget {
 
             // Participants list
             if (activeParticipants.isNotEmpty) ...[
-              Row(
+              Flex(
+                direction: Axis.horizontal,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
@@ -227,7 +232,8 @@ class ParticipantListWidget extends StatelessWidget {
 
             if (inactiveParticipants.isNotEmpty) ...[
               const SizedBox(height: 16),
-              Row(
+              Flex(
+                direction: Axis.horizontal,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(

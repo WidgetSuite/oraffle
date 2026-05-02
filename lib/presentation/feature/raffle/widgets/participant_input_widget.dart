@@ -34,6 +34,7 @@ class ParticipantInputWidget extends StatefulWidget {
 class _ParticipantInputWidgetState extends State<ParticipantInputWidget> {
   final TextEditingController _controller = TextEditingController();
   bool _isInitialized = false;
+  int _pendingUpdates = 0;
 
   @override
   void initState() {
@@ -49,6 +50,7 @@ class _ParticipantInputWidgetState extends State<ParticipantInputWidget> {
   }
 
   void _onTextChanged() {
+    _pendingUpdates++;
     context.read<RaffleBloc>().add(UpdateParticipantText(_controller.text));
   }
 
@@ -66,8 +68,12 @@ class _ParticipantInputWidgetState extends State<ParticipantInputWidget> {
           participantText = state.session.participantText;
         }
 
-        // Update the text field if the text was updated programmatically
-        if (_controller.text != participantText) {
+        // Skip updates triggered by the user's own typing to avoid
+        // resetting the controller with a stale intermediate state.
+        // Only apply external updates (e.g. ResetRaffle).
+        if (_pendingUpdates > 0) {
+          _pendingUpdates--;
+        } else if (_controller.text != participantText) {
           _controller.text = participantText;
         }
       },
@@ -99,19 +105,13 @@ class _ParticipantInputWidgetState extends State<ParticipantInputWidget> {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Row(
-              children: [
-                Text(
-                  AppLocalizations.of(context)!.participantListHint,
-                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                    color: Theme.of(
-                      context,
-                    ).colorScheme.onSurface.withValues(alpha: 0.6),
-                  ),
-                ),
-                Spacer(),
-                _ListParticipantsActions(controller: _controller),
-              ],
+            Text(
+              AppLocalizations.of(context)!.participantListHint,
+              style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                color: Theme.of(
+                  context,
+                ).colorScheme.onSurface.withValues(alpha: 0.6),
+              ),
             ),
             const SizedBox(height: 8),
             ConstrainedBox(
@@ -143,6 +143,7 @@ class _ParticipantInputWidgetState extends State<ParticipantInputWidget> {
                 ],
               ),
             ),
+            _ListParticipantsActions(controller: _controller),
           ],
         );
       },
@@ -157,7 +158,9 @@ class _ListParticipantsActions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Wrap(
+      direction: Axis.horizontal,
+      alignment: WrapAlignment.end,
       spacing: 16,
       children: [
         ImportParticipantsButton(

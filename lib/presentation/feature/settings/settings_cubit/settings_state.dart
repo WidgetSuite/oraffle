@@ -23,6 +23,7 @@ abstract class SettingsState {
   final ThemeMode themeMode;
   final bool hasToBlur;
   final int winnersByDraw;
+  final bool confettiEnabled;
 
   const SettingsState({
     this.companyLogo,
@@ -30,6 +31,7 @@ abstract class SettingsState {
     required this.themeMode,
     required this.hasToBlur,
     required this.winnersByDraw,
+    required this.confettiEnabled,
   });
 
   @override
@@ -40,7 +42,8 @@ abstract class SettingsState {
         other.primaryColor == primaryColor &&
         other.themeMode == themeMode &&
         other.hasToBlur == hasToBlur &&
-        other.winnersByDraw == winnersByDraw;
+        other.winnersByDraw == winnersByDraw &&
+        other.confettiEnabled == confettiEnabled;
   }
 
   @override
@@ -49,7 +52,8 @@ abstract class SettingsState {
       primaryColor.hashCode ^
       themeMode.hashCode ^
       hasToBlur.hashCode ^
-      winnersByDraw.hashCode;
+      winnersByDraw.hashCode ^
+      confettiEnabled.hashCode;
 }
 
 class SettingsInitial extends SettingsState {
@@ -59,6 +63,7 @@ class SettingsInitial extends SettingsState {
         themeMode: ThemeMode.system,
         hasToBlur: false,
         winnersByDraw: 1,
+        confettiEnabled: true,
       );
 }
 
@@ -69,5 +74,6 @@ class SettingsUpdated extends SettingsState {
     required super.themeMode,
     required super.hasToBlur,
     required super.winnersByDraw,
+    required super.confettiEnabled,
   });
 }
