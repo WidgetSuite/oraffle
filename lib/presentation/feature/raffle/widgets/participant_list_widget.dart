@@ -137,9 +137,11 @@ class ParticipantListWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             // Summary
-            Row(
+            Flex(
+              direction: Axis.horizontal,
               children: [
-                Expanded(
+                Flexible(
+                  fit: FlexFit.tight,
                   child: _StatCard(
                     value: session.totalParticipants,
                     label: l10n.statLabelTotal,
@@ -147,7 +149,8 @@ class ParticipantListWidget extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 8),
-                Expanded(
+                Flexible(
+                  fit: FlexFit.tight,
                   child: _StatCard(
                     value: activeParticipants.length,
                     label: l10n.statLabelActive,
@@ -155,7 +158,8 @@ class ParticipantListWidget extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 8),
-                Expanded(
+                Flexible(
+                  fit: FlexFit.tight,
                   child: _StatCard(
                     value: session.winnersCount,
                     label: l10n.statLabelWinners,
@@ -168,7 +172,8 @@ class ParticipantListWidget extends StatelessWidget {
 
             // Participants list
             if (activeParticipants.isNotEmpty) ...[
-              Row(
+              Flex(
+                direction: Axis.horizontal,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
@@ -214,11 +219,42 @@ class ParticipantListWidget extends StatelessWidget {
                       ).extension<CustomColors>()!.success,
                     ),
                     title: Text(participant.name),
-                    trailing: Icon(
-                      Icons.check_circle_outline,
-                      color: Theme.of(
-                        context,
-                      ).extension<CustomColors>()!.success,
+                    trailing: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        if (participant.weight > 1) ...[
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 6,
+                              vertical: 2,
+                            ),
+                            decoration: BoxDecoration(
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .primary
+                                  .withValues(alpha: 0.15),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: Text(
+                              'x${participant.weight}',
+                              style: Theme.of(
+                                context,
+                              ).textTheme.labelSmall!.copyWith(
+                                color:
+                                    Theme.of(context).colorScheme.primary,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 8),
+                        ],
+                        Icon(
+                          Icons.check_circle_outline,
+                          color: Theme.of(
+                            context,
+                          ).extension<CustomColors>()!.success,
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -227,7 +263,8 @@ class ParticipantListWidget extends StatelessWidget {
 
             if (inactiveParticipants.isNotEmpty) ...[
               const SizedBox(height: 16),
-              Row(
+              Flex(
+                direction: Axis.horizontal,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(

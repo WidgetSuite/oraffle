@@ -213,7 +213,12 @@ class RaffleBloc extends Bloc<RaffleEvent, RaffleState> {
     }
   }
 
-  /// Selects a random winner from active participants.
+  /// Selects random winners from active participants, respecting each
+  /// participant's [RaffleParticipant.weight].
+  ///
+  /// A participant with weight N is represented N times in the draw pool,
+  /// giving them N times the probability of being chosen. Once selected,
+  /// all of their entries are removed so they cannot win twice.
   List<String> selectRandomWinners(
     List<RaffleParticipant> activeParticipants,
     int amountWinners,
@@ -222,16 +227,22 @@ class RaffleBloc extends Bloc<RaffleEvent, RaffleState> {
       throw Exception('No hay participantes activos');
     }
 
-    final winners = List<String>.empty(growable: true);
-    int winnersToSelect = amountWinners;
-    List<RaffleParticipant> remainingParticipants = activeParticipants;
+    // Build weighted pool: each participant appears weight times.
+    final pool = <String>[];
+    for (final p in activeParticipants) {
+      for (int i = 0; i < p.weight; i++) {
+        pool.add(p.name);
+      }
+    }
 
-    while (winnersToSelect > 0 && remainingParticipants.isNotEmpty) {
-      final randomIndex = _random.nextInt(remainingParticipants.length);
-      final winner = remainingParticipants.elementAt(randomIndex);
-      winners.add(winner.name);
-      remainingParticipants.removeAt(randomIndex);
-      winnersToSelect--;
+    final winners = <String>[];
+
+    while (winners.length < amountWinners && pool.isNotEmpty) {
+      final randomIndex = _random.nextInt(pool.length);
+      final winnerName = pool[randomIndex];
+      winners.add(winnerName);
+      // Remove all entries for this winner so they cannot win again.
+      pool.removeWhere((name) => name == winnerName);
     }
 
     return winners;

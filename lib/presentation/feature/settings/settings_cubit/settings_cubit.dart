@@ -32,6 +32,7 @@ class SettingsCubit extends Cubit<SettingsState> {
     final mode = await _storageService.getThemeMode();
     final hasToBlur = await _storageService.getBlurMode();
     final winnersByDraw = await _storageService.getWinnersByDrawAmount();
+    final confettiEnabled = await _storageService.getConfettiEnabled();
 
     emit(
       SettingsUpdated(
@@ -40,6 +41,7 @@ class SettingsCubit extends Cubit<SettingsState> {
         themeMode: mode ?? state.themeMode,
         hasToBlur: hasToBlur ?? state.hasToBlur,
         winnersByDraw: winnersByDraw,
+        confettiEnabled: confettiEnabled,
       ),
     );
   }
@@ -57,6 +59,7 @@ class SettingsCubit extends Cubit<SettingsState> {
         themeMode: state.themeMode,
         hasToBlur: state.hasToBlur,
         winnersByDraw: state.winnersByDraw,
+        confettiEnabled: state.confettiEnabled,
       ),
     );
   }
@@ -70,6 +73,7 @@ class SettingsCubit extends Cubit<SettingsState> {
         themeMode: state.themeMode,
         hasToBlur: state.hasToBlur,
         winnersByDraw: state.winnersByDraw,
+        confettiEnabled: state.confettiEnabled,
       ),
     );
   }
@@ -87,6 +91,7 @@ class SettingsCubit extends Cubit<SettingsState> {
         themeMode: mode,
         hasToBlur: state.hasToBlur,
         winnersByDraw: state.winnersByDraw,
+        confettiEnabled: state.confettiEnabled,
       ),
     );
   }
@@ -100,6 +105,7 @@ class SettingsCubit extends Cubit<SettingsState> {
         themeMode: state.themeMode,
         hasToBlur: hasToBlur,
         winnersByDraw: state.winnersByDraw,
+        confettiEnabled: state.confettiEnabled,
       ),
     );
   }
@@ -113,6 +119,21 @@ class SettingsCubit extends Cubit<SettingsState> {
         themeMode: state.themeMode,
         hasToBlur: state.hasToBlur,
         winnersByDraw: amount,
+        confettiEnabled: state.confettiEnabled,
+      ),
+    );
+  }
+
+  void updateConfettiEnabled(bool enabled) async {
+    await _storageService.saveConfettiEnabled(enabled);
+    emit(
+      SettingsUpdated(
+        companyLogo: state.companyLogo,
+        primaryColor: state.primaryColor,
+        themeMode: state.themeMode,
+        hasToBlur: state.hasToBlur,
+        winnersByDraw: state.winnersByDraw,
+        confettiEnabled: enabled,
       ),
     );
   }

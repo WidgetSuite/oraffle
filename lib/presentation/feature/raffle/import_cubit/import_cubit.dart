@@ -53,13 +53,19 @@ class ImportCubit extends Cubit<ImportState> {
 
     final columnsTitleList = dataListed.first;
 
-    if (columnsTitleList.length > 1) {
-      emit(ImportSelectColumn(data: dataListed));
+    if (columnsTitleList.isEmpty) {
+      emit(ImportErrorNotColumnsInFile());
       return;
     }
 
-    if (columnsTitleList.isEmpty) {
-      emit(ImportErrorNotColumnsInFile());
+    // Auto-detect a two-column Name+Weight layout and import it as weighted.
+    if (columnsTitleList.length == 2 && _isWeightColumn(dataListed, 1)) {
+      _readWeightedFromData(dataListed, 0, 1);
+      return;
+    }
+
+    if (columnsTitleList.length > 1) {
+      emit(ImportSelectColumn(data: dataListed));
       return;
     }
 
@@ -68,6 +74,56 @@ class ImportCubit extends Cubit<ImportState> {
 
   void columnSelected(List<List<dynamic>> dataListed, int columnSelected) =>
       _readColumnFromData(dataListed, columnSelected);
+
+  /// Returns true when every data row (after the header) in [colIndex] contains
+  /// a positive integer, indicating a weight column.
+  bool _isWeightColumn(List<List<dynamic>> data, int colIndex) {
+    final dataRows = data.skip(1).toList();
+    if (dataRows.isEmpty) return false;
+    return dataRows.every((row) {
+      if (row.length <= colIndex) return false;
+      final value = row[colIndex];
+      if (value is int) return value >= 1;
+      if (value is double) return value >= 1 && value == value.roundToDouble();
+      if (value is String) {
+        final parsed = int.tryParse(value.trim());
+        return parsed != null && parsed >= 1;
+      }
+      return false;
+    });
+  }
+
+  /// Reads name and weight columns and emits [ImportSuccess] with entries
+  /// formatted as `"Name (xN)"` when weight > 1, or plain `"Name"` otherwise.
+  void _readWeightedFromData(
+    List<List<dynamic>> data,
+    int nameCol,
+    int weightCol,
+  ) {
+    final participants = data.skip(1).map((row) {
+      if (row.length <= nameCol) return null;
+      final name = row[nameCol]?.toString().trim() ?? '';
+      if (name.isEmpty) return null;
+
+      int weight = 1;
+      if (row.length > weightCol) {
+        final raw = row[weightCol];
+        int? parsed;
+        if (raw is int) {
+          parsed = raw;
+        } else if (raw is double) {
+          parsed = raw.toInt();
+        } else if (raw is String) {
+          parsed = int.tryParse(raw.trim());
+        }
+        if (parsed != null && parsed > 1) weight = parsed;
+      }
+
+      return weight > 1 ? '$name (x$weight)' : name;
+    }).whereType<String>().toList();
+
+    emit(ImportSuccess(participants: participants));
+  }
 
   /// Reads a single column from the parsed CSV rows and emits
   /// an [ImportSuccess] state containing the extracted participant names.

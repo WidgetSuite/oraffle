@@ -29,6 +29,7 @@ class RaffleStorageService {
   static const String _themeMode = 'theme_mode';
   static const String _hasToBlur = 'has_to_blur';
   static const String _winnersByDraw = 'winners_by_draw';
+  static const String _confettiEnabled = 'confetti_enabled';
   // Maximum size for base64 encoded image (approximately 2MB in base64)
   static const int _maxBase64Size = 2 * 1024 * 1024; // 2MB in bytes
 
@@ -159,5 +160,17 @@ class RaffleStorageService {
     final prefs = await SharedPreferences.getInstance();
     final amount = prefs.getInt(_winnersByDraw);
     return amount ?? 1;
+  }
+
+  /// Saves the confetti enabled setting
+  Future<void> saveConfettiEnabled(bool enabled) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool(_confettiEnabled, enabled);
+  }
+
+  /// Retrieves the confetti enabled setting
+  Future<bool> getConfettiEnabled() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getBool(_confettiEnabled) ?? true;
   }
 }

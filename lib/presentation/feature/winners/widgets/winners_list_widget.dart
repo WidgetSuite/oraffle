@@ -94,36 +94,38 @@ class WinnersListWidget extends StatelessWidget {
           const Spacer(),
 
         // Footer with action buttons
-        Container(
-          padding: const EdgeInsets.all(16),
-          child: Row(
-            children: [
-              Expanded(
-                child: FilledButton.icon(
-                  onPressed: () async {
-                    final confirmed = await showResetRaffleDialog(context);
-                    if (confirmed && context.mounted) {
-                      context.go(AppRoutes.raffle);
-                    }
-                  },
-                  icon: const Icon(Icons.repeat),
-                  label: Text(AppLocalizations.of(context)!.newRaffle),
+        SafeArea(
+          child: Container(
+            padding: const EdgeInsets.all(16),
+            child: Row(
+              children: [
+                Expanded(
+                  child: FilledButton.icon(
+                    onPressed: () async {
+                      final confirmed = await showResetRaffleDialog(context);
+                      if (confirmed && context.mounted) {
+                        context.go(AppRoutes.raffle);
+                      }
+                    },
+                    icon: const Icon(Icons.repeat),
+                    label: Text(AppLocalizations.of(context)!.newRaffle),
+                  ),
                 ),
-              ),
-              const SizedBox(width: 12),
-              Expanded(
-                child: OutlinedButton.icon(
-                  onPressed: () async {
-                    final confirmed = await showClearWinnersDialog(context);
-                    if (confirmed && context.mounted) {
-                      context.go(AppRoutes.raffle);
-                    }
-                  },
-                  icon: const Icon(Icons.restart_alt),
-                  label: Text(AppLocalizations.of(context)!.resetWinners),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: OutlinedButton.icon(
+                    onPressed: () async {
+                      final confirmed = await showClearWinnersDialog(context);
+                      if (confirmed && context.mounted) {
+                        context.go(AppRoutes.raffle);
+                      }
+                    },
+                    icon: const Icon(Icons.restart_alt),
+                    label: Text(AppLocalizations.of(context)!.resetWinners),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ],

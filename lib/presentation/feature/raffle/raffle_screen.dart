@@ -191,12 +191,15 @@ class _RaffleScreenContent extends StatelessWidget {
     List<String> winners,
     dynamic session,
   ) {
+    final confettiEnabled =
+        context.read<SettingsCubit>().state.confettiEnabled;
     showDialog(
       context: context,
       barrierDismissible: false,
       builder: (dialogContext) => WinnerDialog(
         winnersName: winners,
         session: session,
+        confettiEnabled: confettiEnabled,
         onRepeatRaffle: () {
           Navigator.of(dialogContext).pop();
           context.read<RaffleBloc>().add(ConfirmWinner(winners));
@@ -268,8 +271,7 @@ class _RaffleNarrowLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       padding: const EdgeInsets.all(16.0),
-      child: Flex(
-        direction: Axis.vertical,
+      child: Column(
         spacing: 16,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
