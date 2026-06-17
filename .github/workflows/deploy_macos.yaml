@@ -2,8 +2,8 @@ name: Publish macOS Release
 
 on:
   push:
-    tags:
-      - 'v[0-9]+.[0-9]+.[0-9]+*'
+    branches:
+      - feature/ci
   workflow_dispatch:
 
 jobs:
@@ -15,8 +15,8 @@ jobs:
 
       - name: Install Apple Certificate
         env:
-          BUILD_CERTIFICATE_BASE64: ${{ secrets.MACOS_DIST_CERTIFICATE_BASE64 }}
-          P12_PASSWORD: ${{ secrets.MACOS_DIST_CERTIFICATE_PASSWORD }}
+          BUILD_CERTIFICATE_BASE64: ${{ secrets.MACOS_DISTRIBUTION_CERTIFICATE_BASE64 }}
+          P12_PASSWORD: ${{ secrets.MACOS_DISTRIBUTION_CERTIFICATE_PASSWORD }}
           KEYCHAIN_PASSWORD: "dist_password"
         run: |
           # create variables
@@ -119,13 +119,13 @@ jobs:
            echo "Using App Identity for signing: $APP_IDENTITY"
            
            echo "Embedding Provisioning Profile..."
-           cp "$PP_PATH" "build/macos/Build/Products/Release/Quiz Appl.app/Contents/embedded.provisionprofile"
+           cp "$PP_PATH" "build/macos/Build/Products/Release/ORaffle.app/Contents/embedded.provisionprofile"
            
-           codesign --force --deep --options runtime --verbose --sign "$APP_IDENTITY" --entitlements macos/Runner/Release.entitlements "build/macos/Build/Products/Release/Quiz Appl.app"
+           codesign --force --deep --options runtime --verbose --sign "$APP_IDENTITY" --entitlements macos/Runner/Release.entitlements "build/macos/Build/Products/Release/ORaffle.app"
 
-           productbuild --component "build/macos/Build/Products/Release/Quiz Appl.app" /Applications \
+           productbuild --component "build/macos/Build/Products/Release/ORaffle.app" /Applications \
                         --sign "$INSTALLER_IDENTITY" \
-                        "build/macos/pkg/Quiz Appl.pkg"
+                        "build/macos/pkg/ORaffle.pkg"
 
 
       - name: Upload pkg to Artifacts

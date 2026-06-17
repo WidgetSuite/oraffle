@@ -1,0 +1,445 @@
+{
+  "@@locale": "zh",
+  "okButton": "确定",
+  "@okButton": {
+    "description": "Generic OK button text"
+  },
+  "selectButton": "选择",
+  "@selectButton": {
+    "description": "Generic select button text"
+  },
+  "cancelButton": "取消",
+  "@cancelButton": {
+    "description": "Cancel button text"
+  },
+  "resetButton": "重置",
+  "@resetButton": {
+    "description": "Reset button text"
+  },
+  "reset": "重置",
+  "@reset": {
+    "description": "Reset functionality text"
+  },
+  "raffleTitle": "抽奖",
+  "@raffleTitle": {
+    "description": "Title of the raffle functionality"
+  },
+  "raffleTooltip": "开始抽奖",
+  "@raffleTooltip": {
+    "description": "Tooltip for the raffle button"
+  },
+  "participantListTitle": "参与者名单",
+  "@participantListTitle": {
+    "description": "Title for the participant list section"
+  },
+  "participantListHint": "每行输入一个姓名：",
+  "@participantListHint": {
+    "description": "Hint text for the participant input field"
+  },
+  "participantListPlaceholder": "张三\n李四\n王五\n...",
+  "@participantListPlaceholder": {
+    "description": "Placeholder text for the participant input field"
+  },
+  "clearList": "清空名单",
+  "@clearList": {
+    "description": "Button text to clear the participant list"
+  },
+  "participants": "参与者",
+  "@participants": {
+    "description": "Label for the participants list"
+  },
+  "noParticipants": "暂无参与者",
+  "@noParticipants": {
+    "description": "Message shown when the participant list is empty"
+  },
+  "addParticipantsHint": "在文本框中添加姓名",
+  "@addParticipantsHint": {
+    "description": "Hint text when no participants are present"
+  },
+  "activeParticipants": "活跃参与者",
+  "@activeParticipants": {
+    "description": "Label for active participants"
+  },
+  "alreadySelected": "已选中",
+  "@alreadySelected": {
+    "description": "Label for participants already selected as winners"
+  },
+  "totalParticipants": "总计：{count}",
+  "@totalParticipants": {
+    "description": "Total participants count",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "10"
+      }
+    }
+  },
+  "activeVsWinners": "活跃：{active} | 获奖者：{winners}",
+  "@activeVsWinners": {
+    "description": "Active vs winners count",
+    "placeholders": {
+      "active": {
+        "type": "int",
+        "example": "5"
+      },
+      "winners": {
+        "type": "int",
+        "example": "3"
+      }
+    }
+  },
+  "startRaffle": "开始抽奖",
+  "@startRaffle": {
+    "description": "Button text to start the raffle"
+  },
+  "raffling": "抽奖中...",
+  "@raffling": {
+    "description": "Text shown during the raffle animation"
+  },
+  "selectingWinner": "正在选择获奖者...",
+  "@selectingWinner": {
+    "description": "Text shown during winner selection"
+  },
+  "allParticipantsSelected": "所有参与者均已被选中",
+  "@allParticipantsSelected": {
+    "description": "Message when all participants are already winners"
+  },
+  "addParticipantsToStart": "添加参与者以开始抽奖",
+  "@addParticipantsToStart": {
+    "description": "Hint message to add participants"
+  },
+  "participantsReadyCount": "{count} 位参与者已准备好抽奖",
+  "@participantsReadyCount": {
+    "description": "Number of participants ready for raffle",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+  "participantDiscarded": "{count} 位无效参与者。",
+  "@participantDiscarded": {
+    "description": "Message when there are invalid participants",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "3"
+      }
+    }
+  },
+  "resetWinners": "重置获奖者",
+  "@resetWinners": {
+    "description": "Button text to reset winners list"
+  },
+  "resetWinnersConfirmTitle": "重置获奖者",
+  "@resetWinnersConfirmTitle": {
+    "description": "Confirmation title for resetting winners"
+  },
+  "resetWinnersConfirmMessage": "确定要重置获奖者名单吗？所有参与者将重新参与抽奖。",
+  "@resetWinnersConfirmMessage": {
+    "description": "Confirmation message for resetting winners"
+  },
+  "resetRaffleTitle": "重置抽奖",
+  "@resetRaffleTitle": {
+    "description": "Title for resetting the entire raffle"
+  },
+  "resetRaffleConfirmMessage": "确定要重置抽奖吗？所有参与者和获奖者信息将丢失。",
+  "@resetRaffleConfirmMessage": {
+    "description": "Confirmation message for resetting the entire raffle"
+  },
+  "viewWinners": "查看获奖者",
+  "@viewWinners": {
+    "description": "Button to view current winners"
+  },
+  "congratulations": "🎉 恭喜！ 🎉",
+  "@congratulations": {
+    "description": "Congratulations message for the winner"
+  },
+  "positionLabel": "名次：第 {position} 名",
+  "@positionLabel": {
+    "description": "Winner position label",
+    "placeholders": {
+      "position": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "remainingParticipants": "剩余参与者：{count}",
+  "@remainingParticipants": {
+    "description": "Remaining participants count",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+  "continueRaffle": "继续抽奖",
+  "@continueRaffle": {
+    "description": "Button to continue the raffle"
+  },
+  "finishRaffle": "结束抽奖",
+  "@finishRaffle": {
+    "description": "Button to finish the raffle"
+  },
+  "winnersTitle": "抽奖获奖者",
+  "@winnersTitle": {
+    "description": "Title for the winners screen"
+  },
+  "winnersTitleShort": "获奖者",
+  "@winnersTitleShort": {
+    "description": "Short label for the winners button in the app bar"
+  },
+  "shareResults": "分享结果",
+  "@shareResults": {
+    "description": "Button to share raffle results"
+  },
+  "shareResultsShort": "分享",
+  "@shareResultsShort": {
+    "description": "Short label for the share button in the app bar"
+  },
+  "noWinnersYet": "暂无获奖者",
+  "@noWinnersYet": {
+    "description": "Message when no winners have been selected"
+  },
+  "performRaffleToSeeWinners": "进行抽奖以在此查看获奖者",
+  "@performRaffleToSeeWinners": {
+    "description": "Prompt to perform a raffle"
+  },
+  "goToRaffle": "前往抽奖",
+  "@goToRaffle": {
+    "description": "Navigation link to the raffle screen"
+  },
+  "raffleCompleted": "抽奖已完成",
+  "@raffleCompleted": {
+    "description": "Message when the raffle is completed"
+  },
+  "winnersSelectedCount": "已选出 {count} 位获奖者",
+  "@winnersSelectedCount": {
+    "description": "Number of winners selected",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "3"
+      }
+    }
+  },
+  "newRaffle": "新抽奖",
+  "@newRaffle": {
+    "description": "Button to start a new raffle"
+  },
+  "shareResultsTitle": "分享结果",
+  "@shareResultsTitle": {
+    "description": "Title for the results sharing dialog"
+  },
+  "raffleResultsLabel": "抽奖结果：",
+  "@raffleResultsLabel": {
+    "description": "Label for the results text"
+  },
+  "close": "关闭",
+  "@close": {
+    "description": "Generic close button text"
+  },
+  "share": "复制",
+  "@share": {
+    "description": "Button text to copy results"
+  },
+  "shareNotImplemented": "分享功能尚未实现",
+  "@shareNotImplemented": {
+    "description": "Message when share is not available"
+  },
+  "firstPlace": "第1名",
+  "@firstPlace": {
+    "description": "Abbreviation for 1st place"
+  },
+  "secondPlace": "第2名",
+  "@secondPlace": {
+    "description": "Abbreviation for 2nd place"
+  },
+  "thirdPlace": "第3名",
+  "@thirdPlace": {
+    "description": "Abbreviation for 3rd place"
+  },
+  "nthPlace": "{position}°",
+  "@nthPlace": {
+    "description": "Ordinal position label",
+    "placeholders": {
+      "position": {
+        "type": "int",
+        "example": "4"
+      }
+    }
+  },
+  "placeLabel": "第 {position} 名",
+  "@placeLabel": {
+    "description": "Place label with ordinal",
+    "placeholders": {
+      "position": {
+        "type": "String",
+        "example": "1st"
+      }
+    }
+  },
+  "raffleResultsHeader": "🏆 抽奖结果 🏆",
+  "@raffleResultsHeader": {
+    "description": "Header for shared raffle results"
+  },
+  "totalWinners": "获奖者总数：{count}",
+  "@totalWinners": {
+    "description": "Total winners count in shared results",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "3"
+      }
+    }
+  },
+  "noWinnersToShare": "暂无获奖者。",
+  "@noWinnersToShare": {
+    "description": "Message when there are no winners to share"
+  },
+  "shareSuccess": "结果已成功复制",
+  "@shareSuccess": {
+    "description": "Success message when results are copied"
+  },
+  "selectLogo": "选择Logo",
+  "@selectLogo": {
+    "description": "Button to select a custom logo"
+  },
+  "logoUrl": "Logo网址",
+  "@logoUrl": {
+    "description": "Label for custom logo URL input"
+  },
+  "logoUrlHint": "输入图片URL以用作抽奖的自定义Logo",
+  "@logoUrlHint": {
+    "description": "Hint for custom logo URL input"
+  },
+  "invalidLogoUrl": "无效的图片URL。必须是以 .jpg、.png、.gif 等结尾的有效URL。",
+  "@invalidLogoUrl": {
+    "description": "Error message for invalid logo URL"
+  },
+  "logoPreview": "预览",
+  "@logoPreview": {
+    "description": "Label for logo preview section"
+  },
+  "removeLogo": "移除Logo",
+  "@removeLogo": {
+    "description": "Button to remove custom logo"
+  },
+  "logoTooLargeWarning": "图片太大无法保存，仅在本次会话中使用。",
+  "@logoTooLargeWarning": {
+    "description": "Warning when logo exceeds size limits"
+  },
+  "addCompanyLogo": "添加公司Logo",
+  "@addCompanyLogo": {
+    "description": "Text shown when no company logo is set"
+  },
+  "appTitle": "ORaffle",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "homeSubtitle": "为您的公司提供公平透明的抽奖",
+  "@homeSubtitle": {
+    "description": "Subtitle shown on the home screen"
+  },
+  "settingsTitle": "设置",
+  "@settingsTitle": {
+    "description": "Title for the settings dialog"
+  },
+  "themeColor": "主题颜色",
+  "@themeColor": {
+    "description": "Label for theme color selection"
+  },
+  "saveButton": "保存",
+  "@saveButton": {
+    "description": "Text for the save button"
+  },
+  "themeModeLabel": "主题模式",
+  "@themeModeLabel": {
+    "description": "Label for theme mode selection"
+  },
+  "systemTheme": "跟随系统",
+  "@systemTheme": {
+    "description": "System theme option"
+  },
+  "lightTheme": "浅色",
+  "@lightTheme": {
+    "description": "Light theme option"
+  },
+  "darkTheme": "深色",
+  "@darkTheme": {
+    "description": "Dark theme option"
+  },
+  "invalidHexColor": "无效的十六进制颜色",
+  "@invalidHexColor": {
+    "description": "Error message for invalid hexadecimal color input"
+  },
+  "statLabelTotal": "总计",
+  "@statLabelTotal": {
+    "description": "Short label for total participants stat card"
+  },
+  "statLabelActive": "活跃",
+  "@statLabelActive": {
+    "description": "Short label for active participants stat card"
+  },
+  "statLabelWinners": "获奖者",
+  "@statLabelWinners": {
+    "description": "Short label for winners stat card"
+  },
+  "nextWinner": "下一位获奖者",
+  "@nextWinner": {
+    "description": "Button text to select the next winner when at least one winner exists"
+  },
+  "resetToDefault": "恢复默认",
+  "@resetToDefault": {
+    "description": "Button text to reset theme color to the default value"
+  },
+  "lowContrastWarning": "与白色文字对比度低，按钮文字可能难以阅读。",
+  "@lowContrastWarning": {
+    "description": "Warning shown when selected primary color has low contrast with white on-primary text"
+  },
+  "importListTitle": "导入参与者名单",
+  "@importListTitle": {
+    "description": "Text for the button to import participant list"
+  },
+  "selectNameColumn": "哪一列对应姓名？",
+  "@selectNameColumn": {
+    "description": "Title for the dialog to select the name column when importing a participant list"
+  },
+  "columnName": "列：{column}",
+  "@columnName": {
+    "description": "Label for displaying column name during column selection",
+    "placeholders": {
+      "column": {
+        "type": "int",
+        "example": "4"
+      }
+    }
+  },
+  "blur_mode_title": "隐藏参与者模式",
+  "@blur_mode_title": {
+    "description": "Title of the blur mode section"
+  },
+  "blur_mode_tile": "是否隐藏参与者？",
+  "@blur_mode_tile": {
+    "description": "Question to enable hiding participants"
+  },
+  "export_results": "导出结果",
+  "@export_results": {
+    "description": "Button text to export results"
+  },
+  "export_format_title": "请选择导出格式？",
+  "@export_format_title": {
+    "description": "Title to choose export format"
+  },
+  "import_error_not_columns": "所选文件不包含任何数据",
+  "@import_error_not_columns": {
+    "description": "Error message shown when the imported file contains no data"
+  },
+  "winners_by_draw": "抽奖获奖者",
+  "@winners_by_draw": {
+    "description": "Title for defining winners by draw"
+  }
+}

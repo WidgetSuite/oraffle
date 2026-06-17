@@ -1,0 +1,445 @@
+{
+  "@@locale": "pt",
+  "okButton": "OK",
+  "@okButton": {
+    "description": "Generic OK button text"
+  },
+  "selectButton": "Selecionar",
+  "@selectButton": {
+    "description": "Generic select button text"
+  },
+  "cancelButton": "Cancelar",
+  "@cancelButton": {
+    "description": "Cancel button text"
+  },
+  "resetButton": "Redefinir",
+  "@resetButton": {
+    "description": "Reset button text"
+  },
+  "reset": "Redefinir",
+  "@reset": {
+    "description": "Reset functionality text"
+  },
+  "raffleTitle": "Sorteio",
+  "@raffleTitle": {
+    "description": "Title of the raffle functionality"
+  },
+  "raffleTooltip": "Iniciar sorteio",
+  "@raffleTooltip": {
+    "description": "Tooltip for the raffle button"
+  },
+  "participantListTitle": "Lista de Participantes",
+  "@participantListTitle": {
+    "description": "Title for the participant list section"
+  },
+  "participantListHint": "Digite um nome por linha:",
+  "@participantListHint": {
+    "description": "Hint text for the participant input field"
+  },
+  "participantListPlaceholder": "João Silva\nMaria Santos\nPedro Oliveira\n...",
+  "@participantListPlaceholder": {
+    "description": "Placeholder text for the participant input field"
+  },
+  "clearList": "Limpar Lista",
+  "@clearList": {
+    "description": "Button text to clear the participant list"
+  },
+  "participants": "Participantes",
+  "@participants": {
+    "description": "Label for the participants list"
+  },
+  "noParticipants": "Nenhum participante",
+  "@noParticipants": {
+    "description": "Message shown when the participant list is empty"
+  },
+  "addParticipantsHint": "Adicione nomes na área de texto",
+  "@addParticipantsHint": {
+    "description": "Hint text when no participants are present"
+  },
+  "activeParticipants": "Participantes Ativos",
+  "@activeParticipants": {
+    "description": "Label for active participants"
+  },
+  "alreadySelected": "Já Selecionados",
+  "@alreadySelected": {
+    "description": "Label for participants already selected as winners"
+  },
+  "totalParticipants": "Total: {count}",
+  "@totalParticipants": {
+    "description": "Total participants count",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "10"
+      }
+    }
+  },
+  "activeVsWinners": "Ativos: {active} | Vencedores: {winners}",
+  "@activeVsWinners": {
+    "description": "Active vs winners count",
+    "placeholders": {
+      "active": {
+        "type": "int",
+        "example": "5"
+      },
+      "winners": {
+        "type": "int",
+        "example": "3"
+      }
+    }
+  },
+  "startRaffle": "Iniciar Sorteio",
+  "@startRaffle": {
+    "description": "Button text to start the raffle"
+  },
+  "raffling": "Sorteando...",
+  "@raffling": {
+    "description": "Text shown during the raffle animation"
+  },
+  "selectingWinner": "Selecionando vencedor...",
+  "@selectingWinner": {
+    "description": "Text shown during winner selection"
+  },
+  "allParticipantsSelected": "Todos os participantes já foram selecionados",
+  "@allParticipantsSelected": {
+    "description": "Message when all participants are already winners"
+  },
+  "addParticipantsToStart": "Adicione participantes para iniciar o sorteio",
+  "@addParticipantsToStart": {
+    "description": "Hint message to add participants"
+  },
+  "participantsReadyCount": "{count} participante(s) prontos para o sorteio",
+  "@participantsReadyCount": {
+    "description": "Number of participants ready for raffle",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+  "participantDiscarded": "{count} participantes inválidos.",
+  "@participantDiscarded": {
+    "description": "Message when there are invalid participants",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "3"
+      }
+    }
+  },
+  "resetWinners": "Redefinir Vencedores",
+  "@resetWinners": {
+    "description": "Button text to reset winners list"
+  },
+  "resetWinnersConfirmTitle": "Redefinir Vencedores",
+  "@resetWinnersConfirmTitle": {
+    "description": "Confirmation title for resetting winners"
+  },
+  "resetWinnersConfirmMessage": "Tem certeza que deseja redefinir a lista de vencedores? Todos os participantes estarão disponíveis para o sorteio novamente.",
+  "@resetWinnersConfirmMessage": {
+    "description": "Confirmation message for resetting winners"
+  },
+  "resetRaffleTitle": "Redefinir Sorteio",
+  "@resetRaffleTitle": {
+    "description": "Title for resetting the entire raffle"
+  },
+  "resetRaffleConfirmMessage": "Tem certeza que deseja redefinir o sorteio? Todos os participantes e vencedores serão perdidos.",
+  "@resetRaffleConfirmMessage": {
+    "description": "Confirmation message for resetting the entire raffle"
+  },
+  "viewWinners": "Ver vencedores",
+  "@viewWinners": {
+    "description": "Button to view current winners"
+  },
+  "congratulations": "🎉 Parabéns! 🎉",
+  "@congratulations": {
+    "description": "Congratulations message for the winner"
+  },
+  "positionLabel": "Posição: {position}°",
+  "@positionLabel": {
+    "description": "Winner position label",
+    "placeholders": {
+      "position": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "remainingParticipants": "Participantes restantes: {count}",
+  "@remainingParticipants": {
+    "description": "Remaining participants count",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+  "continueRaffle": "Continuar Sorteio",
+  "@continueRaffle": {
+    "description": "Button to continue the raffle"
+  },
+  "finishRaffle": "Finalizar Sorteio",
+  "@finishRaffle": {
+    "description": "Button to finish the raffle"
+  },
+  "winnersTitle": "Vencedores do Sorteio",
+  "@winnersTitle": {
+    "description": "Title for the winners screen"
+  },
+  "winnersTitleShort": "Vencedores",
+  "@winnersTitleShort": {
+    "description": "Short label for the winners button in the app bar"
+  },
+  "shareResults": "Compartilhar resultados",
+  "@shareResults": {
+    "description": "Button to share raffle results"
+  },
+  "shareResultsShort": "Compartilhar",
+  "@shareResultsShort": {
+    "description": "Short label for the share button in the app bar"
+  },
+  "noWinnersYet": "Nenhum vencedor ainda",
+  "@noWinnersYet": {
+    "description": "Message when no winners have been selected"
+  },
+  "performRaffleToSeeWinners": "Realize um sorteio para ver os vencedores aqui",
+  "@performRaffleToSeeWinners": {
+    "description": "Prompt to perform a raffle"
+  },
+  "goToRaffle": "Ir para o Sorteio",
+  "@goToRaffle": {
+    "description": "Navigation link to the raffle screen"
+  },
+  "raffleCompleted": "Sorteio Concluído",
+  "@raffleCompleted": {
+    "description": "Message when the raffle is completed"
+  },
+  "winnersSelectedCount": "{count} vencedor(es) selecionado(s)",
+  "@winnersSelectedCount": {
+    "description": "Number of winners selected",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "3"
+      }
+    }
+  },
+  "newRaffle": "Novo Sorteio",
+  "@newRaffle": {
+    "description": "Button to start a new raffle"
+  },
+  "shareResultsTitle": "Compartilhar Resultados",
+  "@shareResultsTitle": {
+    "description": "Title for the results sharing dialog"
+  },
+  "raffleResultsLabel": "Resultados do sorteio:",
+  "@raffleResultsLabel": {
+    "description": "Label for the results text"
+  },
+  "close": "Fechar",
+  "@close": {
+    "description": "Generic close button text"
+  },
+  "share": "Copiar",
+  "@share": {
+    "description": "Button text to copy results"
+  },
+  "shareNotImplemented": "Funcionalidade de compartilhamento não implementada",
+  "@shareNotImplemented": {
+    "description": "Message when share is not available"
+  },
+  "firstPlace": "1º",
+  "@firstPlace": {
+    "description": "Abbreviation for 1st place"
+  },
+  "secondPlace": "2º",
+  "@secondPlace": {
+    "description": "Abbreviation for 2nd place"
+  },
+  "thirdPlace": "3º",
+  "@thirdPlace": {
+    "description": "Abbreviation for 3rd place"
+  },
+  "nthPlace": "{position}°",
+  "@nthPlace": {
+    "description": "Ordinal position label",
+    "placeholders": {
+      "position": {
+        "type": "int",
+        "example": "4"
+      }
+    }
+  },
+  "placeLabel": "{position} lugar",
+  "@placeLabel": {
+    "description": "Place label with ordinal",
+    "placeholders": {
+      "position": {
+        "type": "String",
+        "example": "1st"
+      }
+    }
+  },
+  "raffleResultsHeader": "🏆 RESULTADOS DO SORTEIO 🏆",
+  "@raffleResultsHeader": {
+    "description": "Header for shared raffle results"
+  },
+  "totalWinners": "Total de vencedores: {count}",
+  "@totalWinners": {
+    "description": "Total winners count in shared results",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "3"
+      }
+    }
+  },
+  "noWinnersToShare": "Nenhum vencedor.",
+  "@noWinnersToShare": {
+    "description": "Message when there are no winners to share"
+  },
+  "shareSuccess": "Resultados copiados com sucesso",
+  "@shareSuccess": {
+    "description": "Success message when results are copied"
+  },
+  "selectLogo": "Selecionar Logo",
+  "@selectLogo": {
+    "description": "Button to select a custom logo"
+  },
+  "logoUrl": "URL do Logo",
+  "@logoUrl": {
+    "description": "Label for custom logo URL input"
+  },
+  "logoUrlHint": "Digite a URL de uma imagem para usar como logo personalizado no sorteio",
+  "@logoUrlHint": {
+    "description": "Hint for custom logo URL input"
+  },
+  "invalidLogoUrl": "URL de imagem inválida. Deve ser uma URL válida terminando em .jpg, .png, .gif, etc.",
+  "@invalidLogoUrl": {
+    "description": "Error message for invalid logo URL"
+  },
+  "logoPreview": "Visualizar",
+  "@logoPreview": {
+    "description": "Label for logo preview section"
+  },
+  "removeLogo": "Remover Logo",
+  "@removeLogo": {
+    "description": "Button to remove custom logo"
+  },
+  "logoTooLargeWarning": "A imagem é muito grande para ser salva. Ela será usada apenas durante esta sessão.",
+  "@logoTooLargeWarning": {
+    "description": "Warning when logo exceeds size limits"
+  },
+  "addCompanyLogo": "Adicionar logo da empresa",
+  "@addCompanyLogo": {
+    "description": "Text shown when no company logo is set"
+  },
+  "appTitle": "ORaffle",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "homeSubtitle": "Sorteios justos e transparentes para sua empresa",
+  "@homeSubtitle": {
+    "description": "Subtitle shown on the home screen"
+  },
+  "settingsTitle": "Configurações",
+  "@settingsTitle": {
+    "description": "Title for the settings dialog"
+  },
+  "themeColor": "Cor do Tema",
+  "@themeColor": {
+    "description": "Label for theme color selection"
+  },
+  "saveButton": "Salvar",
+  "@saveButton": {
+    "description": "Text for the save button"
+  },
+  "themeModeLabel": "Modo do Tema",
+  "@themeModeLabel": {
+    "description": "Label for theme mode selection"
+  },
+  "systemTheme": "Sistema",
+  "@systemTheme": {
+    "description": "System theme option"
+  },
+  "lightTheme": "Claro",
+  "@lightTheme": {
+    "description": "Light theme option"
+  },
+  "darkTheme": "Escuro",
+  "@darkTheme": {
+    "description": "Dark theme option"
+  },
+  "invalidHexColor": "Cor hexadecimal inválida",
+  "@invalidHexColor": {
+    "description": "Error message for invalid hexadecimal color input"
+  },
+  "statLabelTotal": "Total",
+  "@statLabelTotal": {
+    "description": "Short label for total participants stat card"
+  },
+  "statLabelActive": "Ativos",
+  "@statLabelActive": {
+    "description": "Short label for active participants stat card"
+  },
+  "statLabelWinners": "Vencedores",
+  "@statLabelWinners": {
+    "description": "Short label for winners stat card"
+  },
+  "nextWinner": "Próximo Vencedor",
+  "@nextWinner": {
+    "description": "Button text to select the next winner when at least one winner exists"
+  },
+  "resetToDefault": "Restaurar padrão",
+  "@resetToDefault": {
+    "description": "Button text to reset theme color to the default value"
+  },
+  "lowContrastWarning": "Baixo contraste com texto branco. O texto do botão pode ser difícil de ler.",
+  "@lowContrastWarning": {
+    "description": "Warning shown when selected primary color has low contrast with white on-primary text"
+  },
+  "importListTitle": "Importar Lista de Participantes",
+  "@importListTitle": {
+    "description": "Text for the button to import participant list"
+  },
+  "selectNameColumn": "Qual coluna corresponde ao nome?",
+  "@selectNameColumn": {
+    "description": "Title for the dialog to select the name column when importing a participant list"
+  },
+  "columnName": "Coluna: {column}",
+  "@columnName": {
+    "description": "Label for displaying column name during column selection",
+    "placeholders": {
+      "column": {
+        "type": "int",
+        "example": "4"
+      }
+    }
+  },
+  "blur_mode_title": "Modo de Participantes Ocultos",
+  "@blur_mode_title": {
+    "description": "Title of the blur mode section"
+  },
+  "blur_mode_tile": "Deseja ocultar os participantes?",
+  "@blur_mode_tile": {
+    "description": "Question to enable hiding participants"
+  },
+  "export_results": "Exportar resultados",
+  "@export_results": {
+    "description": "Button text to export results"
+  },
+  "export_format_title": "Em qual formato deseja exportar?",
+  "@export_format_title": {
+    "description": "Title to choose export format"
+  },
+  "import_error_not_columns": "O arquivo selecionado não contém dados",
+  "@import_error_not_columns": {
+    "description": "Error message shown when the imported file contains no data"
+  },
+  "winners_by_draw": "Vencedores por sorteio",
+  "@winners_by_draw": {
+    "description": "Title for defining winners by draw"
+  }
+}
